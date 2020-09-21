@@ -35,3 +35,7 @@ The first such software converter is LPhyBEAST described below.
 
 LPhyBEAST is a command-line program that takes an LPhy model specification, and some data and produces a BEAST 2 XML input file.
 It is therefore an alternative way to succinctly express and communicate BEAST analyses.
+
+## Open Source
+
+LinguaPhylo is an open source project. The source is hosted at https://github.com/LinguaPhylo/linguaPhylo
