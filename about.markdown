@@ -1,10 +1,10 @@
 ---
 layout: page
-title: LinguaPhylo (LPhy for short - pronounced el-fee)
+title: About
 permalink: /about/
 ---
 
-LinguaPhylo is a probabilistic model specification language to concisely and precisely define phylogenetic models. 
+LinguaPhylo (LPhy for short - pronounced el-fee) is a probabilistic model specification language to concisely and precisely define phylogenetic models. 
 The aim is to provide a language for probabilistic models of phylogenetic evolution that is independent of the method to perform inference. 
 This language is readable by both humans and computers. Here is a full example:
 
