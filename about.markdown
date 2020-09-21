@@ -38,4 +38,7 @@ It is therefore an alternative way to succinctly express and communicate BEAST a
 
 ## Open Source
 
-LinguaPhylo is an open source project. The source is hosted at https://github.com/LinguaPhylo/linguaPhylo
+LinguaPhylo is an open source project. 
+
+The source is hosted at [https://github.com/LinguaPhylo/linguaPhylo](https://github.com/LinguaPhylo/linguaPhylo)
+

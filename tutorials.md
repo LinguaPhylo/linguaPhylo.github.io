@@ -4,5 +4,4 @@ title: Tutorials
 permalink: /tutorials/
 ---
 
-
-* Relaxed clock tutorial
+* [Relaxed clock tutorial](tutorials/relaxedclock.md)
