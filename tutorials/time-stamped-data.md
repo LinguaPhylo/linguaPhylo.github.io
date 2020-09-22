@@ -89,8 +89,10 @@ model {
 }
 ```
 
-[LinguaPhyloStudio](time-stamped-data/LinguaPhyloStudio.png)
-
+<figure class="image">
+  <img src="time-stamped-data/LinguaPhyloStudio.png" alt="LinguaPhyloStudio">
+  <figcaption>The Screenshot of LinguaPhylo Studio</figcaption>
+</figure>
 
 
 ## Running BEAST
