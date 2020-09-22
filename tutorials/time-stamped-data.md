@@ -37,19 +37,61 @@ After the data is opened in your web browser, right click mouse and save it in a
 This file contains an alignment of 129 sequences from the G gene of RSVA virus, 629 nucleotides in length. 
 Because this is a protein-coding gene we are going to split the alignment into three partitions representing each of the three codon positions. 
 
+Please add the charset block to RSV2.nex before you start:
+
+```
+Begin ASSUMPTIONS;
+	charset 1stpos = 1-629\3;
+	charset 2ndpos = 2-629\3;
+	charset 3rdpos = 3-629\3;
+End;
+```
+
 ### Constructing the data block in LinguaPhylo
 
 ```
 data {
-  codon1 = nexus(file="RSV2.nex", charset="3-629/3");  
-  codon2 = nexus(file="RSV2.nex", charset="4-629/3");  
-  codon3 = nexus(file="RSV2.nex", charset="5-629/3"); 
+  codon1 = nexus(file="RSV2.nex", charset="1stpos");  
+  codon2 = nexus(file="RSV2.nex", charset="2ndpos");  
+  codon3 = nexus(file="RSV2.nex", charset="3rdpos"); 
   taxa = taxa(codon1);
   L1 = nchar(codon1); 
   L2 = nchar(codon2); 
   L3 = nchar(codon3); 
 }
 ```
+
+### Tip dates
+
+
+
+## Models
+
+We will use the F81 model with estimated frequencies for all three partitions, 
+and share the strict clock model and a Kingman coalescent tree generative distribution across partitions. 
+
+We also define the priors for the following parameters:
+1. the clock rate _mu_; 
+2. the effective population size _Θ_;
+3. the base frequencies _π_ 
+
+### Constructing the model block in LinguaPhylo
+
+```
+model {
+  mu ~ LogNormal(meanlog=-4.5, sdlog=0.5);
+  Θ ~ LogNormal(meanlog=3, sdlog=1);
+  ψ ~ Coalescent(theta=Θ, taxa=taxa);
+  π ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
+  codon1 ~ PhyloCTMC(tree=ψ, L=L1, Q=f81(freq=π), mu=mu);
+  codon2 ~ PhyloCTMC(tree=ψ, L=L2, Q=f81(freq=π), mu=mu);
+  codon3 ~ PhyloCTMC(tree=ψ, L=L3, Q=f81(freq=π), mu=mu);
+}
+```
+
+[LinguaPhyloStudio](time-stamped-data/LinguaPhyloStudio.png)
+
+
 
 ## Running BEAST
 
