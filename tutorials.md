@@ -4,4 +4,4 @@ title: Tutorials
 permalink: /tutorials/
 ---
 
-* [Relaxed clock tutorial](tutorials/relaxedclock.md)
+* [Time-stamped data tutorial](tutorials/time-stamped-data.md)

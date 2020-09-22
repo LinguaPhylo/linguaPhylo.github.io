@@ -5,7 +5,7 @@ date:   2020-09-22
 categories: programming
 ---
 
-The reference implementation of the LinguaPhylo language is implemented in the Java programming language.
+The reference implementation of the LinguaPhylo language is written in the Java programming language.
 
 The source code for the reference implementation is available for download at [https://github.com/LinguaPhylo/linguaPhylo](https://github.com/LinguaPhylo/linguaPhylo).
 
