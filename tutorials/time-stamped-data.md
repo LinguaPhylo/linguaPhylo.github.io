@@ -90,7 +90,7 @@ model {
 ```
 
 <figure class="image">
-  <img src="time-stamped-data/LinguaPhyloStudio.png" alt="LinguaPhyloStudio">
+  <img src="LinguaPhyloStudio.png" alt="LinguaPhyloStudio">
   <figcaption>The Screenshot of LinguaPhylo Studio</figcaption>
 </figure>
 
