@@ -37,33 +37,24 @@ After the data is opened in your web browser, right click mouse and save it in a
 This file contains an alignment of 129 sequences from the G gene of RSVA virus, 629 nucleotides in length. 
 Because this is a protein-coding gene we are going to split the alignment into three partitions representing each of the three codon positions. 
 
-Please add the charset block to RSV2.nex before you start:
 
-```
-Begin ASSUMPTIONS;
-	charset 1stpos = 1-629\3;
-	charset 2ndpos = 2-629\3;
-	charset 3rdpos = 3-629\3;
-End;
-```
+### Tip dates
+
+
+
 
 ### Constructing the data block in LinguaPhylo
 
 ```
 data {
-  codon1 = nexus(file="RSV2.nex", charset="1stpos");  
-  codon2 = nexus(file="RSV2.nex", charset="2ndpos");  
-  codon3 = nexus(file="RSV2.nex", charset="3rdpos"); 
-  taxa = taxa(codon1);
-  L1 = nchar(codon1); 
-  L2 = nchar(codon2); 
-  L3 = nchar(codon3); 
+  codon1 = nexus(file="RSV2.nex", charset="1-629\3", agesFromNames="s(\d+)$", tipCalibrations="forward");
+  codon2 = nexus(file="RSV2.nex", charset="2-629\3");
+  codon3 = nexus(file="RSV2.nex", charset="3-629\3");
+  L1 = nchar(codon1);
+  L2 = nchar(codon2);
+  L3 = nchar(codon3);
 }
 ```
-
-### Tip dates
-
-
 
 ## Models
 
