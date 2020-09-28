@@ -34,25 +34,31 @@ You can find it in the examples/nexus directory in the directory where BEAST was
 Or click the link to download the data. 
 After the data is opened in your web browser, right click mouse and save it in as `RSV2.nex` in a new folder.
 
+
+### Multiple partitions
+
 This file contains an alignment of 129 sequences from the G gene of RSVA virus, 629 nucleotides in length. 
 Because this is a protein-coding gene we are going to split the alignment into three partitions representing each of the three codon positions. 
+As it is fitting into the reading frame 3, we will use the charset expressions supported by Nexus format. 
+
+For example, "3-629\3" means this partition starts from the 3rd site and takes every 3 sites until the last site 629.  
 
 
 ### Tip dates
 
-
+The date of each sample is stored in the taxon name after the last little s. The numbers are years since 1900.
+We will use the regular expression `"s(\d+)$"` to extract these numbers. 
+In addition, the age direction should be set to the _forward_ in time for this analysis. 
 
 
 ### Constructing the data block in LinguaPhylo
 
 ```
 data {
-  codon1 = nexus(file="RSV2.nex", charset="1-629\3", agesFromNames="s(\d+)$", tipCalibrations="forward");
-  codon2 = nexus(file="RSV2.nex", charset="2-629\3");
-  codon3 = nexus(file="RSV2.nex", charset="3-629\3");
-  L1 = nchar(codon1);
-  L2 = nchar(codon2);
-  L3 = nchar(codon3);
+  codon = nexus(file="examples/RSV2.nex", charset=["3-629\3", "4-629\3", "5-629\3"], ageDirection="forward", ageRegex="s(\d+)$");
+  L1 = nchar(partition(codon, "1"));
+  L2 = nchar(partition(codon, "2"));
+  L3 = nchar(partition(codon, "3"));
 }
 ```
 
@@ -72,11 +78,12 @@ We also define the priors for the following parameters:
 model {
   mu ~ LogNormal(meanlog=-4.5, sdlog=0.5);
   Θ ~ LogNormal(meanlog=3, sdlog=1);
-  ψ ~ Coalescent(theta=Θ, taxa=taxa);
+  ψ ~ Coalescent(theta=Θ, taxa=taxa(codon));
   π ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
-  codon1 ~ PhyloCTMC(tree=ψ, L=L1, Q=f81(freq=π), mu=mu);
-  codon2 ~ PhyloCTMC(tree=ψ, L=L2, Q=f81(freq=π), mu=mu);
-  codon3 ~ PhyloCTMC(tree=ψ, L=L3, Q=f81(freq=π), mu=mu);
+  Q=f81(freq=π);
+  codon1 ~ PhyloCTMC(tree=ψ, L=L1, Q=Q, mu=mu);
+  codon2 ~ PhyloCTMC(tree=ψ, L=L2, Q=Q, mu=mu);
+  codon3 ~ PhyloCTMC(tree=ψ, L=L3, Q=Q, mu=mu);
 }
 ```
 
