@@ -27,13 +27,13 @@ The following software will be used in this tutorial:
 * FigTree - this is an application for displaying and printing molecular phylogenies, in particular those obtained using BEAST. 
   At the time of writing, the current version is v1.4.3. It is available for download from [http://beast.community/figtree](http://beast.community/figtree).
 
+
 ## The NEXUS alignment
 
 The data is in a file called [RSV2.nex](https://raw.githubusercontent.com/CompEvol/beast2/master/examples/nexus/RSV2.nex). 
 You can find it in the examples/nexus directory in the directory where BEAST was installed. 
 Or click the link to download the data. 
 After the data is opened in your web browser, right click mouse and save it in as `RSV2.nex` in a new folder.
-
 
 ### Multiple partitions
 
@@ -46,21 +46,35 @@ For example, "3-629\3" means this partition starts from the 3rd site and takes e
 
 ### Tip dates
 
-The date of each sample is stored in the taxon name after the last little s. The numbers are years since 1900.
-We will use the regular expression `"s(\d+)$"` to extract these numbers. 
+The date of each sample is stored in the taxon name after the last little `s`. The numbers are years since 1900.
+We will use the regular expression `"s(\d+)$"` to extract these numbers and turn to ages. 
 In addition, the age direction should be set to the _forward_ in time for this analysis. 
 
 
 ### Constructing the data block in LinguaPhylo
 
+The LPhy data block is used to input and store the data, 
+which will be processed by the models defined later. 
+The data concepts here include the alignment loaded from a NEXUS file, 
+and the meta data regarding to the information of taxa that we have known. 
+
+Please make sure the tab above the command console is set to `data`, 
+and type or copy and paste the following scripts into the console.
+
 ```
 data {
-  codon = nexus(file="examples/RSV2.nex", charset=["3-629\3", "4-629\3", "5-629\3"], ageDirection="forward", ageRegex="s(\d+)$");
-  L1 = nchar(partition(codon, "1"));
-  L2 = nchar(partition(codon, "2"));
-  L3 = nchar(partition(codon, "3"));
+  options = {ageDirection="forward", ageRegex="s(\d+)$"};
+  D = readNexus(file="examples/RSV2.nex", options=options);
+  taxa = taxa(D);
+  codon1 = D.charset("3-629\3");
+  codon2 = D.charset("4-629\3");
+  codon3 = D.charset("5-629\3");
 }
 ```
+
+When you write your LPhy scripts, please be aware that `data` and `model` are reserved 
+and cannot be used as the variable name.
+
 
 ## Models
 
@@ -74,23 +88,43 @@ We also define the priors for the following parameters:
 
 ### Constructing the model block in LinguaPhylo
 
+Please switch the tab to `model`, 
+and type or copy and paste the following scripts into the console.
+
 ```
 model {
+  π ~ Dirichlet(conc=[2.0, 2.0, 2.0, 2.0]);
+  Q = f81(freq=π);
   mu ~ LogNormal(meanlog=-4.5, sdlog=0.5);
   Θ ~ LogNormal(meanlog=3, sdlog=1);
-  ψ ~ Coalescent(theta=Θ, taxa=taxa(codon));
-  π ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
-  Q=f81(freq=π);
-  codon1 ~ PhyloCTMC(tree=ψ, L=L1, Q=Q, mu=mu);
-  codon2 ~ PhyloCTMC(tree=ψ, L=L2, Q=Q, mu=mu);
-  codon3 ~ PhyloCTMC(tree=ψ, L=L3, Q=Q, mu=mu);
+  ψ ~ Coalescent(taxa=taxa, theta=Θ);
+  codon1 ~ PhyloCTMC(L=codon1.nchar(), Q=Q, mu=mu, tree=ψ);
+  codon2 ~ PhyloCTMC(L=codon2.nchar(), Q=Q, mu=mu, tree=ψ);
+  codon3 ~ PhyloCTMC(L=codon3.nchar(), Q=Q, mu=mu, tree=ψ);
 }
 ```
+
+After the data and model are successfully loaded, you can view the probability graph for this analysis. 
+You can also look at the value, including alignment or tree, by simple click the component in the graph.  
 
 <figure class="image">
   <img src="LinguaPhyloStudio.png" alt="LinguaPhyloStudio">
   <figcaption>The Screenshot of LinguaPhylo Studio</figcaption>
 </figure>
+
+
+## Producing BEAST XML using LPhyBEAST
+
+When we are happy with the analysis defined by this set of LPhy scripts, we save them into a file named `RSV2.lphy`.  
+The example file [RSV2.lphy](https://raw.githubusercontent.com/LinguaPhylo/linguaPhylo/master/examples/RSV2.lphy) 
+is also available online.  
+ 
+Then, we can use another software called `LPhyBEAST` to produce BEAST XML from these scripts.
+
+```
+LPhyBEAST RSV2.lphy
+```
+
 
 
 ## Running BEAST
