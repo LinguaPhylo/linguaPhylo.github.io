@@ -41,7 +41,7 @@ This file contains an alignment of 129 sequences from the G gene of RSVA virus, 
 Because this is a protein-coding gene we are going to split the alignment into three partitions representing each of the three codon positions. 
 As it is fitting into the reading frame 3, we will use the charset expressions supported by Nexus format. 
 
-For example, "3-629\3" means this partition starts from the 3rd site and takes every 3 sites until the last site 629.  
+For example, `"3-629\3"` means this partition starts from the 3rd site and takes every 3 sites until the last site 629.  
 
 
 ### Tip dates
@@ -72,7 +72,7 @@ data {
 }
 ```
 
-When you write your LPhy scripts, please be aware that `data` and `model` are reserved 
+When you write your LPhy scripts, please be aware that `data` and `model` have been reserved 
 and cannot be used as the variable name.
 
 
@@ -105,7 +105,7 @@ model {
 ```
 
 After the data and model are successfully loaded, you can view the probability graph for this analysis. 
-You can also look at the value, including alignment or tree, by simple click the component in the graph.  
+You can also look at the value, including alignment or tree, by simply clicking the component in the graph.  
 
 <figure class="image">
   <img src="LinguaPhyloStudio.png" alt="LinguaPhyloStudio">
