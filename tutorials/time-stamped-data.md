@@ -112,19 +112,19 @@ and type or copy and paste the following scripts into the console.
 
 ```
 model {
-  Θ ~ LogNormal(meanlog=3, sdlog=1);
+  Θ ~ LogNormal(meanlog=3.0, sdlog=1.0);
   ψ ~ Coalescent(taxa=taxa, theta=Θ);
   pi0 ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
   kappa0 ~ LogNormal(meanlog=1.0, sdlog=0.5);
-  mu0 ~ LogNormal(meanlog=-4.5, sdlog=0.5);
+  mu0 ~ LogNormal(meanlog=-5.0, sdlog=1.25);
   codon0 ~ PhyloCTMC(L=codon0.nchar(), Q=hky(kappa=kappa0, freq=pi0), mu=mu0, tree=ψ);
   pi1 ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
   kappa1 ~ LogNormal(meanlog=1.0, sdlog=0.5);
-  mu1 ~ LogNormal(meanlog=-4.5, sdlog=0.5);
+  mu1 ~ LogNormal(meanlog=-5.0, sdlog=1.25);
   codon1 ~ PhyloCTMC(L=codon1.nchar(), Q=hky(kappa=kappa1, freq=pi1), mu=mu1, tree=ψ);
   pi2 ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
   kappa2 ~ LogNormal(meanlog=1.0, sdlog=0.5);
-  mu2 ~ LogNormal(meanlog=-4.5, sdlog=0.5);
+  mu2 ~ LogNormal(meanlog=-5.0, sdlog=1.25);
   codon2 ~ PhyloCTMC(L=codon2.nchar(), Q=hky(kappa=kappa2, freq=pi2), mu=mu2, tree=ψ);
 }
 ```
@@ -326,43 +326,53 @@ Figure 13: The posterior probability densities for the relative substitution rat
 
 Use the program TreeAnnotator to summarise the tree. TreeAnnotator is an application that comes with BEAST.
 
-
-Figure 14: TreeAnnotator for creating a summary tree from a posterior tree set.
+<figure class="image">
+  <img src="TreeAnnotator.png" alt="TreeAnnotator">
+  <figcaption>TreeAnnotator for creating a summary tree from a posterior tree set.</figcaption>
+</figure>
 
 
 Summary trees can be viewed using FigTree (a program separate from BEAST) and DensiTree (distributed with BEAST).
 
-
-Figure 15: The Maximum clade credibility tree for the G gene of 129 RSVA-2 viral samples.
+<figure class="image">
+  <img src="RSV2.tree.svg" alt="MCC tree">
+  <figcaption>The Maximum clade credibility tree for the G gene of 129 RSVA-2 viral samples.</figcaption>
+</figure>
 
 
 Below a DensiTree with clade height bars for clades with over 50% support. Root canal tree represents maximum clade credibility tree.
 
-
-Figure 16: The posterior tree set visualised in DensiTree.
+<figure class="image">
+  <img src="DensiTree.png" alt="MCC tree">
+  <figcaption>The posterior tree set visualised in DensiTree.</figcaption>
+</figure>
 
 
 ### Questions
 
 In what year did the common ancestor of all RSVA viruses sampled live? What is the 95% HPD?
 
-Bonus section: Bayesian Skyline plot
+
+## Bonus section: Bayesian Skyline plot
+
 We can reconstruct the population history using the Bayesian Skyline plot. 
-In order to do so, load the XML file into BEAUti, select the priors-tab and change the tree prior from coalescent with constant population size to coalescent with Bayesian skyline. 
-Note that an extra item is added to the priors called Markov chained population sizes which is a prior that ensures dependence between population sizes.
+In order to do so, change your coalescent model into `SkylineCoalescent`, where _Θ_ is an array now 
+and its length is the number of groups used in the skyline analysis. We set it to 5. 
 
-Figure 17: Priors
+```
+  Θ ~ LogNormal(meanlog=-5.0, sdlog=1.25, n=5);
+  ψ ~ SkylineCoalescent(taxa=taxa, theta=Θ);
+```
 
-By default the number of groups used in the skyline analysis is set to 5, To change this, select menu View/Show Initialization panel and a list of parameters is shown. 
-Select bPopSizes.t:tree and change the dimension to 3. Likewise, selection bGroupSizes.t:tree and change its dimension to 3. 
-The dimensions of the two parameters should be the same. 
 More groups mean more population changes can be detected, but it also means more parameters need to be estimated and the chain runs longer. 
 The extended Bayesian skyline plot automatically detects the number of changes, so it could be used as an alternative tree prior.
 
-Figure 18: Initialization panel
 
-This analysis requires a bit longer to converge, so change the MCMC chain length to 10 million, and the log intervals for the trace-log and tree-log to 10 thousand. 
-Then, save the file and run BEAST. 
+Figure 17: Priors
+
+
+This analysis requires a bit longer to converge, so change the MCMC chain length to 10 million, 
+and the log intervals for the trace-log and tree-log to 10 thousand. Then, save the file and run `LPhyBEAST` and then `BEAST`. 
 You can also download the log (RSV2-bsp.log) and tree (tree-bsp.trees) files from the precooked-runs directory.
 
 To plot the population history, load the log file in tracer and select the menu Analysis/Bayesian Skyline Reconstruction.
