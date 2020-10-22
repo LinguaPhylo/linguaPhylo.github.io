@@ -273,15 +273,25 @@ The simple response to this situation is that we need to run the chain for longe
 Given the lowest ESS (for the constant coalescent) is 42, 
 it would suggest that we have to run the chain for at least 6 times the length to get reasonable ESSs that are >200. 
 So let’s go for a chain length of 6,000,000 and log every 3,000. 
-Go back to the MCMC options section in BEAUti, and create a new BEAST XML file with a longer chain length. 
-Now run BEAST and load the new log file into Tracer (you can leave the old one loaded for comparison).
 
+Go back to the MCMC options section in BEAUti, and create a new BEAST XML file with a longer chain length. 
+
+```
+<run id="MCMC" spec="MCMC" chainLength="6000000" preBurnin="8000">
+
+<logger id="Logger" spec="Logger" logEvery="300000">
+
+<logger id="Logger1" spec="Logger" fileName="RSV2long.log" logEvery="3000">
+
+<logger id="psi.treeLogger" spec="Logger" fileName="RSV2long.trees" logEvery="3000">
+```
+
+Now run BEAST and load the new log file into Tracer (you can leave the old one loaded for comparison).
 
 Click on the Trace tab and look at the raw trace plot.
 
-
 <figure class="image">
-  <img src="mu2.png" alt="The trace of mu">
+  <img src="long.png" alt="The trace of long run">
   <figcaption>A screenshot of Tracer.</figcaption>
 </figure>
 
