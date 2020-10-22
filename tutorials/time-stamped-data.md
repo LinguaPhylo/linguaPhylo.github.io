@@ -4,11 +4,14 @@ title: Time-stamped data
 permalink: /tutorials/time-stamped-data/
 ---
 
-This tutorial estimates the rate of evolution from a set of virus sequences which have been isolated at different points in time (heterochronous or time-stamped data). 
-The data are 129 sequences from the G (attachment protein) gene of human respiratory syncytial virus subgroup A (RSVA) (Zlateva, Lemey, Vandamme, & Van Ranst, 2004; Zlateva, Lemey, Moës, Vandamme, & Van Ranst, 2005), 
+This tutorial estimates the rate of evolution from a set of virus sequences which have been isolated 
+at different points in time (heterochronous or time-stamped data). 
+The data are 129 sequences from the G (attachment protein) gene of human respiratory syncytial virus 
+subgroup A (RSVA) (Zlateva, Lemey, Vandamme, & Van Ranst, 2004; Zlateva, Lemey, Moës, Vandamme, & Van Ranst, 2005), 
 with isolation dates ranging from 1956-2002. 
 RSVA causes infections of the lower respiratory tract causing symptoms that are often indistinguishable from the common cold. 
-By age 3, nearly all children will be infected and a small percentage (<3%) will develop more serious inflammation of the bronchioles requiring hospitalisation.
+By age 3, nearly all children will be infected and a small percentage (<3%) will develop more serious inflammation 
+of the bronchioles requiring hospitalisation.
 
 The aim of this tutorial is to obtain estimates for:
 
@@ -20,7 +23,10 @@ The following software will be used in this tutorial:
 
 * LPhyBEAST - this software will construct an input file for BEAST
 * BEAST - this package contains the BEAST program, BEAUti, DensiTree, TreeAnnotator and other utility programs. 
-  This tutorial is written for BEAST v2.6.x, which has support for multiple partitions. It is available for download from [http://www.beast2.org](http://www.beast2.org).
+  This tutorial is written for BEAST v2.6.x, which has support for multiple partitions. 
+  It is available for download from [http://www.beast2.org](http://www.beast2.org).
+* BEAST outercore package - this package of BEAST 2 has core features, but not in the core.
+  You can install and use it following the instruction of [managing BEAST 2 packages](http://www.beast2.org/managing-packages/). 
 * Tracer - this program is used to explore the output of BEAST (and other Bayesian MCMC programs). 
   It graphically and quantitively summarises the distributions of continuous parameters and provides diagnostic information. 
   At the time of writing, the current version is v1.7. It is available for download from [http://beast.community/tracer](http://beast.community/tracer).
@@ -38,13 +44,17 @@ After the data is opened in your web browser, right click mouse and save it in a
 ### Multiple partitions
 
 This file contains an alignment of 129 sequences from the G gene of RSVA virus, 629 nucleotides in length. 
-Because this is a protein-coding gene we are going to split the alignment into three partitions representing each of the three codon positions. 
-As it is fitting into the reading frame 3, we will use the charset expressions supported by Nexus format. 
+Because this is a protein-coding gene we are going to split the alignment into three partitions representing 
+each of the three codon positions. 
 
+As it is fitting into the reading frame 3, we will use the charset expressions supported by Nexus format. 
 For example, `"3-629\3"` means this partition starts from the 3rd site and takes every 3 sites until the last site 629.  
 
 
 ### Tip dates
+
+By default all the taxa are assumed to have a date of zero (i.e. the sequences are assumed to be sampled at the same time). 
+In this case, the RSVA sequences have been sampled at various dates going back to the 1950s. 
 
 The date of each sample is stored in the taxon name after the last little `s`. The numbers are years since 1900.
 We will use the regular expression `"s(\d+)$"` to extract these numbers and turn to ages. 
@@ -64,7 +74,7 @@ and type or copy and paste the following scripts into the console.
 ```
 data {
   options = {ageDirection="forward", ageRegex="s(\d+)$"};
-  D = readNexus(file="examples/RSV2.nex", options=options);
+  D = readNexus(file="RSV2.nex", options=options);
   taxa = taxa(D);
   codon1 = D.charset("3-629\3");
   codon2 = D.charset("4-629\3");
@@ -78,13 +88,22 @@ and cannot be used as the variable name.
 
 ## Models
 
-We will use the F81 model with estimated frequencies for all three partitions, 
+This block is to define and also describe your models and parameters used in the Bayesian phylogenetic analysis.
+Therefore, your results could be reproduced by other researchers using the same model. 
+
+In this analysis, we will use the HKY model with estimated frequencies for all three partitions, 
 and share the strict clock model and a Kingman coalescent tree generative distribution across partitions. 
 
 We also define the priors for the following parameters:
-1. the clock rate _mu_; 
-2. the effective population size _Θ_;
-3. the base frequencies _π_ 
+1. the effective population size _Θ_;  
+2. the clock rate _mu_;
+3. the transition/transversion ratio _kappa_;
+4. the base frequencies _pi_. 
+
+Of course, except of _Θ_, we will have 3 parameters each regarding to the 3 partitions.
+
+Please note the tree here is already the time tree, the age direction will have been processed in `data` block.
+
 
 ### Constructing the model block in LinguaPhylo
 
@@ -93,16 +112,24 @@ and type or copy and paste the following scripts into the console.
 
 ```
 model {
-  π ~ Dirichlet(conc=[2.0, 2.0, 2.0, 2.0]);
-  Q = f81(freq=π);
-  mu ~ LogNormal(meanlog=-4.5, sdlog=0.5);
   Θ ~ LogNormal(meanlog=3, sdlog=1);
   ψ ~ Coalescent(taxa=taxa, theta=Θ);
-  codon1 ~ PhyloCTMC(L=codon1.nchar(), Q=Q, mu=mu, tree=ψ);
-  codon2 ~ PhyloCTMC(L=codon2.nchar(), Q=Q, mu=mu, tree=ψ);
-  codon3 ~ PhyloCTMC(L=codon3.nchar(), Q=Q, mu=mu, tree=ψ);
+  pi0 ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
+  kappa0 ~ LogNormal(meanlog=1.0, sdlog=0.5);
+  mu0 ~ LogNormal(meanlog=-4.5, sdlog=0.5);
+  codon0 ~ PhyloCTMC(L=codon0.nchar(), Q=hky(kappa=kappa0, freq=pi0), mu=mu0, tree=ψ);
+  pi1 ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
+  kappa1 ~ LogNormal(meanlog=1.0, sdlog=0.5);
+  mu1 ~ LogNormal(meanlog=-4.5, sdlog=0.5);
+  codon1 ~ PhyloCTMC(L=codon1.nchar(), Q=hky(kappa=kappa1, freq=pi1), mu=mu1, tree=ψ);
+  pi2 ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
+  kappa2 ~ LogNormal(meanlog=1.0, sdlog=0.5);
+  mu2 ~ LogNormal(meanlog=-4.5, sdlog=0.5);
+  codon2 ~ PhyloCTMC(L=codon2.nchar(), Q=hky(kappa=kappa2, freq=pi2), mu=mu2, tree=ψ);
 }
 ```
+
+### LinguaPhylo
 
 After the data and model are successfully loaded, you can view the probability graph for this analysis. 
 You can also look at the value, including alignment or tree, by simply clicking the component in the graph.  
@@ -112,85 +139,99 @@ You can also look at the value, including alignment or tree, by simply clicking 
   <figcaption>The Screenshot of LinguaPhylo Studio</figcaption>
 </figure>
 
+The example file `RSV2.lphy` is also available. Looking for the menu `File` and then `Examples`, 
+you can find it and load the scripts after clicking. 
+
 
 ## Producing BEAST XML using LPhyBEAST
 
 When we are happy with the analysis defined by this set of LPhy scripts, we save them into a file named `RSV2.lphy`.  
-The example file [RSV2.lphy](https://raw.githubusercontent.com/LinguaPhylo/linguaPhylo/master/examples/RSV2.lphy) 
-is also available online.  
- 
-Then, we can use another software called `LPhyBEAST` to produce BEAST XML from these scripts.
+{% The example file [RSV2.lphy](https://raw.githubusercontent.com/LinguaPhylo/linguaPhylo/master/examples/RSV2.lphy) is also available online. %} 
+Then, we can use another software called `LPhyBEAST` to produce BEAST XML from these scripts, 
+which is released as a Java jar file.
+After you make sure both the data file `RSV2.nex` and the LPhy scripts `RSV2.lphy` are ready, 
+preferred in the same folder, you can run the following command line in your terminal.
 
 ```
-LPhyBEAST RSV2.lphy
+java -jar LPhyBEAST.jar RSV2.lphy
 ```
-
 
 
 ## Running BEAST
 
-Once you have generated the BEAST file (e.g. RSV2.xml) the next step is to run it in BEAST.
-
+Once the BEAST file (e.g. RSV2.xml) is generated, the next step is to run it in BEAST.
+You also need to make sue the BEAST 2 package `outercore` has been installed in your local computer.
 
 Now run BEAST and when it asks for an input file, provide your newly created XML file as input. 
 BEAST will then run until it has finished reporting information to the screen. 
 The actual results files are save to the disk in the same location as your input file. 
 The output to the screen will look something like this:
 
+
 ```
-                        BEAST v2.5.2, 2002-2019
+                         BEAST v2.6.3, 2002-2020
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
-
-                     Department of Computer Science
+                                    
+                   Centre for Computational Evolution
                          University of Auckland
-                        remco@cs.auckland.ac.nz
+                       r.bouckaert@auckland.ac.nz
                         alexei@cs.auckland.ac.nz
-
+                                    
                    Institute of Evolutionary Biology
                         University of Edinburgh
                            a.rambaut@ed.ac.uk
-
+                                    
                     David Geffen School of Medicine
                  University of California, Los Angeles
                            msuchard@ucla.edu
-
+                                    
                       Downloads, Help & Resources:
                            http://beast2.org/
-
+                                    
   Source code distributed under the GNU Lesser General Public License:
                    http://github.com/CompEvol/beast2
-
+                                    
                            BEAST developers:
    Alex Alekseyenko, Trevor Bedford, Erik Bloomquist, Joseph Heled, 
  Sebastian Hoehna, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, 
 Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, 
           Oliver Pybus, Tim Vaughan, Chieh-Hsi Wu, Walter Xie
-
+                                    
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
+
+Random number seed: 1603160064437
+
+File: RSV2.xml seed: 1603160064437 threads: 1
+
     ...
 
     ...
-         990000     -6108.0939     -5503.4454      -604.6484 1m45s/Msamples
-        1000000     -6102.6691     -5505.1198      -597.5493 1m44s/Msamples
+         950000         0.4732         0.2470         0.0914         0.1882         7.4607         ...     -5483.9630 2m47s/Msamples
+        1000000         0.4816         0.2517         0.1142         0.1523         6.3397         ...     -5460.1688 2m47s/Msamples
 
-Operator                                                   Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(StrictClockRateScaler.c:clock)              0.78157       8218      27756    0.03601    0.22844 
-UpDownOperator(strictClockUpDownOperator.c:clock)         0.84475        551      35258    0.03601    0.01539 Try setting scaleFactor to about 0.919
-ScaleOperator(KappaScaler.s:RSV2_1)                       0.38916        323        934    0.00120    0.25696 
-DeltaExchangeOperator(FixMeanMutationRatesOperator)       0.33840       4766      19363    0.02401    0.19752 
-ScaleOperator(KappaScaler.s:RSV2_2)                       0.39201        288        901    0.00120    0.24222 
-ScaleOperator(KappaScaler.s:RSV2_3)                       0.41649        271        964    0.00120    0.21943 
-ScaleOperator(CoalescentConstantTreeScaler.t:tree)        0.71887        273      35495    0.03601    0.00763 Try setting scaleFactor to about 0.848
-ScaleOperator(CoalescentConstantTreeRootScaler.t:tree)    0.64576       3140      33308    0.03601    0.08615 Try setting scaleFactor to about 0.804
-Uniform(CoalescentConstantUniformOperator.t:tree)               -     193184     166770    0.36014    0.53669 
-SubtreeSlide(CoalescentConstantSubtreeSlide.t:tree)       4.11043      28087     152489    0.18007    0.15554 
-Exchange(CoalescentConstantNarrow.t:tree)                       -      44602     135445    0.18007    0.24772 
-Exchange(CoalescentConstantWide.t:tree)                         -         84      35705    0.03601    0.00235 
-WilsonBalding(CoalescentConstantWilsonBalding.t:tree)           -        205      35530    0.03601    0.00574 
-ScaleOperator(PopSizeScaler.t:tree)                       0.60390      10084      26007    0.03601    0.27940 
+Operator                                     Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+ScaleOperator(Theta.scale)                  0.61020       1127       2778    0.00394    0.28860 
+ScaleOperator(kappa0.scale)                 0.42446       1095       2868    0.00394    0.27631 
+ScaleOperator(kappa1.scale)                 0.47367       1181       2695    0.00394    0.30470 
+ScaleOperator(kappa2.scale)                 0.50246       1158       2735    0.00394    0.29746 
+ScaleOperator(mu0.scale)                    0.63620        969       2965    0.00394    0.24631 
+UpDownOperator(mu0UppsiDownOperator)        0.95537       5900     112930    0.11827    0.04965 Try setting scaleFactor to about 0.977
+ScaleOperator(mu1.scale)                    0.68340       1059       2973    0.00394    0.26265 
+UpDownOperator(mu1UppsiDownOperator)        0.95149       5532     112345    0.11827    0.04693 Try setting scaleFactor to about 0.975
+ScaleOperator(mu2.scale)                    0.68255        893       3011    0.00394    0.22874 
+UpDownOperator(mu2UppsiDownOperator)        0.92861       3675     114528    0.11827    0.03109 Try setting scaleFactor to about 0.964
+DeltaExchangeOperator(pi0.deltaExchange)    0.17670       1043       7286    0.00850    0.12523 
+DeltaExchangeOperator(pi1.deltaExchange)    0.13482       1372       7183    0.00850    0.16037 
+DeltaExchangeOperator(pi2.deltaExchange)    0.21181        694       7706    0.00850    0.08262 Try setting delta to about 0.106
+Exchange(psi.narrowExchange)                      -      29190      88431    0.11763    0.24817 
+ScaleOperator(psi.rootAgeScale)             0.73246        487       3492    0.00394    0.12239 
+ScaleOperator(psi.scale)                    0.90846       2766     115129    0.11763    0.02346 Try setting scaleFactor to about 0.953
+SubtreeSlide(psi.subtreeSlide)             13.19227       5571     112243    0.11763    0.04729 Try decreasing size to about 6.596
+Uniform(psi.uniform)                              -      63234      54077    0.11763    0.53903 
+Exchange(psi.wideExchange)                        -        351     117329    0.11763    0.00298 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -199,33 +240,63 @@ ScaleOperator(PopSizeScaler.t:tree)                       0.60390      10084    
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 106.096 seconds
-End likelihood: -6102.669168760964
+Total calculation time: 167.99 seconds
+End likelihood: -6043.710381365199
+
 ```
 
 ## Analysing the BEAST output
 
-Note that the effective sample sizes (ESSs) for many of the logged quantities are small (ESSs less than 100 will be highlighted in red by Tracer). This is not good. A low ESS means that the trace contains a lot of correlated samples and thus may not represent the posterior distribution well. In the bottom right of the window is a frequency plot of the samples which is expected given the low ESSs is extremely rough.
+Note that the effective sample sizes (ESSs) for many of the logged quantities are small 
+(ESSs less than 100 will be highlighted in red by Tracer). This is not good. 
+A low ESS means that the trace contains a lot of correlated samples and thus may not represent the posterior distribution well. 
+In the bottom right of the window is a frequency plot of the samples which is expected given the low ESSs is extremely rough.
 
-If we select the tab on the right-hand-side labelled Trace we can view the raw trace, that is, the sampled values against the step in the MCMC chain.
+If we select the tab on the right-hand-side labelled Trace we can view the raw trace, that is, 
+the sampled values against the step in the MCMC chain.
+
+<figure class="image">
+  <img src="short.png" alt="The trace of short run">
+  <figcaption>A screenshot of Tracer.</figcaption>
+</figure>
 
 
-Figure: A screenshot of Tracer.
+Here you can see how the samples are correlated. 
+The default chain length of the MCMC is 1,000,000 in `LPhyBEAST`.
+There are 1800 samples in the trace after removing 10% burnin (we ran the MCMC for steps sampling every 500) 
+but adjacent samples often tend to have similar values. 
+The ESS for the absolute rate of evolution (clockRate) is about 34 so we are only getting 1 independent sample 
+to every 34 ~ 1800/53 actual samples). With a short run such as this one, 
+it may also be the case that the default burn-in of 10% of the chain length is inadequate. 
+Not excluding enough of the start of the chain as burn-in will render estimates of ESS unreliable.
 
+The simple response to this situation is that we need to run the chain for longer. 
+Given the lowest ESS (for the constant coalescent) is 42, 
+it would suggest that we have to run the chain for at least 6 times the length to get reasonable ESSs that are >200. 
+So let’s go for a chain length of 6,000,000 and log every 3,000. 
+Go back to the MCMC options section in BEAUti, and create a new BEAST XML file with a longer chain length. 
+Now run BEAST and load the new log file into Tracer (you can leave the old one loaded for comparison).
 
-Here you can see how the samples are correlated. There are 2500 samples in the trace (we ran the MCMC for steps sampling every 400) but adjacent samples often tend to have similar values. The ESS for the absolute rate of evolution (clockRate) is about 65 so we are only getting 1 independent sample to every 65 ~ 2500/38 actual samples). With a short run such as this one, it may also be the case that the default burn-in of 10% of the chain length is inadequate. Not excluding enough of the start of the chain as burn-in will render estimates of ESS unreliable.
-
-The simple response to this situation is that we need to run the chain for longer. Given the lowest ESS (for the constant coalescent) is 50, it would suggest that we have to run the chain for at least 4 times the length to get reasonable ESSs that are >200. So let’s go for a chain length of 6000000 and log every 5000. Go back to the MCMC options section in BEAUti, and create a new BEAST XML file with a longer chain length. Now run BEAST and load the new log file into Tracer (you can leave the old one loaded for comparison).
 
 Click on the Trace tab and look at the raw trace plot.
 
 
-Figure: tracer
+<figure class="image">
+  <img src="mu2.png" alt="The trace of mu">
+  <figcaption>A screenshot of Tracer.</figcaption>
+</figure>
 
 
-We have chosen options that produce 12000 samples and with an ESS of about 239 there is still auto-correlation between the samples but >239 effectively independent samples will now provide a very good estimate of the posterior distribution. There are no obvious trends in the plot which would suggest that the MCMC has not yet converged, and there are no significant long range fluctuations in the trace which would suggest poor mixing.
+We have chosen options that produce 12000 samples and with an ESS of about 239 there is still auto-correlation 
+between the samples but >239 effectively independent samples will now provide a very good estimate of the posterior distribution. 
+There are no obvious trends in the plot which would suggest that the MCMC has not yet converged, 
+and there are no significant long range fluctuations in the trace which would suggest poor mixing.
 
-As we are satisfied with the mixing we can now move on to one of the parameters of interest: substitution rate. Select clockRate in the left-hand table. This is the average substitution rate across all sites in the alignment. Now choose the density plot by selecting the tab labeled Marginal Density. This shows a plot of the marginal posterior probability density of this parameter. You should see a plot similar to this:
+As we are satisfied with the mixing we can now move on to one of the parameters of interest: substitution rate. 
+Select clockRate in the left-hand table. This is the average substitution rate across all sites in the alignment. 
+Now choose the density plot by selecting the tab labeled Marginal Density. 
+This shows a plot of the marginal posterior probability density of this parameter. 
+You should see a plot similar to this:
 
 
 Figure 12: marginal density in tracer
