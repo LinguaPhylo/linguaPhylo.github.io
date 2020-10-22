@@ -161,6 +161,11 @@ java -jar LPhyBEAST.jar RSV2.lphy
 Once the BEAST file (e.g. RSV2.xml) is generated, the next step is to run it in BEAST.
 You also need to make sue the BEAST 2 package `outercore` has been installed in your local computer.
 
+<figure class="image">
+  <img src="package.png" alt="Package manager">
+  <figcaption>A screenshot of Package Manager.</figcaption>
+</figure>
+
 Now run BEAST and when it asks for an input file, provide your newly created XML file as input. 
 BEAST will then run until it has finished reporting information to the screen. 
 The actual results files are save to the disk in the same location as your input file. 
