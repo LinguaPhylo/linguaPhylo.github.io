@@ -26,7 +26,10 @@ The following software will be used in this tutorial:
   This tutorial is written for BEAST v2.6.x, which has support for multiple partitions. 
   It is available for download from [http://www.beast2.org](http://www.beast2.org).
 * BEAST outercore package - this package of BEAST 2 has core features, but not in the core.
-  You can install and use it following the instruction of [managing BEAST 2 packages](http://www.beast2.org/managing-packages/). 
+  You can install and use it following the instruction of [managing BEAST 2 packages](http://www.beast2.org/managing-packages/).
+* BEAST labs package - containing some generally useful stuff used by other packages.
+* BEAST feast package - this is a small BEAST 2 package which contains additions to the core functionality. 
+  You need install it separately following the instruction of [feast website](https://github.com/tgvaughan/feast).  
 * Tracer - this program is used to explore the output of BEAST (and other Bayesian MCMC programs). 
   It graphically and quantitively summarises the distributions of continuous parameters and provides diagnostic information. 
   At the time of writing, the current version is v1.7. It is available for download from [http://beast.community/tracer](http://beast.community/tracer).
@@ -74,11 +77,12 @@ and type or copy and paste the following scripts into the console.
 ```
 data {
   options = {ageDirection="forward", ageRegex="s(\d+)$"};
-  D = readNexus(file="RSV2.nex", options=options);
+  D = readNexus(file="examples/RSV2.nex", options=options);
   taxa = taxa(D);
-  codon1 = D.charset("3-629\3");
-  codon2 = D.charset("4-629\3");
-  codon3 = D.charset("5-629\3");
+  codon0 = D.charset("3-629\3");
+  codon1 = D.charset("4-629\3");
+  codon2 = D.charset("5-629\3");
+  weights = [codon0.nchar(), codon1.nchar(), codon2.nchar()]
 }
 ```
 
@@ -91,16 +95,19 @@ and cannot be used as the variable name.
 This block is to define and also describe your models and parameters used in the Bayesian phylogenetic analysis.
 Therefore, your results could be reproduced by other researchers using the same model. 
 
-In this analysis, we will use the HKY model with estimated frequencies for all three partitions, 
+In this analysis, we will use three HKY models with estimated frequencies for each of three partitions, 
 and share the strict clock model and a Kingman coalescent tree generative distribution across partitions. 
+But we are also interested about the relative substitution rate for each of three partitions.
 
-We also define the priors for the following parameters:
+So, we define the priors for the following parameters:
 1. the effective population size _Θ_;  
-2. the clock rate _mu_;
-3. the transition/transversion ratio _kappa_;
-4. the base frequencies _pi_. 
+2. the general clock rate _clockRate_ 
+3. the relative substitution rates _mu_ which has 3 dimensions;
+4. the transition/transversion ratio _kappa_ which also has 3 dimensions;
+5. the base frequencies _pi0_, _pi1_, and _pi2_. 
 
-Of course, except of _Θ_, we will have 3 parameters each regarding to the 3 partitions.
+The benefit of using 3 relative substitution rates here instead of 3 clock rates is that we could use the DeltaExchangeOperator
+to these relative rates in the MCMC sampling to help the converagence.
 
 Please note the tree here is already the time tree, the age direction will have been processed in `data` block.
 
@@ -112,20 +119,19 @@ and type or copy and paste the following scripts into the console.
 
 ```
 model {
-  Θ ~ LogNormal(meanlog=3.0, sdlog=1.0);
+  Θ ~ LogNormal(meanlog=3.0, sdlog=2.0);
   ψ ~ Coalescent(taxa=taxa, theta=Θ);
+  kappa ~ LogNormal(meanlog=1.0, sdlog=0.5, n=3);
+
+  mu ~ WeightedDirichlet(conc=[1.0,1.0,1.0], weights=weights);
+  clockRate ~ LogNormal(meanlog=-5.0, sdlog=1.25);
+
   pi0 ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
-  kappa0 ~ LogNormal(meanlog=1.0, sdlog=0.5);
-  mu0 ~ LogNormal(meanlog=-5.0, sdlog=1.25);
-  codon0 ~ PhyloCTMC(L=codon0.nchar(), Q=hky(kappa=kappa0, freq=pi0), mu=mu0, tree=ψ);
+  codon0 ~ PhyloCTMC(L=codon0.nchar(), Q=hky(kappa=kappa[0], freq=pi0, meanRate=mu[0]), mu=clockRate, tree=ψ);
   pi1 ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
-  kappa1 ~ LogNormal(meanlog=1.0, sdlog=0.5);
-  mu1 ~ LogNormal(meanlog=-5.0, sdlog=1.25);
-  codon1 ~ PhyloCTMC(L=codon1.nchar(), Q=hky(kappa=kappa1, freq=pi1), mu=mu1, tree=ψ);
+  codon1 ~ PhyloCTMC(L=codon1.nchar(), Q=hky(kappa=kappa[1], freq=pi1, meanRate=mu[1]), mu=clockRate, tree=ψ);
   pi2 ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
-  kappa2 ~ LogNormal(meanlog=1.0, sdlog=0.5);
-  mu2 ~ LogNormal(meanlog=-5.0, sdlog=1.25);
-  codon2 ~ PhyloCTMC(L=codon2.nchar(), Q=hky(kappa=kappa2, freq=pi2), mu=mu2, tree=ψ);
+  codon2 ~ PhyloCTMC(L=codon2.nchar(), Q=hky(kappa=kappa[2], freq=pi2, meanRate=mu[2]), mu=clockRate, tree=ψ);
 }
 ```
 
@@ -139,7 +145,7 @@ You can also look at the value, including alignment or tree, by simply clicking 
   <figcaption>The Screenshot of LinguaPhylo Studio</figcaption>
 </figure>
 
-The example file `RSV2.lphy` is also available. Looking for the menu `File` and then `Examples`, 
+Tips: the example file `RSV2.lphy` is also available. Looking for the menu `File` and then `Examples`, 
 you can find it and load the scripts after clicking. 
 
 
@@ -206,36 +212,31 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1603160064437
+Random number seed: 1603419667128
 
-File: RSV2.xml seed: 1603160064437 threads: 1
-
-    ...
+File: RSV2.xml seed: 1603419667128 threads: 1
 
     ...
-         950000         0.4732         0.2470         0.0914         0.1882         7.4607         ...     -5483.9630 2m47s/Msamples
-        1000000         0.4816         0.2517         0.1142         0.1523         6.3397         ...     -5460.1688 2m47s/Msamples
 
-Operator                                     Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                  0.61020       1127       2778    0.00394    0.28860 
-ScaleOperator(kappa0.scale)                 0.42446       1095       2868    0.00394    0.27631 
-ScaleOperator(kappa1.scale)                 0.47367       1181       2695    0.00394    0.30470 
-ScaleOperator(kappa2.scale)                 0.50246       1158       2735    0.00394    0.29746 
-ScaleOperator(mu0.scale)                    0.63620        969       2965    0.00394    0.24631 
-UpDownOperator(mu0UppsiDownOperator)        0.95537       5900     112930    0.11827    0.04965 Try setting scaleFactor to about 0.977
-ScaleOperator(mu1.scale)                    0.68340       1059       2973    0.00394    0.26265 
-UpDownOperator(mu1UppsiDownOperator)        0.95149       5532     112345    0.11827    0.04693 Try setting scaleFactor to about 0.975
-ScaleOperator(mu2.scale)                    0.68255        893       3011    0.00394    0.22874 
-UpDownOperator(mu2UppsiDownOperator)        0.92861       3675     114528    0.11827    0.03109 Try setting scaleFactor to about 0.964
-DeltaExchangeOperator(pi0.deltaExchange)    0.17670       1043       7286    0.00850    0.12523 
-DeltaExchangeOperator(pi1.deltaExchange)    0.13482       1372       7183    0.00850    0.16037 
-DeltaExchangeOperator(pi2.deltaExchange)    0.21181        694       7706    0.00850    0.08262 Try setting delta to about 0.106
-Exchange(psi.narrowExchange)                      -      29190      88431    0.11763    0.24817 
-ScaleOperator(psi.rootAgeScale)             0.73246        487       3492    0.00394    0.12239 
-ScaleOperator(psi.scale)                    0.90846       2766     115129    0.11763    0.02346 Try setting scaleFactor to about 0.953
-SubtreeSlide(psi.subtreeSlide)             13.19227       5571     112243    0.11763    0.04729 Try decreasing size to about 6.596
-Uniform(psi.uniform)                              -      63234      54077    0.11763    0.53903 
-Exchange(psi.wideExchange)                        -        351     117329    0.11763    0.00298 
+    ...
+         950000         0.5249         0.2566         0.0795         0.1389        10.3895         ...     -5475.6236 2m25s/Msamples
+        1000000         0.5088         0.2166         0.0977         0.1767        10.0793         ...     -5469.0172 2m25s/Msamples
+
+Operator                                       Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+ScaleOperator(Theta.scale)                    0.58529       1342       3890    0.00519    0.25650 
+ScaleOperator(clockRate.scale)                0.74669       1064       4178    0.00519    0.20298 
+UpDownOperator(clockRateUppsiDownOperator)    0.92667       5075     151107    0.15590    0.03249 Try setting scaleFactor to about 0.963
+ScaleOperator(kappa.scale)                    0.29583       3522       7700    0.01121    0.31385 
+DeltaExchangeOperator(mu.deltaExchange)       0.33461       1733       6774    0.00844    0.20371 
+DeltaExchangeOperator(pi0.deltaExchange)      0.15065       1642       9480    0.01121    0.14764 
+DeltaExchangeOperator(pi1.deltaExchange)      0.11862       1962       9280    0.01121    0.17452 
+DeltaExchangeOperator(pi2.deltaExchange)      0.12935       1665       9605    0.01121    0.14774 
+Exchange(psi.narrowExchange)                        -      38340     116847    0.15505    0.24706 
+ScaleOperator(psi.rootAgeScale)               0.74434        651       4438    0.00519    0.12792 
+ScaleOperator(psi.scale)                      0.91815       4401     150074    0.15505    0.02849 Try setting scaleFactor to about 0.958
+SubtreeSlide(psi.subtreeSlide)                5.17988      17843     137532    0.15505    0.11484 
+Uniform(psi.uniform)                                -      83348      71204    0.15505    0.53929 
+Exchange(psi.wideExchange)                          -        370     154934    0.15505    0.00238 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -244,9 +245,8 @@ Exchange(psi.wideExchange)                        -        351     117329    0.1
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 167.99 seconds
-End likelihood: -6043.710381365199
-
+Total calculation time: 147.245 seconds
+End likelihood: -6074.526170858627
 ```
 
 ## Analysing the BEAST output
@@ -352,64 +352,6 @@ Below a DensiTree with clade height bars for clades with over 50% support. Root 
 
 In what year did the common ancestor of all RSVA viruses sampled live? What is the 95% HPD?
 
-
-## Bonus section: Bayesian Skyline plot
-
-We can reconstruct the population history using the Bayesian Skyline plot. 
-In order to do so, change your coalescent model into `SkylineCoalescent`, where _Θ_ is an array now 
-and its length is the number of groups used in the skyline analysis. We set it to 5. 
-
-```
-  Θ ~ LogNormal(meanlog=-5.0, sdlog=1.25, n=5);
-  ψ ~ SkylineCoalescent(taxa=taxa, theta=Θ);
-```
-
-More groups mean more population changes can be detected, but it also means more parameters need to be estimated and the chain runs longer. 
-The extended Bayesian skyline plot automatically detects the number of changes, so it could be used as an alternative tree prior.
-
-
-Figure 17: Priors
-
-
-This analysis requires a bit longer to converge, so change the MCMC chain length to 10 million, 
-and the log intervals for the trace-log and tree-log to 10 thousand. Then, save the file and run `LPhyBEAST` and then `BEAST`. 
-You can also download the log (RSV2-bsp.log) and tree (tree-bsp.trees) files from the precooked-runs directory.
-
-To plot the population history, load the log file in tracer and select the menu Analysis/Bayesian Skyline Reconstruction.
-
-
-Figure 19: Bayesian Skyline Reconstruction in Tracer
-
-
-A dialog is shown where you can specify the tree file associated with the log file. 
-Also, since the youngest sample is from 2002, change the entry for age of youngest tip to 2002.
-
-
-Figure 20: Bayesian Skyline Reconstruction dialog in Tracer
-
-
-After some calculation, a graph appears showing population history where the median and 95% HPD intervals are plotted. 
-After selecting the solid interval checkbox, the graph should look something like this.
-
-
-Figure 21: Bayesian Skyline Reconstruction
-
-
-### Questions
-
-* By what amount did the effective population size of RSVA grow from 1970 to 2002 according to the BSP?
-
-* What are the underlying assumptions of the BSP? Are the violated by this data set?
-
-## Exercise
-
-Change the Bayesian skyline prior to extended Bayesian skyline plot (EBSP) prior and run till convergence. 
-EBSP produces an extra log file, called EBSP.$(seed).log where $(seed) is replaced by the seed you used to run BEAST. 
-A plot can be created by running the EBSPAnalyser utility, and loading the output file in a spreadsheet.
-
-* How many groups are indicated by the EBSP analysis? 
-* This is much lower than for BSP. 
-* How does this affect the population history plots?
 
 ## Useful Links
 
