@@ -51,7 +51,7 @@ Because this is a protein-coding gene we are going to split the alignment into t
 each of the three codon positions. 
 
 As it is fitting into the reading frame 3, we will use the charset expressions supported by Nexus format. 
-For example, `"3-629\3"` means this partition starts from the 3rd site and takes every 3 sites until the last site 629.  
+For example, `"3-629\3"` means the 1st codon partition (codon0) starts from the 3rd site and takes every 3 sites until the last site 629.  
 
 
 ### Tip dates
@@ -80,8 +80,8 @@ data {
   D = readNexus(file="examples/RSV2.nex", options=options);
   taxa = taxa(D);
   codon0 = D.charset("3-629\3");
-  codon1 = D.charset("4-629\3");
-  codon2 = D.charset("5-629\3");
+  codon1 = D.charset("1-629\3");
+  codon2 = D.charset("2-629\3");
   weights = [codon0.nchar(), codon1.nchar(), codon2.nchar()]
 }
 ```
