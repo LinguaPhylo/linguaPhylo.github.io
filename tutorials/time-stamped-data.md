@@ -165,7 +165,7 @@ java -jar LPhyBEAST.jar RSV2.lphy
 ## Running BEAST
 
 Once the BEAST file (e.g. RSV2.xml) is generated, the next step is to run it in BEAST.
-You also need to make sue the BEAST 2 package `outercore` has been installed in your local computer.
+You also need to make sue all required BEAST 2 packages (e.g. `outercore`) have been installed in your local computer.
 
 <figure class="image">
   <img src="package.png" alt="Package manager">
@@ -279,12 +279,18 @@ Given the lowest ESS (for the constant coalescent) is 42,
 it would suggest that we have to run the chain for at least 6 times the length to get reasonable ESSs that are >200. 
 So let’s go for a chain length of 6,000,000 and log every 3,000. 
 
-Go back to the MCMC options section in BEAUti, and create a new BEAST XML file with a longer chain length. 
+You could run `LPhyBEAST` with the `-l` argument again to create a new XML:
 
 ```
-<run id="MCMC" spec="MCMC" chainLength="6000000" preBurnin="8000">
+java -jar LPhyBEAST.jar -l 6000000 -o RSV2long.xml RSV2.lphy
+```
+ 
+or manually edit the XML at the following lines:
 
-<logger id="Logger" spec="Logger" logEvery="300000">
+```
+<run id="MCMC" spec="MCMC" chainLength="6000000" preBurnin="1480">
+
+<logger id="Logger" spec="Logger" logEvery="500000">
 
 <logger id="Logger1" spec="Logger" fileName="RSV2long.log" logEvery="3000">
 
@@ -300,7 +306,6 @@ Click on the Trace tab and look at the raw trace plot.
   <figcaption>A screenshot of Tracer.</figcaption>
 </figure>
 
-
 We have chosen options that produce 12000 samples and with an ESS of about 239 there is still auto-correlation 
 between the samples but >239 effectively independent samples will now provide a very good estimate of the posterior distribution. 
 There are no obvious trends in the plot which would suggest that the MCMC has not yet converged, 
@@ -312,14 +317,25 @@ Now choose the density plot by selecting the tab labeled Marginal Density.
 This shows a plot of the marginal posterior probability density of this parameter. 
 You should see a plot similar to this:
 
+<figure class="image">
+  <img src="" alt="marginal density">
+  <figcaption>The marginal density in Tracer.</figcaption>
+</figure>
 
-Figure 12: marginal density in tracer
 
+As you can see the posterior probability density is roughly bell-shaped. 
+There is some sampling noise which would be reduced if we ran the chain for longer or 
+sampled more often but we already have a good estimate of the mean and HPD interval. 
+You can overlay the density plots of multiple traces in order to compare them 
+(it is up to the user to determine whether they are comparable on the the same axis or not). 
+Select the relative substitution rates for all three codon positions in the table to the left 
+(labelled mu.0, mu.1 and mu.2). 
+You will now see the posterior probability densities for the relative substitution rate at all three codon positions overlaid:
 
-As you can see the posterior probability density is roughly bell-shaped. There is some sampling noise which would be reduced if we ran the chain for longer or sampled more often but we already have a good estimate of the mean and HPD interval. You can overlay the density plots of multiple traces in order to compare them (it is up to the user to determine whether they are comparable on the the same axis or not). Select the relative substitution rates for all three codon positions in the table to the left (labelled mutationRate.1, mutationRate.2 and mutationRate.3). You will now see the posterior probability densities for the relative substitution rate at all three codon positions overlaid:
-
-
-Figure 13: The posterior probability densities for the relative substitution rates
+<figure class="image">
+  <img src="" alt="relative substitution rates">
+  <figcaption>The posterior probability densities for the relative substitution rates.</figcaption>
+</figure>
 
 
 ## Summarising the trees
