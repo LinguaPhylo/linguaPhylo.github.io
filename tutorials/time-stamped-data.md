@@ -269,14 +269,12 @@ Here you can see how the samples are correlated.
 The default chain length of the MCMC is 1,000,000 in `LPhyBEAST`.
 There are 1800 samples in the trace after removing 10% burnin (we ran the MCMC for steps sampling every 500) 
 but adjacent samples often tend to have similar values. 
-The ESS for the absolute rate of evolution (clockRate) is about 34 so we are only getting 1 independent sample 
-to every 34 ~ 1800/53 actual samples). With a short run such as this one, 
+The ESS for the absolute rate of evolution (clockRate) is about 43 so we are only getting 1 independent sample 
+to every 43 ~ 1800/42 actual samples). With a short run such as this one, 
 it may also be the case that the default burn-in of 10% of the chain length is inadequate. 
 Not excluding enough of the start of the chain as burn-in will render estimates of ESS unreliable.
 
 The simple response to this situation is that we need to run the chain for longer. 
-Given the lowest ESS (for the constant coalescent) is 42, 
-it would suggest that we have to run the chain for at least 6 times the length to get reasonable ESSs that are >200. 
 So let’s go for a chain length of 6,000,000 and log every 3,000. 
 
 You could run `LPhyBEAST` with the `-l` argument again to create a new XML:
@@ -318,7 +316,7 @@ This shows a plot of the marginal posterior probability density of this paramete
 You should see a plot similar to this:
 
 <figure class="image">
-  <img src="" alt="marginal density">
+  <img src="clockRate.png" alt="marginal density">
   <figcaption>The marginal density in Tracer.</figcaption>
 </figure>
 
@@ -333,7 +331,7 @@ Select the relative substitution rates for all three codon positions in the tabl
 You will now see the posterior probability densities for the relative substitution rate at all three codon positions overlaid:
 
 <figure class="image">
-  <img src="" alt="relative substitution rates">
+  <img src="mu.png" alt="relative substitution rates">
   <figcaption>The posterior probability densities for the relative substitution rates.</figcaption>
 </figure>
 
