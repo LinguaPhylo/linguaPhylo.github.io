@@ -4,6 +4,8 @@ title: Time-stamped data
 permalink: /tutorials/time-stamped-data/
 ---
 
+This tutorial is modified from Taming the BEAST tutorial [Time-stamped data](https://taming-the-beast.org/tutorials/MEP-tutorial/).
+
 This tutorial estimates the rate of evolution from a set of virus sequences which have been isolated 
 at different points in time (heterochronous or time-stamped data). 
 The data are 129 sequences from the G (attachment protein) gene of human respiratory syncytial virus 
@@ -212,31 +214,34 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1603419667128
+Random number seed: 1604287730629
 
-File: RSV2.xml seed: 1603419667128 threads: 1
+Loading package outercore v0.0.2
+Loading package BEAST v2.6.3
+Loading package feast v7.4.1
+Loading package BEASTLabs v1.9.5
 
     ...
 
     ...
-         950000         0.5249         0.2566         0.0795         0.1389        10.3895         ...     -5475.6236 2m25s/Msamples
-        1000000         0.5088         0.2166         0.0977         0.1767        10.0793         ...     -5469.0172 2m25s/Msamples
+       15000000         0.5045         0.2119         0.1043         0.1792        11.1701         5.4559         2.0748         0.7272         0.9443         1.3271         0.0020        52.3969         0.3053         0.4429         0.0934         0.1581         0.2969         0.3939         0.0867         0.2223      -620.1311     -5480.9172     -6101.0484 1m49s/Msamples
 
 Operator                                       Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                    0.58529       1342       3890    0.00519    0.25650 
-ScaleOperator(clockRate.scale)                0.74669       1064       4178    0.00519    0.20298 
-UpDownOperator(clockRateUppsiDownOperator)    0.92667       5075     151107    0.15590    0.03249 Try setting scaleFactor to about 0.963
-ScaleOperator(kappa.scale)                    0.29583       3522       7700    0.01121    0.31385 
-DeltaExchangeOperator(mu.deltaExchange)       0.33461       1733       6774    0.00844    0.20371 
-DeltaExchangeOperator(pi0.deltaExchange)      0.15065       1642       9480    0.01121    0.14764 
-DeltaExchangeOperator(pi1.deltaExchange)      0.11862       1962       9280    0.01121    0.17452 
-DeltaExchangeOperator(pi2.deltaExchange)      0.12935       1665       9605    0.01121    0.14774 
-Exchange(psi.narrowExchange)                        -      38340     116847    0.15505    0.24706 
-ScaleOperator(psi.rootAgeScale)               0.74434        651       4438    0.00519    0.12792 
-ScaleOperator(psi.scale)                      0.91815       4401     150074    0.15505    0.02849 Try setting scaleFactor to about 0.958
-SubtreeSlide(psi.subtreeSlide)                5.17988      17843     137532    0.15505    0.11484 
-Uniform(psi.uniform)                                -      83348      71204    0.15505    0.53929 
-Exchange(psi.wideExchange)                          -        370     154934    0.15505    0.00238 
+ScaleOperator(Theta.scale)                    0.58864      17461      49915    0.00450    0.25916 
+ScaleOperator(clockRate.scale)                0.77803      15583      51848    0.00450    0.23110 
+UpDownOperator(clockRateUppsiDownOperator)    0.96339     135325    1889577    0.13497    0.06683 Try setting scaleFactor to about 0.982
+ScaleOperator(kappa.scale)                    0.29109      43915     101903    0.00970    0.30116 
+DeltaExchangeOperator(mu.deltaExchange)       0.30244      24754      85084    0.00730    0.22537 
+DeltaExchangeOperator(pi0.deltaExchange)      0.11716      28435     117463    0.00970    0.19490 
+DeltaExchangeOperator(pi1.deltaExchange)      0.12783      23822     121524    0.00970    0.16390 
+DeltaExchangeOperator(pi2.deltaExchange)      0.10622      26771     118424    0.00970    0.18438 
+Exchange(psi.narrowExchange)                        -     498546    1514729    0.13424    0.24763 
+ScaleOperator(psi.rootAgeScale)               0.78798      10957      55857    0.00450    0.16399 
+ScaleOperator(psi.scale)                      0.93917      77265    1937084    0.13424    0.03836 Try setting scaleFactor to about 0.969
+SubtreeSlide(psi.subtreeSlide)                4.22861     284441    1729276    0.13424    0.14125 
+Uniform(psi.uniform)                                -    1083099     931484    0.13424    0.53763 
+Exchange(psi.wideExchange)                          -       4515    2008782    0.13424    0.00224 
+WilsonBalding(psi.wilsonBalding)                    -      10031    2002131    0.13424    0.00499 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -245,8 +250,8 @@ Exchange(psi.wideExchange)                          -        370     154934    0
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 147.245 seconds
-End likelihood: -6074.526170858627
+Total calculation time: 1645.903 seconds
+End likelihood: -6101.04845884839
 ```
 
 ## Analysing the BEAST output
@@ -275,24 +280,27 @@ it may also be the case that the default burn-in of 10% of the chain length is i
 Not excluding enough of the start of the chain as burn-in will render estimates of ESS unreliable.
 
 The simple response to this situation is that we need to run the chain for longer. 
-So let’s go for a chain length of 6,000,000 and log every 3,000. 
+So let’s go for a chain length of 15,000,000 but keep logging the same number of sample (2,000). 
+
+Question: what is the logging frequency (logEvery) now?
+
 
 You could run `LPhyBEAST` with the `-l` argument again to create a new XML:
 
 ```
-java -jar LPhyBEAST.jar -l 6000000 -o RSV2long.xml RSV2.lphy
+java -jar LPhyBEAST.jar -l 15000000 -o RSV2long.xml RSV2.lphy
 ```
- 
+
 or manually edit the XML at the following lines:
 
 ```
-<run id="MCMC" spec="MCMC" chainLength="6000000" preBurnin="1480">
+<run id="MCMC" spec="MCMC" chainLength="15000000" preBurnin="1480">
 
-<logger id="Logger" spec="Logger" logEvery="500000">
+<logger id="Logger" spec="Logger" logEvery="750000">
 
-<logger id="Logger1" spec="Logger" fileName="RSV2long.log" logEvery="3000">
+<logger id="Logger1" spec="Logger" fileName="RSV2long.log" logEvery="7500">
 
-<logger id="psi.treeLogger" spec="Logger" fileName="RSV2long.trees" logEvery="3000">
+<logger id="psi.treeLogger" spec="Logger" fileName="RSV2long.trees" logEvery="7500">
 ```
 
 Now run BEAST and load the new log file into Tracer (you can leave the old one loaded for comparison).
@@ -304,8 +312,10 @@ Click on the Trace tab and look at the raw trace plot.
   <figcaption>A screenshot of Tracer.</figcaption>
 </figure>
 
-We have chosen options that produce 12000 samples and with an ESS of about 239 there is still auto-correlation 
-between the samples but >239 effectively independent samples will now provide a very good estimate of the posterior distribution. 
+After running the analysis long enough in MCMC, we have the 1800 samples after removing 10% burnin, 
+but with an ESS of each estimated parameter > 200. 
+There is still auto-correlation between the samples, 
+but > 200 effectively independent samples will now provide a very good estimate of the posterior distribution. 
 There are no obvious trends in the plot which would suggest that the MCMC has not yet converged, 
 and there are no significant long range fluctuations in the trace which would suggest poor mixing.
 
