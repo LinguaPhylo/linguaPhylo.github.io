@@ -2,6 +2,9 @@
 layout: page
 title: Skyline plots
 permalink: /tutorials/skyline-plots/
+author:
+- Walter Xie
+- Alexei Drummond
 ---
 
 This tutorial is modified from Taming the BEAST tutorial [Skyline plots](https://taming-the-beast.org/tutorials/Skyline-plots/).

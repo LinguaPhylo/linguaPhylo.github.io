@@ -5,3 +5,7 @@ permalink: /tutorials/
 ---
 
 * [Time-stamped data tutorial](tutorials/time-stamped-data.md)
+
+* [Skyline plots](tutorials/skyline-plots.md)
+
+
