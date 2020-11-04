@@ -1,10 +1,8 @@
 ---
 layout: page
 title: Time-stamped data
+author: 'Walter Xie and Alexei Drummond' 
 permalink: /tutorials/time-stamped-data/
-author:
-- Walter Xie
-- Alexei Drummond
 ---
 
 This tutorial is modified from Taming the BEAST tutorial [Time-stamped data](https://taming-the-beast.org/tutorials/MEP-tutorial/).

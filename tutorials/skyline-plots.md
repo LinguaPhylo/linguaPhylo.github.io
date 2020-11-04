@@ -1,10 +1,8 @@
 ---
 layout: page
 title: Skyline plots
+author: 'Walter Xie and Alexei Drummond' 
 permalink: /tutorials/skyline-plots/
-author:
-- Walter Xie
-- Alexei Drummond
 ---
 
 This tutorial is modified from Taming the BEAST tutorial [Skyline plots](https://taming-the-beast.org/tutorials/Skyline-plots/).
@@ -212,11 +210,6 @@ java -jar LPhyBEAST.jar hcv_coal.lphy
 Once the BEAST file (e.g. hcv_coal.xml) is generated, the next step is to run it in BEAST.
 You also need to make sue all required BEAST 2 packages (e.g. `outercore`) have been installed in your local computer.
 
-<figure class="image">
-  <img src="package.png" alt="Package manager">
-  <figcaption>A screenshot of Package Manager.</figcaption>
-</figure>
-
 Now run BEAST and when it asks for an input file, provide your newly created XML file as input. 
 BEAST will then run until it has finished reporting information to the screen. 
 The actual results files are save to the disk in the same location as your input file. 
@@ -355,17 +348,23 @@ Note that adding more dimensions adds a slight dip before the increase in the ef
 When comparing to the HPD intervals (Figure 12) we see that this dip is not significant and 
 may not be indicative of a real decrease in the effective population size before the subsequent increase.
 
- 
-Figure 13: Estimated mean effective population sizes using different dimensions.
+<figure class="image">
+  <img src="popsizes.png" alt="Package manager">
+  <figcaption>Estimated mean effective population sizes using different dimensions.</figcaption>
+</figure>
+
 
 
 The choice of the number of dimensions can also have a direct effect on how fast the MCMC converges (Figure 14). 
 The slower convergence with increasing dimension can be caused by e.g. less information in intervals. 
 To some extent it is simply caused by the need to estimate more parameters though.
 
- 
-Figure 14: The ESS value of the posterior after running an MCMC chain with 10<sup>7</sup> samples, 
-logged every 1,000 steps and a burnin of 10% for using different dimensions of the Coalescent Bayesian Skyline.
+<figure class="image">
+  <img src="posteriorESS.png" alt="Package manager">
+  <figcaption>The ESS value of the posterior after running an MCMC chain with 10<sup>7</sup> samples, 
+logged every 1,000 steps and a burnin of 10% for using different dimensions of the Coalescent Bayesian Skyline.</figcaption>
+</figure>
+
 
 
 ## Setting up the Birth-Death Skyline analysis
