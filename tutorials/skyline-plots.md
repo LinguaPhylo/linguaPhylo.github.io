@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Skyline plots
-author: 'Walter Xie and Alexei Drummond' 
+author: Walter
 permalink: /tutorials/skyline-plots/
 ---
 
@@ -165,9 +165,9 @@ Question: how to change the above LPhy scripts to use the classic Skyline coales
 Tips: by default all group sizes in SkylineCoalescent function are 1 which is equivalent to the classic skyline coalescent.
 ```
 
-### The Coalescent Bayesian Skyline parameterization
+### The parameterization
 
-Please read the section of "The Coalescent Bayesian Skyline parameterization" from 
+Please read the section of "The Coalescent Bayesian Skyline parameterization" and "Choosing the Dimension" from 
 Taming the BEAST tutorial [Skyline plots](https://taming-the-beast.org/tutorials/Skyline-plots/).
 
 ```
@@ -176,6 +176,8 @@ Question:
 1. how to choose the dimension for the Coalescent Bayesian Skyline?
 
 2. what are the alternative models to deal with this dimension problem?
+
+3. how does the number of dimensions of effective population sizes affect the result?
 ```
 
 ### LinguaPhylo
