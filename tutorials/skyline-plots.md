@@ -122,6 +122,7 @@ The nucleotide equilibrium state frequencies _π_ are estimated here.
 Additionally, we allow for rate heterogeneity among sites. 
 We do this by approximating the continuous rate distribution (for each site in the alignment) with a discretized gamma probability distribution (mean = 1), 
 where the number of bins in the discretization `ncat = 4` (normally between 4 and 6).
+We are going to estimate the _shape_ parameter in this analysis.
 
 As explained in (Yang, 2006), the shape parameter α is inversely related to the extent of rate variation at sites. 
 If α > 1, the distribution is bell-shaped, meaning that most sites have intermediate rates around 1, while few sites have either very low or very high rates. 
@@ -136,6 +137,7 @@ but there are some substitution hotspots with high rates.
   as a result, the density involves only the shape parameters α. 
   The x-axis is the substitution rate, while the y-axis is proportional to the number of sites with that rate.</figcaption>
 </figure>
+
 
 The sequences were all sampled in 1993 so we are dealing with a homochronous alignment and do not need to specify tip dates.
 
