@@ -133,7 +133,7 @@ If α ≤ 1, the distribution has a highly skewed L-shape, meaning that most sit
 but there are some substitution hotspots with high rates. 
 
 <figure class="image">
-  <img src="LinguaPhyloStudio.png" alt="discretized gamma">
+  <img src="DiscGamma.png" alt="discretized gamma">
   <figcaption>(Yang, 2006) Fig. 1.6: Probability density function of the gamma distribution for variable rates among sites. 
   The scale parameter of the distribution is fixed so that the mean is 1; 
   as a result, the density involves only the shape parameters α. 
@@ -321,7 +321,7 @@ the age of the youngest tip is the time when the most recent sample was collecte
 Press **OK** to reconstruct the past population dynamics.
 
 <figure class="image">
-  <img src="BSA.png" alt="Reconstructing the Bayesian Skyline plot">
+  <img src="BSAnalysis.png" alt="Reconstructing the Bayesian Skyline plot">
   <figcaption>Reconstructing the Bayesian Skyline plot in Tracer.</figcaption>
 </figure>
 
