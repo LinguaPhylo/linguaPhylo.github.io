@@ -1,7 +1,8 @@
 ---
 layout: page
-title: Skyline plots
-author: Walter
+title: Skyline plots part 1
+subtitle: 'The coalescent Bayesian skyline plots'
+author: 'Walter and Alexei'
 permalink: /tutorials/skyline-plots/
 ---
 
@@ -14,7 +15,8 @@ It is non-parametric since there is no underlying system of differential equatio
 
 In this tutorial we will look at two different methods to infer these dynamics from sequence data. 
 The first one is the Coalescent Bayesian Skyline plot (Drummond, Rambaut, Shapiro, & Pybus, 2005), 
-which is based on the coalescent model, and the second one is the Birth-Death Skyline plot (Stadler, Kuhnert, Bonhoeffer, & Drummond, 2013) based on the birth-death model. 
+which is based on the coalescent model, and the second one is the Birth-Death Skyline plot 
+(Stadler, Kuhnert, Bonhoeffer, & Drummond, 2013) based on the birth-death model. 
 The conceptual difference between coalescent and birth-death approaches lies in the direction of the flow of time. 
 In the coalescent, the time is modeled to go backwards, from present to past, while in the birth-death approach it is modeled to go forwards. 
 Two other fundamental differences are the parameters that are inferred and the way sampling is treated.
@@ -120,8 +122,23 @@ That means that the transition probabilities between e.g. **A** and **T** will b
 however transition probabilities from **A** to **C** will be the same as **C** to **A** etc. 
 The nucleotide equilibrium state frequencies _π_ are estimated here.
 
-TODO how to map rates dimension to A C G T? by integer?
+Additionally, we allow for rate heterogeneity among sites. 
+We do this by approximating the continuous rate distribution (for each site in the alignment) with a discretized gamma probability distribution (mean = 1), 
+where the number of bins in the discretization `ncat = 4` (normally between 4 and 6).
 
+As explained in (Yang, 2006), the shape parameter α is then inversely related to the extent of rate variation at sites (Fig. 1.6). 
+If α > 1, the distribution is bell-shaped, meaning that most sites have intermediate rates around 1, while few sites have either very low or very high rates. 
+In particular, when α → ∞, the distribution degenerates into the model of a single rate for all sites. 
+If α ≤ 1, the distribution has a highly skewed L-shape, meaning that most sites have very low rates of substitution or are nearly 'invariable', 
+but there are some substitution hotspots with high rates. 
+
+<figure class="image">
+  <img src="LinguaPhyloStudio.png" alt="discretized gamma">
+  <figcaption>Fig. 1.6 Probability density function of the gamma distribution for variable rates among sites. 
+  The scale parameter of the distribution is fixed so that the mean is 1; 
+  as a result, the density involves only the shape parameters α. 
+  The x-axis is the substitution rate, while the y-axis is proportional to the number of sites with that rate.</figcaption>
+</figure>
 
 The sequences were all sampled in 1993 so we are dealing with a homochronous alignment and do not need to specify tip dates.
 
@@ -135,7 +152,8 @@ So, let's set the clock rate _mu_ to 0.00079 s/s/y
 In addition, we define the priors for the following parameters:
 1. the vector of effective population sizes _Θ_;  
 2. the relative rates of the GTR process _rates_; 
-3. the base frequencies _π_. 
+3. the base frequencies _π_;
+4. the shape of the discretized gamma distribution _shape_.
 
 Here we setup a Markov chain of effective population sizes using `ExpMarkovChain`, 
 and apply a `LogNormal` distribution to the mean of the exponential from which the first value of the chain is drawn.
@@ -150,12 +168,14 @@ model {
   rates ~ Dirichlet(conc=[1.0, 2.0, 1.0, 1.0, 2.0, 1.0]);
   Q = gtr(freq=π, rates=rates);
 
-  initialMean ~ LogNormal(meanlog=-3.0, sdlog=1.0);
-  Θ ~ ExpMarkovChain(initialMean=initialMean, n=numGroups);
+  firstValue ~ LogNormal(meanlog=9.0, sdlog=2.0);
+  Θ ~ ExpMarkovChain(firstValue=firstValue, n=numGroups);
   groupSizes ~ RandomComposition(n=w, k=numGroups);
   ψ ~ SkylineCoalescent(theta=Θ, taxa=taxa, groupSizes=groupSizes);
 
-  D ~ PhyloCTMC(L=L, Q=Q, tree=ψ, mu=0.00079);
+  shape ~ LogNormal(meanlog=0.0, sdlog=2.0);
+  siteRates ~ DiscretizeGamma(shape=shape, ncat=4, reps=L);
+  D ~ PhyloCTMC(siteRates=siteRates, Q=Q, tree=ψ, mu=0.00079);
 }
 ```
 
@@ -163,21 +183,6 @@ model {
 Question: how to change the above LPhy scripts to use the classic Skyline coalescent?
 
 Tips: by default all group sizes in SkylineCoalescent function are 1 which is equivalent to the classic skyline coalescent.
-```
-
-### The parameterization
-
-Please read the section of "The Coalescent Bayesian Skyline parameterization" and "Choosing the Dimension" from 
-Taming the BEAST tutorial [Skyline plots](https://taming-the-beast.org/tutorials/Skyline-plots/).
-
-```
-Question: 
-
-1. how to choose the dimension for the Coalescent Bayesian Skyline?
-
-2. what are the alternative models to deal with this dimension problem?
-
-3. how does the number of dimensions of effective population sizes affect the result?
 ```
 
 ### LinguaPhylo
@@ -203,7 +208,7 @@ After you make sure both the data file `hcv.nex` and the LPhy scripts `hcv_coal.
 preferred in the same folder, you can run the following command line in your terminal.
 
 ```
-java -jar LPhyBEAST.jar hcv_coal.lphy
+java -jar LPhyBEAST.jar -l 40000000 hcv_coal.lphy
 ```
 
 
@@ -252,9 +257,10 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-File: hcv_coal.xml seed: 1604462460351 threads: 2
+
+File: hcv_coal.xml seed: 1605149965228 threads: 2
 Loading package SSM v1.1.0
-Loading package outercore v0.0.3
+Loading package outercore v0.0.4
 Loading package BEAST v2.6.3
 Loading package feast v7.5.0
 Loading package BEASTLabs v1.9.5
@@ -262,22 +268,22 @@ Loading package BEASTLabs v1.9.5
     ...
 
     ...
-       47500000         0.2026         0.3099         0.2335         0.2538         0.0622         0.3509         0.0581         0.0379         0.4294         0.0613              1              1             12             48        24.4728       224.6929      1397.2524      4954.6297       191.0069     -6762.8167      -495.8627     -7258.6795 39s/Msamples
-       50000000         0.2051         0.3011         0.2264         0.2673         0.0594         0.3462         0.0603         0.0444         0.4277         0.0618              1              2             13             46        62.6926       491.7482      3243.8585      4914.8743       164.3254     -6773.3078      -497.8963     -7271.2042 39s/Msamples
+       38000000         0.1869         0.3096         0.2329         0.2704         0.0507         0.3462         0.0686         0.0216         0.4753         0.0372         0.3565              9             22             22              9      3378.5678       854.0057       142.1376       311.4791     -6642.4068     -6163.8252      -478.5815 1m18s/Msamples
+       40000000         0.2025         0.3337         0.2202         0.2434         0.0474         0.3398         0.0639         0.0267         0.4794         0.0426         0.3401             10             11             30             11     10123.8192      1084.3743       109.4661       180.0131     -6639.6725     -6173.3816      -466.2909 1m18s/Msamples
 
 Operator                                            Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                         0.31726     262086     840119    0.02201    0.23778 
-DeltaExchangeOperator(groupSizes.deltaExchange)    3.43966      52572     847160    0.01800    0.05843 Try setting delta to about 1
-ScaleOperator(initialMean.scale)                   0.26446     117537     299482    0.00834    0.28185 
-DeltaExchangeOperator(pi.deltaExchange)            0.07929     146944     752809    0.01800    0.16332 
-Exchange(psi.narrowExchange)                             -    2051891    5446150    0.14993    0.27366 
-ScaleOperator(psi.rootAgeScale)                    0.71734      64469     352913    0.00834    0.15446 
-ScaleOperator(psi.scale)                           0.82721    1740768    5759278    0.14993    0.23210 
-SubtreeSlide(psi.subtreeSlide)                     6.92260    3844937    3649605    0.14993    0.51303 Try increasing size to about 13.845
-Uniform(psi.uniform)                                     -    2729289    4766356    0.14993    0.36412 
-Exchange(psi.wideExchange)                               -      31183    7464073    0.14993    0.00416 
-WilsonBalding(psi.wilsonBalding)                         -      42916    7450467    0.14993    0.00573 
-DeltaExchangeOperator(rates.deltaExchange)         0.13496      92018    1194979    0.02573    0.07150 Try setting delta to about 0.067
+ScaleOperator(Theta.scale)                         0.28866     231949     650369    0.02201    0.26289 
+DeltaExchangeOperator(groupSizes.deltaExchange)    3.56191     156224     563888    0.01800    0.21694 
+DeltaExchangeOperator(pi.deltaExchange)            0.07410     141834     578582    0.01800    0.19688 
+Exchange(psi.narrowExchange)                             -    2445602    3550044    0.14993    0.40790 
+ScaleOperator(psi.rootAgeScale)                    0.61922      52494     281016    0.00834    0.15740 
+ScaleOperator(psi.scale)                           0.71280    1395832    4600588    0.14993    0.23278 
+SubtreeSlide(psi.subtreeSlide)                    39.30440     848596    5144516    0.14993    0.14160 
+Uniform(psi.uniform)                                     -    2404299    3592791    0.14993    0.40091 
+Exchange(psi.wideExchange)                               -      51825    5945086    0.14993    0.00864 
+WilsonBalding(psi.wilsonBalding)                         -      86203    5914844    0.14993    0.01436 
+DeltaExchangeOperator(rates.deltaExchange)         0.07831     132447     897292    0.02573    0.12862 
+ScaleOperator(shape.scale)                         0.63566      82106     251574    0.00834    0.24606 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -286,18 +292,18 @@ DeltaExchangeOperator(rates.deltaExchange)         0.13496      92018    1194979
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 2004.832 seconds
-End likelihood: -7271.20424761115
+Total calculation time: 3112.102 seconds
+End likelihood: -6639.672594349279
 ```
 
 ## Analysing the BEAST output
 
 Because we shortened the chain most parameters have very low ESS values. 
 If you like, you can compare your results with the example results we obtained with identical settings and 
-a chain of 30,000,000 (hcv\_coal\_30M.log).
+a chain of 40,000,000 (hcv\_coal\.log).
 
 <figure class="image">
-  <img src="short.png" alt="The trace of short run">
+  <img src="TreeHeight.png" alt="Tracer">
   <figcaption>A screenshot of Tracer.</figcaption>
 </figure>
 
@@ -324,7 +330,8 @@ By default, the y-axis is on a log-scale.
 If everything worked as it is supposed to work you will see a sharp increase in the effective population size in the mid 20th century, 
 similar to what is seen below.
 
-Note that the reconstruction will only work if the *.log and *.trees files contain the same number of states and both files were logged at the same frequency.
+Note that the reconstruction will only work if the *.log and *.trees files contain the same number of states 
+and both files were logged at the same frequency.
 
 <figure class="image">
   <img src="BSplot.png" alt="Coalescent Bayesian Skyline plot">
@@ -341,42 +348,22 @@ The exported file will have five rows, the time, the mean, median, lower and upp
 which you can use to plot the data with other software (R, Matlab, etc).
 
 
-### Choosing the Dimension
+### The parameterization and choosing the dimension
 
-If we compare the estimates of the population dynamics using different dimensions, 
-we see that most of the dynamics are already captured with having only 2 dimensions, as shown in Figure 13. 
-Adding more dimensions only changes the inferred effective population size before 1900. 
-Note that adding more dimensions adds a slight dip before the increase in the effective population size (around 1900). 
-When comparing to the HPD intervals (Figure 12) we see that this dip is not significant and 
-may not be indicative of a real decrease in the effective population size before the subsequent increase.
-
-<figure class="image">
-  <img src="popsizes.png" alt="Package manager">
-  <figcaption>Estimated mean effective population sizes using different dimensions.</figcaption>
-</figure>
+Please read the section of "The Coalescent Bayesian Skyline parameterization" and "Choosing the Dimension" from 
+Taming the BEAST tutorial [Skyline plots](https://taming-the-beast.org/tutorials/Skyline-plots/).
 
 
-
-The choice of the number of dimensions can also have a direct effect on how fast the MCMC converges (Figure 14). 
-The slower convergence with increasing dimension can be caused by e.g. less information in intervals. 
-To some extent it is simply caused by the need to estimate more parameters though.
-
-<figure class="image">
-  <img src="posteriorESS.png" alt="Package manager">
-  <figcaption>The ESS value of the posterior after running an MCMC chain with 10<sup>7</sup> samples, 
-logged every 1,000 steps and a burnin of 10% for using different dimensions of the Coalescent Bayesian Skyline.</figcaption>
-</figure>
-
-
-
-## Setting up the Birth-Death Skyline analysis
-
-TODO
 
 ### Questions
 
-Do the Birth-Death Skyline results agree with the Coalescent Bayesian Skyline results? 
-How would your conclusions from the two analyses differ? (Hint: Use R to plot the results from both analyses).
+```
+1. how to choose the dimension for the Coalescent Bayesian Skyline?
+
+2. what are the alternative models to deal with this dimension problem?
+
+3. how does the number of dimensions of effective population sizes affect the result?
+```
 
 ## Some considerations for using skyline plots
 
@@ -392,8 +379,6 @@ Instead a structured model should then be used to account for these biases.
 Bayesian Evolutionary Analysis with BEAST 2 (Drummond & Bouckaert, 2014)
 BEAST 2 website and documentation: http://www.beast2.org/
 Join the BEAST user discussion: http://groups.google.com/group/beast-users
-[bdskytools](https://github.com/laduplessis/bdskytools): An R-package for post-processing Birth-Death Skyline analyses
-[TreeSlicer](https://github.com/laduplessis/skylinetools/wiki/TreeSlicer): A BEAST2 package (in development) that makes it easier to specify complex change-point times using BDSKY
 
 ## Relevant References
 
