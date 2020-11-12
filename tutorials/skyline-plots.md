@@ -179,8 +179,10 @@ model {
 }
 ```
 
+### Questions
+
 ```
-Question: how to change the above LPhy scripts to use the classic Skyline coalescent?
+1. how to change the above LPhy scripts to use the classic Skyline coalescent?
 
 Tips: by default all group sizes in SkylineCoalescent function are 1 which is equivalent to the classic skyline coalescent.
 ```
