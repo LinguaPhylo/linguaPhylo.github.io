@@ -126,7 +126,7 @@ Additionally, we allow for rate heterogeneity among sites.
 We do this by approximating the continuous rate distribution (for each site in the alignment) with a discretized gamma probability distribution (mean = 1), 
 where the number of bins in the discretization `ncat = 4` (normally between 4 and 6).
 
-As explained in (Yang, 2006), the shape parameter α is then inversely related to the extent of rate variation at sites (Fig. 1.6). 
+As explained in (Yang, 2006), the shape parameter α is inversely related to the extent of rate variation at sites (Fig. 1.6). 
 If α > 1, the distribution is bell-shaped, meaning that most sites have intermediate rates around 1, while few sites have either very low or very high rates. 
 In particular, when α → ∞, the distribution degenerates into the model of a single rate for all sites. 
 If α ≤ 1, the distribution has a highly skewed L-shape, meaning that most sites have very low rates of substitution or are nearly 'invariable', 
@@ -134,7 +134,7 @@ but there are some substitution hotspots with high rates.
 
 <figure class="image">
   <img src="LinguaPhyloStudio.png" alt="discretized gamma">
-  <figcaption>Fig. 1.6 Probability density function of the gamma distribution for variable rates among sites. 
+  <figcaption>(Yang, 2006) Fig. 1.6: Probability density function of the gamma distribution for variable rates among sites. 
   The scale parameter of the distribution is fixed so that the mean is 1; 
   as a result, the density involves only the shape parameters α. 
   The x-axis is the substitution rate, while the y-axis is proportional to the number of sites with that rate.</figcaption>
