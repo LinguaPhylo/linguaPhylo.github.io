@@ -59,7 +59,7 @@ We will try to infer this increase from sequence data.
 
 <figure class="image">
   <img src="Estimated_number_hcv.png" alt="The growth of the effective population size of the Hepatitis C epidemic in Egypt">
-  <figcaption>Figure 1: The growth of the effective population size of the Hepatitis C epidemic in Egypt (Pybus, Drummond, Nakano, Robertson, & Rambaut, 2003).</figcaption>
+  <figcaption>Figure 1: the growth of the effective population size of the Hepatitis C epidemic in Egypt (Pybus, Drummond, Nakano, Robertson, & Rambaut, 2003).</figcaption>
 </figure>
 
 
@@ -96,7 +96,7 @@ these concepts in the figure below:
 
 <figure class="image">
   <img src="BS1.png" alt="Bayesian Skyline">
-  <figcaption>The classic and generalized Coalescent Bayesian Skyline plots</figcaption>
+  <figcaption>Figure 2: the classic and generalized Coalescent Bayesian Skyline plots</figcaption>
 </figure>
 
 <ol type="a">
@@ -110,9 +110,6 @@ where `n` is the number of sampled individuals.
 In the generalized skyline plot, changes in effective population size coincide with some, but not necessarily all, coalescent events. 
 The resulting stepwise function has `m − 1` change points (`1 ≤ m ≤ n−1`) and `m` effective population sizes.
 
-```
-Question: what does `numGroups = 4` and `w` define according to the figure above?
-```
 
 ### Constructing the model block in LinguaPhylo
 
@@ -126,7 +123,7 @@ Additionally, we allow for rate heterogeneity among sites.
 We do this by approximating the continuous rate distribution (for each site in the alignment) with a discretized gamma probability distribution (mean = 1), 
 where the number of bins in the discretization `ncat = 4` (normally between 4 and 6).
 
-As explained in (Yang, 2006), the shape parameter α is inversely related to the extent of rate variation at sites (Fig. 1.6). 
+As explained in (Yang, 2006), the shape parameter α is inversely related to the extent of rate variation at sites. 
 If α > 1, the distribution is bell-shaped, meaning that most sites have intermediate rates around 1, while few sites have either very low or very high rates. 
 In particular, when α → ∞, the distribution degenerates into the model of a single rate for all sites. 
 If α ≤ 1, the distribution has a highly skewed L-shape, meaning that most sites have very low rates of substitution or are nearly 'invariable', 
@@ -134,7 +131,7 @@ but there are some substitution hotspots with high rates.
 
 <figure class="image">
   <img src="DiscGamma.png" alt="discretized gamma">
-  <figcaption>(Yang, 2006) Fig. 1.6: Probability density function of the gamma distribution for variable rates among sites. 
+  <figcaption>Figure 3: (Yang 2006, Fig. 1.6) Probability density function of the gamma distribution for variable rates among sites. 
   The scale parameter of the distribution is fixed so that the mean is 1; 
   as a result, the density involves only the shape parameters α. 
   The x-axis is the substitution rate, while the y-axis is proportional to the number of sites with that rate.</figcaption>
@@ -182,7 +179,9 @@ model {
 ### Questions
 
 ```
-1. how to change the above LPhy scripts to use the classic Skyline coalescent?
+1. what does `numGroups = 4` and `w` define according to the Figure 2 (the classic and generalized Coalescent Bayesian Skyline plots)?
+
+2. how to change the above LPhy scripts to use the classic Skyline coalescent?
 
 Tips: by default all group sizes in SkylineCoalescent function are 1 which is equivalent to the classic skyline coalescent.
 ```
@@ -194,7 +193,7 @@ You can also look at the value, including alignment or tree, by simply clicking 
 
 <figure class="image">
   <img src="LinguaPhyloStudio.png" alt="LinguaPhyloStudio">
-  <figcaption>The Screenshot of LinguaPhylo Studio</figcaption>
+  <figcaption>Figure 4: the Screenshot of LinguaPhylo Studio</figcaption>
 </figure>
 
 Tips: the example file `hcv_coal.lphy` is also available. Looking for the menu `File` and then `Examples`, 
@@ -306,7 +305,7 @@ a chain of 40,000,000 (hcv\_coal\.log).
 
 <figure class="image">
   <img src="TreeHeight.png" alt="Tracer">
-  <figcaption>A screenshot of Tracer.</figcaption>
+  <figcaption>Figure 5: a screenshot of Tracer.</figcaption>
 </figure>
 
 
@@ -324,7 +323,7 @@ Press **OK** to reconstruct the past population dynamics.
 
 <figure class="image">
   <img src="BSAnalysis.png" alt="Reconstructing the Bayesian Skyline plot">
-  <figcaption>Reconstructing the Bayesian Skyline plot in Tracer.</figcaption>
+  <figcaption>Figure 6: reconstructing the Bayesian Skyline plot in Tracer.</figcaption>
 </figure>
 
 The output will have the years on the x-axis and the effective population size on the y-axis. 
@@ -337,7 +336,7 @@ and both files were logged at the same frequency.
 
 <figure class="image">
   <img src="BSplot.png" alt="Coalescent Bayesian Skyline plot">
-  <figcaption>Coalescent Bayesian Skyline analysis output. 
+  <figcaption>Figure 7: coalescent Bayesian Skyline analysis output. 
   The black line is the median estimate of the estimated effective population size (can be changed to the mean estimate). 
   The two blue lines are the upper and lower bounds of the 95% HPD interval. 
   The x-axis is the time in years and the y-axis is on a log-scale.</figcaption>
