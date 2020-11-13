@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    {% if page.subtitle %}
+    <h2 class="post-subtitle">{{ page.subtitle | escape }}</h2>
+    {% endif %}
+
+<!-- Output author details if some exist. -->
+{% if page.author %}
+    <span>
+        <!-- Personal Info. -->
+        <p>by {{ page.author }}</p>
+    </span>
+{% endif %}
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+</article>
+

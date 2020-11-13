@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Time-stamped data
-author: 'Walter Xie and Alexei Drummond' 
+author: 'Walter Xie and Alexei Drummond'
 permalink: /tutorials/time-stamped-data/
 ---
 

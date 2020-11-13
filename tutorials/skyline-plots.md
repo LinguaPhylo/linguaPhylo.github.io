@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Skyline plots part 1
+title: Skyline Plots Part 1
 subtitle: 'The coalescent Bayesian skyline plots'
-author: 'Walter and Alexei'
+author: 'Walter Xie and Alexei Drummond'
 permalink: /tutorials/skyline-plots/
 ---
 
