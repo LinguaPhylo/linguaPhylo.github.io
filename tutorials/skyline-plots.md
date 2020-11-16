@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Skyline Plots Part 1
-subtitle: 'The coalescent Bayesian skyline plots'
+title: Bayesian Skyline Plots
 author: 'Walter Xie and Alexei Drummond'
 permalink: /tutorials/skyline-plots/
 ---
@@ -13,13 +12,8 @@ the shape of the tree contains some information about past population dynamics.
 The so-called Skyline methods allow to extract this information from phylogenetic trees in a non-parametric manner. 
 It is non-parametric since there is no underlying system of differential equations governing the inference of these dynamics. 
 
-In this tutorial we will look at two different methods to infer these dynamics from sequence data. 
-The first one is the Coalescent Bayesian Skyline plot (Drummond, Rambaut, Shapiro, & Pybus, 2005), 
-which is based on the coalescent model, and the second one is the Birth-Death Skyline plot 
-(Stadler, Kuhnert, Bonhoeffer, & Drummond, 2013) based on the birth-death model. 
-The conceptual difference between coalescent and birth-death approaches lies in the direction of the flow of time. 
-In the coalescent, the time is modeled to go backwards, from present to past, while in the birth-death approach it is modeled to go forwards. 
-Two other fundamental differences are the parameters that are inferred and the way sampling is treated.
+In this tutorial we will look at a popular coalescent method, 
+the Coalescent Bayesian Skyline plot (Drummond, Rambaut, Shapiro, & Pybus, 2005), to infer these dynamics from sequence data. 
 
 The following software will be used in this tutorial:
 
@@ -370,7 +364,9 @@ Taming the BEAST tutorial [Skyline plots](https://taming-the-beast.org/tutorials
 
 ## Some considerations for using skyline plots
 
-Both the coalescent and the birth-death skylines assume that the population is well-mixed. 
+In the coalescent, the time is modeled to go backwards, from present to past.
+
+The coalescent skylines assume that the population is well-mixed. 
 That is, they assume that there is no significant population structure and that the sequences are a random sample from the population. 
 However, if there is population structure, 
 for instance sequences were sampled from two different villages and there is much more contact within than between villages, 
@@ -386,7 +382,6 @@ Join the BEAST user discussion: http://groups.google.com/group/beast-users
 ## Relevant References
 
 * Drummond, A. J., Rambaut, A., Shapiro, B., & Pybus, O. G. (2005). Bayesian coalescent inference of past population dynamics from molecular sequences. Molecular Biology and Evolution, 22(5), 1185–1192. https://doi.org/10.1093/molbev/msi103
-* Stadler, T., Kuhnert, D., Bonhoeffer, S., & Drummond, A. J. (2013). Birth-death skyline plot reveals temporal changes of epidemic spread in HIV and hepatitis C virus (HCV). Proceedings of the National Academy of Sciences, 110(1), 228–233. https://doi.org/10.1073/pnas.1207965110
 * Bouckaert, R., Heled, J., Kühnert, D., Vaughan, T., Wu, C.-H., Xie, D., … Drummond, A. J. (2014). BEAST 2: a software platform for Bayesian evolutionary analysis. PLoS Computational Biology, 10(4), e1003537. https://doi.org/10.1371/journal.pcbi.1003537
 * Bouckaert, R., Vaughan, T. G., Barido-Sottani, J., Duchêne, S., Fourment, M., Gavryushkina, A., … Drummond, A. J. (2019). BEAST 2.5: An advanced software platform for Bayesian evolutionary analysis. PLOS Computational Biology, 15(4).
 * Ray, S. Ê. C., Arthur, R. Ê. R., Carella, A., Bukh, J., & Thomas, D. Ê. L. (2000). Genetic Epidemiology of Hepatitis C Virus throughout Egypt. The Journal of Infectious Diseases, 182(3), 698–707. https://doi.org/10.1086/315786
