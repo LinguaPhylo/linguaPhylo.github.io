@@ -105,7 +105,7 @@ So, we define the priors for the following parameters:
 2. the general clock rate _clockRate_ 
 3. the relative substitution rates _mu_ which has 3 dimensions;
 4. the transition/transversion ratio _kappa_ which also has 3 dimensions;
-5. the base frequencies _pi0_, _pi1_, and _pi2_. 
+5. the base frequencies _pi_. 
 
 The benefit of using 3 relative substitution rates here instead of 3 clock rates is that we could use the DeltaExchangeOperator
 to these relative rates in the MCMC sampling to help the converagence.
