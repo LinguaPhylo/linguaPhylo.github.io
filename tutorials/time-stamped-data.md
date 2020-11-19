@@ -209,7 +209,7 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1604351815445
+Random number seed: 1605734997100
 
 Loading package outercore v0.0.2
 Loading package BEAST v2.6.3
@@ -219,25 +219,25 @@ Loading package BEASTLabs v1.9.5
     ...
 
     ...
-         950000         0.4356         0.2557         0.0979         0.2106         9.2069         2.3817         1.9275         0.6596         0.8792         1.4594         0.0021        39.4713         0.3258         0.4043         0.1045         0.1652         0.3525         0.3588         0.0750         0.2135     -5478.1747     -6077.4442      -599.2694 1m48s/Msamples
-        1000000         0.5169         0.2383         0.0990         0.1456         8.7778         1.3571         3.7831         0.6944         0.9176         1.3864         0.0022        41.4335         0.2924         0.4086         0.0971         0.2016         0.2956         0.4024         0.0686         0.2332     -5473.1158     -6066.4592      -593.3433 1m48s/Msamples
+         950000     -6066.3841     -5464.1113      -602.2727         0.4956         0.2378         0.0943         0.1721         0.3483         0.4046         0.0790         0.1678         0.3153         0.4048         0.0801         0.1996        10.2997         2.5663         1.5605         0.6697         0.8994         1.4292         0.0023        47.7226 1m51s/Msamples
+        1000000     -6058.5269     -5479.9038      -578.6231         0.5062         0.2636         0.0811         0.1488         0.3011         0.4092         0.1039         0.1856         0.2994         0.4148         0.1009         0.1846         8.9580         4.0912         4.3381         0.6225         1.0622         1.3134         0.0025        29.6362 1m51s/Msamples
 
 Operator                                       Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                    0.62309       1361       3188    0.00450    0.29919 
-ScaleOperator(clockRate.scale)                0.74084        854       3741    0.00450    0.18585 
-UpDownOperator(clockRateUppsiDownOperator)    0.96191       9130     126260    0.13497    0.06743 Try setting scaleFactor to about 0.981
-ScaleOperator(kappa.scale)                    0.30503       3169       6610    0.00970    0.32406 
-DeltaExchangeOperator(mu.deltaExchange)       0.30496       1633       5624    0.00730    0.22502 
-DeltaExchangeOperator(pi0.deltaExchange)      0.12657       1737       7987    0.00970    0.17863 
-DeltaExchangeOperator(pi1.deltaExchange)      0.12929       1597       8009    0.00970    0.16625 
-DeltaExchangeOperator(pi2.deltaExchange)      0.11330       1666       8078    0.00970    0.17098 
-Exchange(psi.narrowExchange)                        -      33755     100525    0.13424    0.25138 
-ScaleOperator(psi.rootAgeScale)               0.73972        571       3830    0.00450    0.12974 
-ScaleOperator(psi.scale)                      0.92067       3958     130897    0.13424    0.02935 Try setting scaleFactor to about 0.96
-SubtreeSlide(psi.subtreeSlide)                6.81331      12013     122157    0.13424    0.08954 Try decreasing size to about 3.407
-Uniform(psi.uniform)                                -      72067      61492    0.13424    0.53959 
-Exchange(psi.wideExchange)                          -        351     133668    0.13424    0.00262 
-WilsonBalding(psi.wilsonBalding)                    -        701     133372    0.13424    0.00523 
+ScaleOperator(Theta.scale)                    0.61510       1353       3190    0.00450    0.29782 
+ScaleOperator(clockRate.scale)                0.75756        934       3599    0.00450    0.20604 
+UpDownOperator(clockRateUppsiDownOperator)    0.95071       6424     128268    0.13497    0.04769 Try setting scaleFactor to about 0.975
+ScaleOperator(kappa.scale)                    0.30492       3271       6690    0.00970    0.32838 
+DeltaExchangeOperator(mu.deltaExchange)       0.30242       1657       5724    0.00730    0.22450 
+DeltaExchangeOperator(pi.0.deltaExchange)     0.15269       1376       8360    0.00970    0.14133 
+DeltaExchangeOperator(pi.1.deltaExchange)     0.13747       1510       8385    0.00970    0.15260 
+DeltaExchangeOperator(pi.2.deltaExchange)     0.11938       1519       8120    0.00970    0.15759 
+Exchange(psi.narrowExchange)                        -      33127     100727    0.13424    0.24749 
+ScaleOperator(psi.rootAgeScale)               0.80152        815       3654    0.00450    0.18237 
+ScaleOperator(psi.scale)                      0.92051       3669     130250    0.13424    0.02740 Try setting scaleFactor to about 0.959
+SubtreeSlide(psi.subtreeSlide)                3.74253      21291     112635    0.13424    0.15898 
+Uniform(psi.uniform)                                -      72100      62237    0.13424    0.53671 
+Exchange(psi.wideExchange)                          -        304     134440    0.13424    0.00226 
+WilsonBalding(psi.wilsonBalding)                    -        718     133654    0.13424    0.00534 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -246,8 +246,8 @@ WilsonBalding(psi.wilsonBalding)                    -        701     133372    0
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 109.514 seconds
-End likelihood: -6066.459203305355
+Total calculation time: 112.122 seconds
+End likelihood: -6058.52697695139
 ```
 
 ## Analysing the BEAST output
@@ -270,8 +270,8 @@ Here you can see how the samples are correlated.
 The default chain length of the MCMC is 1,000,000 in `LPhyBEAST`.
 There are 1800 samples in the trace after removing 10% burnin (we ran the MCMC for steps sampling every 500) 
 but adjacent samples often tend to have similar values. 
-The ESS for the absolute rate of evolution (clockRate) is about 43 so we are only getting 1 independent sample 
-to every 43 ~ 1800/42 actual samples). With a short run such as this one, 
+The ESS for the absolute rate of evolution (clockRate) is about 31 so we are only getting 1 independent sample 
+to every 31 ~ 1800/58 actual samples). With a short run such as this one, 
 it may also be the case that the default burn-in of 10% of the chain length is inadequate. 
 Not excluding enough of the start of the chain as burn-in will render estimates of ESS unreliable.
 
