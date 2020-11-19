@@ -8,4 +8,5 @@ permalink: /tutorials/
 
 * [Skyline plots](tutorials/skyline-plots.md)
 
+* [Structured coalescent](tutorials/structured-coalescent.md)
 
