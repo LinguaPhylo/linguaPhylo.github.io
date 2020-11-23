@@ -31,8 +31,8 @@ The following software will be used in this tutorial:
 * BEAST outercore package - this package of BEAST 2 has core features, but not in the core.
   You can install and use it following the instruction of [managing BEAST 2 packages](http://www.beast2.org/managing-packages/).
 * BEAST labs package - containing some generally useful stuff used by other packages.
-* BEAST feast package - this is a small BEAST 2 package which contains additions to the core functionality. 
-  You need install it separately following the instruction of [feast website](https://github.com/tgvaughan/feast).  
+* BEAST [feast](https://github.com/tgvaughan/feast) package - this is a small BEAST 2 package 
+  which contains additions to the core functionality. 
 * Tracer - this program is used to explore the output of BEAST (and other Bayesian MCMC programs). 
   It graphically and quantitively summarises the distributions of continuous parameters and provides diagnostic information. 
   At the time of writing, the current version is v1.7. It is available for download from [http://beast.community/tracer](http://beast.community/tracer).
@@ -65,6 +65,17 @@ In this case, the RSVA sequences have been sampled at various dates going back t
 The date of each sample is stored in the taxon name after the last little `s`. The numbers are years since 1900.
 We will use the regular expression `"s(\d+)$"` to extract these numbers and turn to ages. 
 In addition, the age direction should be set to the _forward_ in time for this analysis. 
+
+The LPhy `TimeTree` always take the ages. 
+But there are two different ways in how the meta data (e.g. in the Nexus file) can interpret sampling dates, 
+which are controlled by the age direction defined in LPhy `readNexus`. 
+If the sampling dates are __since some time in the past__, then we set `ageDirection="forward"` or `"dates"`.
+This is usually used for virus data. 
+If the sampling dates are __before the present__, then we set `ageDirection="backward"` or `"ages"`. 
+This is usually used for fossils data. 
+The easiest way to check if you have used the correct one is by clicking the graphical component `taxa` and checking the column `Age`. 
+If the setup is correct, the sequences sampled the most recently (i.e. 2002) 
+should have a `Age` of 0 while all other tips should be larger then 0.
 
 
 ### Constructing the data block in LinguaPhylo

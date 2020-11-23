@@ -26,8 +26,8 @@ The following software will be used in this tutorial:
 * BEAST labs package - containing some generally useful stuff used by other packages.
 * SSM (standard substitution models) package - containing the following standard time-reversible substitution models: 
   JC, F81, K80, HKY, TrNf, TrN, TPM1, TPM1f, TPM2, TPM2f, TPM3, TPM3f, TIM1, TIM1f, TIM2, TIM2f, TIM3 , TIM3f, TVMf, TVM, SYM, GTR.
-* BEAST feast package - this is a small BEAST 2 package which contains additions to the core functionality. 
-  You need install it separately following the instruction of [feast website](https://github.com/tgvaughan/feast).  
+* BEAST [feast](https://github.com/tgvaughan/feast) package - this is a small BEAST 2 package 
+  which contains additions to the core functionality. 
 * Tracer - this program is used to explore the output of BEAST (and other Bayesian MCMC programs). 
   It graphically and quantitively summarises the distributions of continuous parameters and provides diagnostic information. 
   At the time of writing, the current version is v1.7. It is available for download from [http://beast.community/tracer](http://beast.community/tracer).

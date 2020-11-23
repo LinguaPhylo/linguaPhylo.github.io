@@ -1,22 +1,29 @@
 ---
 layout: page
 title: Structured coalescent
-subtitle: Population structure using MultiTypeTree
+subtitle: MASCOT - parameter and state inference using the approximate structured coalescent
 author: 'Walter Xie and Alexei Drummond'
 permalink: /tutorials/structured-coalescent/
 ---
 
-This tutorial is modified from Taming the BEAST tutorial [Structured coalescent](https://taming-the-beast.org/tutorials/Structured-coalescent/).
+This tutorial is modified from Taming the BEAST [MASCOT Tutorial](https://taming-the-beast.org/tutorials/Mascot-Tutorial/).
 
 # Background
 
-Population dynamics can influence the shape of a tree. 
-Another thing that has strong influence on the shape of the tree is structure in a population. 
-This is the case as soon as sequences do not mix well, i.e. they cluster together. 
-One cause of this clustering is due to geography. Samples may not have been taken from the same geographic region, 
-leading to clustering of samples from the same region. This clustering of samples can bias the estimation of parameters. 
-The extension of the classic coalescent to the structured coalescent by allowing for migration between regions is trying 
-to circumvent this by allowing individual regions to have distinct coalescent rates and by allowing migration between those regions.
+Phylogeographic methods can help reveal the movement of genes between populations of organisms. 
+This has been widely used to quantify pathogen movement between different host populations, 
+the migration history of humans, and the geographic spread of languages or the gene flow between species 
+using the location or state of samples alongside sequence data. 
+Phylogenies therefore offer insights into migration processes not available from classic epidemiological or occurrence data alone.
+
+The structured coalescent allows to coherently model the migration and coalescent process, 
+but struggles with complex datasets due to the need to infer ancestral migration histories. 
+Thus, approximations to the structured coalescent, which integrate over all ancestral migration histories, have been developed. 
+This tutorial gives an introduction into how a MASCOT analysis in BEAST2 can be set-up. 
+MASCOT is short for __M__arginal __A__pproximation of the __S__tructured __C____O__alescen__T__ (Müller, Rasmussen, & Stadler, 2018) 
+and implements a structured coalescent approximation (Müller, Rasmussen, & Stadler, 2017). 
+This approximation doesn't require migration histories to be sampled using MCMC 
+and therefore allows to analyse phylogenies with more than three or four states.
 
 # Programs used in this Exercise
 
@@ -29,29 +36,35 @@ The following software will be used in this tutorial:
 * BEAST outercore package - this package of BEAST 2 has core features, but not in the core.
   You can install and use it following the instruction of [managing BEAST 2 packages](http://www.beast2.org/managing-packages/).
 * BEAST labs package - containing some generally useful stuff used by other packages.
-* BEAST feast package - this is a small BEAST 2 package which contains additions to the core functionality. 
-  You need install it separately following the instruction of [feast website](https://github.com/tgvaughan/feast).  
+* BEAST [feast](https://github.com/tgvaughan/feast) package - this is a small BEAST 2 package 
+  which contains additions to the core functionality. 
+* MASCOT package - Marginal approximation of the structured coalescent.
 * Tracer - this program is used to explore the output of BEAST (and other Bayesian MCMC programs). 
   It graphically and quantitively summarises the distributions of continuous parameters and provides diagnostic information. 
   At the time of writing, the current version is v1.7. It is available for download from [http://beast.community/tracer](http://beast.community/tracer).
 * FigTree - this is an application for displaying and printing molecular phylogenies, in particular those obtained using BEAST. 
   At the time of writing, the current version is v1.4.3. It is available for download from [http://beast.community/figtree](http://beast.community/figtree).
 
-# Practical: MultiTypeTree
+# Practical: Parameter and State inference using the approximate structured coalescent
 
 In this tutorial we will estimate migration rates, effective population sizes and locations of internal nodes 
-using the structured coalescent implemented in BEAST2, MultiTypeTree (Vaughan, Kühnert, Popinga, Welch, & Drummond, 2014).
+using the marginal approximation of the structured coalescent implemented in BEAST2, 
+MASCOT (Müller, Rasmussen, & Stadler, 2018).
+
+Instead of following the "traditional" BEAST pipeline, we will use LPhy to build the MASCOT model for the analysis,
+and then use LPhyBEAST to create the XML from the LPhy scripts.
 
 The aim is to:
 
 - Learn how to infer structure from trees with sampling location
 - Get to know how to choose the set-up of such an analysis
-- Get to know the advantages and disadvantages of working with structured trees
+- Learn how to read the output of a MASCOT analysis
 
 # The Data
 
-The dataset [h3n2_2deme.fna](https://github.com/taming-the-beast/Structured-coalescent/raw/master/data/h3n2_2deme.fna) 
-consists of 60 Influenza A/H3N2 sequences sampled in Hong Kong and in New Zealand between 2001 and 2005. 
+The dataset [H3N2.nexus](http://github.com/nicfel/Mascot-Tutorial/raw/master/data/H3N2.nexus) 
+consists of 24 Influenza A/H3N2 sequences (between 2000 and 2001) subsampled from the original dataset, 
+which are sampled in Hong Kong, New York and in New Zealand. 
 South-East Asia has been hypothesized to be a global source location of seasonal Influenza, 
 while more temperate regions such as New Zealand are assumed to be global sinks (missing reference), 
 meaning that Influenza strains are more likely to migrate from the tropic to the temperate regions then vice versa. 
@@ -61,21 +74,11 @@ We want to see if we can infer this source-sink dynamic from sequence data using
 ### Tip dates
 
 Since the sequences were sampled through time, we have to specify the sampling dates. 
-These are included in the sequence names after the last `_`. 
-To set the sampling dates, We will use the regular expression `"_(\d*\.\d+|\d+\.\d*)$"` to extract these decimal numbers and turn to ages. 
+These are included in the sequence names split by `|`. 
+To set the sampling dates, We will use the regular expression `".*\|.*\|(\d*\.\d+|\d+\.\d*)\|.*$"` 
+to extract these decimal numbers and turn to ages. 
 
-There are two different ways in how LPhy can interpret sampling dates, which are controlled by the age direction. 
-If the sampling dates are __since some time in the past__, then we set `ageDirection="forward"` or `"dates"`.
-This is usually used for virus data. 
-If the sampling dates are __before the present__, then we set `ageDirection="backward"` or `"ages"`. 
-This is usually used for fossils data. 
-The easiest way to check if you have used the correct one is by clicking the graphical component `taxa` and checking the column `Age`. 
-If the setup is correct, the sequences sampled the most recently (i.e. 2005.66) 
-should have a `Age` of 0 while all other tips should be larger then 0.
-
-```
-Question: what should the age direction be in this analysis?
-```
+How to set the age direction in LPhy is available in the [Time-stamped data](/tutorials/time-stamped-data###Tip_dates) tutorial.
 
 <figure class="image">
   <img src="ages.png" alt="ages">
@@ -86,9 +89,9 @@ Question: what should the age direction be in this analysis?
 ### Tip locations
 
 The main contrast in the setup to previous analyses is that we include additional information about the sampling location of sequences. 
-Sequences were taken from patients in Hong Kong and New Zealand. 
+Sequences were taken from patients in Hong Kong, New York and New Zealand. 
 We can specify these sampling locations by extracting them from taxa labels. 
-Use `split` to split the taxa names by the separator "_", and take the second group given `i=1` 
+Use `split` to split the taxa names by the separator `|`, and take the 4th group given `i=3` 
 where `i` is the index of split elements and starts from 0. 
 You can check the locations by clicking the graphical component `demes`. 
 
@@ -105,11 +108,11 @@ and type or copy and paste the following scripts into the console.
 
 ```
 data {
-  options = {ageDirection="forward", ageRegex="_(\d*\.\d+|\d+\.\d*)$"};
-  D = readFasta(file="examples/h3n2_2deme.fna", options=options);
-  taxa = taxa(D);
+  options = {ageDirection="forward", ageRegex=".*\|.*\|(\d*\.\d+|\d+\.\d*)\|.*$"};
+  D = readNexus(file="examples/h3n2.nexus", options=options);
+  taxa = D.taxa();
   L = nchar(D);
-  demes = split(str=D.getTaxaNames(), regex="_", i=1);
+  demes = split(str=D.getTaxaNames(), regex="\|", i=3);
 }
 ```
 
@@ -122,9 +125,35 @@ and cannot be used as the variable name.
 This block is to define and also describe your models and parameters used in the Bayesian phylogenetic analysis.
 Therefore, your results could be reproduced by other researchers using the same model. 
 
-In this analysis, we will use three HKY models with estimated frequencies for each of three partitions, 
-and share the strict clock model and a Kingman coalescent tree generative distribution across partitions. 
-But we are also interested about the relative substitution rate for each of three partitions.
+In this analysis, we will use three HKY models with estimated frequencies. 
+We allow for rate heterogeneity among sites by approximating the continuous rate distribution (for each site in the alignment) 
+with a discretized gamma probability distribution (mean = 1), 
+where the number of bins in the discretization `ncat = 4` (normally between 4 and 6).
+The _shape_ parameter will be estimated in this analysis. 
+More details can be seen in the [Bayesian Skyline Plots](/tutorials/skyline-plots###Constructing_the_model_block_in_LinguaPhylo) tutorial. 
+
+Next, we set the priors for MASCOT. 
+First, consider the effective population size parameter. 
+Since we have only a few samples per location, meaning little information about the different effective population sizes, 
+we will need an informative prior. In this case we will use a log normal prior with parameters M=0 and S=1. 
+(These are respectively the mean and variance of the corresponding normal distribution in log space.) 
+To use this prior, choose "Log Normal" from the dropdown menu to the right of the Ne.t:H3N2 parameter label, 
+then click the arrow to the left of the same label and fill in the parameter values appropriately (i.e. M=0 and S=1). 
+Ensure that the "mean in real space" checkbox remains unchecked.
+
+The existing exponential distribution as a prior on the migration rate puts much weight on lower values while not prohibiting larger ones. 
+For migration rates, a prior that prohibits too large values while not greatly distinguishing 
+between very small and very very small values is generally a good choice. 
+Be aware however that the exponential distribution is quite an informative prior: 
+one should be careful that to choose a mean so that feasible rates are at least within the 95% HPD interval of the prior. 
+(This can be determined by clicking the arrow to the left of the parameter name and 
+looking at the values below the graph that appears on the right.)
+
+Finally, set the prior for the clock rate. We have a good idea about the clock rate of Influenza A/H3N2 Hemagglutinin. 
+From previous work by other people, we know that the clock rate will be around 0.005 substitution per site per year. 
+To include that prior knowledger, we can set the prior on the clock rate to a log normal distribution. 
+If we set `meanlog=-5.298` and `sdlog=0.25`, then we expect the clock rate to be with 95% certainty between 0.00306 and 0.00816.
+
 
 So, we define the priors for the following parameters:
 1. the effective population size _Θ_;  
@@ -146,24 +175,24 @@ and type or copy and paste the following scripts into the console.
 
 ```
 model {
-  κ ~ LogNormal(meanlog=1.0, sdlog=0.5);
+  κ ~ LogNormal(meanlog=1.0, sdlog=1.25);
   π ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
 
   shape ~ LogNormal(meanlog=0.0, sdlog=2.0);
   siteRates ~ DiscretizeGamma(shape=shape, ncat=4, reps=L);
 
-  // 0.005 substitutions * site-1 * year-1 is closer to the truth
-  clockRate ~ LogNormal(meanlog=-5.3, sdlog=0.25);
+  // 0.005 substitutions * site^{-1} * year^{-1} is closer to the truth
+  clockRate ~ LogNormal(meanlog=-5.298, sdlog=0.25);
 
   // two population sizes
-  Θ ~ LogNormal(meanlog=-3.0, sdlog=1.0, n=2);
+  Θ ~ LogNormal(meanlog=0.0, sdlog=1.0, n=3);
   // m01 and m10 migration rates backwards in time
-  m ~ LogNormal(meanlog=0.0, sdlog=1.0, n=2);
+  m ~ LogNormal(meanlog=-1.0, sdlog=1.5, n=6);
   M = migrationMatrix(theta=Θ, m=m);
-  ψ ~ StructuredCoalescent(M=M, taxa=taxa, demes=demes);
-  C = countMigrations(tree=ψ);
+  tree ~ StructuredCoalescent(M=M, taxa=taxa, demes=demes);
+  rootAge = tree.rootAge();
 
-  D ~ PhyloCTMC(siteRates=siteRates, Q=hky(kappa=κ, freq=π), mu=clockRate, tree=ψ);
+  D ~ PhyloCTMC(siteRates=siteRates, Q=hky(kappa=κ, freq=π), mu=clockRate, tree=tree);
 }
 ```
 
