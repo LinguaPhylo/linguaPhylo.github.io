@@ -78,7 +78,7 @@ These are included in the sequence names split by `|`.
 To set the sampling dates, We will use the regular expression `".*\|.*\|(\d*\.\d+|\d+\.\d*)\|.*$"` 
 to extract these decimal numbers and turn to ages. 
 
-How to set the age direction in LPhy is available in the [Time-stamped data](/tutorials/time-stamped-data###Tip_dates) tutorial.
+How to set the age direction in LPhy is available in the [Time-stamped data](/tutorials/time-stamped-data###Tip-dates) tutorial.
 
 <figure class="image">
   <img src="ages.png" alt="ages">
@@ -130,7 +130,7 @@ We allow for rate heterogeneity among sites by approximating the continuous rate
 with a discretized gamma probability distribution (mean = 1), 
 where the number of bins in the discretization `ncat = 4` (normally between 4 and 6).
 The _shape_ parameter will be estimated in this analysis. 
-More details can be seen in the [Bayesian Skyline Plots](/tutorials/skyline-plots###Constructing_the_model_block_in_LinguaPhylo) tutorial. 
+More details can be seen in the [Bayesian Skyline Plots](/tutorials/skyline-plots###Constructing-the-model-block-in-LinguaPhylo) tutorial. 
 
 Next, we set the priors for MASCOT. 
 First, consider the effective population size parameter. 
