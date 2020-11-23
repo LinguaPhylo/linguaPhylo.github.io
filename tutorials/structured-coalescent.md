@@ -20,7 +20,7 @@ The structured coalescent allows to coherently model the migration and coalescen
 but struggles with complex datasets due to the need to infer ancestral migration histories. 
 Thus, approximations to the structured coalescent, which integrate over all ancestral migration histories, have been developed. 
 This tutorial gives an introduction into how a MASCOT analysis in BEAST2 can be set-up. 
-MASCOT is short for __M__arginal __A__pproximation of the __S__tructured __C____O__alescen__T__ (Müller, Rasmussen, & Stadler, 2018) 
+MASCOT is short for **M**arginal **A**pproximation of the **S**tructured **C****O**alescen**T** (Müller, Rasmussen, & Stadler, 2018) 
 and implements a structured coalescent approximation (Müller, Rasmussen, & Stadler, 2017). 
 This approximation doesn't require migration histories to be sampled using MCMC 
 and therefore allows to analyse phylogenies with more than three or four states.
@@ -78,7 +78,7 @@ These are included in the sequence names split by `|`.
 To set the sampling dates, We will use the regular expression `".*\|.*\|(\d*\.\d+|\d+\.\d*)\|.*$"` 
 to extract these decimal numbers and turn to ages. 
 
-How to set the age direction in LPhy is available in the [Time-stamped data](/tutorials/time-stamped-data###Tip-dates) tutorial.
+How to set the age direction in LPhy is available in the [Time-stamped data](/tutorials/time-stamped-data/#tip-dates) tutorial.
 
 <figure class="image">
   <img src="ages.png" alt="ages">
@@ -128,27 +128,25 @@ Therefore, your results could be reproduced by other researchers using the same 
 In this analysis, we will use three HKY models with estimated frequencies. 
 We allow for rate heterogeneity among sites by approximating the continuous rate distribution (for each site in the alignment) 
 with a discretized gamma probability distribution (mean = 1), 
-where the number of bins in the discretization `ncat = 4` (normally between 4 and 6).
+where the number of bins in the discretization `ncat = 4`.
 The _shape_ parameter will be estimated in this analysis. 
-More details can be seen in the [Bayesian Skyline Plots](/tutorials/skyline-plots###Constructing-the-model-block-in-LinguaPhylo) tutorial. 
+More details can be seen in the [Bayesian Skyline Plots](/tutorials/skyline-plots/#constructing-the-model-block-in-LinguaPhylo) tutorial. 
 
-Next, we set the priors for MASCOT. 
+Next, we are going to set the priors for MASCOT. 
 First, consider the effective population size parameter. 
 Since we have only a few samples per location, meaning little information about the different effective population sizes, 
-we will need an informative prior. In this case we will use a log normal prior with parameters M=0 and S=1. 
+we will need an informative prior. 
+In this case we will use a log normal prior with parameters M=0 and S=1. 
 (These are respectively the mean and variance of the corresponding normal distribution in log space.) 
-To use this prior, choose "Log Normal" from the dropdown menu to the right of the Ne.t:H3N2 parameter label, 
-then click the arrow to the left of the same label and fill in the parameter values appropriately (i.e. M=0 and S=1). 
-Ensure that the "mean in real space" checkbox remains unchecked.
 
-The existing exponential distribution as a prior on the migration rate puts much weight on lower values while not prohibiting larger ones. 
 For migration rates, a prior that prohibits too large values while not greatly distinguishing 
 between very small and very very small values is generally a good choice. 
-Be aware however that the exponential distribution is quite an informative prior: 
-one should be careful that to choose a mean so that feasible rates are at least within the 95% HPD interval of the prior. 
-(This can be determined by clicking the arrow to the left of the parameter name and 
-looking at the values below the graph that appears on the right.)
+We will need an informative prior, such as log normal with `meanlog=-2` and `sdlog=2`. 
+Then we expect the migration rates to be with 95% certainty between 0.00268 and 6.820 at the mean of 0.135.
 
+A more in depth explanation of what backwards migration really are can be found in the
+[Peter Beerli's blog post](http://popgen.sc.fsu.edu/Migrate/Blog/Entries/2013/3/22_forward-backward_migration_rates.html).
+ 
 Finally, set the prior for the clock rate. We have a good idea about the clock rate of Influenza A/H3N2 Hemagglutinin. 
 From previous work by other people, we know that the clock rate will be around 0.005 substitution per site per year. 
 To include that prior knowledger, we can set the prior on the clock rate to a log normal distribution. 
@@ -156,11 +154,12 @@ If we set `meanlog=-5.298` and `sdlog=0.25`, then we expect the clock rate to be
 
 
 So, we define the priors for the following parameters:
-1. the effective population size _Θ_;  
-2. the general clock rate _clockRate_ 
-3. the relative substitution rates _mu_ which has 3 dimensions;
-4. the transition/transversion ratio _kappa_ which also has 3 dimensions;
-5. the base frequencies _pi_. 
+1. three effective population sizes _Θ_;  
+2. six migration rates backwards in time _m_;
+3. the general clock rate _clockRate_;
+4. the transition/transversion ratio _κ_;
+5. the base frequencies _π_;
+6. the shape of the discretized gamma distribution _shape_.
 
 The benefit of using 3 relative substitution rates here instead of 3 clock rates is that we could use the DeltaExchangeOperator
 to these relative rates in the MCMC sampling to help the converagence.
@@ -184,10 +183,10 @@ model {
   // 0.005 substitutions * site^{-1} * year^{-1} is closer to the truth
   clockRate ~ LogNormal(meanlog=-5.298, sdlog=0.25);
 
-  // two population sizes
+  // 3 population sizes
   Θ ~ LogNormal(meanlog=0.0, sdlog=1.0, n=3);
-  // m01 and m10 migration rates backwards in time
-  m ~ LogNormal(meanlog=-1.0, sdlog=1.5, n=6);
+  // 6 migration rates backwards in time
+  m ~ LogNormal(meanlog=-2.0, sdlog=2.0, n=6);
   M = migrationMatrix(theta=Θ, m=m);
   tree ~ StructuredCoalescent(M=M, taxa=taxa, demes=demes);
   rootAge = tree.rootAge();
@@ -206,32 +205,27 @@ You can also look at the value, including alignment or tree, by simply clicking 
   <figcaption>The Screenshot of LinguaPhylo Studio</figcaption>
 </figure>
 
-Tips: the example file `RSV2.lphy` is also available. Looking for the menu `File` and then `Examples`, 
+Tips: the example file `h3n2.lphy` is also available. Looking for the menu `File` and then `Examples`, 
 you can find it and load the scripts after clicking. 
 
 
 ## Producing BEAST XML using LPhyBEAST
 
-When we are happy with the analysis defined by this set of LPhy scripts, we save them into a file named `RSV2.lphy`.  
+When we are happy with the analysis defined by this set of LPhy scripts, we save them into a file named `h3n2.lphy`.  
 Then, we can use another software called `LPhyBEAST` to produce BEAST XML from these scripts, 
 which is released as a Java jar file.
-After you make sure both the data file `RSV2.nex` and the LPhy scripts `RSV2.lphy` are ready, 
+After you make sure both the data file `h3n2.nex` and the LPhy scripts `h3n2.lphy` are ready, 
 preferred in the same folder, you can run the following command line in your terminal.
 
 ```
-java -jar LPhyBEAST.jar RSV2.lphy
+java -jar LPhyBEAST.jar -l 30000000 h3n2.lphy
 ```
 
 
 ## Running BEAST
 
-Once the BEAST file (e.g. RSV2.xml) is generated, the next step is to run it in BEAST.
+Once the BEAST file (e.g. h3n2.xml) is generated, the next step is to run it in BEAST.
 You also need to make sue all required BEAST 2 packages (e.g. `outercore`) have been installed in your local computer.
-
-<figure class="image">
-  <img src="package.png" alt="Package manager">
-  <figcaption>A screenshot of Package Manager.</figcaption>
-</figure>
 
 Now run BEAST and when it asks for an input file, provide your newly created XML file as input. 
 BEAST will then run until it has finished reporting information to the screen. 
@@ -273,35 +267,36 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1604351815445
+Random number seed: 1606174389417
 
-Loading package outercore v0.0.2
+File: h3n2.xml seed: 1606174389417 threads: 1
+Loading package outercore v0.0.4
 Loading package BEAST v2.6.3
-Loading package feast v7.4.1
+Loading package feast v7.5.0
+Loading package Mascot v2.1.2
 Loading package BEASTLabs v1.9.5
 
     ...
 
     ...
-         950000         0.4356         0.2557         0.0979         0.2106         9.2069         2.3817         1.9275         0.6596         0.8792         1.4594         0.0021        39.4713         0.3258         0.4043         0.1045         0.1652         0.3525         0.3588         0.0750         0.2135     -5478.1747     -6077.4442      -599.2694 1m48s/Msamples
-        1000000         0.5169         0.2383         0.0990         0.1456         8.7778         1.3571         3.7831         0.6944         0.9176         1.3864         0.0022        41.4335         0.2924         0.4086         0.0971         0.2016         0.2956         0.4024         0.0686         0.2332     -5473.1158     -6066.4592      -593.3433 1m48s/Msamples
+        2850000     -1974.9657     -1921.4038       -53.5618         0.3303         0.2231         0.2082         0.2381         4.5134         0.0022         0.2856         0.0087         0.1491         0.0975         0.2378         0.6089         0.0497         0.6483         3.0780         2.5027 1m17s/Msamples
+        3000000     -1996.6892     -1919.3855       -77.3037         0.3551         0.2256         0.1980         0.2212         6.5590         0.0018         0.1641         0.2777         0.0270         0.0306         0.0187         1.2333         0.1555         6.9278         5.1715         0.6822 1m17s/Msamples
 
-Operator                                       Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                    0.62309       1361       3188    0.00450    0.29919 
-ScaleOperator(clockRate.scale)                0.74084        854       3741    0.00450    0.18585 
-UpDownOperator(clockRateUppsiDownOperator)    0.96191       9130     126260    0.13497    0.06743 Try setting scaleFactor to about 0.981
-ScaleOperator(kappa.scale)                    0.30503       3169       6610    0.00970    0.32406 
-DeltaExchangeOperator(mu.deltaExchange)       0.30496       1633       5624    0.00730    0.22502 
-DeltaExchangeOperator(pi0.deltaExchange)      0.12657       1737       7987    0.00970    0.17863 
-DeltaExchangeOperator(pi1.deltaExchange)      0.12929       1597       8009    0.00970    0.16625 
-DeltaExchangeOperator(pi2.deltaExchange)      0.11330       1666       8078    0.00970    0.17098 
-Exchange(psi.narrowExchange)                        -      33755     100525    0.13424    0.25138 
-ScaleOperator(psi.rootAgeScale)               0.73972        571       3830    0.00450    0.12974 
-ScaleOperator(psi.scale)                      0.92067       3958     130897    0.13424    0.02935 Try setting scaleFactor to about 0.96
-SubtreeSlide(psi.subtreeSlide)                6.81331      12013     122157    0.13424    0.08954 Try decreasing size to about 3.407
-Uniform(psi.uniform)                                -      72067      61492    0.13424    0.53959 
-Exchange(psi.wideExchange)                          -        351     133668    0.13424    0.00262 
-WilsonBalding(psi.wilsonBalding)                    -        701     133372    0.13424    0.00523 
+Operator                                        Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+ScaleOperator(Theta.scale)                     0.21477      25071      61640    0.02879    0.28913 
+ScaleOperator(clockRate.scale)                 0.53036       9939      29679    0.01334    0.25087 
+UpDownOperator(clockRateUptreeDownOperator)    0.86111      42568     327482    0.12343    0.11503 
+ScaleOperator(kappa.scale)                     0.31947      11828      28370    0.01334    0.29424 
+ScaleOperator(m.scale)                         0.16055      40320      99709    0.04677    0.28794 
+DeltaExchangeOperator(pi.deltaExchange)        0.08482      16773      70169    0.02879    0.19292 
+ScaleOperator(shape.scale)                     0.16543      12133      27780    0.01334    0.30399 
+Exchange(tree.narrowExchange)                        -     139296     220657    0.11981    0.38698 
+ScaleOperator(tree.rootAgeScale)               0.59653       6230      33947    0.01334    0.15506 
+ScaleOperator(tree.scale)                      0.81634      27272     332129    0.11981    0.07588 Try setting scaleFactor to about 0.904
+SubtreeSlide(tree.subtreeSlide)                1.46156      73316     286293    0.11981    0.20388 
+Uniform(tree.uniform)                                -     213333     145310    0.11981    0.59483 
+Exchange(tree.wideExchange)                          -       6916     352817    0.11981    0.01923 
+WilsonBalding(tree.wilsonBalding)                    -      10814     348210    0.11981    0.03012 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -310,103 +305,54 @@ WilsonBalding(psi.wilsonBalding)                    -        701     133372    0
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 109.514 seconds
-End likelihood: -6066.459203305355
+Total calculation time: 233.738 seconds
+End likelihood: -1996.6892843895118
 ```
 
 ## Analysing the BEAST output
 
-Note that the effective sample sizes (ESSs) for many of the logged quantities are small 
-(ESSs less than 100 will be highlighted in red by Tracer). This is not good. 
-A low ESS means that the trace contains a lot of correlated samples and thus may not represent the posterior distribution well. 
-In the bottom right of the window is a frequency plot of the samples which is expected given the low ESSs is extremely rough.
-
-If we select the tab on the right-hand-side labelled Trace we can view the raw trace, that is, 
-the sampled values against the step in the MCMC chain.
+First, we can open the *.log file in tracer to check if the MCMC has converged. 
+The ESS value should be above 200 for almost all values and especially for the posterior estimates.
 
 <figure class="image">
-  <img src="short.png" alt="The trace of short run">
-  <figcaption>A screenshot of Tracer.</figcaption>
+  <img src="posterior.png" alt="Tracer">
+  <figcaption>Check if the posterior converged.</figcaption>
 </figure>
 
 
-Here you can see how the samples are correlated. 
-The default chain length of the MCMC is 1,000,000 in `LPhyBEAST`.
-There are 1800 samples in the trace after removing 10% burnin (we ran the MCMC for steps sampling every 500) 
-but adjacent samples often tend to have similar values. 
-The ESS for the absolute rate of evolution (clockRate) is about 43 so we are only getting 1 independent sample 
-to every 43 ~ 1800/42 actual samples). With a short run such as this one, 
-it may also be the case that the default burn-in of 10% of the chain length is inadequate. 
-Not excluding enough of the start of the chain as burn-in will render estimates of ESS unreliable.
-
-The simple response to this situation is that we need to run the chain for longer. 
-So let’s go for a chain length of 15,000,000 but keep logging the same number of sample (2,000). 
-
-Question: what is the logging frequency (logEvery) now?
-
-
-You could run `LPhyBEAST` with the `-l` argument again to create a new XML:
-
-```
-java -jar LPhyBEAST.jar -l 15000000 -o RSV2long.xml RSV2.lphy
-```
-
-or manually edit the XML at the following lines:
-
-```
-<run id="MCMC" spec="MCMC" chainLength="15000000" preBurnin="1480">
-
-<logger id="Logger" spec="Logger" logEvery="750000">
-
-<logger id="Logger1" spec="Logger" fileName="RSV2long.log" logEvery="7500">
-
-<logger id="psi.treeLogger" spec="Logger" fileName="RSV2long.trees" logEvery="7500">
-```
-
-Now run BEAST and load the new log file into Tracer (you can leave the old one loaded for comparison).
-
-Click on the Trace tab and look at the raw trace plot.
+We can have a look at the marginal posterior distributions for the effective population sizes. 
+New York is inferred to have the largest effective population size before Hong Kong and New Zealand. 
+This tells us that two lineages that are in New Zealand are expected to coalesce quicker than two lineages in Hong Kong or New York.
 
 <figure class="image">
-  <img src="long.png" alt="The trace of long run">
-  <figcaption>A screenshot of Tracer.</figcaption>
+  <img src="popsize.png" alt="The trace of long run">
+  <figcaption>Compare the different inferred effective population sizes.</figcaption>
 </figure>
 
-After running the analysis long enough in MCMC, we have the 1800 samples after removing 10% burnin, 
-but with an ESS of each estimated parameter > 200. 
-There is still auto-correlation between the samples, 
-but > 200 effectively independent samples will now provide a very good estimate of the posterior distribution. 
-There are no obvious trends in the plot which would suggest that the MCMC has not yet converged, 
-and there are no significant long range fluctuations in the trace which would suggest poor mixing.
-
-As we are satisfied with the mixing we can now move on to one of the parameters of interest: substitution rate. 
-Select clockRate in the left-hand table. This is the average substitution rate across all sites in the alignment. 
-Now choose the density plot by selecting the tab labeled Marginal Density. 
-This shows a plot of the marginal posterior probability density of this parameter. 
-You should see a plot similar to this:
+In this example, we have relatively little information about the effective population sizes of each location. 
+This can lead to estimates that are greatly informed by the prior. 
+Additionally, there can be great differences between median and mean estimates. 
+The median estimates are generally more reliable since they are less influence by extreme values.
 
 <figure class="image">
-  <img src="clockRate.png" alt="marginal density">
-  <figcaption>The marginal density in Tracer.</figcaption>
+  <img src="popsize2.png" alt="marginal density">
+  <figcaption>Differences between mean and median estimates.</figcaption>
+</figure>
+
+We can then look at the inferred migration rates. 
+The migration rates have the label b_migration.*, meaning that they are backwards in time migration rates. 
+The highest rates are from New York to Hong Kong. Because they are backwards in time migration rates, 
+this means that lineages from New York are inferred to be likely from Hong Kong if we're going backwards in time. 
+In the inferred phylogenies, we should therefore make the observation that lineages ancestral to samples from New York 
+are inferred to be from Hong Kong backwards.
+
+<figure class="image">
+  <img src="migrationRates.png" alt="relative substitution rates">
+  <figcaption>Compare the inferred migration rates.</figcaption>
 </figure>
 
 
-As you can see the posterior probability density is roughly bell-shaped. 
-There is some sampling noise which would be reduced if we ran the chain for longer or 
-sampled more often but we already have a good estimate of the mean and HPD interval. 
-You can overlay the density plots of multiple traces in order to compare them 
-(it is up to the user to determine whether they are comparable on the the same axis or not). 
-Select the relative substitution rates for all three codon positions in the table to the left 
-(labelled mu.0, mu.1 and mu.2). 
-You will now see the posterior probability densities for the relative substitution rate at all three codon positions overlaid:
-
-<figure class="image">
-  <img src="mu.png" alt="relative substitution rates">
-  <figcaption>The posterior probability densities for the relative substitution rates.</figcaption>
-</figure>
-
-
-## Summarising the trees
+## Make the MCC tree using TreeAnnotator
 
 Use the program TreeAnnotator to summarise the tree. TreeAnnotator is an application that comes with BEAST.
 
@@ -416,35 +362,57 @@ Use the program TreeAnnotator to summarise the tree. TreeAnnotator is an applica
 </figure>
 
 
+## Check the MCC tree using FigTree
+
 Summary trees can be viewed using FigTree (a program separate from BEAST) and DensiTree (distributed with BEAST).
 
 <figure class="image">
-  <img src="RSV2.tree.svg" alt="MCC tree">
-  <figcaption>The Maximum clade credibility tree for the G gene of 129 RSVA-2 viral samples.</figcaption>
+  <img src="tree.svg" alt="MCC tree">
+  <figcaption>Inferred node locations.</figcaption>
 </figure>
 
+We can now determine if lineages ancestral to samples from New York are actually inferred to be from Hong Kong, 
+or the probability of the root being in any of the locations.
 
-Below a DensiTree with clade height bars for clades with over 50% support. Root canal tree represents maximum clade credibility tree.
+To get the actual inferred probabilities of each node being in any of the 3 locations, 
+you can go to `Node Labels >> Display` an then choose Hong_Kong, New_York or New_Zealand. 
+These are the actual inferred probabilities of the nodes being in any location.
 
-<figure class="image">
-  <img src="DensiTree.png" alt="MCC tree">
-  <figcaption>The posterior tree set visualised in DensiTree.</figcaption>
-</figure>
+It should however be mentioned that the inference of nodes being in a particular location makes some simplifying assumptions, 
+such as that there are no other locations (i.e. apart from the sampled locations) where lineages could have been.
+
+Another important thing to know is that currently, we assume rates to be constant. 
+This means that we assume that the population size of the different locations does not change over time. 
+We also make the same assumption about the migration rates through time.
 
 
-### Questions
+## Errors that can occur (Work in progress)
+One of the errors message that can occur regularly is the following: `too many iterations, return negative infinity`. 
+This occurs when the integration step size of the ODE's 
+to compute the probability of observing a phylogenetic tree in MASCOT is becoming too small. 
+This generally occurs if at least one migration rate is really large or at least one effective population size is really small 
+(i.e. the coalescent rate is really high). 
+This causes integration steps to be extremely small, 
+which in turn would require a lot of time to compute the probability of a phylogenetic tree under MASCOT. 
+Instead of doing that, this state is rejected by assigning its log probability the value negative infinity.
 
-In what year did the common ancestor of all RSVA viruses sampled live? What is the 95% HPD?
+This error can have different origins and a likely incomplete list is the following: 1. The priors on migration rates put too much weight on really high rates. To fix this, reconsider your priors on the migration rates. Particularly, check if the prior on the migration rates make sense in comparison to the height of the tree. If, for example, the tree has a height of 1000 years, but the prior on the migration rate is exponential with mean 1, then the prior assumption is that between any two states, we expected approximately 1000 migration events. 2. The prior on the effective population sizes is too low, meaning that the prior on the coalescent rates (1 over the effective population size) is too high. This can for example occur when the prior on the effective population size was chosen to be 1/X. To fix, reconsider your prior on the effective population size. 3. There is substantial changes of the effective population sizes and/or migration rates over time that are not modeled. In that case, changes in the effective population sizes or migration rates have to be explained by population structure, which can again lead to some effective population sizes being very low and some migration rates being very high. In that case, there is unfortunately not much that can be done, since MASCOT is not an appropriate model for the dataset. 4. There is strong subpopulation structure within the different subpopulations used. In that case, reconsider if the individual sub-populations used are reasonable.
 
 
 ## Useful Links
 
-Bayesian Evolutionary Analysis with BEAST 2 (Drummond & Bouckaert, 2014)
-BEAST 2 website and documentation: http://www.beast2.org/
-Join the BEAST user discussion: http://groups.google.com/group/beast-users
+If you interested in the derivations of the marginal approximation of the structured coalescent, 
+you can find them here (Müller, Rasmussen, & Stadler, 2017). 
+This paper also explains the mathematical differences to other methods such as the theory underlying BASTA. 
+To get a better idea of how the states of internal nodes are calculated, have a look in this paper (Müller, Rasmussen, & Stadler, 2018).
+
+* MASCOT source code: https://github.com/nicfel/Mascot
+* LinguaPhylo: https://linguaphylo.github.io*
+* BEAST 2 website and documentation: http://www.beast2.org/
+* Join the BEAST user discussion: http://groups.google.com/group/beast-users
 
 ## Relevant References
 
-* Zlateva, K. T., Lemey, P., Vandamme, A.-M., & Van Ranst, M. (2004). Molecular evolution and circulation patterns of human respiratory syncytial virus subgroup a: positively selected sites in the attachment g glycoprotein. J Virol, 78(9), 4675–4683.
-* Zlateva, K. T., Lemey, P., Moës, E., Vandamme, A.-M., & Van Ranst, M. (2005). Genetic variability and molecular evolution of the human respiratory syncytial virus subgroup B attachment G protein. J Virol, 79(14), 9157–9167. https://doi.org/10.1128/JVI.79.14.9157-9167.2005
+* Müller, N. F., Rasmussen, D., & Stadler, T. (2018). MASCOT: Parameter and state inference under the marginal structured coalescent approximation. Bioinformatics, bty406. https://doi.org/10.1093/bioinformatics/bty406
+* Müller, N. F., Rasmussen, D. A., & Stadler, T. (2017). The Structured Coalescent and its Approximations. Molecular Biology and Evolution, msx186.
 * Drummond, A. J., & Bouckaert, R. R. (2014). Bayesian evolutionary analysis with BEAST 2. Cambridge University Press.

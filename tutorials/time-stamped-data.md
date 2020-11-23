@@ -113,7 +113,7 @@ But we are also interested about the relative substitution rate for each of thre
 
 So, we define the priors for the following parameters:
 1. the effective population size _Θ_;  
-2. the general clock rate _clockRate_ 
+2. the general clock rate _clockRate_;
 3. the relative substitution rates _mu_ which has 3 dimensions;
 4. the transition/transversion ratio _kappa_ which also has 3 dimensions;
 5. the base frequencies _pi_. 
@@ -176,7 +176,7 @@ Once the BEAST file (e.g. RSV2.xml) is generated, the next step is to run it in 
 You also need to make sue all required BEAST 2 packages (e.g. `outercore`) have been installed in your local computer.
 
 <figure class="image">
-  <img src="package.png" alt="Package manager">
+  <img src="outercore.png" alt="Package manager">
   <figcaption>A screenshot of Package Manager.</figcaption>
 </figure>
 
@@ -386,9 +386,9 @@ In what year did the common ancestor of all RSVA viruses sampled live? What is t
 
 ## Useful Links
 
-Bayesian Evolutionary Analysis with BEAST 2 (Drummond & Bouckaert, 2014)
-BEAST 2 website and documentation: http://www.beast2.org/
-Join the BEAST user discussion: http://groups.google.com/group/beast-users
+* LinguaPhylo: https://linguaphylo.github.io
+* BEAST 2 website and documentation: http://www.beast2.org/
+* Join the BEAST user discussion: http://groups.google.com/group/beast-users
 
 ## Relevant References
 

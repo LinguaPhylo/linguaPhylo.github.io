@@ -375,9 +375,9 @@ Instead a structured model should then be used to account for these biases.
 
 ## Useful Links
 
-Bayesian Evolutionary Analysis with BEAST 2 (Drummond & Bouckaert, 2014)
-BEAST 2 website and documentation: http://www.beast2.org/
-Join the BEAST user discussion: http://groups.google.com/group/beast-users
+* LinguaPhylo: https://linguaphylo.github.io
+* BEAST 2 website and documentation: http://www.beast2.org/
+* Join the BEAST user discussion: http://groups.google.com/group/beast-users
 
 ## Relevant References
 
