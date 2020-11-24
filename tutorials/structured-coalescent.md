@@ -130,7 +130,7 @@ We allow for rate heterogeneity among sites by approximating the continuous rate
 with a discretized gamma probability distribution (mean = 1), 
 where the number of bins in the discretization `ncat = 4`.
 The _shape_ parameter will be estimated in this analysis. 
-More details can be seen in the [Bayesian Skyline Plots](/tutorials/skyline-plots/#constructing-the-model-block-in-LinguaPhylo) tutorial. 
+More details can be seen in the [Bayesian Skyline Plots](/tutorials/skyline-plots/#constructing-the-model-block-in-linguaphylo) tutorial. 
 
 Next, we are going to set the priors for MASCOT. 
 First, consider the effective population size parameter. 
