@@ -362,7 +362,14 @@ Use the program TreeAnnotator to summarise the tree. TreeAnnotator is an applica
 
 ## Check the MCC tree using FigTree
 
-Summary trees can be viewed using FigTree (a program separate from BEAST) and DensiTree (distributed with BEAST).
+In each logging step of the tree during the MCMC, MASCOT logs several different things. 
+It logs the inferred probability of each node being in any possible location. 
+In this example, these would be the inferred probabilities of being in Hong Kong, New York and New Zealand. 
+Additonally, it logs the most likely location of each node.
+
+After opening the MCC tree in FigTree, we can visualize several things. 
+To color branches, you can go to `Appearance >> Colour` by and select `max`. 
+This is the location that was inferred to be most often the most likely location of the node.
 
 <figure class="image">
   <img src="tree.svg" alt="MCC tree">
