@@ -398,7 +398,8 @@ We also make the same assumption about the migration rates through time.
 1. How to decide the dimensions of effective population sizes 
    and migration rates respectively in an analysis? 
 
-2. How to interpret the backwards migration rates? 
+2. How to interpret the differences among the effective population sizes? 
+   How to interpret the backwards migration rates? 
 
 3. How to determine the inferred locations of ancestral lineages? 
    What assumptions are made on this result?
