@@ -338,7 +338,7 @@ The median estimates are generally more reliable since they are less influence b
 </figure>
 
 We can then look at the inferred migration rates. 
-The migration rates have the label b_migration.*, meaning that they are backwards in time migration rates. 
+The migration rates have the label `b_m.*`, meaning that they are backwards in time migration rates. 
 The highest rates are from New York to Hong Kong. Because they are backwards in time migration rates, 
 this means that lineages from New York are inferred to be likely from Hong Kong if we're going backwards in time. 
 In the inferred phylogenies, we should therefore make the observation that lineages ancestral to samples from New York 
