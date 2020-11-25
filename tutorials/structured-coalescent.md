@@ -82,7 +82,7 @@ How to set the age direction in LPhy is available in the [Time-stamped data](/tu
 
 <figure class="image">
   <img src="ages.png" alt="ages">
-  <figcaption>The ages of tips</figcaption>
+  <figcaption>Figure 1: The ages of tips</figcaption>
 </figure>
 
 
@@ -202,7 +202,7 @@ You can also look at the value, including alignment or tree, by simply clicking 
 
 <figure class="image">
   <img src="LinguaPhyloStudio.png" alt="LinguaPhyloStudio">
-  <figcaption>The Screenshot of LinguaPhylo Studio</figcaption>
+  <figcaption>Figure 2: The Screenshot of LinguaPhylo Studio</figcaption>
 </figure>
 
 Tips: the example file `h3n2.lphy` is also available. Looking for the menu `File` and then `Examples`, 
@@ -314,7 +314,7 @@ The ESS value should be above 200 for almost all values and especially for the p
 
 <figure class="image">
   <img src="posterior.png" alt="Tracer">
-  <figcaption>Check if the posterior converged.</figcaption>
+  <figcaption>Figure 3: Check if the posterior converged.</figcaption>
 </figure>
 
 
@@ -322,9 +322,11 @@ We can have a look at the marginal posterior distributions for the effective pop
 New York is inferred to have the largest effective population size before Hong Kong and New Zealand. 
 This tells us that two lineages that are in New Zealand are expected to coalesce quicker than two lineages in Hong Kong or New York.
 
+Tips: you can click the `Setup...` button to adjust the view range of X-axis.
+
 <figure class="image">
   <img src="popsize.png" alt="The trace of long run">
-  <figcaption>Compare the different inferred effective population sizes.</figcaption>
+  <figcaption>Figure 4: Compare the different inferred effective population sizes.</figcaption>
 </figure>
 
 In this example, we have relatively little information about the effective population sizes of each location. 
@@ -334,7 +336,7 @@ The median estimates are generally more reliable since they are less influence b
 
 <figure class="image">
   <img src="popsize2.png" alt="marginal density">
-  <figcaption>Differences between mean and median estimates.</figcaption>
+  <figcaption>Figure 5: Differences between mean and median estimates.</figcaption>
 </figure>
 
 We can then look at the inferred migration rates. 
@@ -346,7 +348,7 @@ are inferred to be from Hong Kong backwards.
 
 <figure class="image">
   <img src="migrationRates.png" alt="relative substitution rates">
-  <figcaption>Compare the inferred migration rates.</figcaption>
+  <figcaption>Figure 6: Compare the inferred migration rates.</figcaption>
 </figure>
 
 
@@ -356,7 +358,7 @@ Use the program TreeAnnotator to summarise the tree. TreeAnnotator is an applica
 
 <figure class="image">
   <img src="TreeAnnotator.png" alt="TreeAnnotator">
-  <figcaption>TreeAnnotator for creating a summary tree from a posterior tree set.</figcaption>
+  <figcaption>Figure 7: TreeAnnotator for creating a summary tree from a posterior tree set.</figcaption>
 </figure>
 
 
@@ -373,7 +375,7 @@ This is the location that was inferred to be most often the most likely location
 
 <figure class="image">
   <img src="tree.svg" alt="MCC tree">
-  <figcaption>Inferred node locations.</figcaption>
+  <figcaption>Figure 8: Inferred node locations.</figcaption>
 </figure>
 
 We can now determine if lineages ancestral to samples from New York are actually inferred to be from Hong Kong, 
@@ -390,6 +392,17 @@ Another important thing to know is that currently, we assume rates to be constan
 This means that we assume that the population size of the different locations does not change over time. 
 We also make the same assumption about the migration rates through time.
 
+## Questions
+
+```
+1. How to decide the dimensions of effective population sizes 
+   and migration rates respectively in an analysis? 
+
+2. How to interpret the backwards migration rates? 
+
+3. How to determine the inferred locations of ancestral lineages? 
+   What assumptions are made on this result?
+```
 
 ## Errors that can occur (Work in progress)
 One of the errors message that can occur regularly is the following: `too many iterations, return negative infinity`. 
@@ -401,7 +414,21 @@ This causes integration steps to be extremely small,
 which in turn would require a lot of time to compute the probability of a phylogenetic tree under MASCOT. 
 Instead of doing that, this state is rejected by assigning its log probability the value negative infinity.
 
-This error can have different origins and a likely incomplete list is the following: 1. The priors on migration rates put too much weight on really high rates. To fix this, reconsider your priors on the migration rates. Particularly, check if the prior on the migration rates make sense in comparison to the height of the tree. If, for example, the tree has a height of 1000 years, but the prior on the migration rate is exponential with mean 1, then the prior assumption is that between any two states, we expected approximately 1000 migration events. 2. The prior on the effective population sizes is too low, meaning that the prior on the coalescent rates (1 over the effective population size) is too high. This can for example occur when the prior on the effective population size was chosen to be 1/X. To fix, reconsider your prior on the effective population size. 3. There is substantial changes of the effective population sizes and/or migration rates over time that are not modeled. In that case, changes in the effective population sizes or migration rates have to be explained by population structure, which can again lead to some effective population sizes being very low and some migration rates being very high. In that case, there is unfortunately not much that can be done, since MASCOT is not an appropriate model for the dataset. 4. There is strong subpopulation structure within the different subpopulations used. In that case, reconsider if the individual sub-populations used are reasonable.
+This error can have different origins and a likely incomplete list is the following: 
+1. The priors on migration rates put too much weight on really high rates. To fix this, reconsider your priors on the migration rates. 
+   Particularly, check if the prior on the migration rates make sense in comparison to the height of the tree. 
+   If, for example, the tree has a height of 1000 years, but the prior on the migration rate is exponential with mean 1, 
+   then the prior assumption is that between any two states, we expected approximately 1000 migration events. 
+2. The prior on the effective population sizes is too low, meaning that the prior on the coalescent rates 
+   (1 over the effective population size) is too high. 
+   This can for example occur when the prior on the effective population size was chosen to be 1/X. 
+   To fix, reconsider your prior on the effective population size. 
+3. There is substantial changes of the effective population sizes and/or migration rates over time that are not modeled. 
+   In that case, changes in the effective population sizes or migration rates have to be explained by population structure, 
+   which can again lead to some effective population sizes being very low and some migration rates being very high. 
+   In that case, there is unfortunately not much that can be done, since MASCOT is not an appropriate model for the dataset. 
+4. There is strong subpopulation structure within the different subpopulations used. 
+   In that case, reconsider if the individual sub-populations used are reasonable.
 
 
 ## Useful Links
@@ -412,7 +439,7 @@ This paper also explains the mathematical differences to other methods such as t
 To get a better idea of how the states of internal nodes are calculated, have a look in this paper (Müller, Rasmussen, & Stadler, 2018).
 
 * MASCOT source code: https://github.com/nicfel/Mascot
-* LinguaPhylo: https://linguaphylo.github.io*
+* LinguaPhylo: https://linguaphylo.github.io
 * BEAST 2 website and documentation: http://www.beast2.org/
 * Join the BEAST user discussion: http://groups.google.com/group/beast-users
 

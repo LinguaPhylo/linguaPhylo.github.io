@@ -332,7 +332,7 @@ and both files were logged at the same frequency.
 
 <figure class="image">
   <img src="BSplot.png" alt="Coalescent Bayesian Skyline plot">
-  <figcaption>Figure 7: coalescent Bayesian Skyline analysis output. 
+  <figcaption>Figure 7: Bayesian Skyline analysis output. 
   The black line is the median estimate of the estimated effective population size (can be changed to the mean estimate). 
   The two blue lines are the upper and lower bounds of the 95% HPD interval. 
   The x-axis is the time in years and the y-axis is on a log-scale.</figcaption>
@@ -355,11 +355,13 @@ Taming the BEAST tutorial [Skyline plots](https://taming-the-beast.org/tutorials
 ### Questions
 
 ```
-1. how to choose the dimension for the Coalescent Bayesian Skyline?
+1. How to choose the dimension for the Coalescent Bayesian Skyline? 
+   How does the number of dimensions of effective population sizes affect the result?
 
-2. what are the alternative models to deal with this dimension problem?
+2. What are the alternative models to deal with this dimension problem?
 
-3. how does the number of dimensions of effective population sizes affect the result?
+3. What does the Bayesian Skyline plot in this analysis tell you? 
+
 ```
 
 ## Some considerations for using skyline plots

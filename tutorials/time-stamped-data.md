@@ -150,7 +150,7 @@ You can also look at the value, including alignment or tree, by simply clicking 
 
 <figure class="image">
   <img src="LinguaPhyloStudio.png" alt="LinguaPhyloStudio">
-  <figcaption>The Screenshot of LinguaPhylo Studio</figcaption>
+  <figcaption>Figure 1: The Screenshot of LinguaPhylo Studio</figcaption>
 </figure>
 
 Tips: the example file `RSV2.lphy` is also available. Looking for the menu `File` and then `Examples`, 
@@ -177,7 +177,7 @@ You also need to make sue all required BEAST 2 packages (e.g. `outercore`) have 
 
 <figure class="image">
   <img src="outercore.png" alt="Package manager">
-  <figcaption>A screenshot of Package Manager.</figcaption>
+  <figcaption>Figure 2: A screenshot of Package Manager.</figcaption>
 </figure>
 
 Now run BEAST and when it asks for an input file, provide your newly created XML file as input. 
@@ -273,7 +273,7 @@ the sampled values against the step in the MCMC chain.
 
 <figure class="image">
   <img src="short.png" alt="The trace of short run">
-  <figcaption>A screenshot of Tracer.</figcaption>
+  <figcaption>Figure 3: A screenshot of Tracer.</figcaption>
 </figure>
 
 
@@ -316,7 +316,7 @@ Click on the Trace tab and look at the raw trace plot.
 
 <figure class="image">
   <img src="long.png" alt="The trace of long run">
-  <figcaption>A screenshot of Tracer.</figcaption>
+  <figcaption>Figure 4: A screenshot of Tracer.</figcaption>
 </figure>
 
 After running the analysis long enough in MCMC, we have the 1800 samples after removing 10% burnin, 
@@ -334,7 +334,7 @@ You should see a plot similar to this:
 
 <figure class="image">
   <img src="clockRate.png" alt="marginal density">
-  <figcaption>The marginal density in Tracer.</figcaption>
+  <figcaption>Figure 5: The marginal density in Tracer.</figcaption>
 </figure>
 
 
@@ -349,7 +349,7 @@ You will now see the posterior probability densities for the relative substituti
 
 <figure class="image">
   <img src="mu.png" alt="relative substitution rates">
-  <figcaption>The posterior probability densities for the relative substitution rates.</figcaption>
+  <figcaption>Figure 6: The posterior probability densities for the relative substitution rates.</figcaption>
 </figure>
 
 
@@ -359,7 +359,7 @@ Use the program TreeAnnotator to summarise the tree. TreeAnnotator is an applica
 
 <figure class="image">
   <img src="TreeAnnotator.png" alt="TreeAnnotator">
-  <figcaption>TreeAnnotator for creating a summary tree from a posterior tree set.</figcaption>
+  <figcaption>Figure 7: TreeAnnotator for creating a summary tree from a posterior tree set.</figcaption>
 </figure>
 
 
@@ -367,7 +367,7 @@ Summary trees can be viewed using FigTree (a program separate from BEAST) and De
 
 <figure class="image">
   <img src="RSV2.tree.svg" alt="MCC tree">
-  <figcaption>The Maximum clade credibility tree for the G gene of 129 RSVA-2 viral samples.</figcaption>
+  <figcaption>Figure 8: The Maximum clade credibility tree for the G gene of 129 RSVA-2 viral samples.</figcaption>
 </figure>
 
 
@@ -375,7 +375,7 @@ Below a DensiTree with clade height bars for clades with over 50% support. Root 
 
 <figure class="image">
   <img src="DensiTree.png" alt="MCC tree">
-  <figcaption>The posterior tree set visualised in DensiTree.</figcaption>
+  <figcaption>Figure 9: The posterior tree set visualised in DensiTree.</figcaption>
 </figure>
 
 
