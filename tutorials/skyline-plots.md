@@ -15,6 +15,8 @@ It is non-parametric since there is no underlying system of differential equatio
 In this tutorial we will look at a popular coalescent method, 
 the Coalescent Bayesian Skyline plot (Drummond, Rambaut, Shapiro, & Pybus, 2005), to infer these dynamics from sequence data. 
 
+## Programs used in this Exercise
+
 The following software will be used in this tutorial:
 
 * LPhyBEAST - this software will construct an input file for BEAST

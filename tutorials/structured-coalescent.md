@@ -60,7 +60,7 @@ The aim is to:
 - Get to know how to choose the set-up of such an analysis
 - Learn how to read the output of a MASCOT analysis
 
-# The Data
+## The Data
 
 The dataset [H3N2.nexus](http://github.com/nicfel/Mascot-Tutorial/raw/master/data/H3N2.nexus) 
 consists of 24 Influenza A/H3N2 sequences (between 2000 and 2001) subsampled from the original dataset, 
@@ -352,7 +352,7 @@ are inferred to be from Hong Kong backwards.
 </figure>
 
 
-## Make the MCC tree using TreeAnnotator
+### Make the MCC tree using TreeAnnotator
 
 Use the program TreeAnnotator to summarise the tree. TreeAnnotator is an application that comes with BEAST.
 
@@ -362,7 +362,7 @@ Use the program TreeAnnotator to summarise the tree. TreeAnnotator is an applica
 </figure>
 
 
-## Check the MCC tree using FigTree
+### Check the MCC tree using FigTree
 
 In each logging step of the tree during the MCMC, MASCOT logs several different things. 
 It logs the inferred probability of each node being in any possible location. 
@@ -392,7 +392,7 @@ Another important thing to know is that currently, we assume rates to be constan
 This means that we assume that the population size of the different locations does not change over time. 
 We also make the same assumption about the migration rates through time.
 
-## Questions
+### Questions
 
 ```
 1. How to decide the dimensions of effective population sizes 
@@ -405,7 +405,8 @@ We also make the same assumption about the migration rates through time.
    What assumptions are made on this result?
 ```
 
-## Errors that can occur (Work in progress)
+### Errors that can occur (Work in progress)
+
 One of the errors message that can occur regularly is the following: `too many iterations, return negative infinity`. 
 This occurs when the integration step size of the ODE's 
 to compute the probability of observing a phylogenetic tree in MASCOT is becoming too small. 
