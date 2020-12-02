@@ -67,94 +67,94 @@ spec="Alignment">
             
         <state id="State" spec="State">
                     
-            <stateNode id="pi" spec="outercore.parameter.KeyRealParameter" dimension="4" keys="A C G T" lower="0.0" upper="1.0">0.18619347700111583 0.6519861136976116 0.05364895646690634 0.1081714528343662</stateNode>
+            <stateNode id="pi" spec="outercore.parameter.KeyRealParameter" dimension="4" keys="A C G T" lower="0.0" upper="1.0">0.2499618027729438 0.4278295072931019 0.1574460290666485 0.16476266086730565</stateNode>
                     
-            <parameter id="kappa" spec="parameter.RealParameter" lower="0.0" name="stateNode">10.018101156300284</parameter>
+            <parameter id="kappa" spec="parameter.RealParameter" lower="0.0" name="stateNode">2.479027851896579</parameter>
                     
-            <parameter id="clockRate" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.003997654621151529</parameter>
+            <parameter id="clockRate" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.004138859400376172</parameter>
                     
-            <parameter id="shape" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.010422977980211589</parameter>
+            <parameter id="shape" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.5875167076191282</parameter>
                     
-            <stateNode id="m" spec="outercore.parameter.KeyRealParameter" dimension="6" lower="0.0">1.0885395175390151 0.0884089759333283 0.2230445783759708 0.08334858511248763 0.5894449046617604 1.6984645080554925</stateNode>
+            <stateNode id="b_m" spec="outercore.parameter.KeyRealParameter" dimension="6" keys="Hong_Kong_New_York Hong_Kong_New_Zealand New_York_Hong_Kong New_York_New_Zealand New_Zealand_Hong_Kong New_Zealand_New_York">0.6693828438950693 0.6682730579475288 0.0693479010014248 0.6153547168857657 0.2858656333990673 3.0441930172545826</stateNode>
                     
-            <stateNode id="Theta" spec="outercore.parameter.KeyRealParameter" dimension="3" lower="0.0">0.5663145693337589 5.677117268653426 0.3377798560840507</stateNode>
+            <stateNode id="Theta" spec="outercore.parameter.KeyRealParameter" dimension="3" keys="Hong_Kong New_York New_Zealand" lower="0.0">1.5322430100516893 0.8698602749031981 0.766951682696393</stateNode>
                     
-            <stateNode id="tree" spec="beast.util.TreeParser" IsLabelledNewick="true" newick="((((A/New_York/152/2000|CY001136|2000.046448|New_York[&amp;deme=New_York]:0.24929785752878253,A/Waikato/5/2000|CY011960|2000.661202|New_Zealand[&amp;deme=New_Zealand]:0.8640518575287306):0.39029588393475523,A/Hong_Kong/CUHK20173/2000|EU856890|2000.016393|Hong_Kong[&amp;deme=Hong_Kong]:0.6095387414635902):2.7481866862780397,(A/Canterbury/75/2000|CY016403|2000.702186|New_Zealand[&amp;deme=New_Zealand]:1.9555506592610845,A/New_York/169/2000|CY000657|2000.005464|New_York[&amp;deme=New_York]:1.2588286592611757):2.0879677684804214):2.906496474845631,(A/Hong_Kong/CUHK20294/2000|EU856897|2000.030055|Hong_Kong[&amp;deme=Hong_Kong]:5.64818342062438,(((((A/Hong_Kong/CUHK22163/2000|EU856926|2000.174863|Hong_Kong[&amp;deme=Hong_Kong]:0.10874825580595493,((A/Auckland/589/2000|CY023002|2000.740437|New_Zealand[&amp;deme=New_Zealand]:0.5959217825420604,A/Hong_Kong/CUHK24510/2001|EU856945|2001.534247|Hong_Kong[&amp;deme=Hong_Kong]:1.3897317825421818):0.058851083165355256,((A/Hong_Kong/1269/2001|KP457669|2001.657534|Hong_Kong[&amp;deme=Hong_Kong]:0.5974244190041492,A/Waikato/5/2001|CY013072|2001.367123|New_Zealand[&amp;deme=New_Zealand]:0.3070134190042001):0.8294492934058367,A/Hong_Kong/CUHK27157/2000|EU856956|2000.592896|Hong_Kong[&amp;deme=Hong_Kong]:0.3622357124101543):0.1449961532974422):0.019549390098508868):0.31974195832327723,(A/New_York/437/2000|CY003272|2000.030055|New_York[&amp;deme=New_York]:0.012373246862760201,A/New_York/436/2000|CY003264|2000.024590|New_York[&amp;deme=New_York]:0.006908246862801892):0.27130896726646014):0.7415806992436926,A/Waikato/17/2000|CY013397|2000.724044|New_Zealand[&amp;deme=New_Zealand]:1.7192519133730144):0.5773702024075962,(((A/New_York/273/2001|CY001720|2001.991781|New_York[&amp;deme=New_York]:1.365821761802351,A/New_York/402/2001|CY003088|2001.986301|New_York[&amp;deme=New_York]:1.3603417618023168):1.4289207611899335,((A/Auckland/588/2000|CY022501|2000.732240|New_Zealand[&amp;deme=New_Zealand]:0.18432033907222656,(A/Hong_Kong/CUHK51431/2001|EU857032|2001.983562|Hong_Kong[&amp;deme=Hong_Kong]:1.2612304162923402,A/Canterbury/149/2001|CY009436|2001.613699|New_Zealand[&amp;deme=New_Zealand]:0.38258596291095737):0.17441192277973183):0.7921578416082735,A/Hong_Kong/CUHK26969/2000|EU856954|2000.573770|Hong_Kong[&amp;deme=Hong_Kong]:0.8180081806804207):0.5587233423118851):0.3778937251534429,A/Hong_Kong/1585/2000|KP456729|2000.546448|Hong_Kong[&amp;deme=Hong_Kong]:1.727303248145836):0.3917228676347806):3.3433592968070847,(A/Canterbury/81/2000|CY008788|2000.721311|New_Zealand[&amp;deme=New_Zealand]:1.5547033851310186,A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong[&amp;deme=Hong_Kong]:0.8607143851309171):4.082545027456642):0.7021910080367864):0.629700481962721):0.0;">
+            <stateNode id="tree" spec="beast.util.TreeParser" IsLabelledNewick="true" newick="((((A/Waikato/5/2000|CY011960|2000.661202|New_Zealand[&amp;deme=New_Zealand]:0.298666060276467,((A/Hong_Kong/CUHK51431/2001|EU857032|2001.983562|Hong_Kong[&amp;deme=Hong_Kong]:0.6079192332312556,A/New_York/273/2001|CY001720|2001.991781|New_York[&amp;deme=New_York]:0.8791791880054984):0.005705528407531135,A/Canterbury/149/2001|CY009436|2001.613699|New_Zealand[&amp;deme=New_Zealand]:0.5068027164130802):0.7443603438633808):0.43595922443462176,(A/New_York/437/2000|CY003272|2000.030055|New_York[&amp;deme=New_York]:0.09444688725353556,A/New_York/169/2000|CY000657|2000.005464|New_York[&amp;deme=New_York]:0.06985588725366254):0.009031397457497814):0.4762782927029656,(((A/Waikato/17/2000|CY013397|2000.724044|New_Zealand[&amp;deme=New_Zealand]:0.02533845099062315,A/Auckland/588/2000|CY022501|2000.732240|New_Zealand[&amp;deme=New_Zealand]:0.033534450990621245):0.5098500769283456,(((A/Hong_Kong/1269/2001|KP457669|2001.657534|Hong_Kong[&amp;deme=Hong_Kong]:0.34769806746975174,A/Hong_Kong/CUHK24510/2001|EU856945|2001.534247|Hong_Kong[&amp;deme=Hong_Kong]:0.22441106746986061):0.8478216844979632,A/Canterbury/75/2000|CY016403|2000.702186|New_Zealand[&amp;deme=New_Zealand]:0.24017175196775686):0.0019954981362941826,A/Waikato/5/2001|CY013072|2001.367123|New_Zealand[&amp;deme=New_Zealand]:0.90710425010406):0.27116327781485206):0.11196865828300973,A/Auckland/589/2000|CY023002|2000.740437|New_Zealand[&amp;deme=New_Zealand]:0.6635501862018585):0.626588391212122):0.6841785194051448,(A/Hong_Kong/1585/2000|KP456729|2000.546448|Hong_Kong[&amp;deme=Hong_Kong]:1.464505281928882,((A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong[&amp;deme=Hong_Kong]:0.2668992339958094,((((A/Canterbury/81/2000|CY008788|2000.721311|New_Zealand[&amp;deme=New_Zealand]:0.13338067531368125,A/Hong_Kong/CUHK26969/2000|EU856954|2000.573770|Hong_Kong[&amp;deme=Hong_Kong]:0.09976717382562517):0.3003719569050025,A/Hong_Kong/CUHK27157/2000|EU856956|2000.592896|Hong_Kong[&amp;deme=Hong_Kong]:0.41926513073076976):0.10989075236053814,A/Hong_Kong/CUHK22163/2000|EU856926|2000.174863|Hong_Kong[&amp;deme=Hong_Kong]:0.11112288309115748):0.09497174478082382,A/Hong_Kong/CUHK20173/2000|EU856890|2000.016393|Hong_Kong[&amp;deme=Hong_Kong]:0.04762462787212929):0.20834560612387465):0.3587682096427911,(A/Hong_Kong/CUHK20294/2000|EU856897|2000.030055|Hong_Kong[&amp;deme=Hong_Kong]:1.438609027085239,((A/New_York/436/2000|CY003264|2000.024590|New_York[&amp;deme=New_York]:0.02490505171471491,A/New_York/152/2000|CY001136|2000.046448|New_York[&amp;deme=New_York]:0.04676305171478057):0.1385370630216356,A/New_York/402/2001|CY003088|2001.986301|New_York[&amp;deme=New_York]:0.4689227345066702):0.6228208801616302):0.45123747416083404):0.8718529479259294):0.9861452929113659):0.0;">
                             
-                <trait id="TraitSet" spec="beast.evolution.tree.TraitSet" traitname="age">
-                                    A/New_York/152/2000|CY001136|2000.046448|New_York=1.9453329999998914,
-A/Waikato/5/2000|CY011960|2000.661202|New_Zealand=1.3305789999999433,
-A/Hong_Kong/CUHK20173/2000|EU856890|2000.016393|Hong_Kong=1.975387999999839,
-A/Canterbury/75/2000|CY016403|2000.702186|New_Zealand=1.289594999999963,
-A/New_York/169/2000|CY000657|2000.005464|New_York=1.9863169999998718,
-A/Hong_Kong/CUHK20294/2000|EU856897|2000.030055|Hong_Kong=1.9617259999999987,
-A/Hong_Kong/CUHK22163/2000|EU856926|2000.174863|Hong_Kong=1.816917999999987,
-A/Auckland/589/2000|CY023002|2000.740437|New_Zealand=1.2513440000000173,
-A/Hong_Kong/CUHK24510/2001|EU856945|2001.534247|Hong_Kong=0.45753399999989597,
-A/Hong_Kong/1269/2001|KP457669|2001.657534|Hong_Kong=0.33424700000000485,
-A/Waikato/5/2001|CY013072|2001.367123|New_Zealand=0.624657999999954,
-A/Hong_Kong/CUHK27157/2000|EU856956|2000.592896|Hong_Kong=1.3988849999998365,
-A/New_York/437/2000|CY003272|2000.030055|New_York=1.9617259999999987,
-A/New_York/436/2000|CY003264|2000.024590|New_York=1.967190999999957,
-A/Waikato/17/2000|CY013397|2000.724044|New_Zealand=1.2677369999998973,
-A/New_York/273/2001|CY001720|2001.991781|New_York=0.0,
-A/New_York/402/2001|CY003088|2001.986301|New_York=0.005480000000034124,
-A/Auckland/588/2000|CY022501|2000.732240|New_Zealand=1.2595409999998992,
+                <trait id="TraitSet" spec="beast.evolution.tree.TraitSet" traitname="date-backward">
+                                    A/Waikato/5/2000|CY011960|2000.661202|New_Zealand=1.3305789999999433,
 A/Hong_Kong/CUHK51431/2001|EU857032|2001.983562|Hong_Kong=0.008219000000053711,
+A/New_York/273/2001|CY001720|2001.991781|New_York=0.0,
 A/Canterbury/149/2001|CY009436|2001.613699|New_Zealand=0.3780819999999494,
-A/Hong_Kong/CUHK26969/2000|EU856954|2000.573770|Hong_Kong=1.4180109999999786,
+A/New_York/437/2000|CY003272|2000.030055|New_York=1.9617259999999987,
+A/New_York/169/2000|CY000657|2000.005464|New_York=1.9863169999998718,
+A/Waikato/17/2000|CY013397|2000.724044|New_Zealand=1.2677369999998973,
+A/Auckland/588/2000|CY022501|2000.732240|New_Zealand=1.2595409999998992,
+A/Hong_Kong/1269/2001|KP457669|2001.657534|Hong_Kong=0.33424700000000485,
+A/Hong_Kong/CUHK24510/2001|EU856945|2001.534247|Hong_Kong=0.45753399999989597,
+A/Canterbury/75/2000|CY016403|2000.702186|New_Zealand=1.289594999999963,
+A/Waikato/5/2001|CY013072|2001.367123|New_Zealand=0.624657999999954,
+A/Auckland/589/2000|CY023002|2000.740437|New_Zealand=1.2513440000000173,
 A/Hong_Kong/1585/2000|KP456729|2000.546448|Hong_Kong=1.4453329999998914,
+A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong=1.9644590000000335,
 A/Canterbury/81/2000|CY008788|2000.721311|New_Zealand=1.270469999999932,
-A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong=1.9644590000000335                
+A/Hong_Kong/CUHK26969/2000|EU856954|2000.573770|Hong_Kong=1.4180109999999786,
+A/Hong_Kong/CUHK27157/2000|EU856956|2000.592896|Hong_Kong=1.3988849999998365,
+A/Hong_Kong/CUHK22163/2000|EU856926|2000.174863|Hong_Kong=1.816917999999987,
+A/Hong_Kong/CUHK20173/2000|EU856890|2000.016393|Hong_Kong=1.975387999999839,
+A/Hong_Kong/CUHK20294/2000|EU856897|2000.030055|Hong_Kong=1.9617259999999987,
+A/New_York/436/2000|CY003264|2000.024590|New_York=1.967190999999957,
+A/New_York/152/2000|CY001136|2000.046448|New_York=1.9453329999998914,
+A/New_York/402/2001|CY003088|2001.986301|New_York=0.005480000000034124                
                     <taxa id="TaxonSet" spec="TaxonSet">
-                                            
-                        <taxon id="A/New_York/152/2000|CY001136|2000.046448|New_York" spec="Taxon"/>
                                             
                         <taxon id="A/Waikato/5/2000|CY011960|2000.661202|New_Zealand" spec="Taxon"/>
                                             
-                        <taxon id="A/Hong_Kong/CUHK20173/2000|EU856890|2000.016393|Hong_Kong" spec="Taxon"/>
-                                            
-                        <taxon id="A/Canterbury/75/2000|CY016403|2000.702186|New_Zealand" spec="Taxon"/>
-                                            
-                        <taxon id="A/New_York/169/2000|CY000657|2000.005464|New_York" spec="Taxon"/>
-                                            
-                        <taxon id="A/Hong_Kong/CUHK20294/2000|EU856897|2000.030055|Hong_Kong" spec="Taxon"/>
-                                            
-                        <taxon id="A/Hong_Kong/CUHK22163/2000|EU856926|2000.174863|Hong_Kong" spec="Taxon"/>
-                                            
-                        <taxon id="A/Auckland/589/2000|CY023002|2000.740437|New_Zealand" spec="Taxon"/>
-                                            
-                        <taxon id="A/Hong_Kong/CUHK24510/2001|EU856945|2001.534247|Hong_Kong" spec="Taxon"/>
-                                            
-                        <taxon id="A/Hong_Kong/1269/2001|KP457669|2001.657534|Hong_Kong" spec="Taxon"/>
-                                            
-                        <taxon id="A/Waikato/5/2001|CY013072|2001.367123|New_Zealand" spec="Taxon"/>
-                                            
-                        <taxon id="A/Hong_Kong/CUHK27157/2000|EU856956|2000.592896|Hong_Kong" spec="Taxon"/>
-                                            
-                        <taxon id="A/New_York/437/2000|CY003272|2000.030055|New_York" spec="Taxon"/>
-                                            
-                        <taxon id="A/New_York/436/2000|CY003264|2000.024590|New_York" spec="Taxon"/>
-                                            
-                        <taxon id="A/Waikato/17/2000|CY013397|2000.724044|New_Zealand" spec="Taxon"/>
+                        <taxon id="A/Hong_Kong/CUHK51431/2001|EU857032|2001.983562|Hong_Kong" spec="Taxon"/>
                                             
                         <taxon id="A/New_York/273/2001|CY001720|2001.991781|New_York" spec="Taxon"/>
                                             
-                        <taxon id="A/New_York/402/2001|CY003088|2001.986301|New_York" spec="Taxon"/>
+                        <taxon id="A/Canterbury/149/2001|CY009436|2001.613699|New_Zealand" spec="Taxon"/>
+                                            
+                        <taxon id="A/New_York/437/2000|CY003272|2000.030055|New_York" spec="Taxon"/>
+                                            
+                        <taxon id="A/New_York/169/2000|CY000657|2000.005464|New_York" spec="Taxon"/>
+                                            
+                        <taxon id="A/Waikato/17/2000|CY013397|2000.724044|New_Zealand" spec="Taxon"/>
                                             
                         <taxon id="A/Auckland/588/2000|CY022501|2000.732240|New_Zealand" spec="Taxon"/>
                                             
-                        <taxon id="A/Hong_Kong/CUHK51431/2001|EU857032|2001.983562|Hong_Kong" spec="Taxon"/>
+                        <taxon id="A/Hong_Kong/1269/2001|KP457669|2001.657534|Hong_Kong" spec="Taxon"/>
                                             
-                        <taxon id="A/Canterbury/149/2001|CY009436|2001.613699|New_Zealand" spec="Taxon"/>
+                        <taxon id="A/Hong_Kong/CUHK24510/2001|EU856945|2001.534247|Hong_Kong" spec="Taxon"/>
                                             
-                        <taxon id="A/Hong_Kong/CUHK26969/2000|EU856954|2000.573770|Hong_Kong" spec="Taxon"/>
+                        <taxon id="A/Canterbury/75/2000|CY016403|2000.702186|New_Zealand" spec="Taxon"/>
+                                            
+                        <taxon id="A/Waikato/5/2001|CY013072|2001.367123|New_Zealand" spec="Taxon"/>
+                                            
+                        <taxon id="A/Auckland/589/2000|CY023002|2000.740437|New_Zealand" spec="Taxon"/>
                                             
                         <taxon id="A/Hong_Kong/1585/2000|KP456729|2000.546448|Hong_Kong" spec="Taxon"/>
                                             
+                        <taxon id="A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong" spec="Taxon"/>
+                                            
                         <taxon id="A/Canterbury/81/2000|CY008788|2000.721311|New_Zealand" spec="Taxon"/>
                                             
-                        <taxon id="A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong" spec="Taxon"/>
+                        <taxon id="A/Hong_Kong/CUHK26969/2000|EU856954|2000.573770|Hong_Kong" spec="Taxon"/>
+                                            
+                        <taxon id="A/Hong_Kong/CUHK27157/2000|EU856956|2000.592896|Hong_Kong" spec="Taxon"/>
+                                            
+                        <taxon id="A/Hong_Kong/CUHK22163/2000|EU856926|2000.174863|Hong_Kong" spec="Taxon"/>
+                                            
+                        <taxon id="A/Hong_Kong/CUHK20173/2000|EU856890|2000.016393|Hong_Kong" spec="Taxon"/>
+                                            
+                        <taxon id="A/Hong_Kong/CUHK20294/2000|EU856897|2000.030055|Hong_Kong" spec="Taxon"/>
+                                            
+                        <taxon id="A/New_York/436/2000|CY003264|2000.024590|New_York" spec="Taxon"/>
+                                            
+                        <taxon id="A/New_York/152/2000|CY001136|2000.046448|New_York" spec="Taxon"/>
+                                            
+                        <taxon id="A/New_York/402/2001|CY003088|2001.986301|New_York" spec="Taxon"/>
                                         
                     </taxa>
                                 
@@ -169,82 +169,6 @@ A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong=1.9644590000000335
         <distribution id="posterior" spec="util.CompoundDistribution">
                     
             <distribution id="prior" spec="util.CompoundDistribution">
-                            
-                <distribution id="pi.prior" spec="beast.math.distributions.Prior" x="@pi">
-                                    
-                    <distr id="Dirichlet" spec="beast.math.distributions.Dirichlet">
-                                            
-                        <alpha id="KeyRealParameter" spec="outercore.parameter.KeyRealParameter" dimension="4">2.0 2.0 2.0 2.0</alpha>
-                                        
-                    </distr>
-                                
-                </distribution>
-                            
-                <distribution id="Mascot" spec="beast.mascot.distribution.Mascot" tree="@tree">
-                                    
-                    <dynamics id="Constant" spec="beast.mascot.dynamics.Constant" Ne="@Theta" backwardsMigration="@m" dimension="3">
-                                            
-                        <typeTrait id="TraitSet1" spec="beast.evolution.tree.TraitSet" traitname="deme" value="A/New_York/152/2000|CY001136|2000.046448|New_York=New_York, A/Waikato/5/2000|CY011960|2000.661202|New_Zealand=New_Zealand, A/Hong_Kong/CUHK20173/2000|EU856890|2000.016393|Hong_Kong=Hong_Kong, A/Canterbury/75/2000|CY016403|2000.702186|New_Zealand=New_Zealand, A/New_York/169/2000|CY000657|2000.005464|New_York=New_York, A/Hong_Kong/CUHK20294/2000|EU856897|2000.030055|Hong_Kong=Hong_Kong, A/Hong_Kong/CUHK22163/2000|EU856926|2000.174863|Hong_Kong=Hong_Kong, A/Auckland/589/2000|CY023002|2000.740437|New_Zealand=New_Zealand, A/Hong_Kong/CUHK24510/2001|EU856945|2001.534247|Hong_Kong=Hong_Kong, A/Hong_Kong/1269/2001|KP457669|2001.657534|Hong_Kong=Hong_Kong, A/Waikato/5/2001|CY013072|2001.367123|New_Zealand=New_Zealand, A/Hong_Kong/CUHK27157/2000|EU856956|2000.592896|Hong_Kong=Hong_Kong, A/New_York/437/2000|CY003272|2000.030055|New_York=New_York, A/New_York/436/2000|CY003264|2000.024590|New_York=New_York, A/Waikato/17/2000|CY013397|2000.724044|New_Zealand=New_Zealand, A/New_York/273/2001|CY001720|2001.991781|New_York=New_York, A/New_York/402/2001|CY003088|2001.986301|New_York=New_York, A/Auckland/588/2000|CY022501|2000.732240|New_Zealand=New_Zealand, A/Hong_Kong/CUHK51431/2001|EU857032|2001.983562|Hong_Kong=Hong_Kong, A/Canterbury/149/2001|CY009436|2001.613699|New_Zealand=New_Zealand, A/Hong_Kong/CUHK26969/2000|EU856954|2000.573770|Hong_Kong=Hong_Kong, A/Hong_Kong/1585/2000|KP456729|2000.546448|Hong_Kong=Hong_Kong, A/Canterbury/81/2000|CY008788|2000.721311|New_Zealand=New_Zealand, A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong=Hong_Kong">
-                                                    
-                            <taxa id="TaxonSet1" spec="TaxonSet">
-                                                            
-                                <taxon idref="A/New_York/152/2000|CY001136|2000.046448|New_York"/>
-                                                            
-                                <taxon idref="A/Waikato/5/2000|CY011960|2000.661202|New_Zealand"/>
-                                                            
-                                <taxon idref="A/Hong_Kong/CUHK20173/2000|EU856890|2000.016393|Hong_Kong"/>
-                                                            
-                                <taxon idref="A/Canterbury/75/2000|CY016403|2000.702186|New_Zealand"/>
-                                                            
-                                <taxon idref="A/New_York/169/2000|CY000657|2000.005464|New_York"/>
-                                                            
-                                <taxon idref="A/Hong_Kong/CUHK20294/2000|EU856897|2000.030055|Hong_Kong"/>
-                                                            
-                                <taxon idref="A/Hong_Kong/CUHK22163/2000|EU856926|2000.174863|Hong_Kong"/>
-                                                            
-                                <taxon idref="A/Auckland/589/2000|CY023002|2000.740437|New_Zealand"/>
-                                                            
-                                <taxon idref="A/Hong_Kong/CUHK24510/2001|EU856945|2001.534247|Hong_Kong"/>
-                                                            
-                                <taxon idref="A/Hong_Kong/1269/2001|KP457669|2001.657534|Hong_Kong"/>
-                                                            
-                                <taxon idref="A/Waikato/5/2001|CY013072|2001.367123|New_Zealand"/>
-                                                            
-                                <taxon idref="A/Hong_Kong/CUHK27157/2000|EU856956|2000.592896|Hong_Kong"/>
-                                                            
-                                <taxon idref="A/New_York/437/2000|CY003272|2000.030055|New_York"/>
-                                                            
-                                <taxon idref="A/New_York/436/2000|CY003264|2000.024590|New_York"/>
-                                                            
-                                <taxon idref="A/Waikato/17/2000|CY013397|2000.724044|New_Zealand"/>
-                                                            
-                                <taxon idref="A/New_York/273/2001|CY001720|2001.991781|New_York"/>
-                                                            
-                                <taxon idref="A/New_York/402/2001|CY003088|2001.986301|New_York"/>
-                                                            
-                                <taxon idref="A/Auckland/588/2000|CY022501|2000.732240|New_Zealand"/>
-                                                            
-                                <taxon idref="A/Hong_Kong/CUHK51431/2001|EU857032|2001.983562|Hong_Kong"/>
-                                                            
-                                <taxon idref="A/Canterbury/149/2001|CY009436|2001.613699|New_Zealand"/>
-                                                            
-                                <taxon idref="A/Hong_Kong/CUHK26969/2000|EU856954|2000.573770|Hong_Kong"/>
-                                                            
-                                <taxon idref="A/Hong_Kong/1585/2000|KP456729|2000.546448|Hong_Kong"/>
-                                                            
-                                <taxon idref="A/Canterbury/81/2000|CY008788|2000.721311|New_Zealand"/>
-                                                            
-                                <taxon idref="A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong"/>
-                                                        
-                            </taxa>
-                                                
-                        </typeTrait>
-                                        
-                    </dynamics>
-                                    
-                    <structuredTreeIntervals id="StructuredTreeIntervals" spec="beast.mascot.distribution.StructuredTreeIntervals" tree="@tree"/>
-                                
-                </distribution>
                             
                 <distribution id="clockRate.prior" spec="beast.math.distributions.Prior" x="@clockRate">
                                     
@@ -282,25 +206,99 @@ A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong=1.9644590000000335
                                 
                 </distribution>
                             
-                <distribution id="m.prior" spec="beast.math.distributions.Prior" x="@m">
+                <distribution id="pi.prior" spec="beast.math.distributions.Prior" x="@pi">
                                     
-                    <distr id="LogNormalDistributionModel3" spec="beast.math.distributions.LogNormalDistributionModel">
+                    <distr id="Dirichlet" spec="beast.math.distributions.Dirichlet">
                                             
-                        <parameter id="RealParameter6" spec="parameter.RealParameter" name="M">-1.0</parameter>
-                                            
-                        <parameter id="RealParameter7" spec="parameter.RealParameter" name="S">1.5</parameter>
+                        <alpha id="KeyRealParameter" spec="outercore.parameter.KeyRealParameter" dimension="4">2.0 2.0 2.0 2.0</alpha>
                                         
                     </distr>
                                 
                 </distribution>
                             
+                <distribution id="b_m.prior" spec="beast.math.distributions.Prior" x="@b_m">
+                                    
+                    <distr id="Exponential" spec="beast.math.distributions.Exponential">
+                                            
+                        <parameter id="RealParameter6" spec="parameter.RealParameter" name="mean">1.0</parameter>
+                                        
+                    </distr>
+                                
+                </distribution>
+                            
+                <distribution id="Mascot" spec="beast.mascot.distribution.Mascot" tree="@tree">
+                                    
+                    <dynamics id="Constant" spec="beast.mascot.dynamics.Constant" Ne="@Theta" backwardsMigration="@b_m" dimension="3">
+                                            
+                        <typeTrait id="TraitSet1" spec="beast.evolution.tree.TraitSet" traitname="deme" value="A/Waikato/5/2000|CY011960|2000.661202|New_Zealand=New_Zealand, A/Hong_Kong/CUHK51431/2001|EU857032|2001.983562|Hong_Kong=Hong_Kong, A/New_York/273/2001|CY001720|2001.991781|New_York=New_York, A/Canterbury/149/2001|CY009436|2001.613699|New_Zealand=New_Zealand, A/New_York/437/2000|CY003272|2000.030055|New_York=New_York, A/New_York/169/2000|CY000657|2000.005464|New_York=New_York, A/Waikato/17/2000|CY013397|2000.724044|New_Zealand=New_Zealand, A/Auckland/588/2000|CY022501|2000.732240|New_Zealand=New_Zealand, A/Hong_Kong/1269/2001|KP457669|2001.657534|Hong_Kong=Hong_Kong, A/Hong_Kong/CUHK24510/2001|EU856945|2001.534247|Hong_Kong=Hong_Kong, A/Canterbury/75/2000|CY016403|2000.702186|New_Zealand=New_Zealand, A/Waikato/5/2001|CY013072|2001.367123|New_Zealand=New_Zealand, A/Auckland/589/2000|CY023002|2000.740437|New_Zealand=New_Zealand, A/Hong_Kong/1585/2000|KP456729|2000.546448|Hong_Kong=Hong_Kong, A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong=Hong_Kong, A/Canterbury/81/2000|CY008788|2000.721311|New_Zealand=New_Zealand, A/Hong_Kong/CUHK26969/2000|EU856954|2000.573770|Hong_Kong=Hong_Kong, A/Hong_Kong/CUHK27157/2000|EU856956|2000.592896|Hong_Kong=Hong_Kong, A/Hong_Kong/CUHK22163/2000|EU856926|2000.174863|Hong_Kong=Hong_Kong, A/Hong_Kong/CUHK20173/2000|EU856890|2000.016393|Hong_Kong=Hong_Kong, A/Hong_Kong/CUHK20294/2000|EU856897|2000.030055|Hong_Kong=Hong_Kong, A/New_York/436/2000|CY003264|2000.024590|New_York=New_York, A/New_York/152/2000|CY001136|2000.046448|New_York=New_York, A/New_York/402/2001|CY003088|2001.986301|New_York=New_York">
+                                                    
+                            <taxa id="TaxonSet1" spec="TaxonSet">
+                                                            
+                                <taxon idref="A/Waikato/5/2000|CY011960|2000.661202|New_Zealand"/>
+                                                            
+                                <taxon idref="A/Hong_Kong/CUHK51431/2001|EU857032|2001.983562|Hong_Kong"/>
+                                                            
+                                <taxon idref="A/New_York/273/2001|CY001720|2001.991781|New_York"/>
+                                                            
+                                <taxon idref="A/Canterbury/149/2001|CY009436|2001.613699|New_Zealand"/>
+                                                            
+                                <taxon idref="A/New_York/437/2000|CY003272|2000.030055|New_York"/>
+                                                            
+                                <taxon idref="A/New_York/169/2000|CY000657|2000.005464|New_York"/>
+                                                            
+                                <taxon idref="A/Waikato/17/2000|CY013397|2000.724044|New_Zealand"/>
+                                                            
+                                <taxon idref="A/Auckland/588/2000|CY022501|2000.732240|New_Zealand"/>
+                                                            
+                                <taxon idref="A/Hong_Kong/1269/2001|KP457669|2001.657534|Hong_Kong"/>
+                                                            
+                                <taxon idref="A/Hong_Kong/CUHK24510/2001|EU856945|2001.534247|Hong_Kong"/>
+                                                            
+                                <taxon idref="A/Canterbury/75/2000|CY016403|2000.702186|New_Zealand"/>
+                                                            
+                                <taxon idref="A/Waikato/5/2001|CY013072|2001.367123|New_Zealand"/>
+                                                            
+                                <taxon idref="A/Auckland/589/2000|CY023002|2000.740437|New_Zealand"/>
+                                                            
+                                <taxon idref="A/Hong_Kong/1585/2000|KP456729|2000.546448|Hong_Kong"/>
+                                                            
+                                <taxon idref="A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong"/>
+                                                            
+                                <taxon idref="A/Canterbury/81/2000|CY008788|2000.721311|New_Zealand"/>
+                                                            
+                                <taxon idref="A/Hong_Kong/CUHK26969/2000|EU856954|2000.573770|Hong_Kong"/>
+                                                            
+                                <taxon idref="A/Hong_Kong/CUHK27157/2000|EU856956|2000.592896|Hong_Kong"/>
+                                                            
+                                <taxon idref="A/Hong_Kong/CUHK22163/2000|EU856926|2000.174863|Hong_Kong"/>
+                                                            
+                                <taxon idref="A/Hong_Kong/CUHK20173/2000|EU856890|2000.016393|Hong_Kong"/>
+                                                            
+                                <taxon idref="A/Hong_Kong/CUHK20294/2000|EU856897|2000.030055|Hong_Kong"/>
+                                                            
+                                <taxon idref="A/New_York/436/2000|CY003264|2000.024590|New_York"/>
+                                                            
+                                <taxon idref="A/New_York/152/2000|CY001136|2000.046448|New_York"/>
+                                                            
+                                <taxon idref="A/New_York/402/2001|CY003088|2001.986301|New_York"/>
+                                                        
+                            </taxa>
+                                                
+                        </typeTrait>
+                                        
+                    </dynamics>
+                                    
+                    <structuredTreeIntervals id="StructuredTreeIntervals" spec="beast.mascot.distribution.StructuredTreeIntervals" tree="@tree"/>
+                                
+                </distribution>
+                            
                 <distribution id="Theta.prior" spec="beast.math.distributions.Prior" x="@Theta">
                                     
-                    <distr id="LogNormalDistributionModel4" spec="beast.math.distributions.LogNormalDistributionModel">
+                    <distr id="LogNormalDistributionModel3" spec="beast.math.distributions.LogNormalDistributionModel">
                                             
-                        <parameter id="RealParameter8" spec="parameter.RealParameter" name="M">0.0</parameter>
+                        <parameter id="RealParameter7" spec="parameter.RealParameter" name="M">0.0</parameter>
                                             
-                        <parameter id="RealParameter9" spec="parameter.RealParameter" name="S">1.0</parameter>
+                        <parameter id="RealParameter8" spec="parameter.RealParameter" name="S">1.0</parameter>
                                         
                     </distr>
                                 
@@ -334,6 +332,8 @@ A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong=1.9644590000000335
             
         <operator id="Theta.scale" spec="ScaleOperator" parameter="@Theta" scaleFactor="0.75" weight="2.157669279974593"/>
             
+        <operator id="b_m.scale" spec="ScaleOperator" parameter="@b_m" scaleFactor="0.75" weight="3.5051440864071925"/>
+            
         <operator id="clockRate.scale" spec="ScaleOperator" parameter="@clockRate" scaleFactor="0.75" weight="1.0"/>
             
         <operator id="clockRateUptreeDownOperator" spec="UpDownOperator" scaleFactor="0.9" weight="9.25013070082624">
@@ -345,8 +345,6 @@ A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong=1.9644590000000335
         </operator>
             
         <operator id="kappa.scale" spec="ScaleOperator" parameter="@kappa" scaleFactor="0.75" weight="1.0"/>
-            
-        <operator id="m.scale" spec="ScaleOperator" parameter="@m" scaleFactor="0.75" weight="3.5051440864071925"/>
             
         <operator id="pi.deltaExchange" spec="DeltaExchangeOperator" delta="0.25" weight="2.157669279974593">
                     
@@ -362,7 +360,7 @@ A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong=1.9644590000000335
             
         <operator id="tree.scale" spec="ScaleOperator" scaleFactor="0.75" tree="@tree" upper="0.975" weight="8.97861780453415"/>
             
-        <operator id="tree.subtreeSlide" spec="SubtreeSlide" size="0.82396099025871" tree="@tree" weight="8.97861780453415"/>
+        <operator id="tree.subtreeSlide" spec="SubtreeSlide" size="0.3747844742083368" tree="@tree" weight="8.97861780453415"/>
             
         <operator id="tree.uniform" spec="Uniform" tree="@tree" weight="8.97861780453415"/>
             
@@ -385,6 +383,10 @@ A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong=1.9644590000000335
             <log idref="clockRate"/>
                     
             <log idref="shape"/>
+                    
+            <log idref="b_m"/>
+                    
+            <log idref="Theta"/>
                 
         </logger>
             
@@ -404,9 +406,11 @@ A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong=1.9644590000000335
                     
             <log idref="shape"/>
                     
-            <log id="TreeStatLogger" spec="beast.evolution.tree.TreeStatLogger" logLength="false" tree="@tree"/>
+            <log idref="b_m"/>
                     
-            <log idref="Constant"/>
+            <log idref="Theta"/>
+                    
+            <log id="TreeStatLogger" spec="beast.evolution.tree.TreeStatLogger" logLength="false" tree="@tree"/>
                     
             <log idref="Mascot"/>
                     
