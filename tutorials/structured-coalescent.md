@@ -139,10 +139,12 @@ we will need an informative prior.
 In this case we will use a log normal prior with parameters M=0 and S=1. 
 (These are respectively the mean and variance of the corresponding normal distribution in log space.) 
 
+The existing exponential distribution as a prior on the migration rate puts much weight on lower values while not prohibiting larger ones. 
 For migration rates, a prior that prohibits too large values while not greatly distinguishing 
 between very small and very very small values is generally a good choice. 
-We will need an informative prior, such as log normal with `meanlog=-1` and `sdlog=1.5`. 
-Then we expect the migration rates to be with 95% certainty between 0.0194 and 6.958 at the mean of 0.368.
+Be aware however that the exponential distribution is quite an informative prior: 
+one should be careful that to choose a mean so that feasible rates are at least within the 95% HPD interval of the prior. 
+(This can be determined by using R script)
 
 A more in depth explanation of what backwards migration really are can be found in the
 [Peter Beerli's blog post](http://popgen.sc.fsu.edu/Migrate/Blog/Entries/2013/3/22_forward-backward_migration_rates.html).
@@ -186,9 +188,9 @@ model {
   // 3 population sizes
   Θ ~ LogNormal(meanlog=0.0, sdlog=1.0, n=3);
   // 6 migration rates backwards in time
-  m ~ LogNormal(meanlog=-1.0, sdlog=1.5, n=6);
-  M = migrationMatrix(theta=Θ, m=m);
-  tree ~ StructuredCoalescent(M=M, taxa=taxa, demes=demes);
+  b_m ~ Exp(mean=1.0, n=6);
+  M = migrationMatrix(theta=Θ, m=b_m);
+  tree ~ StructuredCoalescent(M=M, taxa=taxa, demes=demes, sort=true);
   rootAge = tree.rootAge();
 
   D ~ PhyloCTMC(siteRates=siteRates, Q=hky(kappa=κ, freq=π), mu=clockRate, tree=tree);
@@ -267,7 +269,7 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-File: h3n2.xml seed: 1606271764370 threads: 1
+File: h3n2.xml seed: 1606869791987 threads: 1
 Loading package outercore v0.0.4
 Loading package BEAST v2.6.3
 Loading package feast v7.5.0
@@ -277,24 +279,24 @@ Loading package BEASTLabs v1.9.5
     ...
 
     ...
-        2850000     -1941.7020     -1905.9539       -35.7480         0.3277         0.2203         0.2226         0.2291         4.1400         0.0047         2.1367 1m13s/Msamples
-        3000000     -1949.5835     -1906.0100       -43.5735         0.3567         0.2109         0.2240         0.2082         8.3080         0.0038         4.7357 1m13s/Msamples
+        2850000     -1943.5841     -1910.4078       -33.1762         0.3180         0.2356         0.2179         0.2283         6.3515         0.0038         0.4564         0.2109         0.0072         1.4370         0.0046         0.3049         0.3266         1.0975         0.6720         1.0030 1m18s/Msamples
+        3000000     -1945.4273     -1903.9192       -41.5080         0.3129         0.2285         0.2298         0.2286         4.4207         0.0040         2.4785         1.7704         0.1976         1.2164         0.0205         0.4939         0.1246         1.2726         0.2638         1.1950 1m18s/Msamples
 
 Operator                                        Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                     0.21172      25601      60760    0.02879    0.29644 
-ScaleOperator(clockRate.scale)                 0.52549      10430      29575    0.01334    0.26072 
-UpDownOperator(clockRateUptreeDownOperator)    0.84082      28116     341922    0.12343    0.07598 Try setting scaleFactor to about 0.917
-ScaleOperator(kappa.scale)                     0.31720      11520      28722    0.01334    0.28627 
-ScaleOperator(m.scale)                         0.15980      40728      99340    0.04677    0.29077 
-DeltaExchangeOperator(pi.deltaExchange)        0.08540      16313      70108    0.02879    0.18876 
-ScaleOperator(shape.scale)                     0.18194      13298      26790    0.01334    0.33172 
-Exchange(tree.narrowExchange)                        -     163281     195077    0.11981    0.45564 
-ScaleOperator(tree.rootAgeScale)               0.55492       7259      32437    0.01334    0.18286 
-ScaleOperator(tree.scale)                      0.82233      22600     336791    0.11981    0.06288 Try setting scaleFactor to about 0.907
-SubtreeSlide(tree.subtreeSlide)                1.15924      43779     316876    0.11981    0.12139 
-Uniform(tree.uniform)                                -     220707     139226    0.11981    0.61319 
-Exchange(tree.wideExchange)                          -       9118     350199    0.11981    0.02538 
-WilsonBalding(tree.wilsonBalding)                    -      15747     343681    0.11981    0.04381 
+ScaleOperator(Theta.scale)                     0.21204      26069      60421    0.02879    0.30141 
+ScaleOperator(b_m.scale)                       0.16435      41436      99007    0.04677    0.29504 
+ScaleOperator(clockRate.scale)                 0.53046      10370      29376    0.01334    0.26091 
+UpDownOperator(clockRateUptreeDownOperator)    0.90224      49393     320912    0.12343    0.13338 
+ScaleOperator(kappa.scale)                     0.31522      11312      28603    0.01334    0.28340 
+DeltaExchangeOperator(pi.deltaExchange)        0.08275      17014      69283    0.02879    0.19716 
+ScaleOperator(shape.scale)                     0.18551      13514      26255    0.01334    0.33981 
+Exchange(tree.narrowExchange)                        -     164698     194121    0.11981    0.45900 
+ScaleOperator(tree.rootAgeScale)               0.57707       8341      31527    0.01334    0.20922 
+ScaleOperator(tree.scale)                      0.85752      29215     330116    0.11981    0.08130 Try setting scaleFactor to about 0.926
+SubtreeSlide(tree.subtreeSlide)                0.97788      54415     305988    0.11981    0.15098 
+Uniform(tree.uniform)                                -     222223     137194    0.11981    0.61829 
+Exchange(tree.wideExchange)                          -       9120     349928    0.11981    0.02540 
+WilsonBalding(tree.wilsonBalding)                    -      15970     344180    0.11981    0.04434 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -303,8 +305,8 @@ WilsonBalding(tree.wilsonBalding)                    -      15747     343681    
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 222.981 seconds
-End likelihood: -1949.583517461742
+Total calculation time: 238.438 seconds
+End likelihood: -1945.427363390188
 ```
 
 ## Analysing the BEAST output
