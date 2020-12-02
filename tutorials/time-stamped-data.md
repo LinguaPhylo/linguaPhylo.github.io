@@ -97,6 +97,7 @@ data {
   taxa = taxa(D);
   codon = D.charset(["3-629\3","1-629\3", "2-629\3"]);
   weights = codon.nchar();
+  n=length(codon); // 3 partitions
 }
 ```
 
@@ -133,17 +134,23 @@ and type or copy and paste the following scripts into the console.
 
 ```
 model {
-  Θ ~ LogNormal(meanlog=3.0, sdlog=2.0);
-  ψ ~ Coalescent(taxa=taxa, theta=Θ);
-  kappa ~ LogNormal(meanlog=1.0, sdlog=0.5, n=3);
+  kappa ~ LogNormal(meanlog=1.0, sdlog=0.5, n=n);
+  pi ~ Dirichlet(conc=[2.0,2.0,2.0,2.0], n=n);
+  // relative substitution rates
+  mu ~ WeightedDirichlet(conc=rep(element=1.0, times=n), weights=weights);
 
-  mu ~ WeightedDirichlet(conc=[1.0,1.0,1.0], weights=weights);
   clockRate ~ LogNormal(meanlog=-5.0, sdlog=1.25);
 
-  pi ~ Dirichlet(conc=[2.0,2.0,2.0,2.0], n=length(codon));
+  Θ ~ LogNormal(meanlog=3.0, sdlog=2.0);
+  ψ ~ Coalescent(taxa=taxa, theta=Θ);
+
   codon ~ PhyloCTMC(L=weights, Q=hky(kappa=kappa, freq=pi, meanRate=mu), mu=clockRate, tree=ψ);
 }
 ```
+
+The script `n=length(codon);` is equivalent to `n=3;`, since `codon` is a 3-partition alignment.
+Here `rep(element=1.0, times=n)` will create an array of `n` 1.0, which is `[1.0, 1.0, 1.0]`.
+
 
 ### LinguaPhylo
 
@@ -222,7 +229,7 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1605734997100
+Random number seed: 1606877948587
 
 Loading package outercore v0.0.2
 Loading package BEAST v2.6.3
@@ -232,25 +239,25 @@ Loading package BEASTLabs v1.9.5
     ...
 
     ...
-         950000     -6066.3841     -5464.1113      -602.2727         0.4956         0.2378         0.0943         0.1721         0.3483         0.4046         0.0790         0.1678         0.3153         0.4048         0.0801         0.1996        10.2997         2.5663         1.5605         0.6697         0.8994         1.4292         0.0023        47.7226 1m51s/Msamples
-        1000000     -6058.5269     -5479.9038      -578.6231         0.5062         0.2636         0.0811         0.1488         0.3011         0.4092         0.1039         0.1856         0.2994         0.4148         0.1009         0.1846         8.9580         4.0912         4.3381         0.6225         1.0622         1.3134         0.0025        29.6362 1m51s/Msamples
+         950000     -6094.1096     -5484.0922      -610.0174         0.5094         0.2442         0.0894         0.1568         0.3010         0.3966         0.1027         0.1995         0.2722         0.3886         0.0851         0.2539         9.7698         5.0391         4.2272         0.6469         0.8952         1.4562         0.0021        37.3474 1m36s/Msamples
+        1000000     -6075.3591     -5478.9020      -596.4570         0.4658         0.2564         0.0861         0.1915         0.3125         0.4146         0.0913         0.1815         0.3025         0.4006         0.0855         0.2113         9.2114         3.1324         1.9866         0.6728         0.9698         1.3557         0.0022        36.6162 1m36s/Msamples
 
 Operator                                       Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                    0.61510       1353       3190    0.00450    0.29782 
-ScaleOperator(clockRate.scale)                0.75756        934       3599    0.00450    0.20604 
-UpDownOperator(clockRateUppsiDownOperator)    0.95071       6424     128268    0.13497    0.04769 Try setting scaleFactor to about 0.975
-ScaleOperator(kappa.scale)                    0.30492       3271       6690    0.00970    0.32838 
-DeltaExchangeOperator(mu.deltaExchange)       0.30242       1657       5724    0.00730    0.22450 
-DeltaExchangeOperator(pi.0.deltaExchange)     0.15269       1376       8360    0.00970    0.14133 
-DeltaExchangeOperator(pi.1.deltaExchange)     0.13747       1510       8385    0.00970    0.15260 
-DeltaExchangeOperator(pi.2.deltaExchange)     0.11938       1519       8120    0.00970    0.15759 
-Exchange(psi.narrowExchange)                        -      33127     100727    0.13424    0.24749 
-ScaleOperator(psi.rootAgeScale)               0.80152        815       3654    0.00450    0.18237 
-ScaleOperator(psi.scale)                      0.92051       3669     130250    0.13424    0.02740 Try setting scaleFactor to about 0.959
-SubtreeSlide(psi.subtreeSlide)                3.74253      21291     112635    0.13424    0.15898 
-Uniform(psi.uniform)                                -      72100      62237    0.13424    0.53671 
-Exchange(psi.wideExchange)                          -        304     134440    0.13424    0.00226 
-WilsonBalding(psi.wilsonBalding)                    -        718     133654    0.13424    0.00534 
+ScaleOperator(Theta.scale)                    0.58239       1207       3283    0.00450    0.26882 
+ScaleOperator(clockRate.scale)                0.78079       1058       3397    0.00450    0.23749 
+UpDownOperator(clockRateUppsiDownOperator)    0.96403       9317     125474    0.13497    0.06912 Try setting scaleFactor to about 0.982
+ScaleOperator(kappa.scale)                    0.32448       3419       6453    0.00970    0.34633 
+DeltaExchangeOperator(mu.deltaExchange)       0.28169       1805       5653    0.00730    0.24202 
+DeltaExchangeOperator(pi.0.deltaExchange)     0.12426       1752       7956    0.00970    0.18047 
+DeltaExchangeOperator(pi.1.deltaExchange)     0.11379       1793       7797    0.00970    0.18697 
+DeltaExchangeOperator(pi.2.deltaExchange)     0.11328       1653       8173    0.00970    0.16823 
+Exchange(psi.narrowExchange)                        -      33880     100180    0.13424    0.25272 
+ScaleOperator(psi.rootAgeScale)               0.79310        740       3769    0.00450    0.16412 
+ScaleOperator(psi.scale)                      0.91379       3512     130439    0.13424    0.02622 Try setting scaleFactor to about 0.956
+SubtreeSlide(psi.subtreeSlide)               19.04414       4120     130833    0.13424    0.03053 Try decreasing size to about 9.522
+Uniform(psi.uniform)                                -      72073      61925    0.13424    0.53787 
+Exchange(psi.wideExchange)                          -        361     133824    0.13424    0.00269 
+WilsonBalding(psi.wilsonBalding)                    -        816     133339    0.13424    0.00608 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -259,8 +266,8 @@ WilsonBalding(psi.wilsonBalding)                    -        718     133654    0
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 112.122 seconds
-End likelihood: -6058.52697695139
+Total calculation time: 96.711 seconds
+End likelihood: -6075.359137869203
 ```
 
 ## Analysing the BEAST output
