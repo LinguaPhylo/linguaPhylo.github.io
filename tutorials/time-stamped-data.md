@@ -290,13 +290,13 @@ Here you can see how the samples are correlated.
 The default chain length of the MCMC is 1,000,000 in `LPhyBEAST`.
 There are 1800 samples in the trace after removing 10% burnin (we ran the MCMC for steps sampling every 500) 
 but adjacent samples often tend to have similar values. 
-The ESS for the absolute rate of evolution (clockRate) is about 31 so we are only getting 1 independent sample 
-to every 31 ~ 1800/58 actual samples). With a short run such as this one, 
+The ESS for the absolute rate of evolution (clockRate) is about 17 so we are only getting 1 independent sample 
+to every 105 ~ 1800/17 actual samples). With a short run such as this one, 
 it may also be the case that the default burn-in of 10% of the chain length is inadequate. 
 Not excluding enough of the start of the chain as burn-in will render estimates of ESS unreliable.
 
 The simple response to this situation is that we need to run the chain for longer. 
-So let’s go for a chain length of 15,000,000 but keep logging the same number of sample (2,000). 
+So let’s go for a chain length of 15,000,000 but keep logging the same number of samples (2,000). 
 
 Question: what is the logging frequency (logEvery) now?
 
