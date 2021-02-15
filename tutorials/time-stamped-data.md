@@ -128,12 +128,7 @@ Here `rep(element=1.0, times=n)` will create an array of `n` 1.0, which is `[1.0
 
 ### LinguaPhylo Studio
 
-{% include_relative lphy-studio.md lphy="RSV2" figure="
-<figure class="image">
-  <img src="LinguaPhyloStudio.png" alt="LinguaPhyloStudio">
-  <figcaption>Figure 1: The Screenshot of LinguaPhylo Studio</figcaption>
-</figure>
-" %}
+{% include_relative lphy-studio.md lphy="RSV2" fignum="Figure 1" %}
 
 
 ## Producing BEAST XML using LPhyBEAST
@@ -323,12 +318,7 @@ You will now see the posterior probability densities for the relative substituti
 
 ## Summarising the trees
 
-{% include_relative tree-annotator.md figure="
-<figure class="image">
-  <img src="TreeAnnotator.png" alt="TreeAnnotator">
-  <figcaption>Figure 7: TreeAnnotator for creating a summary tree from a posterior tree set.</figcaption>
-</figure>
-" %}
+{% include_relative tree-annotator.md fignum="Figure 7" %}
 
 
 Summary trees can be viewed using FigTree (a program separate from BEAST) and DensiTree (distributed with BEAST).

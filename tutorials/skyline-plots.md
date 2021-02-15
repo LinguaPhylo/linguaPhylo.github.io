@@ -162,12 +162,7 @@ Tips: by default all group sizes in SkylineCoalescent function are 1 which is eq
 
 ### LinguaPhylo Studio
 
-{% include_relative lphy-studio.md lphy="hcv_coal" figure="
-<figure class="image">
-  <img src="LinguaPhyloStudio.png" alt="LinguaPhyloStudio">
-  <figcaption>Figure 4: the Screenshot of LinguaPhylo Studio</figcaption>
-</figure>
-" %}
+{% include_relative lphy-studio.md lphy="hcv_coal" fignum="Figure 4" %}
 
 
 ## Producing BEAST XML using LPhyBEAST

@@ -176,12 +176,7 @@ model {
 
 ### LinguaPhylo Studio
 
-{% include_relative lphy-studio.md lphy="h3n2" figure="
-<figure class="image">
-  <img src="LinguaPhyloStudio.png" alt="LinguaPhyloStudio">
-  <figcaption>Figure 2: The Screenshot of LinguaPhylo Studio</figcaption>
-</figure>
-" %}
+{% include_relative lphy-studio.md lphy="h3n2" fignum="Figure 2" %}
 
 
 ## Producing BEAST XML using LPhyBEAST
@@ -319,12 +314,7 @@ are inferred to be from Hong Kong backwards.
 
 ### Make the MCC tree using TreeAnnotator
 
-{% include_relative tree-annotator.md figure="
-<figure class="image">
-  <img src="TreeAnnotator.png" alt="TreeAnnotator">
-  <figcaption>Figure 7: TreeAnnotator for creating a summary tree from a posterior tree set.</figcaption>
-</figure>
-" %}
+{% include_relative tree-annotator.md fignum="Figure 7" %}
 
 
 ### Check the MCC tree using FigTree
