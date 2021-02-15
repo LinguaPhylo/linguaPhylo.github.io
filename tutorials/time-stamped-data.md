@@ -24,23 +24,7 @@ The aim of this tutorial is to obtain estimates for:
 
 ## Programs used in this Exercise
 
-The following software will be used in this tutorial:
-
-* LPhyBEAST - this software will construct an input file for BEAST
-* BEAST - this package contains the BEAST program, BEAUti, DensiTree, TreeAnnotator and other utility programs. 
-  This tutorial is written for BEAST v2.6.x, which has support for multiple partitions. 
-  It is available for download from [http://www.beast2.org](http://www.beast2.org).
-* BEAST outercore package - this package of BEAST 2 has core features, but not in the core.
-  You can install and use it following the instruction of [managing BEAST 2 packages](http://www.beast2.org/managing-packages/).
-* BEAST labs package - containing some generally useful stuff used by other packages.
-* BEAST [feast](https://github.com/tgvaughan/feast) package - this is a small BEAST 2 package 
-  which contains additions to the core functionality. 
-* Tracer - this program is used to explore the output of BEAST (and other Bayesian MCMC programs). 
-  It graphically and quantitively summarises the distributions of continuous parameters and provides diagnostic information. 
-  At the time of writing, the current version is v1.7. It is available for download from [http://beast.community/tracer](http://beast.community/tracer).
-* FigTree - this is an application for displaying and printing molecular phylogenies, in particular those obtained using BEAST. 
-  At the time of writing, the current version is v1.4.3. It is available for download from [http://beast.community/figtree](http://beast.community/figtree).
-
+{% include_relative programs-used.md %}
 
 ## The NEXUS alignment
 
@@ -82,13 +66,7 @@ should have a `Age` of 0 while all other tips should be larger then 0.
 
 ### Constructing the data block in LinguaPhylo
 
-The LPhy data block is used to input and store the data, 
-which will be processed by the models defined later. 
-The data concepts here include the alignment loaded from a NEXUS file, 
-and the meta data regarding to the information of taxa that we have known. 
-
-Please make sure the tab above the command console is set to `data`, 
-and type or copy and paste the following scripts into the console.
+{% include_relative lphy-data.md %}
 
 ```
 data {
@@ -100,9 +78,6 @@ data {
   n=length(codon); // 3 partitions
 }
 ```
-
-When you write your LPhy scripts, please be aware that `data` and `model` have been reserved 
-and cannot be used as the variable name.
 
 
 ## Models
@@ -181,19 +156,12 @@ java -jar LPhyBEAST.jar RSV2.lphy
 
 ## Running BEAST
 
-Once the BEAST file (e.g. RSV2.xml) is generated, the next step is to run it in BEAST.
-You also need to make sue all required BEAST 2 packages (e.g. `outercore`) have been installed in your local computer.
-
 <figure class="image">
   <img src="outercore.png" alt="Package manager">
   <figcaption>Figure 2: A screenshot of Package Manager.</figcaption>
 </figure>
 
-Now run BEAST and when it asks for an input file, provide your newly created XML file as input. 
-BEAST will then run until it has finished reporting information to the screen. 
-The actual results files are save to the disk in the same location as your input file. 
-The output to the screen will look something like this:
-
+{% include_relative run-beast.md xml="RSV2.xml" %}
 
 ```
                          BEAST v2.6.3, 2002-2020
