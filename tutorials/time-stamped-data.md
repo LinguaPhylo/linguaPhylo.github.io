@@ -104,8 +104,7 @@ Please note the tree here is already the time tree, the age direction will have 
 
 ### Constructing the model block in LinguaPhylo
 
-Please switch the tab to `model`, 
-and type or copy and paste the following scripts into the console.
+{% include_relative lphy-model.md %}
 
 ```
 model {
@@ -127,27 +126,19 @@ The script `n=length(codon);` is equivalent to `n=3;`, since `codon` is a 3-part
 Here `rep(element=1.0, times=n)` will create an array of `n` 1.0, which is `[1.0, 1.0, 1.0]`.
 
 
-### LinguaPhylo
+### LinguaPhylo Studio
 
-After the data and model are successfully loaded, you can view the probability graph for this analysis. 
-You can also look at the value, including alignment or tree, by simply clicking the component in the graph.  
-
+{% include_relative lphy-studio.md lphy="RSV2" figure="
 <figure class="image">
   <img src="LinguaPhyloStudio.png" alt="LinguaPhyloStudio">
   <figcaption>Figure 1: The Screenshot of LinguaPhylo Studio</figcaption>
 </figure>
-
-Tips: the example file `RSV2.lphy` is also available. Looking for the menu `File` and then `Examples`, 
-you can find it and load the scripts after clicking. 
+" %}
 
 
 ## Producing BEAST XML using LPhyBEAST
 
-When we are happy with the analysis defined by this set of LPhy scripts, we save them into a file named `RSV2.lphy`.  
-Then, we can use another software called `LPhyBEAST` to produce BEAST XML from these scripts, 
-which is released as a Java jar file.
-After you make sure both the data file `RSV2.nex` and the LPhy scripts `RSV2.lphy` are ready, 
-preferred in the same folder, you can run the following command line in your terminal.
+{% include_relative lphy-beast.md lphy="RSV2" nex="RSV2" %}
 
 ```
 java -jar LPhyBEAST.jar RSV2.lphy
@@ -332,12 +323,12 @@ You will now see the posterior probability densities for the relative substituti
 
 ## Summarising the trees
 
-Use the program TreeAnnotator to summarise the tree. TreeAnnotator is an application that comes with BEAST.
-
+{% include_relative tree-annotator.md figure="
 <figure class="image">
   <img src="TreeAnnotator.png" alt="TreeAnnotator">
   <figcaption>Figure 7: TreeAnnotator for creating a summary tree from a posterior tree set.</figcaption>
 </figure>
+" %}
 
 
 Summary trees can be viewed using FigTree (a program separate from BEAST) and DensiTree (distributed with BEAST).
@@ -363,9 +354,8 @@ In what year did the common ancestor of all RSVA viruses sampled live? What is t
 
 ## Useful Links
 
-* LinguaPhylo: https://linguaphylo.github.io
-* BEAST 2 website and documentation: http://www.beast2.org/
-* Join the BEAST user discussion: http://groups.google.com/group/beast-users
+{% include_relative links.md %}
+
 
 ## Relevant References
 

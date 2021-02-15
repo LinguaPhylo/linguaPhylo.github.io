@@ -139,16 +139,17 @@ So, we define the priors for the following parameters:
 5. the base frequencies _π_;
 6. the shape of the discretized gamma distribution _shape_.
 
-The benefit of using 3 relative substitution rates here instead of 3 clock rates is that we could use the DeltaExchangeOperator
-to these relative rates in the MCMC sampling to help the converagence.
+The benefit of using 3 relative substitution rates here instead of 3 clock rates is 
+that we could use the _DeltaExchangeOperator_ to these relative rates 
+in the MCMC sampling to help the convergence.
 
-Please note the tree here is already the time tree, the age direction will have been processed in `data` block.
+Please note the tree here is already the time tree, 
+the age direction will have been processed in `data` block.
 
 
 ### Constructing the model block in LinguaPhylo
 
-Please switch the tab to `model`, 
-and type or copy and paste the following scripts into the console.
+{% include_relative lphy-model.md %}
 
 ```
 model {
@@ -173,27 +174,19 @@ model {
 }
 ```
 
-### LinguaPhylo
+### LinguaPhylo Studio
 
-After the data and model are successfully loaded, you can view the probability graph for this analysis. 
-You can also look at the value, including alignment or tree, by simply clicking the component in the graph.  
-
+{% include_relative lphy-studio.md lphy="h3n2" figure="
 <figure class="image">
   <img src="LinguaPhyloStudio.png" alt="LinguaPhyloStudio">
   <figcaption>Figure 2: The Screenshot of LinguaPhylo Studio</figcaption>
 </figure>
-
-Tips: the example file `h3n2.lphy` is also available. Looking for the menu `File` and then `Examples`, 
-you can find it and load the scripts after clicking. 
+" %}
 
 
 ## Producing BEAST XML using LPhyBEAST
 
-When we are happy with the analysis defined by this set of LPhy scripts, we save them into a file named `h3n2.lphy`.  
-Then, we can use another software called `LPhyBEAST` to produce BEAST XML from these scripts, 
-which is released as a Java jar file.
-After you make sure both the data file `h3n2.nex` and the LPhy scripts `h3n2.lphy` are ready, 
-preferred in the same folder, you can run the following command line in your terminal.
+{% include_relative lphy-beast.md lphy="h3n2" nex="h3n2" %}
 
 ```
 java -jar LPhyBEAST.jar -l 30000000 h3n2.lphy
@@ -326,12 +319,12 @@ are inferred to be from Hong Kong backwards.
 
 ### Make the MCC tree using TreeAnnotator
 
-Use the program TreeAnnotator to summarise the tree. TreeAnnotator is an application that comes with BEAST.
-
+{% include_relative tree-annotator.md figure="
 <figure class="image">
   <img src="TreeAnnotator.png" alt="TreeAnnotator">
   <figcaption>Figure 7: TreeAnnotator for creating a summary tree from a posterior tree set.</figcaption>
 </figure>
+" %}
 
 
 ### Check the MCC tree using FigTree
@@ -413,9 +406,7 @@ This paper also explains the mathematical differences to other methods such as t
 To get a better idea of how the states of internal nodes are calculated, have a look in this paper (Müller, Rasmussen, & Stadler, 2018).
 
 * MASCOT source code: https://github.com/nicfel/Mascot
-* LinguaPhylo: https://linguaphylo.github.io
-* BEAST 2 website and documentation: http://www.beast2.org/
-* Join the BEAST user discussion: http://groups.google.com/group/beast-users
+{% include_relative links.md %}
 
 ## Relevant References
 

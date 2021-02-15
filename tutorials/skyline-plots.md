@@ -131,7 +131,7 @@ and apply a `LogNormal` distribution to the mean of the exponential from which t
 The `groupSizes` are positive integers randomly sampled by `RandomComposition` with the dimension of `numGroups`, 
 and they should sum to the number of coalescent intervals.
 
-Please switch the tab to `model`, and type or copy and paste the following scripts into the console.
+{% include_relative lphy-model.md %}
 
 ```
 model {
@@ -160,27 +160,19 @@ model {
 Tips: by default all group sizes in SkylineCoalescent function are 1 which is equivalent to the classic skyline coalescent.
 ```
 
-### LinguaPhylo
+### LinguaPhylo Studio
 
-After the data and model are successfully loaded, you can view the probability graph for this analysis. 
-You can also look at the value, including alignment or tree, by simply clicking the component in the graph.  
-
+{% include_relative lphy-studio.md lphy="hcv_coal" figure="
 <figure class="image">
   <img src="LinguaPhyloStudio.png" alt="LinguaPhyloStudio">
   <figcaption>Figure 4: the Screenshot of LinguaPhylo Studio</figcaption>
 </figure>
-
-Tips: the example file `hcv_coal.lphy` is also available. Looking for the menu `File` and then `Examples`, 
-you can find it and load the scripts after clicking. 
+" %}
 
 
 ## Producing BEAST XML using LPhyBEAST
 
-When we are happy with the analysis defined by this set of LPhy scripts, we save them into a file named `hcv_coal.lphy`.  
-Then, we can use another software called `LPhyBEAST` to produce BEAST XML from these scripts, 
-which is released as a Java jar file.
-After you make sure both the data file `hcv.nex` and the LPhy scripts `hcv_coal.lphy` are ready, 
-preferred in the same folder, you can run the following command line in your terminal.
+{% include_relative lphy-beast.md lphy="hcv_coal" nex="hcv" %}
 
 ```
 java -jar LPhyBEAST.jar -l 40000000 hcv_coal.lphy
@@ -348,9 +340,7 @@ Instead a structured model should then be used to account for these biases.
 
 ## Useful Links
 
-* LinguaPhylo: https://linguaphylo.github.io
-* BEAST 2 website and documentation: http://www.beast2.org/
-* Join the BEAST user discussion: http://groups.google.com/group/beast-users
+{% include_relative links.md %}
 
 ## Relevant References
 
