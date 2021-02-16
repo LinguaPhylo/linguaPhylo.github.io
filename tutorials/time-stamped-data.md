@@ -68,16 +68,14 @@ should have a `Age` of 0 while all other tips should be larger then 0.
 
 {% include_relative lphy-data.md %}
 
-```
-data {
-  options = {ageDirection="forward", ageRegex="s(\d+)$"};
-  D = readNexus(file="examples/RSV2.nex", options=options);
-  taxa = taxa(D);
-  codon = D.charset(["3-629\3","1-629\3", "2-629\3"]);
-  weights = codon.nchar();
-  n=length(codon); // 3 partitions
-}
-```
+{% capture lphy_script %}
+{% include_relative time-stamped-data/lphy.html %}
+{% endcapture %}
+
+{% assign lphy_script_array = lphy_script | split: 'model' %}
+{::nomarkdown}
+{{ lphy_script_array[0] }}
+{:/}
 
 
 ## Models
@@ -106,21 +104,12 @@ Please note the tree here is already the time tree, the age direction will have 
 
 {% include_relative lphy-model.md %}
 
-```
-model {
-  kappa ~ LogNormal(meanlog=1.0, sdlog=0.5, n=n);
-  pi ~ Dirichlet(conc=[2.0,2.0,2.0,2.0], n=n);
-  // relative substitution rates
-  mu ~ WeightedDirichlet(conc=rep(element=1.0, times=n), weights=weights);
-
-  clockRate ~ LogNormal(meanlog=-5.0, sdlog=1.25);
-
-  Θ ~ LogNormal(meanlog=3.0, sdlog=2.0);
-  ψ ~ Coalescent(taxa=taxa, theta=Θ);
-
-  codon ~ PhyloCTMC(L=weights, Q=hky(kappa=kappa, freq=pi, meanRate=mu), mu=clockRate, tree=ψ);
-}
-```
+{::nomarkdown}
+{{ lphy_script_array[1] | prepend: 
+'<span style="color: #4c4c4c; font-size: 12pt; font-family: monospaced">
+        model
+      </span>' }}
+{:/}
 
 The script `n=length(codon);` is equivalent to `n=3;`, since `codon` is a 3-partition alignment.
 Here `rep(element=1.0, times=n)` will create an array of `n` 1.0, which is `[1.0, 1.0, 1.0]`.

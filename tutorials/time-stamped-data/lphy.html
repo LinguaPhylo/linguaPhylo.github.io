@@ -1,0 +1,538 @@
+<html>
+  <head>
+    <style>
+      <!--
+        p.default {
+          family:monospaced;
+          size:3;
+          bold:normal;
+          italic:;
+          foreground:#4c4c4c;
+        }
+        p.functionStyle {
+          foreground:#c400c4;
+        }
+        p.genDistStyle {
+          foreground:#0000ff;
+          bold:bold;
+        }
+        p.randomVarStyle {
+          foreground:#00c400;
+        }
+        p.valueStyle {
+          foreground:#000000;
+        }
+        p.argumentNameStyle {
+          foreground:#808080;
+        }
+        p.constantStyle {
+          foreground:#ff00ff;
+        }
+        p.punctuationStyle {
+          foreground:#000000;
+        }
+      -->
+    </style>
+  </head>
+  <body>
+    <p class=default>
+      <span style="color: #4c4c4c; font-size: 12pt; font-family: monospaced">
+        data {
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp; options
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+         = {
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        ageDirection=
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        "forward"
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        ageRegex=
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        "s(\d+)$"
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        };
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp; D
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+         = 
+      </span>
+      <span style="color: #c400c4; font-size: 12pt; font-family: monospaced">
+        readNexus
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        (
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        file=
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        "examples/RSV2.nex"
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        options=
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        options
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        );
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp; codon
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+         = 
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        D
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        .
+      </span>
+      <span style="color: #c400c4; font-size: 12pt; font-family: monospaced">
+        charset
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        ([
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        "3-629\3"
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        "1-629\3"
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        "2-629\3"
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        ]);
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp; weights
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+         = 
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        codon
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        .
+      </span>
+      <span style="color: #c400c4; font-size: 12pt; font-family: monospaced">
+        nchar
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        ();
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp; n
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+         = 
+      </span>
+      <span style="color: #c400c4; font-size: 12pt; font-family: monospaced">
+        length
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        (
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        arg=
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        codon
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        );
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp; taxa
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+         = 
+      </span>
+      <span style="color: #c400c4; font-size: 12pt; font-family: monospaced">
+        taxa
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        (
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        taxa=
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        D
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        );
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #4c4c4c; font-size: 12pt; font-family: monospaced">
+        }
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #4c4c4c; font-size: 12pt; font-family: monospaced">
+        model {
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #00c400; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp; π
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+         ~ 
+      </span>
+      <span style="color: #0000ff; font-size: 12pt; font-family: monospaced">
+        <b>Dirichlet</b>
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        (
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        conc=
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        [
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        2.0
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        2.0
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        2.0
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        2.0
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        ], 
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        n=
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        n
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        );
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #00c400; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp; κ
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+         ~ 
+      </span>
+      <span style="color: #0000ff; font-size: 12pt; font-family: monospaced">
+        <b>LogNormal</b>
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        (
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        meanlog=
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        1.0
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        n=
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        n
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        sdlog=
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        0.5
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        );
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #00c400; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp; r
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+         ~ 
+      </span>
+      <span style="color: #0000ff; font-size: 12pt; font-family: monospaced">
+        <b>WeightedDirichlet</b>
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        (
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        conc=
+      </span>
+      <span style="color: #c400c4; font-size: 12pt; font-family: monospaced">
+        rep
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        (
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        element=
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        1.0
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        times=
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        n
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        ), 
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        weights=
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        weights
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        );
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #00c400; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp; μ
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+         ~ 
+      </span>
+      <span style="color: #0000ff; font-size: 12pt; font-family: monospaced">
+        <b>LogNormal</b>
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        (
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        meanlog=
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        -5.0
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        sdlog=
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        1.25
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        );
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #00c400; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp; Θ
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+         ~ 
+      </span>
+      <span style="color: #0000ff; font-size: 12pt; font-family: monospaced">
+        <b>LogNormal</b>
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        (
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        meanlog=
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        3.0
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        sdlog=
+      </span>
+      <span style="color: #ff00ff; font-size: 12pt; font-family: monospaced">
+        2.0
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        );
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #00c400; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp; ψ
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+         ~ 
+      </span>
+      <span style="color: #0000ff; font-size: 12pt; font-family: monospaced">
+        <b>Coalescent</b>
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        (
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        taxa=
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        taxa
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        theta=
+      </span>
+      <span style="color: #00c400; font-size: 12pt; font-family: monospaced">
+        Θ
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        );
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #00c400; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp; codon
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+         ~ 
+      </span>
+      <span style="color: #0000ff; font-size: 12pt; font-family: monospaced">
+        <b>PhyloCTMC</b>
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        (
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        L=
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        weights
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        Q=
+      </span>
+      <span style="color: #c400c4; font-size: 12pt; font-family: monospaced">
+        hky
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        (
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        kappa=
+      </span>
+      <span style="color: #00c400; font-size: 12pt; font-family: monospaced">
+        κ
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        freq=
+      </span>
+      <span style="color: #00c400; font-size: 12pt; font-family: monospaced">
+        π
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        meanRate=
+      </span>
+      <span style="color: #00c400; font-size: 12pt; font-family: monospaced">
+        r
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        ), 
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        mu=
+      </span>
+      <span style="color: #00c400; font-size: 12pt; font-family: monospaced">
+        μ
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        , 
+      </span>
+      <span style="color: #808080; font-size: 12pt; font-family: monospaced">
+        tree=
+      </span>
+      <span style="color: #00c400; font-size: 12pt; font-family: monospaced">
+        ψ
+      </span>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        );
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #4c4c4c; font-size: 12pt; font-family: monospaced">
+        }
+      </span>
+    </p>
+  </body>
+</html>
