@@ -22,6 +22,27 @@ the Coalescent Bayesian Skyline plot (Drummond, Rambaut, Shapiro, & Pybus, 2005)
   JC, F81, K80, HKY, TrNf, TrN, TPM1, TPM1f, TPM2, TPM2f, TPM3, TPM3f, TIM1, TIM1f, TIM2, TIM2f, TIM3 , TIM3f, TVMf, TVM, SYM, GTR.
 
 
+## Background: Classic and Generalized Plots
+
+[(Drummond, Rambaut, Shapiro, & Pybus, 2005)](https://academic.oup.com/mbe/article/22/5/1185/1066885) explained 
+these concepts in the figure below:
+
+<figure class="image">
+  <img src="BS1.png" alt="Bayesian Skyline">
+  <figcaption>Figure 1: the classic and generalized Coalescent Bayesian Skyline plots</figcaption>
+</figure>
+
+<ol type="a">
+  <li>A genealogy of five individuals sampled contemporaneously (top) together with its associated classic (middle) and generalized (bottom) skyline plots.</li>
+  <li>A genealogy of five individuals sampled at three different times (top) along with its associated classic (middle) and generalized (bottom) skyline plots. </li>
+</ol>
+
+In the classic skyline plots, the changes in effective population size coincide with coalescent events, 
+resulting in a stepwise function with `n − 2` change points and `n − 1` population sizes, 
+where `n` is the number of sampled individuals. 
+In the generalized skyline plot, changes in effective population size coincide with some, but not necessarily all, coalescent events. 
+The resulting stepwise function has `m − 1` change points (`1 ≤ m ≤ n−1`) and `m` effective population sizes.
+
 ## The NEXUS alignment
 
 The data is in a file called [hcv.nex](https://github.com/taming-the-beast/Skyline-plots/raw/master/data/hcv.nexus). 
@@ -37,13 +58,17 @@ We will try to infer this increase from sequence data.
 
 <figure class="image">
   <img src="Estimated_number_hcv.png" alt="The growth of the effective population size of the Hepatitis C epidemic in Egypt">
-  <figcaption>Figure 1: the growth of the effective population size of the Hepatitis C epidemic in Egypt (Pybus, Drummond, Nakano, Robertson, & Rambaut, 2003).</figcaption>
+  <figcaption>Figure 2: the growth of the effective population size of the Hepatitis C epidemic in Egypt (Pybus, Drummond, Nakano, Robertson, & Rambaut, 2003).</figcaption>
 </figure>
 
 
-### Constructing the data block in LinguaPhylo
+## Constructing the scripts in LPhy Studio
 
-{% include_relative lphy-data.md %}
+{% include_relative lphy-scripts.md %}
+
+{::nomarkdown}
+{% include_relative skyline-plots/lphy.html %}
+{:/}
 
 ```
 data {
@@ -53,37 +78,36 @@ data {
   numGroups = 4;
   w = ntaxa(taxa)-1;
 }
+model {
+  π ~ Dirichlet(conc=[3.0,3.0,3.0,3.0]);
+  rates ~ Dirichlet(conc=[1.0, 2.0, 1.0, 1.0, 2.0, 1.0]);
+  Q = gtr(freq=π, rates=rates);
+
+  firstValue ~ LogNormal(meanlog=9.0, sdlog=2.0);
+  Θ ~ ExpMarkovChain(firstValue=firstValue, n=numGroups);
+  groupSizes ~ RandomComposition(n=w, k=numGroups);
+  ψ ~ SkylineCoalescent(theta=Θ, taxa=taxa, groupSizes=groupSizes);
+
+  shape ~ LogNormal(meanlog=0.0, sdlog=2.0);
+  siteRates ~ DiscretizeGamma(shape=shape, ncat=4, reps=L);
+  D ~ PhyloCTMC(siteRates=siteRates, Q=Q, tree=ψ, mu=0.00079);
+}
 ```
 
-`taxa` and `L` respectively stores the taxa from the alignment `D` and the length of `D`.
+{% include_relative lphy-studio.md lphy="hcv_coal" fignum="Figure 3" %}
+
+
+### Data block
+
+{% include_relative lphy-data.md %}
+
+In the script, `taxa` and `L` respectively stores the taxa from the alignment `D` and the length of `D`.
 `numGroups = 4` sets the number of grouped intervals in the generalized Coalescent Bayesian Skyline plots, 
 and `w` defines `n − 1` effective population sizes, which is the same number of times at which coalescent events occur. 
 
-## Setting up the Coalescent Bayesian Skyline analysis
+### Model block
 
-### Background: Classic and Generalized Plots
-
-[(Drummond, Rambaut, Shapiro, & Pybus, 2005)](https://academic.oup.com/mbe/article/22/5/1185/1066885) explained 
-these concepts in the figure below:
-
-<figure class="image">
-  <img src="BS1.png" alt="Bayesian Skyline">
-  <figcaption>Figure 2: the classic and generalized Coalescent Bayesian Skyline plots</figcaption>
-</figure>
-
-<ol type="a">
-  <li>A genealogy of five individuals sampled contemporaneously (top) together with its associated classic (middle) and generalized (bottom) skyline plots.</li>
-  <li>A genealogy of five individuals sampled at three different times (top) along with its associated classic (middle) and generalized (bottom) skyline plots. </li>
-</ol>
-
-In the classic skyline plots, the changes in effective population size coincide with coalescent events, 
-resulting in a stepwise function with `n − 2` change points and `n − 1` population sizes, 
-where `n` is the number of sampled individuals. 
-In the generalized skyline plot, changes in effective population size coincide with some, but not necessarily all, coalescent events. 
-The resulting stepwise function has `m − 1` change points (`1 ≤ m ≤ n−1`) and `m` effective population sizes.
-
-
-### Constructing the model block in LinguaPhylo
+{% include_relative lphy-model.md %}
 
 In this analysis, we will use the GTR model, 
 which is the most general reversible model and estimates transition probabilities between individual nucleotides separately. 
@@ -104,7 +128,7 @@ but there are some substitution hotspots with high rates.
 
 <figure class="image">
   <img src="DiscGamma.png" alt="discretized gamma">
-  <figcaption>Figure 3: (Yang 2006, Fig. 1.6) Probability density function of the gamma distribution for variable rates among sites. 
+  <figcaption>Figure 4: (Yang 2006, Fig. 1.6) Probability density function of the gamma distribution for variable rates among sites. 
   The scale parameter of the distribution is fixed so that the mean is 1; 
   as a result, the density involves only the shape parameters α. 
   The x-axis is the substitution rate, while the y-axis is proportional to the number of sites with that rate.</figcaption>
@@ -131,38 +155,16 @@ and apply a `LogNormal` distribution to the mean of the exponential from which t
 The `groupSizes` are positive integers randomly sampled by `RandomComposition` with the dimension of `numGroups`, 
 and they should sum to the number of coalescent intervals.
 
-{% include_relative lphy-model.md %}
-
-```
-model {
-  π ~ Dirichlet(conc=[3.0,3.0,3.0,3.0]);
-  rates ~ Dirichlet(conc=[1.0, 2.0, 1.0, 1.0, 2.0, 1.0]);
-  Q = gtr(freq=π, rates=rates);
-
-  firstValue ~ LogNormal(meanlog=9.0, sdlog=2.0);
-  Θ ~ ExpMarkovChain(firstValue=firstValue, n=numGroups);
-  groupSizes ~ RandomComposition(n=w, k=numGroups);
-  ψ ~ SkylineCoalescent(theta=Θ, taxa=taxa, groupSizes=groupSizes);
-
-  shape ~ LogNormal(meanlog=0.0, sdlog=2.0);
-  siteRates ~ DiscretizeGamma(shape=shape, ncat=4, reps=L);
-  D ~ PhyloCTMC(siteRates=siteRates, Q=Q, tree=ψ, mu=0.00079);
-}
-```
 
 ### Questions
 
 ```
-1. what does `numGroups = 4` and `w` define according to the Figure 2 (the classic and generalized Coalescent Bayesian Skyline plots)?
+1. what does `numGroups = 4` and `w` define according to the Figure 1 (the classic and generalized Coalescent Bayesian Skyline plots)?
 
 2. how to change the above LPhy scripts to use the classic Skyline coalescent?
 
 Tips: by default all group sizes in SkylineCoalescent function are 1 which is equivalent to the classic skyline coalescent.
 ```
-
-### LinguaPhylo Studio
-
-{% include_relative lphy-studio.md lphy="hcv_coal" fignum="Figure 4" %}
 
 
 ## Producing BEAST XML using LPhyBEAST

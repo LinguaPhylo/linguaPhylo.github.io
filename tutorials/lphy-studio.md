@@ -1,15 +1,16 @@
 
-After the data and model are successfully loaded,
-you can view the probability graph for this analysis. 
-You can also look at the value, including alignment or tree, 
-by simply clicking the component in the graph.  
+If the scripts are successfully complied,
+you can see the probability graph defined for this analysis. 
+To look at the simulated values, including alignment or tree, 
+just simply click the graphic component in the panel.  
 
 <figure class="image">
-  <img src="LinguaPhyloStudio.png" alt="LinguaPhyloStudio">
-  <figcaption>{{ include.fignum }}: The Screenshot of LinguaPhylo Studio</figcaption>
+  <img src="LinguaPhyloStudio.png" alt="LPhyStudio">
+  <figcaption>{{ include.fignum }}: The Screenshot of LPhy Studio</figcaption>
 </figure>
 
-Tips: the example file `{{ include.lphy }}.lphy` is also available. 
-Looking for the menu `File` and then `Examples`, 
-you can find it and load the scripts after clicking. 
+Tips: the example file `{{ include.lphy }}.lphy` is also available 
+by [HMTL format](./lphy.html). 
+Alternatively, you can look for the menu `File` and then `Examples`, 
+and then find it and load the scripts after clicking. 
 

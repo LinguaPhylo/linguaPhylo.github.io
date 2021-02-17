@@ -64,24 +64,25 @@ If the setup is correct, the sequences sampled the most recently (i.e. 2002)
 should have a `Age` of 0 while all other tips should be larger then 0.
 
 
-### Constructing the data block in LinguaPhylo
+## Constructing the scripts in LPhy Studio
+
+{% include_relative lphy-scripts.md %}
+
+{::nomarkdown}
+{% include_relative time-stamped-data/lphy.html %}
+{:/}
+
+{% include_relative lphy-studio.md lphy="RSV2" fignum="Figure 1" %}
+
+
+### Data block
 
 {% include_relative lphy-data.md %}
 
-{% capture lphy_script %}
-{% include_relative time-stamped-data/lphy.html %}
-{% endcapture %}
 
-{% assign lphy_script_array = lphy_script | split: 'model' %}
-{::nomarkdown}
-{{ lphy_script_array[0] }}
-{:/}
+### Model block
 
-
-## Models
-
-This block is to define and also describe your models and parameters used in the Bayesian phylogenetic analysis.
-Therefore, your results could be reproduced by other researchers using the same model. 
+{% include_relative lphy-model.md %}
 
 In this analysis, we will use three HKY models with estimated frequencies for each of three partitions, 
 and share the strict clock model and a Kingman coalescent tree generative distribution across partitions. 
@@ -94,30 +95,13 @@ So, we define the priors for the following parameters:
 4. the transition/transversion ratio _kappa_ which also has 3 dimensions;
 5. the base frequencies _pi_. 
 
+The script `n=length(codon);` is equivalent to `n=3;`, since `codon` is a 3-partition alignment.
+Here `rep(element=1.0, times=n)` will create an array of `n` 1.0, which is `[1.0, 1.0, 1.0]`.
+
 The benefit of using 3 relative substitution rates here instead of 3 clock rates is that we could use the DeltaExchangeOperator
 to these relative rates in the MCMC sampling to help the converagence.
 
 Please note the tree here is already the time tree, the age direction will have been processed in `data` block.
-
-
-### Constructing the model block in LinguaPhylo
-
-{% include_relative lphy-model.md %}
-
-{::nomarkdown}
-{{ lphy_script_array[1] | prepend: 
-'<span style="color: #4c4c4c; font-size: 12pt; font-family: monospaced">
-        model
-      </span>' }}
-{:/}
-
-The script `n=length(codon);` is equivalent to `n=3;`, since `codon` is a 3-partition alignment.
-Here `rep(element=1.0, times=n)` will create an array of `n` 1.0, which is `[1.0, 1.0, 1.0]`.
-
-
-### LinguaPhylo Studio
-
-{% include_relative lphy-studio.md lphy="RSV2" fignum="Figure 1" %}
 
 
 ## Producing BEAST XML using LPhyBEAST

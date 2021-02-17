@@ -45,7 +45,7 @@ The aim is to:
 - Get to know how to choose the set-up of such an analysis
 - Learn how to read the output of a MASCOT analysis
 
-## The Data
+## The NEXUS alignment
 
 The dataset [H3N2.nexus](http://github.com/nicfel/Mascot-Tutorial/raw/master/data/H3N2.nexus) 
 consists of 24 Influenza A/H3N2 sequences (between 2000 and 2001) subsampled from the original dataset, 
@@ -55,6 +55,50 @@ while more temperate regions such as New Zealand are assumed to be global sinks 
 meaning that Influenza strains are more likely to migrate from the tropic to the temperate regions then vice versa. 
 We want to see if we can infer this source-sink dynamic from sequence data using the structured coalescent.
 
+
+## Constructing the scripts in LPhy Studio
+
+{% include_relative lphy-scripts.md %}
+
+{::nomarkdown}
+{% include_relative structured-coalescent/lphy.html %}
+{:/}
+
+```
+data {
+  options = {ageDirection="forward", ageRegex=".*\|.*\|(\d*\.\d+|\d+\.\d*)\|.*$"};
+  D = readNexus(file="examples/h3n2.nexus", options=options);
+  taxa = D.taxa();
+  L = nchar(D);
+  demes = split(str=D.getTaxaNames(), regex="\|", i=3);
+}
+model {
+  κ ~ LogNormal(meanlog=1.0, sdlog=1.25);
+  π ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
+
+  shape ~ LogNormal(meanlog=0.0, sdlog=2.0);
+  siteRates ~ DiscretizeGamma(shape=shape, ncat=4, reps=L);
+
+  // 0.005 substitutions * site^{-1} * year^{-1} is closer to the truth
+  clockRate ~ LogNormal(meanlog=-5.298, sdlog=0.25);
+
+  // 3 population sizes
+  Θ ~ LogNormal(meanlog=0.0, sdlog=1.0, n=3);
+  // 6 migration rates backwards in time
+  b_m ~ Exp(mean=1.0, n=6);
+  M = migrationMatrix(theta=Θ, m=b_m);
+  tree ~ StructuredCoalescent(M=M, taxa=taxa, demes=demes, sort=true);
+  rootAge = tree.rootAge();
+
+  D ~ PhyloCTMC(siteRates=siteRates, Q=hky(kappa=κ, freq=π), mu=clockRate, tree=tree);
+```
+
+{% include_relative lphy-studio.md lphy="h3n2" fignum="Figure 1" %}
+
+
+### Data block
+
+{% include_relative lphy-data.md %}
 
 ### Tip dates
 
@@ -67,7 +111,7 @@ How to set the age direction in LPhy is available in the [Time-stamped data](/tu
 
 <figure class="image">
   <img src="ages.png" alt="ages">
-  <figcaption>Figure 1: The ages of tips</figcaption>
+  <figcaption>Figure 2: The ages of tips</figcaption>
 </figure>
 
 
@@ -81,25 +125,9 @@ where `i` is the index of split elements and starts from 0.
 You can check the locations by clicking the graphical component `demes`. 
 
 
-### Constructing the data block in LinguaPhylo
+### Model block
 
-{% include_relative lphy-data.md %}
-
-```
-data {
-  options = {ageDirection="forward", ageRegex=".*\|.*\|(\d*\.\d+|\d+\.\d*)\|.*$"};
-  D = readNexus(file="examples/h3n2.nexus", options=options);
-  taxa = D.taxa();
-  L = nchar(D);
-  demes = split(str=D.getTaxaNames(), regex="\|", i=3);
-}
-```
-
-
-## Models
-
-This block is to define and also describe your models and parameters used in the Bayesian phylogenetic analysis.
-Therefore, your results could be reproduced by other researchers using the same model. 
+{% include_relative lphy-model.md %}
 
 In this analysis, we will use three HKY models with estimated frequencies. 
 We allow for rate heterogeneity among sites by approximating the continuous rate distribution (for each site in the alignment) 
@@ -130,7 +158,6 @@ From previous work by other people, we know that the clock rate will be around 0
 To include that prior knowledger, we can set the prior on the clock rate to a log normal distribution. 
 If we set `meanlog=-5.298` and `sdlog=0.25`, then we expect the clock rate to be with 95% certainty between 0.00306 and 0.00816.
 
-
 So, we define the priors for the following parameters:
 1. three effective population sizes _Θ_;  
 2. six migration rates backwards in time _m_;
@@ -139,44 +166,10 @@ So, we define the priors for the following parameters:
 5. the base frequencies _π_;
 6. the shape of the discretized gamma distribution _shape_.
 
-The benefit of using 3 relative substitution rates here instead of 3 clock rates is 
-that we could use the _DeltaExchangeOperator_ to these relative rates 
-in the MCMC sampling to help the convergence.
-
-Please note the tree here is already the time tree, 
-the age direction will have been processed in `data` block.
-
-
-### Constructing the model block in LinguaPhylo
-
-{% include_relative lphy-model.md %}
-
-```
-model {
-  κ ~ LogNormal(meanlog=1.0, sdlog=1.25);
-  π ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
-
-  shape ~ LogNormal(meanlog=0.0, sdlog=2.0);
-  siteRates ~ DiscretizeGamma(shape=shape, ncat=4, reps=L);
-
-  // 0.005 substitutions * site^{-1} * year^{-1} is closer to the truth
-  clockRate ~ LogNormal(meanlog=-5.298, sdlog=0.25);
-
-  // 3 population sizes
-  Θ ~ LogNormal(meanlog=0.0, sdlog=1.0, n=3);
-  // 6 migration rates backwards in time
-  b_m ~ Exp(mean=1.0, n=6);
-  M = migrationMatrix(theta=Θ, m=b_m);
-  tree ~ StructuredCoalescent(M=M, taxa=taxa, demes=demes, sort=true);
-  rootAge = tree.rootAge();
-
-  D ~ PhyloCTMC(siteRates=siteRates, Q=hky(kappa=κ, freq=π), mu=clockRate, tree=tree);
-}
-```
-
-### LinguaPhylo Studio
-
-{% include_relative lphy-studio.md lphy="h3n2" fignum="Figure 2" %}
+Please note the dimension of effective population sizes should equal to 
+the number of locations (assuming it is `x`),
+then the dimension of migration rates backwards in time should equal to 
+`x*(x-1)`.
 
 
 ## Producing BEAST XML using LPhyBEAST

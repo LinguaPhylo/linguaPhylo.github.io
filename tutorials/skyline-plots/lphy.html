@@ -1,0 +1,169 @@
+<html>
+  <head>
+    <style>
+      <!--
+        p.default {
+          family:monospaced;
+          size:3;
+          bold:normal;
+          italic:;
+          foreground:#4c4c4c;
+        }
+        p.punctuationStyle {
+          foreground:#000000;
+        }
+        p.functionStyle {
+          foreground:#c400c4;
+        }
+        p.distributionStyle {
+          foreground:#0000ff;
+          bold:bold;
+        }
+        p.randomVarStyle {
+          foreground:#00c400;
+        }
+        p.valueStyle {
+          foreground:#000000;
+        }
+        p.argumentNameStyle {
+          foreground:#808080;
+        }
+        p.constantStyle {
+          foreground:#ff00ff;
+        }
+        p.keywordStyle {
+          foreground:#000000;
+        }
+      -->
+    </style>
+  </head>
+  <body>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        \begin{alltt}
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;   data \{
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;     D = 
+        \textcolor{magenta!80!black}{readNexus}(\textcolor{gray}{file=}\textcolor{magenta}{"examples/hcv.nexus"});
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;     L = \textcolor{magenta!80!black}{nchar}(\textcolor{gray}{sites=}D);
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;     numGroups = \textcolor{magenta}{4};
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;     taxa = \textcolor{magenta!80!black}{taxa}(\textcolor{gray}{taxa=}D);
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;     w = \textcolor{magenta!80!black}{ntaxa}(taxa)-\textcolor{magenta}{1};
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;   \}
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;   model \{
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;     \textcolor{green}{\(\pi\)} ~ 
+        \textcolor{blue}{Dirichlet}(\textcolor{gray}{conc=}[\textcolor{magenta}{3.0}, 
+        \textcolor{magenta}{3.0}, \textcolor{magenta}{3.0}, \textcolor{magenta}{3.0}]);
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;     \textcolor{green}{rates} ~ 
+        \textcolor{blue}{Dirichlet}(\textcolor{gray}{conc=}[\textcolor{magenta}{1.0}, 
+        \textcolor{magenta}{2.0}, \textcolor{magenta}{1.0}, \textcolor{magenta}{1.0}, 
+        \textcolor{magenta}{2.0}, \textcolor{magenta}{1.0}]);
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;     Q = 
+        \textcolor{magenta!80!black}{gtr}(\textcolor{gray}{rates=}\textcolor{green}{rates}, 
+        \textcolor{gray}{freq=}\textcolor{green}{\(\pi\)});
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;     \textcolor{green}{shape} ~ 
+        \textcolor{blue}{LogNormal}(\textcolor{gray}{meanlog=}\textcolor{magenta}{0.0}, 
+        \textcolor{gray}{sdlog=}\textcolor{magenta}{2.0});
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;     \textcolor{green}{siteRates} ~ 
+        \textcolor{blue}{DiscretizeGamma}(\textcolor{gray}{ncat=}\textcolor{magenta}{4}, 
+        \textcolor{gray}{reps=}L, \textcolor{gray}{shape=}\textcolor{green}{shape});
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;     \textcolor{green}{groupSizes} ~ 
+        \textcolor{blue}{RandomComposition}(\textcolor{gray}{k=}numGroups, \textcolor{gray}{n=}w);
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;     \textcolor{green}{firstValue} ~ 
+        \textcolor{blue}{LogNormal}(\textcolor{gray}{meanlog=}\textcolor{magenta}{9.0}, 
+        \textcolor{gray}{sdlog=}\textcolor{magenta}{2.0});
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;     \textcolor{green}{\(\Theta\)} ~ 
+        \textcolor{blue}{ExpMarkovChain}(\textcolor{gray}{firstValue=}\textcolor{green}{firstValue}, 
+        \textcolor{gray}{n=}numGroups);
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;     \textcolor{green}{\(\psi\)} ~ 
+        \textcolor{blue}{SkylineCoalescent}(\textcolor{gray}{groupSizes=}\textcolor{green}{groupSizes}, 
+        \textcolor{gray}{taxa=}taxa, \textcolor{gray}{theta=}\textcolor{green}{\(\Theta\)});
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;     \textcolor{green}{D} ~ \textcolor{blue}{PhyloCTMC}(\textcolor{gray}{Q=}Q, 
+        \textcolor{gray}{mu=}\textcolor{magenta}{7.9E-4}, 
+        \textcolor{gray}{siteRates=}\textcolor{green}{siteRates}, 
+        \textcolor{gray}{tree=}\textcolor{green}{\(\psi\)});
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        &nbsp;&nbsp;   \}
+      </span>
+    </p>
+    <p class=default>
+      <span style="color: #000000; font-size: 12pt; font-family: monospaced">
+        \end{alltt}
+      </span>
+    </p>
+  </body>
+</html>
