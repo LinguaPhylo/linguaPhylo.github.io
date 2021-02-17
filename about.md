@@ -8,13 +8,9 @@ LinguaPhylo (LPhy for short - pronounced el-fee) is a probabilistic model specif
 The aim is to provide a language for probabilistic models of phylogenetic evolution that is independent of the method to perform inference. 
 This language is readable by both humans and computers. Here is a full example:
 
-```
-model {
-  λ ~ LogNormal(meanlog=3.0, sdlog=1.0);
-  ψ ~ Yule(birthRate=λ, n=16);
-  D ~ PhyloCTMC(L=200, Q=jukesCantor(), tree=ψ);
-}
-```
+{::nomarkdown}
+{% include_relative yule.html %}
+{:/}
 
 Each of the lines in this  model block expresses how a random variable (to the left of the tilde) is generated from a generative distribution.
 
