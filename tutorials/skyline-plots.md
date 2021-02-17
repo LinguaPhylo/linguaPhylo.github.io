@@ -70,29 +70,6 @@ We will try to infer this increase from sequence data.
 {% include_relative skyline-plots/lphy.html %}
 {:/}
 
-```
-data {
-  D = readNexus(file="examples/hcv.nexus");
-  taxa = taxa(D);
-  L = nchar(D);
-  numGroups = 4;
-  w = ntaxa(taxa)-1;
-}
-model {
-  π ~ Dirichlet(conc=[3.0,3.0,3.0,3.0]);
-  rates ~ Dirichlet(conc=[1.0, 2.0, 1.0, 1.0, 2.0, 1.0]);
-  Q = gtr(freq=π, rates=rates);
-
-  firstValue ~ LogNormal(meanlog=9.0, sdlog=2.0);
-  Θ ~ ExpMarkovChain(firstValue=firstValue, n=numGroups);
-  groupSizes ~ RandomComposition(n=w, k=numGroups);
-  ψ ~ SkylineCoalescent(theta=Θ, taxa=taxa, groupSizes=groupSizes);
-
-  shape ~ LogNormal(meanlog=0.0, sdlog=2.0);
-  siteRates ~ DiscretizeGamma(shape=shape, ncat=4, reps=L);
-  D ~ PhyloCTMC(siteRates=siteRates, Q=Q, tree=ψ, mu=0.00079);
-}
-```
 
 {% include_relative lphy-studio.md lphy="hcv_coal" fignum="Figure 3" %}
 

@@ -64,34 +64,6 @@ We want to see if we can infer this source-sink dynamic from sequence data using
 {% include_relative structured-coalescent/lphy.html %}
 {:/}
 
-```
-data {
-  options = {ageDirection="forward", ageRegex=".*\|.*\|(\d*\.\d+|\d+\.\d*)\|.*$"};
-  D = readNexus(file="examples/h3n2.nexus", options=options);
-  taxa = D.taxa();
-  L = nchar(D);
-  demes = split(str=D.getTaxaNames(), regex="\|", i=3);
-}
-model {
-  κ ~ LogNormal(meanlog=1.0, sdlog=1.25);
-  π ~ Dirichlet(conc=[2.0,2.0,2.0,2.0]);
-
-  shape ~ LogNormal(meanlog=0.0, sdlog=2.0);
-  siteRates ~ DiscretizeGamma(shape=shape, ncat=4, reps=L);
-
-  // 0.005 substitutions * site^{-1} * year^{-1} is closer to the truth
-  clockRate ~ LogNormal(meanlog=-5.298, sdlog=0.25);
-
-  // 3 population sizes
-  Θ ~ LogNormal(meanlog=0.0, sdlog=1.0, n=3);
-  // 6 migration rates backwards in time
-  b_m ~ Exp(mean=1.0, n=6);
-  M = migrationMatrix(theta=Θ, m=b_m);
-  tree ~ StructuredCoalescent(M=M, taxa=taxa, demes=demes, sort=true);
-  rootAge = tree.rootAge();
-
-  D ~ PhyloCTMC(siteRates=siteRates, Q=hky(kappa=κ, freq=π), mu=clockRate, tree=tree);
-```
 
 {% include_relative lphy-studio.md lphy="h3n2" fignum="Figure 1" %}
 
