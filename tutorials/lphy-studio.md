@@ -1,5 +1,5 @@
 
-If the scripts are successfully complied,
+If the scripts contain no errors,
 you can see the probability graph defined for this analysis. 
 To look at the simulated values, including alignment or tree, 
 just simply click the graphic component in the panel.  
