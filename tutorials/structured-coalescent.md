@@ -60,8 +60,12 @@ We want to see if we can infer this source-sink dynamic from sequence data using
 
 {% include_relative lphy-scripts.md %}
 
-{::nomarkdown}
+{% capture lphy_html %}
 {% include_relative structured-coalescent/lphy.html %}
+{% endcapture %}
+
+{::nomarkdown}
+{{ lphy_html | replace: "11pt", "10pt" }}
 {:/}
 
 
