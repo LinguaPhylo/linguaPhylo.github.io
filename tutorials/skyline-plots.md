@@ -52,7 +52,7 @@ The resulting stepwise function has `m − 1` change points (`1 ≤ m ≤ n−1`
 The dataset consists of an alignment of 63 Hepatitis C sequences sampled in 1993 in Egypt ([Ray, Arthur, Carella, Bukh, & Thomas, 2000](#references)). 
 This dataset has been used previously to test the performance of skyline methods ([Drummond, Rambaut, Shapiro, & Pybus, 2005, and Stadler, Kuhnert, Bonhoeffer, & Drummond, 2013](#references)).
 
-{% assign pop_fig = 'Figure 2' %}
+{% assign pop_fig_num = 'Figure 2' %}
 
 With an estimated 15-25%, Egypt has the highest Hepatits C prevalence in the world. 
 In the mid 20th century, the prevalence of Hepatitis C increased drastically 
