@@ -13,7 +13,7 @@ The so-called Skyline methods allow to extract this information from phylogeneti
 It is non-parametric since there is no underlying system of differential equations governing the inference of these dynamics. 
 
 In this tutorial we will look at a popular coalescent method, 
-the Coalescent Bayesian Skyline plot (Drummond, Rambaut, Shapiro, & Pybus, 2005), to infer these dynamics from sequence data. 
+the Coalescent Bayesian Skyline plot ([Drummond, Rambaut, Shapiro, & Pybus, 2005](https://academic.oup.com/mbe/article/22/5/1185/1066885)), to infer these dynamics from sequence data. 
 
 ## Programs used in this Exercise
 
@@ -27,9 +27,11 @@ the Coalescent Bayesian Skyline plot (Drummond, Rambaut, Shapiro, & Pybus, 2005)
 [(Drummond, Rambaut, Shapiro, & Pybus, 2005)](https://academic.oup.com/mbe/article/22/5/1185/1066885) explained 
 these concepts in the figure below:
 
-<figure class="image">
+{% assign bs1_fig_num = 'Figure 1' %}
+
+<figure class="image" id="bs1_fig">
   <img src="BS1.png" alt="Bayesian Skyline">
-  <figcaption>Figure 1: the classic and generalized Coalescent Bayesian Skyline plots</figcaption>
+  <figcaption>{{ bs1_fig_num }}: the classic and generalized Coalescent Bayesian Skyline plots</figcaption>
 </figure>
 
 <ol type="a">
@@ -45,20 +47,21 @@ The resulting stepwise function has `m − 1` change points (`1 ≤ m ≤ n−1`
 
 ## The NEXUS alignment
 
-The data is in a file called [hcv.nex](https://github.com/taming-the-beast/Skyline-plots/raw/master/data/hcv.nexus). 
-You can download the data from the link, after the data is opened in your web browser, 
-right click mouse and save it in as `hcv.nex` in a new folder.
+{% include_relative download-data.md df='hcv' df_link='https://github.com/taming-the-beast/Skyline-plots/raw/master/data/hcv.nexus' %}
 
-The dataset consists of an alignment of 63 Hepatitis C sequences sampled in 1993 in Egypt (Ray, Arthur, Carella, Bukh, & Thomas, 2000). 
-This dataset has been used previously to test the performance of skyline methods (Drummond, Rambaut, Shapiro, & Pybus, 2005) (Stadler, Kuhnert, Bonhoeffer, & Drummond, 2013).
+The dataset consists of an alignment of 63 Hepatitis C sequences sampled in 1993 in Egypt ([Ray, Arthur, Carella, Bukh, & Thomas, 2000](#references)). 
+This dataset has been used previously to test the performance of skyline methods ([Drummond, Rambaut, Shapiro, & Pybus, 2005, and Stadler, Kuhnert, Bonhoeffer, & Drummond, 2013](#references)).
 
-With an estimated 15-25%, Egypt has the highest Hepatits C prevalence in the world. In the mid 20th century, 
-the prevalence of Hepatitis C increased drastically (see Figure 1 for estimates). 
+{% assign pop_fig = 'Figure 2' %}
+
+With an estimated 15-25%, Egypt has the highest Hepatits C prevalence in the world. 
+In the mid 20th century, the prevalence of Hepatitis C increased drastically 
+(see {{ pop_fig_num }} for estimates).
 We will try to infer this increase from sequence data.
 
 <figure class="image">
   <img src="Estimated_number_hcv.png" alt="The growth of the effective population size of the Hepatitis C epidemic in Egypt">
-  <figcaption>Figure 2: the growth of the effective population size of the Hepatitis C epidemic in Egypt (Pybus, Drummond, Nakano, Robertson, & Rambaut, 2003).</figcaption>
+  <figcaption>{{ pop_fig_num }}: the growth of the effective population size of the Hepatitis C epidemic in Egypt (Pybus, Drummond, Nakano, Robertson, & Rambaut, 2003).</figcaption>
 </figure>
 
 
@@ -115,7 +118,7 @@ but there are some substitution hotspots with high rates.
 The sequences were all sampled in 1993 so we are dealing with a homochronous alignment and do not need to specify tip dates.
 
 Because our sequences are contemporaneous (homochronous data), there is no information in our dataset to estimate the clock rate. 
-We will use an estimate inferred in (Pybus et al., 2001) to fix the clock rate. 
+We will use an estimate inferred in [Pybus et al., 2001](#references) to fix the clock rate. 
 In this case all the samples were contemporaneous (sampled at the same time) and the clock rate is simply 
 a scaling of the estimated tree branch lengths (in substitutions/site) into calendar time.
 
@@ -135,13 +138,13 @@ and they should sum to the number of coalescent intervals.
 
 ### Questions
 
-```
-1. what does `numGroups = 4` and `w` define according to the Figure 1 (the classic and generalized Coalescent Bayesian Skyline plots)?
+
+1. what does `numGroups = 4` and `w` define according to the [{{ bs1_fig_num }}](#bs1_fig) (the classic and generalized Coalescent Bayesian Skyline plots)?
 
 2. how to change the above LPhy scripts to use the classic Skyline coalescent?
 
 Tips: by default all group sizes in SkylineCoalescent function are 1 which is equivalent to the classic skyline coalescent.
-```
+
 
 
 ## Producing BEAST XML using LPhyBEAST
@@ -291,15 +294,13 @@ Taming the BEAST tutorial [Skyline plots](https://taming-the-beast.org/tutorials
 
 ### Questions
 
-```
-1. How to choose the dimension for the Coalescent Bayesian Skyline? 
+1. How to choose the dimension for the Bayesian skyline analysis? 
    How does the number of dimensions of effective population sizes affect the result?
 
 2. What are the alternative models to deal with this dimension problem?
 
-3. What does the Bayesian Skyline plot in this analysis tell you? 
+3. What does the Bayesian skyline plot in this analysis tell you? 
 
-```
 
 ## Some considerations for using skyline plots
 
@@ -316,7 +317,7 @@ Instead a structured model should then be used to account for these biases.
 
 {% include_relative links.md %}
 
-## Relevant References
+## References
 
 * Drummond, A. J., Rambaut, A., Shapiro, B., & Pybus, O. G. (2005). Bayesian coalescent inference of past population dynamics from molecular sequences. Molecular Biology and Evolution, 22(5), 1185–1192. https://doi.org/10.1093/molbev/msi103
 * Bouckaert, R., Heled, J., Kühnert, D., Vaughan, T., Wu, C.-H., Xie, D., … Drummond, A. J. (2014). BEAST 2: a software platform for Bayesian evolutionary analysis. PLoS Computational Biology, 10(4), e1003537. https://doi.org/10.1371/journal.pcbi.1003537

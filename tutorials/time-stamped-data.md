@@ -10,7 +10,7 @@ This tutorial is modified from Taming the BEAST tutorial [Time-stamped data](htt
 This tutorial estimates the rate of evolution from a set of virus sequences which have been isolated 
 at different points in time (heterochronous or time-stamped data). 
 The data are 129 sequences from the G (attachment protein) gene of human respiratory syncytial virus 
-subgroup A (RSVA) (Zlateva, Lemey, Vandamme, & Van Ranst, 2004; Zlateva, Lemey, Moës, Vandamme, & Van Ranst, 2005), 
+subgroup A (RSVA) ([Zlateva et al., 2004; Zlateva et al., 2005](#references)), 
 with isolation dates ranging from 1956-2002. 
 RSVA causes infections of the lower respiratory tract causing symptoms that are often indistinguishable from the common cold. 
 By age 3, nearly all children will be infected and a small percentage (<3%) will develop more serious inflammation 
@@ -28,10 +28,9 @@ The aim of this tutorial is to obtain estimates for:
 
 ## The NEXUS alignment
 
-The data is in a file called [RSV2.nex](https://raw.githubusercontent.com/CompEvol/beast2/master/examples/nexus/RSV2.nex). 
-You can find it in the examples/nexus directory in the directory where BEAST was installed. 
-Or click the link to download the data. 
-After the data is opened in your web browser, right click mouse and save it in as `RSV2.nex` in a new folder.
+{% include_relative download-data.md df='RSV2' df_link='https://raw.githubusercontent.com/CompEvol/beast2/master/examples/nexus/RSV2.nex' %}
+It is also available in the examples/nexus folder where BEAST 2 was installed. 
+
 
 ### Multiple partitions
 
@@ -45,23 +44,11 @@ For example, `"3-629\3"` means the 1st codon partition (codon0) starts from the 
 
 ### Tip dates
 
-By default all the taxa are assumed to have a date of zero (i.e. the sequences are assumed to be sampled at the same time). 
-In this case, the RSVA sequences have been sampled at various dates going back to the 1950s. 
+{% include_relative tip-dates-forward.md  earliest='the 1950s' 
+                    date_in_name='after the last little `s`' 
+                    since='1900' regex='s(\d+)$' last='2002' %}
 
-The date of each sample is stored in the taxon name after the last little `s`. The numbers are years since 1900.
-We will use the regular expression `"s(\d+)$"` to extract these numbers and turn to ages. 
-In addition, the age direction should be set to the _forward_ in time for this analysis. 
-
-The LPhy `TimeTree` always take the ages. 
-But there are two different ways in how the meta data (e.g. in the Nexus file) can interpret sampling dates, 
-which are controlled by the age direction defined in LPhy `readNexus`. 
-If the sampling dates are __since some time in the past__, then we set `ageDirection="forward"` or `"dates"`.
-This is usually used for virus data. 
-If the sampling dates are __before the present__, then we set `ageDirection="backward"` or `"ages"`. 
-This is usually used for fossils data. 
-The easiest way to check if you have used the correct one is by clicking the graphical component `taxa` and checking the column `Age`. 
-If the setup is correct, the sequences sampled the most recently (i.e. 2002) 
-should have a `Age` of 0 while all other tips should be larger then 0.
+{% include_relative age-direction.md %}
 
 
 ## Constructing the scripts in LPhy Studio
@@ -320,7 +307,7 @@ In what year did the common ancestor of all RSVA viruses sampled live? What is t
 {% include_relative links.md %}
 
 
-## Relevant References
+## References
 
 * Zlateva, K. T., Lemey, P., Vandamme, A.-M., & Van Ranst, M. (2004). Molecular evolution and circulation patterns of human respiratory syncytial virus subgroup a: positively selected sites in the attachment g glycoprotein. J Virol, 78(9), 4675–4683.
 * Zlateva, K. T., Lemey, P., Moës, E., Vandamme, A.-M., & Van Ranst, M. (2005). Genetic variability and molecular evolution of the human respiratory syncytial virus subgroup B attachment G protein. J Virol, 79(14), 9157–9167. https://doi.org/10.1128/JVI.79.14.9157-9167.2005

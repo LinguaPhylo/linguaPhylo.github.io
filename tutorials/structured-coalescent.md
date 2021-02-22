@@ -20,8 +20,8 @@ The structured coalescent allows to coherently model the migration and coalescen
 but struggles with complex datasets due to the need to infer ancestral migration histories. 
 Thus, approximations to the structured coalescent, which integrate over all ancestral migration histories, have been developed. 
 This tutorial gives an introduction into how a MASCOT analysis in BEAST2 can be set-up. 
-MASCOT is short for **M**arginal **A**pproximation of the **S**tructured **C****O**alescen**T** (Müller, Rasmussen, & Stadler, 2018) 
-and implements a structured coalescent approximation (Müller, Rasmussen, & Stadler, 2017). 
+MASCOT is short for **M**arginal **A**pproximation of the **S**tructured **C****O**alescen**T** [Müller, Rasmussen, & Stadler, 2018](#references) 
+and implements a structured coalescent approximation [Müller, Rasmussen, & Stadler, 2017](#references). 
 This approximation doesn't require migration histories to be sampled using MCMC 
 and therefore allows to analyse phylogenies with more than three or four states.
 
@@ -34,7 +34,7 @@ and therefore allows to analyse phylogenies with more than three or four states.
 
 In this tutorial we will estimate migration rates, effective population sizes and locations of internal nodes 
 using the marginal approximation of the structured coalescent implemented in BEAST2, 
-MASCOT (Müller, Rasmussen, & Stadler, 2018).
+MASCOT [Müller, Rasmussen, & Stadler, 2018](#references).
 
 Instead of following the "traditional" BEAST pipeline, we will use LPhy to build the MASCOT model for the analysis,
 and then use LPhyBEAST to create the XML from the LPhy scripts.
@@ -47,9 +47,9 @@ The aim is to:
 
 ## The NEXUS alignment
 
-The dataset [H3N2.nexus](http://github.com/nicfel/Mascot-Tutorial/raw/master/data/H3N2.nexus) 
-consists of 24 Influenza A/H3N2 sequences (between 2000 and 2001) subsampled from the original dataset, 
-which are sampled in Hong Kong, New York and in New Zealand. 
+{% include_relative download-data.md df='H3N2' df_link='http://github.com/nicfel/Mascot-Tutorial/raw/master/data/H3N2.nexus' %}
+
+The dataset consists of 24 Influenza A/H3N2 sequences (between 2000 and 2001) subsampled from the original dataset, which are sampled in Hong Kong, New York and in New Zealand. 
 South-East Asia has been hypothesized to be a global source location of seasonal Influenza, 
 while more temperate regions such as New Zealand are assumed to be global sinks (missing reference), 
 meaning that Influenza strains are more likely to migrate from the tropic to the temperate regions then vice versa. 
@@ -93,12 +93,10 @@ How to set the age direction in LPhy is available in the [Time-stamped data](/tu
 
 ### Tip locations
 
-The main contrast in the setup to previous analyses is that we include additional information about the sampling location of sequences. 
-Sequences were taken from patients in Hong Kong, New York and New Zealand. 
-We can specify these sampling locations by extracting them from taxa labels. 
-Use `split` to split the taxa names by the separator `|`, and take the 4th group given `i=3` 
-where `i` is the index of split elements and starts from 0. 
-You can check the locations by clicking the graphical component `demes`. 
+{% include_relative discrete-traits.md  locations='Hong Kong, New York and New Zealand' 
+                    using='`split` given the separator `|`, and taking the 4th element given `i=3`' 
+                    traits='demes' %}
+It is an array of locations required by the `StructuredCoalescent` in the `model` section later.
 
 
 ### Model block
@@ -360,14 +358,14 @@ This error can have different origins and a likely incomplete list is the follow
 ## Useful Links
 
 If you interested in the derivations of the marginal approximation of the structured coalescent, 
-you can find them here (Müller, Rasmussen, & Stadler, 2017). 
+you can find them from [Müller, Rasmussen, & Stadler, 2017](#references). 
 This paper also explains the mathematical differences to other methods such as the theory underlying BASTA. 
-To get a better idea of how the states of internal nodes are calculated, have a look in this paper (Müller, Rasmussen, & Stadler, 2018).
+To get a better idea of how the states of internal nodes are calculated, have a look in this paper [Müller, Rasmussen, & Stadler, 2018](#references).
 
 * MASCOT source code: https://github.com/nicfel/Mascot
 {% include_relative links.md %}
 
-## Relevant References
+## References
 
 * Müller, N. F., Rasmussen, D., & Stadler, T. (2018). MASCOT: Parameter and state inference under the marginal structured coalescent approximation. Bioinformatics, bty406. https://doi.org/10.1093/bioinformatics/bty406
 * Müller, N. F., Rasmussen, D. A., & Stadler, T. (2017). The Structured Coalescent and its Approximations. Molecular Biology and Evolution, msx186.
