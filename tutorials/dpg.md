@@ -28,8 +28,9 @@ not already have it installed).
 
 {% include_relative download-data.md df='h5n1' df_link='https://raw.githubusercontent.com/BEAST2-Dev/beast-classic/master/examples/nexus/H5N1.nex' %}
 
-The data is a subset of a larger set compiled
-by [Wallace et al., 2007](#references). It consists of 43 sequences of 1698 nucleotides.
+The data is a subset of original dataset [Wallace et al., 2007](#references), 
+and it consists of 43 influenza A H5N1 hemagglutinin and neuraminidase gene sequences 
+isolated from a variety of hosts 1996 - 2005 across sample locations.
 
 
 ## Constructing the scripts in LPhy Studio
@@ -70,19 +71,46 @@ it will use the actual locations instead of simulated locations.
 
 {% include_relative lphy-model.md %}
 
-In this analysis, we will use three HKY models with estimated frequencies for each of three partitions, 
-and share the strict clock model and a Kingman coalescent tree generative distribution across partitions. 
-But we are also interested about the relative substitution rate for each of three partitions.
+This block is to define and also describe your models and parameters used in the Bayesian phylogenetic analysis.
+Therefore, your results could be reproduced by other researchers using the same model. 
+
+In this analysis, we will use three HKY models with estimated frequencies. 
+We allow for rate heterogeneity among sites by approximating the continuous rate distribution (for each site in the alignment) 
+with a discretized gamma probability distribution (mean = 1), 
+where the number of bins in the discretization `ncat = 4`.
+The _shape_ parameter will be estimated in this analysis. 
+More details can be seen in the [Bayesian Skyline Plots](/tutorials/skyline-plots/#constructing-the-model-block-in-linguaphylo) tutorial. 
+
+Next, we are going to set the priors for MASCOT. 
+First, consider the effective population size parameter. 
+Since we have only a few samples per location, meaning little information about the different effective population sizes, 
+we will need an informative prior. 
+In this case we will use a log normal prior with parameters M=0 and S=1. 
+(These are respectively the mean and variance of the corresponding normal distribution in log space.) 
+
+The existing exponential distribution as a prior on the migration rate puts much weight on lower values while not prohibiting larger ones. 
+For migration rates, a prior that prohibits too large values while not greatly distinguishing 
+between very small and very very small values is generally a good choice. 
+Be aware however that the exponential distribution is quite an informative prior: 
+one should be careful that to choose a mean so that feasible rates are at least within the 95% HPD interval of the prior. 
+(This can be determined by using R script)
+
+A more in depth explanation of what backwards migration really are can be found in the
+[Peter Beerli's blog post](http://popgen.sc.fsu.edu/Migrate/Blog/Entries/2013/3/22_forward-backward_migration_rates.html).
+ 
+Finally, set the prior for the clock rate. We have a good idea about the clock rate of Influenza A/H3N2 Hemagglutinin. 
+From previous work by other people, we know that the clock rate will be around 0.005 substitution per site per year. 
+To include that prior knowledger, we can set the prior on the clock rate to a log normal distribution. 
+If we set `meanlog=-5.298` and `sdlog=0.25`, then we expect the clock rate to be with 95% certainty between 0.00306 and 0.00816.
+
 
 So, we define the priors for the following parameters:
-1. the effective population size _Θ_;  
-2. the general clock rate _clockRate_;
-3. the relative substitution rates _mu_ which has 3 dimensions;
-4. the transition/transversion ratio _kappa_ which also has 3 dimensions;
-5. the base frequencies _pi_. 
-
-The script `n=length(codon);` is equivalent to `n=3;`, since `codon` is a 3-partition alignment.
-Here `rep(element=1.0, times=n)` will create an array of `n` 1.0, which is `[1.0, 1.0, 1.0]`.
+1. three effective population sizes _Θ_;  
+2. six migration rates backwards in time _m_;
+3. the general clock rate _clockRate_;
+4. the transition/transversion ratio _κ_;
+5. the base frequencies _π_;
+6. the shape of the discretized gamma distribution _shape_.
 
 The benefit of using 3 relative substitution rates here instead of 3 clock rates is that we could use the DeltaExchangeOperator
 to these relative rates in the MCMC sampling to help the converagence.
