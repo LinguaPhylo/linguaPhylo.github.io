@@ -45,7 +45,7 @@ isolated from a variety of hosts 1996 - 2005 across sample locations.
 {% include_relative lphy-scripts.md %}
 
 {% capture lphy_html %}
-{% include_relative dpg/lphy.html %}
+{% include_relative discrete-phylogeography/lphy.html %}
 {% endcapture %}
 
 {::nomarkdown}
