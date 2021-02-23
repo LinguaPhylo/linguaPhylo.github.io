@@ -1,0 +1,230 @@
+/Applications/BEAST2.6.3/bin/beast -overwrite -beagle_SSE h5n1.xml 
+
+                        BEAST v2.6.3, 2002-2020
+             Bayesian Evolutionary Analysis Sampling Trees
+                       Designed and developed by
+ Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
+                                    
+                   Centre for Computational Evolution
+                         University of Auckland
+                       r.bouckaert@auckland.ac.nz
+                        alexei@cs.auckland.ac.nz
+                                    
+                   Institute of Evolutionary Biology
+                        University of Edinburgh
+                           a.rambaut@ed.ac.uk
+                                    
+                    David Geffen School of Medicine
+                 University of California, Los Angeles
+                           msuchard@ucla.edu
+                                    
+                      Downloads, Help & Resources:
+                           http://beast2.org/
+                                    
+  Source code distributed under the GNU Lesser General Public License:
+                   http://github.com/CompEvol/beast2
+                                    
+                           BEAST developers:
+   Alex Alekseyenko, Trevor Bedford, Erik Bloomquist, Joseph Heled, 
+ Sebastian Hoehna, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, 
+Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, 
+          Oliver Pybus, Tim Vaughan, Chieh-Hsi Wu, Walter Xie
+                                    
+                               Thanks to:
+          Roald Forsberg, Beth Shapiro and Korbinian Strimmer
+
+Random number seed: 1610922349230
+
+File: h5n1.xml seed: 1610922349230 threads: 1
+Loading package SSM v1.1.0
+Loading package outercore v0.0.5
+Loading package BEAST v2.6.3
+Loading package bModelTest v1.2.1
+Loading package Mascot v2.1.2
+Loading package Babel v0.3.1
+Loading package BEASTLabs v1.9.5
+Loading package BEAST_CLASSIC v1.5.0
+Loading package BDSKY v1.4.6
+Alignment(H5N1)
+  43 taxa
+  1698 sites
+  305 patterns
+
+A_Chicken_Guangdong_810_2005 = 2005 (0.0)
+A_Goose_Guangdong_1_1996 = 1996 (9.0)
+A_Goose_HongKong_w355_1997 = 1997 (8.0)
+A_bird_HongKong_213_2003 = 2003 (2.0)
+A_bird_HongKong_481_1997 = 1997 (8.0)
+A_bird_HongKong_485_1997 = 1997 (8.0)
+A_bird_HongKong_488_1997 = 1997 (8.0)
+A_bird_HongKong_503_1997 = 1997 (8.0)
+A_bird_HongKong_514_1997 = 1997 (8.0)
+A_bird_HongKong_532_1997 = 1997 (8.0)
+A_bird_HongKong_542_1997 = 1997 (8.0)
+A_bird_HongKong_97_1998 = 1998 (7.0)
+A_chicken_Fujian_1042_2005 = 2005 (0.0)
+A_chicken_Guangdong_174_2004 = 2004 (1.0)
+A_chicken_Guangdong_191_2004 = 2004 (1.0)
+A_chicken_Guangxi_2439_2004 = 2004 (1.0)
+A_chicken_Guangxi_2461_2004 = 2004 (1.0)
+A_chicken_HongKong_258_1997 = 1997 (8.0)
+A_chicken_HongKong_863_2002 = 2002 (3.0)
+A_chicken_HongKong_915_1997 = 1997 (8.0)
+A_duck_Fujian_13_2002 = 2002 (3.0)
+A_duck_Fujian_897_2005 = 2005 (0.0)
+A_duck_Guangdong_01_2001 = 2001 (4.0)
+A_duck_Guangdong_12_2000 = 2000 (5.0)
+A_duck_Guangdong_4610_2003 = 2003 (2.0)
+A_duck_Guangxi_1378_2004 = 2004 (1.0)
+A_duck_Guangxi_1681_2004 = 2004 (1.0)
+A_duck_Guangxi_2291_2004 = 2004 (1.0)
+A_duck_Guangxi_22_2001 = 2001 (4.0)
+A_duck_Guangxi_351_2004 = 2004 (1.0)
+A_duck_Guangxi_50_2001 = 2001 (4.0)
+A_duck_Guangxi_793_2005 = 2005 (0.0)
+A_duck_Hunan_1265_2005 = 2005 (0.0)
+A_duck_Hunan_139_2005 = 2005 (0.0)
+A_duck_Hunan_157_2005 = 2005 (0.0)
+A_duck_Hunan_182_2005 = 2005 (0.0)
+A_goose_Guangdong_2216_2005 = 2005 (0.0)
+A_goose_Guangxi_1097_2004 = 2004 (1.0)
+A_goose_Guangxi_2112_2004 = 2004 (1.0)
+A_goose_Guangxi_345_2005 = 2005 (0.0)
+A_goose_Guangxi_914_2004 = 2004 (1.0)
+A_greyheron_HongKong_837_2004 = 2004 (1.0)
+A_swine_Fujian_F1_2001 = 2001 (4.0)
+  Using BEAGLE version: 2.1.2 resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_SSE THREADING_NONE PROCESSOR_CPU FRAMEWORK_CPU
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 305 unique site patterns.
+  Using rescaling scheme : dynamic
+A_Chicken_Guangdong_810_2005 = Guangdong (NaN)
+A_Goose_Guangdong_1_1996 = Guangdong (NaN)
+A_Goose_HongKong_w355_1997 = HongKong (NaN)
+A_bird_HongKong_213_2003 = HongKong (NaN)
+A_bird_HongKong_481_1997 = HongKong (NaN)
+A_bird_HongKong_485_1997 = HongKong (NaN)
+A_bird_HongKong_488_1997 = HongKong (NaN)
+A_bird_HongKong_503_1997 = HongKong (NaN)
+A_bird_HongKong_514_1997 = HongKong (NaN)
+A_bird_HongKong_532_1997 = HongKong (NaN)
+A_bird_HongKong_542_1997 = HongKong (NaN)
+A_bird_HongKong_97_1998 = HongKong (NaN)
+A_chicken_Fujian_1042_2005 = Fujian (NaN)
+A_chicken_Guangdong_174_2004 = Guangdong (NaN)
+A_chicken_Guangdong_191_2004 = Guangdong (NaN)
+A_chicken_Guangxi_2439_2004 = Guangxi (NaN)
+A_chicken_Guangxi_2461_2004 = Guangxi (NaN)
+A_chicken_HongKong_258_1997 = HongKong (NaN)
+A_chicken_HongKong_863_2002 = HongKong (NaN)
+A_chicken_HongKong_915_1997 = HongKong (NaN)
+A_duck_Fujian_13_2002 = Fujian (NaN)
+A_duck_Fujian_897_2005 = Fujian (NaN)
+A_duck_Guangdong_01_2001 = Guangdong (NaN)
+A_duck_Guangdong_12_2000 = Guangdong (NaN)
+A_duck_Guangdong_4610_2003 = Guangdong (NaN)
+A_duck_Guangxi_1378_2004 = Guangxi (NaN)
+A_duck_Guangxi_1681_2004 = Guangxi (NaN)
+A_duck_Guangxi_2291_2004 = Guangxi (NaN)
+A_duck_Guangxi_22_2001 = Guangxi (NaN)
+A_duck_Guangxi_351_2004 = Guangxi (NaN)
+A_duck_Guangxi_50_2001 = Guangxi (NaN)
+A_duck_Guangxi_793_2005 = Guangxi (NaN)
+A_duck_Hunan_1265_2005 = Hunan (NaN)
+A_duck_Hunan_139_2005 = Hunan (NaN)
+A_duck_Hunan_157_2005 = Hunan (NaN)
+A_duck_Hunan_182_2005 = Hunan (NaN)
+A_goose_Guangdong_2216_2005 = Guangdong (NaN)
+A_goose_Guangxi_1097_2004 = Guangxi (NaN)
+A_goose_Guangxi_2112_2004 = Guangxi (NaN)
+A_goose_Guangxi_345_2005 = Guangxi (NaN)
+A_goose_Guangxi_914_2004 = Guangxi (NaN)
+A_greyheron_HongKong_837_2004 = HongKong (NaN)
+A_swine_Fujian_F1_2001 = Fujian (NaN)
+AncestralStateTreeLikelihood(traitedtreeLikelihood.location) uses BeerLikelihoodCore
+  AlignmentFromTrait(location): [taxa, patterns, sites] = [43, 1, 1]
+===============================================================================
+Citations for this model:
+
+Bouckaert, Remco, Timothy G. Vaughan, Joëlle Barido-Sottani, Sebastián Duchêne, Mathieu Fourment, 
+Alexandra Gavryushkina, Joseph Heled, Graham Jones, Denise Kühnert, Nicola De Maio, Michael Matschiner, 
+Fábio K. Mendes, Nicola F. Müller, Huw A. Ogilvie, Louis du Plessis, Alex Popinga, Andrew Rambaut, 
+David Rasmussen, Igor Siveroni, Marc A. Suchard, Chieh-Hsi Wu, Dong Xie, Chi Zhang, Tanja Stadler, 
+Alexei J. Drummond 
+  BEAST 2.5: An advanced software platform for Bayesian evolutionary analysis. 
+  PLoS computational biology 15, no. 4 (2019): e1006650.
+
+Hasegawa M, Kishino H, Yano T (1985) Dating the human-ape splitting by a
+  molecular clock of mitochondrial DNA. Journal of Molecular Evolution
+  22:160-174.
+
+Edwards, C. J., Suchard, M. A., Lemey, P., ... & Valdiosera, C. E. (2011).
+Ancient hybridization and an Irish origin for the modern polar bear matriline.
+Current Biology, 21(15), 1251-1258.
+
+===============================================================================
+Start likelihood: -10850.430396892129 
+Writing file H5N1.log
+Writing file H5N1.trees
+Writing file location_tree_with_trait.trees
+         Sample      posterior     likelihood          prior
+              0    -10847.5986    -10733.5504      -114.0482 --
+Turning on scaling to prevent numeric instability 1.0201
+         100000     -5988.8574     -5843.9410      -144.9163 --
+         200000     -5985.0088     -5839.1886      -145.8201 --
+         300000     -5977.6639     -5834.5452      -143.1186 --
+         400000     -5977.2443     -5825.7433      -151.5010 --
+         500000     -5984.9853     -5830.6762      -154.3091 --
+         600000     -5990.8144     -5833.4495      -157.3648 1m5s/Msamples
+         700000     -5980.2628     -5832.2854      -147.9773 1m3s/Msamples
+         800000     -5979.6492     -5828.1400      -151.5091 1m2s/Msamples
+         900000     -5984.4723     -5830.5617      -153.9106 1m3s/Msamples
+        1000000     -5985.5520     -5838.4853      -147.0667 1m2s/Msamples
+        1100000     -5969.9924     -5821.6855      -148.3069 1m2s/Msamples
+        1200000     -5986.3226     -5837.2420      -149.0806 1m2s/Msamples
+        1300000     -5974.9382     -5825.5971      -149.3411 1m2s/Msamples
+        1400000     -5981.6393     -5838.9583      -142.6809 1m2s/Msamples
+        1500000     -5975.3522     -5827.9146      -147.4375 1m2s/Msamples
+        1600000     -5988.0772     -5833.2169      -154.8602 1m1s/Msamples
+        1700000     -5979.9088     -5834.5374      -145.3714 1m1s/Msamples
+        1800000     -5963.7759     -5820.1816      -143.5943 1m1s/Msamples
+        1900000     -5984.7432     -5841.5166      -143.2266 1m1s/Msamples
+        2000000     -5987.2566     -5833.9258      -153.3307 1m1s/Msamples
+        2100000     -5982.3154     -5835.0161      -147.2993 1m0s/Msamples
+        2200000     -5991.9431     -5840.3304      -151.6126 1m0s/Msamples
+        2300000     -5976.4503     -5820.6085      -155.8418 1m0s/Msamples
+        2400000     -5973.3985     -5824.7102      -148.6882 1m0s/Msamples
+        2500000     -5976.0556     -5830.4080      -145.6475 1m0s/Msamples
+        2600000     -5980.1871     -5827.1341      -153.0530 1m0s/Msamples
+        2700000     -5970.3322     -5826.6893      -143.6428 1m1s/Msamples
+        2800000     -5977.1595     -5825.2943      -151.8652 1m0s/Msamples
+        2900000     -5988.4805     -5834.3912      -154.0893 1m0s/Msamples
+        3000000     -5978.8061     -5826.8244      -151.9817 1m0s/Msamples
+
+Operator                                                   Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+ScaleOperator(georateScaler.s:location)                   0.59155     149893     384619    0.17825    0.28043 
+BitFlipOperator(indicatorFlip.s:location)                       -     162416     372025    0.17825    0.30390 
+ScaleOperator(geoMuScaler.c:location)                     0.27280      17067      36324    0.01783    0.31966 
+BitFlipBSSVSOperator(BSSVSoperator.c:location)                  -     104185     430573    0.17825    0.19483 
+ScaleOperator(KappaScaler.s:H5N1)                         0.51655        464       1292    0.00059    0.26424 
+ScaleOperator(gammaShapeScaler.s:H5N1)                    0.38587        432       1291    0.00059    0.25073 
+ScaleOperator(CoalescentConstantTreeScaler.t:H5N1)        0.77190       2033      51313    0.01783    0.03811 Try setting scaleFactor to about 0.879
+ScaleOperator(CoalescentConstantTreeRootScaler.t:H5N1)    0.68867       5001      48369    0.01783    0.09370 Try setting scaleFactor to about 0.83
+Uniform(CoalescentConstantUniformOperator.t:H5N1)               -     223547     311497    0.17825    0.41781 
+SubtreeSlide(CoalescentConstantSubtreeSlide.t:H5N1)       1.08453      43131     224031    0.08913    0.16144 
+Exchange(CoalescentConstantNarrow.t:H5N1)                       -      46156     222048    0.08913    0.17209 
+Exchange(CoalescentConstantWide.t:H5N1)                         -        261      53172    0.01783    0.00488 
+WilsonBalding(CoalescentConstantWilsonBalding.t:H5N1)           -        328      53281    0.01783    0.00612 
+ScaleOperator(PopSizeScaler.t:H5N1)                       0.42997      13925      39579    0.01783    0.26026 
+DeltaExchangeOperator(FrequenciesExchanger.s:H5N1)        0.03631        648       1100    0.00059    0.37071 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 182.384 seconds
+End likelihood: -5978.806122585249
