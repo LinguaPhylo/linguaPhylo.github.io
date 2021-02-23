@@ -2,7 +2,7 @@
 layout: page
 title: Ancestral Reconstruction using Discrete Phylogeography
 author: 'Walter Xie and Alexei Drummond'
-permalink: /tutorials/dpg/
+permalink: /tutorials/discrete-phylogeography/
 ---
 
 This tutorial is modified from the BEAST tutorial [Ancestral Reconstruction/Discrete
