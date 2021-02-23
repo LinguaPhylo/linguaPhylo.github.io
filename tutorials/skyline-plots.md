@@ -95,10 +95,7 @@ That means that the transition probabilities between e.g. **A** and **T** will b
 however transition probabilities from **A** to **C** will be the same as **C** to **A** etc. 
 The nucleotide equilibrium state frequencies _π_ are estimated here.
 
-Additionally, we allow for rate heterogeneity among sites. 
-We do this by approximating the continuous rate distribution (for each site in the alignment) with a discretized gamma probability distribution (mean = 1), 
-where the number of bins in the discretization `ncat = 4` (normally between 4 and 6).
-We are going to estimate the _shape_ parameter in this analysis.
+{% include_relative rate-heterogeneity.md %}
 
 As explained in (Yang, 2006), the shape parameter α is inversely related to the extent of rate variation at sites. 
 If α > 1, the distribution is bell-shaped, meaning that most sites have intermediate rates around 1, while few sites have either very low or very high rates. 

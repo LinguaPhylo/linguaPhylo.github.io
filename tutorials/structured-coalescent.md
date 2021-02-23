@@ -104,10 +104,7 @@ It is an array of locations required by the `StructuredCoalescent` in the `model
 {% include_relative lphy-model.md %}
 
 In this analysis, we will use three HKY models with estimated frequencies. 
-We allow for rate heterogeneity among sites by approximating the continuous rate distribution (for each site in the alignment) 
-with a discretized gamma probability distribution (mean = 1), 
-where the number of bins in the discretization `ncat = 4`.
-The _shape_ parameter will be estimated in this analysis. 
+{% include_relative rate-heterogeneity.md %}
 More details can be seen in the [Bayesian Skyline Plots](/tutorials/skyline-plots/#constructing-the-model-block-in-linguaphylo) tutorial. 
 
 Next, we are going to set the priors for MASCOT. 
