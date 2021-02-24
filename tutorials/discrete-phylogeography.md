@@ -72,9 +72,9 @@ isolated from a variety of hosts 1996 - 2005 across sample locations.
                     using='`extractTrait` given the separator `_`, and taking the 3rd element given `i=2`' 
                     traits='trait_D' %}
 
-The function `extractTrait` creates an one-site alignment `trait_D` to store the locations. 
+The function `extractTrait` creates an one-site alignment `trait_D` to store the locations which map to taxa. 
 It is called as the discrete trait alignment. 
-The graphical component `trait_D` (blue circle) on the bottom is the simulated locations from the priors and models.
+The 2nd graphical component `trait_D` (blue circle) on the bottom is the random variable containing the discrete trait alignment simulated by the defined priors and models.
 Because we clamped the discrete trait alignment containing the actual locations to the `trait_D` in this analysis,
 it will use the actual locations instead of simulated locations.
 
@@ -83,45 +83,47 @@ it will use the actual locations instead of simulated locations.
 
 {% include_relative lphy-model.md %}
 
-In this analysis, we will use three HKY models with estimated frequencies. 
+In this analysis, we have two parts mixed in the `model` section: 
+the first part is modeling evolutionary history and demographic structure based on a nucleotide alignment, 
+and the second part is defining how to sample the discrete states (locations) from the phylogeny $\psi$ shared with the 1st part.
+
+For the nucleotide alignment, we use the HKY model with estimated frequencies. 
 {% include_relative rate-heterogeneity.md %}
 More details can be seen in the [Bayesian Skyline Plots](/tutorials/skyline-plots/#constructing-the-model-block-in-linguaphylo) tutorial. 
 
-Next, we are going to set the priors for MASCOT. 
-First, consider the effective population size parameter. 
-Since we have only a few samples per location, meaning little information about the different effective population sizes, 
-we will need an informative prior. 
-In this case we will use a log normal prior with parameters M=0 and S=1. 
-(These are respectively the mean and variance of the corresponding normal distribution in log space.) 
+We use a strict molecular clock, but to make the analysis converge a bit quicker, 
+it is fixed to 0.004. 
+We choose a Kingman coalescent tree generative distribution as the tree prior. 
 
-The existing exponential distribution as a prior on the migration rate puts much weight on lower values while not prohibiting larger ones. 
-For migration rates, a prior that prohibits too large values while not greatly distinguishing 
-between very small and very very small values is generally a good choice. 
-Be aware however that the exponential distribution is quite an informative prior: 
-one should be careful that to choose a mean so that feasible rates are at least within the 95% HPD interval of the prior. 
-(This can be determined by using R script)
+Then we define the priors for the following parameters:
+1. the effective population size _$\theta$_;  
+2. the transition/transversion ratio _$\kappa$_;
+3. the base frequencies _$\pi$_.
+4. the shape of the discretized gamma distribution _shape_. 
 
-A more in depth explanation of what backwards migration really are can be found in the
-[Peter Beerli's blog post](http://popgen.sc.fsu.edu/Migrate/Blog/Entries/2013/3/22_forward-backward_migration_rates.html).
- 
-Finally, set the prior for the clock rate. We have a good idea about the clock rate of Influenza A/H3N2 Hemagglutinin. 
-From previous work by other people, we know that the clock rate will be around 0.005 substitution per site per year. 
-To include that prior knowledger, we can set the prior on the clock rate to a log normal distribution. 
-If we set `meanlog=-5.298` and `sdlog=0.25`, then we expect the clock rate to be with 95% certainty between 0.00306 and 0.00816.
+The next step is the geographic model. 
+In the discrete phylogeography, the probability of transitioning to a new location through the time is computed by 
 
+$$ P(t) = e^{\Lambda t} $$ 
 
-So, we define the priors for the following parameters:
-1. three effective population sizes _Θ_;  
-2. six migration rates backwards in time _m_;
-3. the general clock rate _clockRate_;
-4. the transition/transversion ratio _κ_;
-5. the base frequencies _π_;
-6. the shape of the discretized gamma distribution _shape_.
+where $\Lambda$ is a $ K \times K $ infinitesimal rate matrix, 
+and $K$ is the number of discrete locations (i.e. 5 locations here). Then, 
 
-The benefit of using 3 relative substitution rates here instead of 3 clock rates is that we could use the DeltaExchangeOperator
-to these relative rates in the MCMC sampling to help the converagence.
+$$ \Lambda = \mu S \Pi $$
 
-Please note the tree here is already the time tree, the age direction will have been processed in `data` block.
+where $\mu$ is an overall rate scalar, $S$ is a $ K \times K $ matrix of relative migration rates,
+and $\Pi = daig(\pi)$ where $\pi$ is the equilibrium trait frequencies.
+After the normalization, $\mu$ measures the number of migration events per unit time $t$.
+The detail is explained in [Lemey et al., 2009](#references).
+
+So, assuming migration to be symmetric in this analysis, we define a vector variable `trait_rates` with the length of $ \frac{K \times (K-1)}{2} $ to store the off-diagonal entries of the unnormalised $S$. Another boolean vector `trait_indicators` with the same length determines which infinitesimal rates are zero, 
+which is performed by the function `select`. 
+This implements the Bayesian stochastic search variable selection (BSSVS).  
+
+In addition, we define the priors for the following parameters:
+5. the trait clock rate _traitClockRate_;
+6. the relative migration rates *trait_indicators*;
+7. the trait frequencies *trait_$\pi$*. 
 
 
 ## Producing BEAST XML using LPhyBEAST

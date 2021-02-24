@@ -27,6 +27,9 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: alexeidrummond
 github_username:  alexeid
 
+markdown: kramdown
+mathjax: true
+
 # Build settings
 theme: minima
 header_pages:
@@ -34,6 +37,7 @@ header_pages:
   - tutorials.md
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default.
