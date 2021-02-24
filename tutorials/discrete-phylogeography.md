@@ -112,7 +112,7 @@ and $K$ is the number of discrete locations (i.e. 5 locations here). Then,
 $$ \Lambda = \mu S \Pi $$
 
 where $\mu$ is an overall rate scalar, $S$ is a $ K \times K $ matrix of relative migration rates,
-and $\Pi = daig(\pi)$ where $\pi$ is the equilibrium trait frequencies.
+and $\Pi = diag(\pi)$ where $\pi$ is the equilibrium trait frequencies.
 After the normalization, $\mu$ measures the number of migration events per unit time $t$.
 The detail is explained in [Lemey et al., 2009](#references).
 
