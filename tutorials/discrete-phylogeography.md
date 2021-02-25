@@ -215,15 +215,7 @@ End likelihood: -5953.588976905855
 
 ## Analysing the BEAST output
 
-Run the program called `Tracer` to analyze the output of BEAST. When the
-main window has opened, choose `Import Trace File...` from the `File` menu
-and select the file that BEAST has created called `h5n1.log`. You should now
-see a window like in Figure 3.
-
-<figure class="image">
-  <img src="Tracer.png" alt="The trace of short run">
-  <figcaption>Figure 3: A screenshot of Tracer.</figcaption>
-</figure>
+{% include_relative tracer.md logfile="h5n1" fignum="Figure 2" %}
 
 Remember that MCMC is a stochastic algorithm so the actual numbers will
 not be exactly the same.
@@ -232,101 +224,74 @@ There are traces for the posterior (this is the log of the product of
 the tree likelihood and the prior probabilities), and the continuous parameters.
 Selecting a trace on the left brings up analyses for this trace on the right hand
 side depending on tab that is selected. When first opened, the "posterior"" trace
-is selected and various statistics of this trace are shown under the Estimates
+is selected and various statistics of this trace are shown under the `Estimates`
 tab. In the top right of the window is a table of calculated statistics for the
 selected trace.
 
 Tracer will plot a (marginal posterior) distribution for the selected parameter
-and also give you statistics such as the mean and median. The 95% HPD lower
-or upper stands for highest posterior density interval and represents the most
+and also give you statistics such as the mean and median. The __95% HPD lower__
+or __upper__ stands for _highest posterior density interval_ and represents the most
 compact interval on the selected parameter that contains 95% of the posterior
 probability. It can be thought of as a Bayesian analog to a confidence interval.
 
 
 ## Obtaining an estimate of the phylogenetic tree
 
-{% include_relative tree-annotator.md fignum="Figure 4" %}
-
-
-Summary trees can be viewed using FigTree (a program separate from BEAST) and DensiTree (distributed with BEAST).
-
-<figure class="image">
-  <img src="RSV2.tree.svg" alt="MCC tree">
-  <figcaption>Figure 5: The Maximum clade credibility tree for the G gene of 129 RSVA-2 viral samples.</figcaption>
-</figure>
-
-
-BEAST also produces a sample of plausible trees. These can be summarized
-using the program TreeAnnotator. This will take the set of trees and identify
-a single tree that best represents the posterior distribution. It will then anno-
-tate this selected tree topology with the mean ages of all the nodes as well as
-the 95% HPD interval of divergence times for each clade in the selected tree.
-It will also calculate the posterior clade probability for each node. Run the
-TreeAnnotator program and set it up to look like in Figure 4.
-
-The burnin is the number of trees to remove from the start of the sample.
-Unlike Tracer which specifies the number of steps as a burnin, in TreeAnno-
-tator you need to specify the actual number of trees. For this run, we use the
-14default setting 0.
-The Posterior probability limit option specifies a limit such that if a
-node is found at less than this frequency in the sample of trees (i.e., has a
-posterior probability less than this limit), it will not be annotated. Set this to
-0 to annotate all nodes.
-For Target tree type you can either choose a specific tree from a file or ask
-TreeAnnotator to find a tree in your sample. The default option, Maximum
-clade credibility tree, finds the tree with the highest product of the posterior
-probability of all its nodes.
-Choose Mean heights for node heights. This sets the heights (ages) of each
-node in the tree to the mean height across the entire sample of trees for that
-clade.
-For the input file, select the trees file that BEAST created (by default this
-will be called location tree with trait.trees) and select a file for the output
-(here we called it location tree with trait.tree).
-Now press Run and wait for the program to finish.
-
+{% include_relative tree-annotator.md fignum="Figure 3" %}
 
 
 ## Distribution of root location
 
-When you open the summary tree location tree with trait.tree in a text
-editor, and look at the end of the tree definition, grab the last entry for loca-
-tion.set and location.set.prob. They might look something like this:
-location.set = {"Hunan","Guangxi","Fujian","HongKong","Guangdong"}
-location.set.prob = {0.024983344437041973, 0.16822118587608262, 0.05463024650233178,
-0.6085942704863424, 0.1435709526982012}
+When you open the summary tree with locations `h5n1_with_trait.tree` in a text editor, 
+and look at the end of the tree definition, grab the last entry for `location.set` and `location.set.prob`. 
+They might look something like this:
+```
+location.set = {Guangdong,HongKong,Hunan,Guangxi,Fujian}
+location.set.prob = {0.1971127151582454,0.5885619100499723,0.0416435313714603,0.11715713492504164,0.0555247084952804}
+```
 This means that we have the following distribution for the root location:
 
+| Location| Probability                          |
+|---------|--------------------------------------|
+|Guangdong|0.1971127151582454|
+|HongKong|0.5885619100499723|
+|Hunan|0.0416435313714603|
+|Guangxi|0.11715713492504164|
+|Fujian|0.0555247084952804|
 
-This distribution shows that the 95% HPD consists of all locations except
-Hunan, with a strong indication that Hong-Kong might be the root with over
-60% probability. It is quite typical that a lot of locations are part of the 95%
-HPD in discrete phylogeography.
+This distribution shows that the 95% HPD consists of all locations except Hunan, 
+with a strong indication that HongKong might be the root with over 58% probability. 
+It is quite typical that a lot of locations are part of the 95% HPD in discrete phylogeography.
 
 
 ## Viewing the Location Tree
 
-We can look at the tree in another program called FigTree. Run this program,
-and open the location tree with trait.tree file by using the Open command
-in the File menu. The tree should appear. You can now try selecting some
-of the options in the control panel on the left. Try selecting Appearance to
-get colour on the branches by location. Also, you can set the branch width
-according to posterior support. You should end up with something like Figure
-5.
+We can visualise the tree in a program called _FigTree_. 
+Run this program, and open the location tree with trait.tree file by using the `Open` command in the `File` menu. 
+The tree should appear. You can now try selecting some of the options in the control panel on the left. 
+Try selecting `Appearance` to get colour on the branches by location. 
+Also, you can set the branch width according to posterior support. 
+You should end up with something like Figure 4.
 
+<figure class="image">
+  <img src="h5n1_with_trait.tree.svg" alt="MCC tree">
+  <figcaption>Figure 4: Figtree representation of the summary tree. 
+  Branch colours represent location and branch widths posterior support for the branch.</figcaption>
+</figure>
 
-Alternatively, you can load the species tree set (note this is NOT the sum-
-mary tree, but the complete set) into DensiTree and set it up as follows.
+Alternatively, you can load the species tree set (note this is NOT the summary tree, but the complete set) 
+into _DensiTree_ and set it up as follows.
 - Set burn-in to 300. The tree should not be collapsed any more.
 - Show a root-canal tree to guide the eye.
 - Show a grid, and play with the grid options to only show lines at 2 year
 intervals covering round numbers (that is, 2000, instead of 2001.22).
-The image should look something like Figure 4.
-You can colour branches by location to get something like Figure 6.
+You can colour branches by location to get image like Figure 5.
 
 <figure class="image">
   <img src="DensiTree.png" alt="MCC tree">
-  <figcaption>Figure 6: The posterior tree set visualised in DensiTree.</figcaption>
+  <figcaption>Figure 5: The posterior tree set visualised in DensiTree.</figcaption>
 </figure>
+
 
 ## Post processing geography
 
@@ -339,17 +304,20 @@ We used `location` so change it to location.
 Click the set-up button. A dialog pops up where you can edit altitude and
 longitude for the locations. Alternatively, you can load it from a tab-delimited
 file. A file named `H5N1locations.dat` is prepared already.
+
 Tip: to find latitude and longitude of locations, you can use Google maps,
 switch on photo's and select a photo at the location of the map. Click the
 photo, then click `Show in Panoramio` and a new page opens that contains the
 locations where the photo was taken. An alternative is to use Google-earth, and
 point the mouse to the location. Google earth shows latitude and longitude of
 the mouse location at the bottom of the screen.
+
 Now, open the `Output` tab in the panel on the left hand side. Here, you
 can choose where to save the KML file (default `output.kml`).
 Select the `generate` button to generate the KML file, and a world map
 appears with the tree superimposed onto the area where the rabies epidemic
 occurred.
+
 The KML file can be read into Google earth. Here, the spread of the epidemic
 can be animated through time. The coloured areas represent the 95% HPD
 regions of the locations of the internal nodes of the summary tree.

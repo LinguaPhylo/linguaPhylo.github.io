@@ -233,7 +233,7 @@ End likelihood: -1945.427363390188
 
 ## Analysing the BEAST output
 
-First, we can open the *.log file in tracer to check if the MCMC has converged. 
+First, we can open the `h3n2.log` file in tracer to check if the MCMC has converged. 
 The ESS value should be above 200 for almost all values and especially for the posterior estimates.
 
 <figure class="image">

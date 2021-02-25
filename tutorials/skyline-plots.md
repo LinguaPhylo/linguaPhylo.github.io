@@ -232,22 +232,15 @@ End likelihood: -6639.672594349279
 
 ## Analysing the BEAST output
 
-Because we shortened the chain most parameters have very low ESS values. 
-If you like, you can compare your results with the example results we obtained with identical settings and 
-a chain of 40,000,000 (hcv\_coal\.log).
-
-<figure class="image">
-  <img src="TreeHeight.png" alt="Tracer">
-  <figcaption>Figure 5: a screenshot of Tracer.</figcaption>
-</figure>
+{%- include_relative tracer.md logfile="hcv_coal" fignum="Figure 5" -%}
 
 
-For the reconstruction of the population dynamics, we need two files, the *.log file and the *.trees file. 
+For the reconstruction of the population dynamics, we need two files, the `hcv_coal.log` file and the `hcv_coal.trees` file. 
 The log file contains the information about the group sizes and population sizes of each segment, 
 while the trees file is needed for the times of the coalescent events.
 
 Navigate to **Analysis > Bayesian Skyline Reconstruction**. 
-From there open the *.trees file. To get the correct dates in the analysis we should specify the Age of the youngest tip. 
+From there open the tree log file. To get the correct dates in the analysis we should specify the `Age of the youngest tip`. 
 In our case it is 1993, the year where all the samples were taken. 
 If the sequences were sampled at different times (heterochronous data), 
 the age of the youngest tip is the time when the most recent sample was collected.
@@ -275,7 +268,7 @@ and both files were logged at the same frequency.
   The x-axis is the time in years and the y-axis is on a log-scale.</figcaption>
 </figure>
 
-There are two ways to save the analysis, it can either be saved as a *.pdf for display purposes or as a tab delimited file.
+There are two ways to save the analysis, it can either be saved as a PDF file for displaying purposes or as a tab delimited file.
 
 Navigate to **File > Export Data Table**. Enter the filename as `hcv_coal.tsv` and save the file.
 The exported file will have five rows, the time, the mean, median, lower and upper boundary of the 95% HPD interval of the estimates, 
