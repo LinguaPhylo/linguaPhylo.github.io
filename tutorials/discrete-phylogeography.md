@@ -1,12 +1,9 @@
 ---
 layout: page
 title: Ancestral Reconstruction using Discrete Phylogeography
-author: 'Walter Xie and Alexei Drummond'
+author: 'Walter Xie, Remco Bouckaert, and Alexei Drummond'
 permalink: /tutorials/discrete-phylogeography/
 ---
-
-This tutorial is modified from the BEAST tutorial [Ancestral Reconstruction/Discrete
-Phylogeography with BEAST](https://www.beast2.org/tutorials/).
 
 It guides you through a discrete phylogeography analysis of a H5N1 epidemic in South China. 
 This analysis will use the model developed by [Lemey et al., 2009](#references) 
@@ -173,7 +170,7 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1614030348518
+Random number seed: 1614208278348
 
 Loading package outercore v0.0.2
 Loading package BEAST v2.6.3
@@ -184,26 +181,26 @@ Loading package BEAST_CLASSIC v1.5.0
     ...
 
     ...
-        2850000     -5950.5120     -5829.4793      -121.0326         0.3360         0.1937         0.2254         0.2447         9.1408         0.3632         8.2835         0.2540         0.2162         0.1107         0.3694         0.0495              1              1              0              1              1              1              1              1              0              1         0.2833         0.0247         0.0665         0.0072         0.2630         0.0423         0.0748         0.0172         0.0961         0.1244         0.5272 1m18s/Msamples
-        3000000     -5951.6354     -5827.1578      -124.4776         0.3332         0.1875         0.2326         0.2465         9.5816         0.3929         4.4974         0.1232         0.3491         0.2042         0.2604         0.0627              1              1              1              1              1              1              1              0              1              1         0.1105         0.2797         0.0474         0.0531         0.1600         0.0441         0.0440         0.1557         0.0793         0.0257         0.6897 1m18s/Msamples
+        2850000     -5958.0570     -5837.5606      -120.4963         0.3328         0.1859         0.2322         0.2489         8.2417         0.3507         7.7953         0.1249         0.2570         0.1683         0.3524         0.0971              1              1              1              1              1              1              1              1              1              0         0.1726         0.0857         0.0236         0.1984         0.1218         0.0099         0.1197         0.0946         0.0852         0.0879         0.2469 1m20s/Msamples
+        3000000     -5953.5889     -5833.0862      -120.5027         0.3372         0.1973         0.2230         0.2423        10.0566         0.3012         7.9571         0.2938         0.1581         0.2429         0.2732         0.0317              1              0              0              0              1              1              1              1              1              1         0.1223         0.0255         0.0504         0.2905         0.1107         0.0093         0.0907         0.0157         0.2071         0.0775         0.2856 1m20s/Msamples
 
 Operator                                             Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                          0.46140       7540      18665    0.00866    0.28773 
-ScaleOperator(kappa.scale)                          0.51093       6726      19187    0.00866    0.25956 
-DeltaExchangeOperator(pi.deltaExchange)             0.06471       9860      46443    0.01868    0.17512 
-Exchange(psi.narrowExchange)                              -      60654     294937    0.11850    0.17057 
-ScaleOperator(psi.rootAgeScale)                     0.72525       2822      23162    0.00866    0.10861 
-ScaleOperator(psi.scale)                            0.88044      27160     328342    0.11850    0.07640 Try setting scaleFactor to about 0.938
-SubtreeSlide(psi.subtreeSlide)                      1.43807      42099     313266    0.11850    0.11847 
-Uniform(psi.uniform)                                      -     148338     207200    0.11850    0.41722 
-Exchange(psi.wideExchange)                                -       1592     354002    0.11850    0.00448 
-WilsonBalding(psi.wilsonBalding)                          -       2140     353598    0.11850    0.00602 
-ScaleOperator(shape.scale)                          0.40749       6996      18961    0.00866    0.26952 
-ScaleOperator(traitClockRate.scale)                 0.28342       7805      18143    0.00866    0.30079 
-UpDownOperator(traitClockRateUppsiDownOperator)     0.91682      42437     319381    0.12047    0.11729 
-BitFlipOperator(trait_indicators.bitFlip)                 -      41212      88154    0.04340    0.31857 
-DeltaExchangeOperator(trait_pi.deltaExchange)       0.48751      11849      56867    0.02285    0.17243 
-DeltaExchangeOperator(trait_rates.deltaExchange)    0.70305      12687     107776    0.04031    0.10532 
+ScaleOperator(Theta.scale)                          0.47755       7889      18091    0.00866    0.30366 
+ScaleOperator(kappa.scale)                          0.51553       6568      19129    0.00866    0.25559 
+DeltaExchangeOperator(pi.deltaExchange)             0.08096       7617      48109    0.01868    0.13669 
+Exchange(psi.narrowExchange)                              -      61125     294888    0.11850    0.17169 
+ScaleOperator(psi.rootAgeScale)                     0.78835       4262      22126    0.00866    0.16151 
+ScaleOperator(psi.scale)                            0.90464      35422     318780    0.11850    0.10001 
+SubtreeSlide(psi.subtreeSlide)                      0.92028      67975     287756    0.11850    0.19109 
+Uniform(psi.uniform)                                      -     149131     206729    0.11850    0.41907 
+Exchange(psi.wideExchange)                                -       1648     354053    0.11850    0.00463 
+WilsonBalding(psi.wilsonBalding)                          -       2031     353486    0.11850    0.00571 
+ScaleOperator(shape.scale)                          0.41925       7340      18299    0.00866    0.28628 
+ScaleOperator(traitClockRate.scale)                 0.26742       7628      18202    0.00866    0.29532 
+UpDownOperator(traitClockRateUppsiDownOperator)     0.92616      49514     312158    0.12047    0.13690 
+BitFlipOperator(trait_indicators.bitFlip)                 -      40470      89769    0.04340    0.31074 
+DeltaExchangeOperator(trait_pi.deltaExchange)       0.54731      10613      58216    0.02285    0.15419 
+DeltaExchangeOperator(trait_rates.deltaExchange)    0.56871      16443     104534    0.04031    0.13592 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -212,8 +209,8 @@ DeltaExchangeOperator(trait_rates.deltaExchange)    0.70305      12687     10777
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 234.271 seconds
-End likelihood: -5951.635483620574
+Total calculation time: 244.148 seconds
+End likelihood: -5953.588976905855
 ```
 
 ## Analysing the BEAST output
@@ -224,7 +221,7 @@ and select the file that BEAST has created called `h5n1.log`. You should now
 see a window like in Figure 3.
 
 <figure class="image">
-  <img src="short.png" alt="The trace of short run">
+  <img src="Tracer.png" alt="The trace of short run">
   <figcaption>Figure 3: A screenshot of Tracer.</figcaption>
 </figure>
 
@@ -350,7 +347,7 @@ point the mouse to the location. Google earth shows latitude and longitude of
 the mouse location at the bottom of the screen.
 Now, open the `Output` tab in the panel on the left hand side. Here, you
 can choose where to save the KML file (default `output.kml`).
-Select the ‘generate` button to generate the KML file, and a world map
+Select the `generate` button to generate the KML file, and a world map
 appears with the tree superimposed onto the area where the rabies epidemic
 occurred.
 The KML file can be read into Google earth. Here, the spread of the epidemic

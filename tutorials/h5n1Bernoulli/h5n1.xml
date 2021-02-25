@@ -105,15 +105,15 @@ spec="Alignment">
             
         <state id="State" spec="State">
                     
-            <stateNode id="pi" spec="outercore.parameter.KeyRealParameter" dimension="4" keys="A C G T" lower="0.0" upper="1.0">0.06407211592531359 0.17696899810819763 0.4923376469987726 0.26662123896771617</stateNode>
+            <stateNode id="pi" spec="outercore.parameter.KeyRealParameter" dimension="4" keys="A C G T" lower="0.0" upper="1.0">0.030678736675170123 0.3088051856467726 0.17999134494168917 0.4805247327363681</stateNode>
                     
-            <parameter id="kappa" spec="parameter.RealParameter" lower="0.0" name="stateNode">3.0029777497893306</parameter>
+            <parameter id="kappa" spec="parameter.RealParameter" lower="0.0" name="stateNode">2.770529809224964</parameter>
                     
-            <parameter id="shape" spec="parameter.RealParameter" lower="0.0" name="stateNode">7.136175142728419</parameter>
+            <parameter id="shape" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.49135029581793777</parameter>
                     
-            <parameter id="Theta" spec="parameter.RealParameter" lower="0.0" name="stateNode">2.456866265702813</parameter>
+            <parameter id="Theta" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.9563794452367735</parameter>
                     
-            <stateNode id="psi" spec="beast.util.TreeParser" IsLabelledNewick="true" newick="(((((A_bird_HongKong_542_1997:0.3411968403092871,(A_bird_HongKong_481_1997:0.01852425197416352,(((A_duck_Guangxi_22_2001:0.23288112038146025,((A_chicken_HongKong_863_2002:0.07094954656655084,A_bird_HongKong_213_2003:1.0709495465665508):1.1191642814406872,A_duck_Guangdong_01_2001:0.19011382800723808):0.042767292374222166):2.673559020441739,A_duck_Guangdong_12_2000:1.9064401408231992):0.540780403386214,(A_duck_Guangxi_50_2001:1.0047058178918622,(((((A_chicken_Guangdong_191_2004:0.12436438318370491,A_duck_Guangxi_351_2004:0.12436438318370491):0.057479852074365345,(A_chicken_Guangxi_2461_2004:0.03732123705371948,A_chicken_Guangdong_174_2004:0.03732123705371948):0.14452299820435077):0.33611507838845145,A_duck_Guangxi_1378_2004:0.5179593136465217):1.8818835096659023,(A_duck_Fujian_13_2002:0.3871236325544074,(((((A_duck_Hunan_157_2005:0.1415914567981881,A_chicken_Fujian_1042_2005:0.1415914567981881):0.8282302690716119,(A_duck_Hunan_139_2005:0.8434373121202895,(A_duck_Hunan_1265_2005:0.4870660874476872,((A_duck_Guangxi_793_2005:0.02738733856431762,A_Chicken_Guangdong_810_2005:0.02738733856431762):0.08458860785482965,A_duck_Fujian_897_2005:0.11197594641914727):0.37509014102853994):0.3563712246726023):0.12638441374951048):1.0668280425928622,(A_duck_Guangdong_4610_2003:0.016123593198363206,(A_duck_Guangxi_1681_2004:0.018995119950582673,(A_chicken_Guangxi_2439_2004:0.0017393040536322069,A_goose_Guangxi_2112_2004:0.0017393040536322069):0.017255815896950466):0.9971284732477805):0.020526175264298896):0.43712369261225126,A_greyheron_HongKong_837_2004:1.4737734610749134):0.3905843411313583,((A_goose_Guangxi_914_2004:0.25523367116525786,A_goose_Guangxi_1097_2004:0.25523367116525786):0.8525896445540988,((A_duck_Hunan_182_2005:0.6078310511357372,(A_goose_Guangxi_345_2005:0.006294290312659694,A_goose_Guangdong_2216_2005:0.006294290312659694):0.6015367608230775):0.7572973465019186,A_duck_Guangxi_2291_2004:0.3651283976376558):0.7426949180817009):0.756534486486915):0.5227658303481357):0.01271919075801664):0.9153693305672013,A_swine_Fujian_F1_2001:0.3152121538796253):0.6894936640122369):2.442514726317551):0.5713037077647503):0.3226725883351236):0.18943865937852422,A_Goose_HongKong_w355_1997:0.5306354996878113):0.882455029747808,(A_Goose_Guangdong_1_1996:0.13873046824106083,A_chicken_HongKong_258_1997:1.1387304682410608):0.27436006119455847):0.7454184485905859,(((A_chicken_HongKong_915_1997:0.1001956110277753,A_bird_HongKong_503_1997:0.1001956110277753):0.09538853510304968,A_bird_HongKong_97_1998:1.195584146130825):0.6620076478915138,(A_bird_HongKong_514_1997:0.25479631720720874,(A_bird_HongKong_532_1997:0.11809153652854576,A_bird_HongKong_485_1997:0.11809153652854576):0.13670478067866298):0.60279547681513):1.3009171840038665):2.577298575319862,A_bird_HongKong_488_1997:4.735807553346067):0.0;">
+            <stateNode id="psi" spec="beast.util.TreeParser" IsLabelledNewick="true" newick="((((A_chicken_HongKong_915_1997:0.11019809178497297,(A_bird_HongKong_97_1998:0.14089735031622563,((A_swine_Fujian_F1_2001:1.0723560781140504,A_duck_Guangxi_50_2001:1.0723560781140504):0.13100401821558982,(A_duck_Guangdong_01_2001:0.9193068886387801,(A_duck_Guangxi_22_2001:0.002597113590765865,((A_duck_Guangdong_4610_2003:1.061645645614444,A_chicken_HongKong_863_2002:0.06164564561444408):0.46604958560924725,(A_duck_Fujian_13_2002:0.04505680881811136,(A_bird_HongKong_213_2003:0.26618736930732023,(((((A_goose_Guangxi_2112_2004:9.709991356861014E-4,A_chicken_Guangxi_2439_2004:9.709991356861014E-4):0.013489279437905344,((((A_duck_Hunan_139_2005:0.06284153816427124,(A_Chicken_Guangdong_810_2005:0.024096534666421254,A_duck_Hunan_1265_2005:0.024096534666421254):0.038745003497849984):0.07878639374767596,(A_duck_Hunan_182_2005:0.02135993011304528,A_duck_Hunan_157_2005:0.02135993011304528):0.12026800179890192):0.48800666894709954,A_goose_Guangdong_2216_2005:0.6296346008590468):0.0010737341320647964,A_duck_Fujian_897_2005:0.6307083349911116):0.3837519435824799):0.12238023944809617,(((A_chicken_Fujian_1042_2005:0.2770850448837686,(A_goose_Guangxi_345_2005:0.018774717572803763,A_duck_Guangxi_793_2005:0.018774717572803763):0.25831032731096487):0.7478905089411044,A_duck_Guangxi_351_2004:0.024975553824873042):0.059357764513630284,(A_duck_Guangxi_1681_2004:0.019403670530473427,A_goose_Guangxi_914_2004:0.019403670530473427):0.0649296478080299):0.05250719968318429):0.08987580971873088,(A_chicken_Guangdong_174_2004:0.19670769992083303,(A_chicken_Guangdong_191_2004:0.14975226081813986,A_chicken_Guangxi_2461_2004:0.14975226081813986):0.046955439102693175):0.030008627819585465):0.29108072189841705,(A_goose_Guangxi_1097_2004:0.23035430488551345,(A_duck_Guangxi_1378_2004:0.06641309560397946,(A_duck_Guangxi_2291_2004:0.04064423627623537,A_greyheron_HongKong_837_2004:0.04064423627623537):0.025768859327744087):0.163941209281534):0.2874427447533221):0.7483903196684847):0.7788694395107911):0.48263842240557997):0.47490188236707453):0.9167097750480142):0.2840532076908602):1.9375372539865854):0.9693007414687473):0.4695894080025873,A_bird_HongKong_488_1997:0.5797874997875603):0.3522276409541796,(((A_bird_HongKong_481_1997:0.0362787780876328,A_chicken_HongKong_258_1997:0.0362787780876328):0.2921246103581403,((A_bird_HongKong_485_1997:0.26060391475001055,(A_bird_HongKong_514_1997:0.25899589185021377,(A_duck_Guangdong_12_2000:3.011437621888449,A_bird_HongKong_532_1997:0.011437621888449101):0.24755826996176467):0.0016080228997967794):0.02633556394358294,(A_bird_HongKong_503_1997:0.026217968250866974,A_Goose_HongKong_w355_1997:0.026217968250866974):0.2607215104427265):0.04146390975217962):0.18035838407962856,A_bird_HongKong_542_1997:0.5087617725254017):0.4232533682163382):0.36305823031015727,A_Goose_Guangdong_1_1996:0.2950733710518971):0.0;">
                             
                 <trait id="TraitSet" spec="beast.evolution.tree.TraitSet" traitname="date-backward">
                                     A_chicken_Fujian_1042_2005=0.0,
@@ -255,27 +255,19 @@ A_duck_Hunan_182_2005=0.0
                         
             </stateNode>
                     
-            <stateNode id="trait_pi" spec="outercore.parameter.KeyRealParameter" dimension="5" lower="0.0" upper="1.0">0.2307163234686759 0.13965981125252655 0.15040565498596448 0.11472165786297919 0.36449655242985385</stateNode>
+            <stateNode id="trait_pi" spec="outercore.parameter.KeyRealParameter" dimension="5" lower="0.0" upper="1.0">0.35212442671584293 0.21830382016147085 0.10105285406773214 0.13015562538256742 0.19836327367238674</stateNode>
                     
-            <stateNode id="trait_indicators" spec="parameter.BooleanParameter" dimension="10">true true false true true true true true true true</stateNode>
+            <stateNode id="trait_indicators" spec="parameter.BooleanParameter" dimension="10">true true true true true true true true false true</stateNode>
                     
-            <stateNode id="trait_rates" spec="outercore.parameter.KeyRealParameter" dimension="10" lower="0.0" upper="1.0">0.4367418516402285 0.23377210972411142 0.03198326587759337 0.10556650211936364 0.08691743466085526 0.0066751497592431736 0.05083701267312365 0.019022883661738547 0.013201963293595095 0.01528182659014737</stateNode>
+            <stateNode id="trait_rates" spec="outercore.parameter.KeyRealParameter" dimension="10" lower="0.0" upper="1.0">0.2210325286633741 0.07144559746611527 0.03490799167761266 0.01105172966874771 0.028514809399974052 0.021713852873455054 0.1616937534434814 0.2489087336323582 0.13982260468193242 0.060908398492949115</stateNode>
                     
-            <parameter id="traitClockRate" spec="parameter.RealParameter" lower="0.0" name="stateNode">2.6454121354118025</parameter>
+            <parameter id="traitClockRate" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.6772924775237988</parameter>
                 
         </state>
             
         <distribution id="posterior" spec="util.CompoundDistribution">
                     
             <distribution id="prior" spec="util.CompoundDistribution">
-                            
-                <distribution id="Coalescent" spec="Coalescent">
-                                    
-                    <populationModel id="ConstantPopulation" spec="ConstantPopulation" popSize="@Theta"/>
-                                    
-                    <treeIntervals id="TreeIntervals" spec="TreeIntervals" tree="@psi"/>
-                                
-                </distribution>
                             
                 <distribution id="kappa.prior" spec="beast.math.distributions.Prior" x="@kappa">
                                     
@@ -289,6 +281,26 @@ A_duck_Hunan_182_2005=0.0
                                 
                 </distribution>
                             
+                <distribution id="Theta.prior" spec="beast.math.distributions.Prior" x="@Theta">
+                                    
+                    <distr id="LogNormalDistributionModel1" spec="beast.math.distributions.LogNormalDistributionModel">
+                                            
+                        <parameter id="RealParameter2" spec="parameter.RealParameter" name="M">0.0</parameter>
+                                            
+                        <parameter id="RealParameter3" spec="parameter.RealParameter" name="S">1.0</parameter>
+                                        
+                    </distr>
+                                
+                </distribution>
+                            
+                <distribution id="Coalescent" spec="Coalescent">
+                                    
+                    <populationModel id="ConstantPopulation" spec="ConstantPopulation" popSize="@Theta"/>
+                                    
+                    <treeIntervals id="TreeIntervals" spec="TreeIntervals" tree="@psi"/>
+                                
+                </distribution>
+                            
                 <distribution id="trait_rates.prior" spec="beast.math.distributions.Prior" x="@trait_rates">
                                     
                     <distr id="Dirichlet" spec="beast.math.distributions.Dirichlet">
@@ -299,33 +311,9 @@ A_duck_Hunan_182_2005=0.0
                                 
                 </distribution>
                             
-                <distribution id="shape.prior" spec="beast.math.distributions.Prior" x="@shape">
-                                    
-                    <distr id="LogNormalDistributionModel1" spec="beast.math.distributions.LogNormalDistributionModel">
-                                            
-                        <parameter id="RealParameter2" spec="parameter.RealParameter" name="M">0.0</parameter>
-                                            
-                        <parameter id="RealParameter3" spec="parameter.RealParameter" name="S">2.0</parameter>
-                                        
-                    </distr>
-                                
-                </distribution>
-                            
-                <distribution id="traitClockRate.prior" spec="beast.math.distributions.Prior" x="@traitClockRate">
-                                    
-                    <distr id="LogNormalDistributionModel2" spec="beast.math.distributions.LogNormalDistributionModel">
-                                            
-                        <parameter id="RealParameter4" spec="parameter.RealParameter" name="M">0.0</parameter>
-                                            
-                        <parameter id="RealParameter5" spec="parameter.RealParameter" name="S">0.75</parameter>
-                                        
-                    </distr>
-                                
-                </distribution>
-                            
                 <distribution id="BernoulliDistribution" spec="outercore.math.distributions.BernoulliDistribution" parameter="@trait_indicators">
                                     
-                    <parameter id="RealParameter6" spec="parameter.RealParameter" name="p">0.5</parameter>
+                    <parameter id="RealParameter4" spec="parameter.RealParameter" name="p">0.5</parameter>
                                     
                     <minSuccesses id="IntegerParameter" spec="parameter.IntegerParameter">8</minSuccesses>
                                 
@@ -341,23 +329,35 @@ A_duck_Hunan_182_2005=0.0
                                 
                 </distribution>
                             
-                <distribution id="pi.prior" spec="beast.math.distributions.Prior" x="@pi">
+                <distribution id="shape.prior" spec="beast.math.distributions.Prior" x="@shape">
                                     
-                    <distr id="Dirichlet2" spec="beast.math.distributions.Dirichlet">
+                    <distr id="LogNormalDistributionModel2" spec="beast.math.distributions.LogNormalDistributionModel">
                                             
-                        <alpha id="KeyRealParameter2" spec="outercore.parameter.KeyRealParameter" dimension="4">2.0 2.0 2.0 2.0</alpha>
+                        <parameter id="RealParameter5" spec="parameter.RealParameter" name="M">0.0</parameter>
+                                            
+                        <parameter id="RealParameter6" spec="parameter.RealParameter" name="S">2.0</parameter>
                                         
                     </distr>
                                 
                 </distribution>
                             
-                <distribution id="Theta.prior" spec="beast.math.distributions.Prior" x="@Theta">
+                <distribution id="traitClockRate.prior" spec="beast.math.distributions.Prior" x="@traitClockRate">
                                     
                     <distr id="LogNormalDistributionModel3" spec="beast.math.distributions.LogNormalDistributionModel">
                                             
                         <parameter id="RealParameter7" spec="parameter.RealParameter" name="M">0.0</parameter>
                                             
-                        <parameter id="RealParameter8" spec="parameter.RealParameter" name="S">1.0</parameter>
+                        <parameter id="RealParameter8" spec="parameter.RealParameter" name="S">1.25</parameter>
+                                        
+                    </distr>
+                                
+                </distribution>
+                            
+                <distribution id="pi.prior" spec="beast.math.distributions.Prior" x="@pi">
+                                    
+                    <distr id="Dirichlet2" spec="beast.math.distributions.Dirichlet">
+                                            
+                        <alpha id="KeyRealParameter2" spec="outercore.parameter.KeyRealParameter" dimension="4">2.0 2.0 2.0 2.0</alpha>
                                         
                     </distr>
                                 
@@ -527,7 +527,7 @@ spec="AlignmentFromTrait">
             
         <operator id="psi.scale" spec="ScaleOperator" scaleFactor="0.75" tree="@psi" upper="0.975" weight="13.685935953338415"/>
             
-        <operator id="psi.subtreeSlide" spec="SubtreeSlide" size="1.2735807553346068" tree="@psi" weight="13.685935953338415"/>
+        <operator id="psi.subtreeSlide" spec="SubtreeSlide" size="0.9295073371051897" tree="@psi" weight="13.685935953338415"/>
             
         <operator id="psi.uniform" spec="Uniform" tree="@psi" weight="13.685935953338415"/>
             
@@ -621,11 +621,11 @@ spec="AlignmentFromTrait">
                 
         </logger>
             
-        <logger id="psi.treeLogger" spec="Logger" fileName="h5n1.trees" logEvery="1500" mode="tree">
-                    
-            <log idref="psi"/>
-                
-        </logger>
+<!--        <logger id="psi.treeLogger" spec="Logger" fileName="h5n1.trees" logEvery="1500" mode="tree">-->
+<!--                    -->
+<!--            <log idref="psi"/>-->
+<!--                -->
+<!--        </logger>-->
             
         <logger id="TreeWithTraitLogger" spec="Logger" fileName="h5n1_with_trait.trees" logEvery="1500" mode="tree">
                     
