@@ -1,7 +1,8 @@
 
 The following software will be used in this tutorial:
 
-* LPhyBEAST - this software will construct an input file for BEAST
+* LPhy Studio - this software will pecify and visualise models as well as simulate data from models defined in LPhy scripts.
+* LPhy BEAST - this software will construct an input file for BEAST.
 * BEAST - this package contains the BEAST program, BEAUti, DensiTree, TreeAnnotator and other utility programs. 
   This tutorial is written for BEAST v2.6.x, which has support for multiple partitions. 
   It is available for download from [http://www.beast2.org](http://www.beast2.org).
