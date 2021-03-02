@@ -1,9 +1,9 @@
 
-# tonz <- parseTransCount(input="stc.out", pattern = "Histogram", NZ="NZ")
-plotTransCount <- function(tonz) {
+# stc <- parseTransCount(input="stc.out", pattern = "Histogram", target="Hunan")
+plotTransCount <- function(stc) {
   require(ggplot2)
   require(tidyverse)
-  z <- gather(as_tibble(tonz), 2:ncol(tonz), key = "n_transitions", value = "count") %>% 
+  z <- gather(as_tibble(stc), 2:ncol(stc), key = "n_transitions", value = "count") %>% 
     mutate(count = as.numeric(count), n_transitions = as.numeric(n_transitions)) %>% group_by(Transition) %>% 
     mutate(prob = count/sum(count))
   
