@@ -290,7 +290,8 @@ Sometime, we want to visualise how the location states are changed through the p
 So, install the `Babel` package and run the `StateTransitionCounter` through BEAST application launcher. 
 The command line below will generate the output file `stc.out` 
 containing all counts from the logged posterior trees `h5n1_with_trait.trees`,
-after removing 10% burn-in.
+after removing 10% burn-in. 
+Please make sure you install the latest version (Babel >= v0.3.2, BEASTLabs >= v1.9.6).
 
 ```
 $BEAST2_PATH/bin/applauncher StateTransitionCounter -burnin 10 -in h5n1_with_trait.trees -tag location -out stc.out
