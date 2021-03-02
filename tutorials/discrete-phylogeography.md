@@ -21,6 +21,7 @@ and use a virtual globe software to visualize the spatial and temporal informati
 - BEAST classic package - Phylogeography is a part of the BEAST-CLASSIC package. 
 BEAST-CLASSIC requires the BEASTlabs package.
 You can install them from [BEAST 2 package manager](http://www.beast2.org/managing-packages/).
+- Babel - A BEAST package containing tools for post-analysis. We will use `StateTransitionCounter`.
 - Spread - summarising the geographic spread in a KML file (available
 from http://www.kuleuven.ac.be/aidslab/phylogeography/SPREAD.html.
 - Google-earth - displaying the KML file (just Google for it, if you have
@@ -243,16 +244,18 @@ probability. It can be thought of as a Bayesian analog to a confidence interval.
 ## Distribution of root location
 
 When you open the summary tree with locations `h5n1_with_trait.tree` in a text editor, 
-and look at the end of the tree definition, grab the last entry for `location.set` and `location.set.prob`. 
-They might look something like this:
+and scroll to the most right and locate the end of the tree definition, 
+you can see the set of meta data for the root. 
+Looking for the last entries of `location.set` and `location.set.prob`, 
+you might find something like this:
 ```
 location.set = {Guangdong,HongKong,Hunan,Guangxi,Fujian}
 location.set.prob = {0.1971127151582454,0.5885619100499723,0.0416435313714603,0.11715713492504164,0.0555247084952804}
 ```
 This means that we have the following distribution for the root location:
 
-| Location| Probability                          |
-|---------|--------------------------------------|
+| Location| Probability      |
+|---------|------------------|
 |Guangdong|0.1971127151582454|
 |HongKong|0.5885619100499723|
 |Hunan|0.0416435313714603|
@@ -267,43 +270,56 @@ It is quite typical that a lot of locations are part of the 95% HPD in discrete 
 ## Viewing the Location Tree
 
 We can visualise the tree in a program called _FigTree_. 
-Run this program, and open the location tree with trait.tree file by using the `Open` command in the `File` menu. 
+Run this program, and open the summary tree file `h5n1_with_trait.tree` by using the `Open` command in the `File` menu. 
 The tree should appear. You can now try selecting some of the options in the control panel on the left. 
-Try selecting `Appearance` to get colour on the branches by location. 
-Also, you can set the branch width according to posterior support. 
+Try selecting `Appearance` to set the branch `Colour by` `location`. 
+In addition, you can set the branch `Width by` `location.prob` according to the posterior support of estimated locations. Increasing the `Line Weight` can make the branch width more different regarding to its posterior support. Finally, tick `Legend` and select `location` in the drop list of `Attribute`. 
 You should end up with something like Figure 4.
 
 <figure class="image">
-  <img src="h5n1_with_trait.tree.svg" alt="MCC tree">
+  <a href="h5n1_with_trait.tree.png" target="_blank"><img src="h5n1_with_trait.tree.png" alt="MCC tree"></a>
   <figcaption>Figure 4: Figtree representation of the summary tree. 
   Branch colours represent location and branch widths posterior support for the branch.</figcaption>
 </figure>
 
-Alternatively, you can load the species tree set (note this is NOT the summary tree, but the complete set) 
-into _DensiTree_ and set it up as follows.
-- Set burn-in to 300. The tree should not be collapsed any more.
-- Show a root-canal tree to guide the eye.
-- Show a grid, and play with the grid options to only show lines at 2 year
-intervals covering round numbers (that is, 2000, instead of 2001.22).
-You can colour branches by location to get image like Figure 5.
+Alternatively, you can load the posterior tree set `h5n1_with_trait.trees` (note this is NOT the summary tree, but the complete set) into _DensiTree_ and set it up as follows.
+- Click `Show` to choose `Root Canal` tree to guide the eye.
+- Click `Grid` to choose `Full grid` option, type year 2005 in the `Origin` text field and tick `Reverse` to show the correct time scale. You also can reduce the `Digits` to 0 which will rounding years in the x-axis (i.g. 2005, instead of 2005.22).
+- Go to `Line Color`, you can colour branches by `location`.
+The final image look like Figure 5.
 
 <figure class="image">
-  <img src="DensiTree.png" alt="MCC tree">
+  <a href="DensiTree.png" target="_blank"><img src="DensiTree.png" alt="DensiTree"></a>
   <figcaption>Figure 5: The posterior tree set visualised in DensiTree.</figcaption>
 </figure>
 
 
+## Estimated number of transitions
+
+Sometime, we want to visualise how the location states are changed through the phylogeny. 
+`StateTransitionCounter` can count the number of branches in a tree or a set of trees that have a certain state at the parent and another at the node. 
+
+So, install the `Babel` package and run the `StateTransitionCounter` through BEAST application launcher. 
+The command line below will generate the output file `stc.out` 
+containing all counts from the logged posterior trees `h5n1_with_trait.trees`,
+after removing 10% burn-in.
+
+```
+$BEAST2_PATH/bin/applauncher StateTransitionCounter -burnin 10 -in h5n1_with_trait.trees -tag location -out stc.out
+```
+
+
 ## Post processing geography
 
-Start spread by double clicking the `spread.jar` file.
+Start the application `spread`, which can be used to analyze and visualize phylogeographic reconstructions resulting from Bayesian inference of spatio-temporal diffusion [Bielejec et al., 2011](#references).  
 
-Select the `Open` button in the panel under `Load tree file`, and select the
-summary tree file.
-Change the `State attribute name` to the name of the trait. 
-We used `location` so change it to location.
-Click the set-up button. A dialog pops up where you can edit altitude and
+Select the `Open` button in the panel under `Load tree file`, 
+and select the summary tree file `h5n1_with_trait.tree`.
+Change the `State attribute name` to the name of the trait,   
+which is `location` in this analysis.
+Click the `Setup` button. A dialog pops up where you can edit altitude and
 longitude for the locations. Alternatively, you can load it from a tab-delimited
-file. A file named `H5N1locations.dat` is prepared already.
+file. A file `locationCoordinates_H5N1.txt` is prepared in [Spread website](https://www.kuleuven.be/aidslab/phylogeography/SPREAD.html).
 
 Tip: to find latitude and longitude of locations, you can use Google maps,
 switch on photo's and select a photo at the location of the map. Click the
@@ -318,7 +334,10 @@ Select the `generate` button to generate the KML file, and a world map
 appears with the tree superimposed onto the area where the rabies epidemic
 occurred.
 
-The KML file can be read into Google earth. Here, the spread of the epidemic
+If you have a problem to generate KML file, 
+you can download a prepared [output.kml](h5n1Bernoulli/output.kml).
+
+The KML file can be read into `Google earth`. Then, the spread of the epidemic
 can be animated through time. The coloured areas represent the 95% HPD
 regions of the locations of the internal nodes of the summary tree.
 
@@ -340,3 +359,6 @@ M. A. (2009). Bayesian phylogeography finds its roots. PLoS Comput Biol
 * Wallace, R., HoDac, H., Lathrop, R. and Fitch, W.
 (2007). A statistical phylogeography of influenza A H5N1. Proceedings of
 the National Academy of Sciences 104, 4473.
+* Bielejec F., Rambaut A., Suchard M.A & Lemey P. (2011). 
+SPREAD: Spatial Phylogenetic Reconstruction of Evolutionary Dynamics. 
+Bioinformatics, 27(20):2910-2912. doi:10.1093.
