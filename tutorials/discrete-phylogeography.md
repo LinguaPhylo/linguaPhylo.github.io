@@ -308,6 +308,36 @@ after removing 10% burn-in.
 $BEAST2_PATH/bin/applauncher StateTransitionCounter -burnin 10 -in h5n1_with_trait.trees -tag location -out stc.out
 ```
 
+Next, we need to use R to plot the histogram given the summary in `stc.out`. 
+If you have a problem to generate it, you can download a prepared file [stc.out](h5n1Bernoulli/stc.out). 
+You also need to download a script [PlotTransitions.R](discrete-phylogeography/PlotTransitions.R),
+which contains the functions to parse the file and plot the histograms.
+The script requires to install R package `ggplot2` and `tidyverse`.
+
+Run the following scripts in R:
+
+```R
+#setwd(YOUR_WD)
+source("PlotTransitions.R")
+
+stc <- parseTransCount(input="stc.out", pattern = "Histogram", target="Hunan")
+# only => Hunan
+p <- plotTransCount(stc$hist[grepl("=>Hunan", stc$hist[["Transition"]]),])
+ggsave( paste0("transition-distribution-hunan.png"), p, width = 6, height = 4) 
+```
+
+The `stc` contains a statistical summary of the transition counts related to the target location, 
+here is `Hunan`, and a table of the actual counts. 
+To plot a simple graph, we only pick up the transitions to Hunan in the next command,
+and then save the graph a PNG file. The counts are normalised into probabilities. 
+
+<figure class="image">
+  <a href="transition-distribution-hunan.png" target="_blank"><img src="transition-distribution-hunan.png" alt="DensiTree"></a>
+  <figcaption>Figure 6: The probability distribution of estimated transitions into Hunan from other places.</figcaption>
+</figure>
+
+
+
 
 ## Post processing geography
 
