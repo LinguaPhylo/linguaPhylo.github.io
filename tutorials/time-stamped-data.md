@@ -22,9 +22,7 @@ The aim of this tutorial is to obtain estimates for:
 * the date of the most recent common ancestor
 * the phylogenetic relationships with measures of statistical support.
 
-## Programs used in this Exercise
-
-{% include_relative programs-used.md %}
+The programs used in this tutorial are listed in [the later section](#programs-used-in-this-exercise).
 
 ## The NEXUS alignment
 
@@ -301,6 +299,10 @@ Below a DensiTree with clade height bars for clades with over 50% support. Root 
 
 In what year did the common ancestor of all RSVA viruses sampled live? What is the 95% HPD?
 
+
+## Programs used in this Exercise
+
+{% include_relative programs-used.md %}
 
 ## Useful Links
 

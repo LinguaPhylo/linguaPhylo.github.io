@@ -1,6 +1,6 @@
 
 If the scripts contain no errors,
-you can see the probability graph defined for this analysis. 
+you can see the graphical model defined for this analysis. 
 To look at the simulated values, including alignment or tree, 
 just simply click the graphic component in the panel.  
 

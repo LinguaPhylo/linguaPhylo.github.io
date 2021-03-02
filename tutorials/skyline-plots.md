@@ -15,11 +15,7 @@ It is non-parametric since there is no underlying system of differential equatio
 In this tutorial we will look at a popular coalescent method, 
 the Coalescent Bayesian Skyline plot ([Drummond, Rambaut, Shapiro, & Pybus, 2005](https://academic.oup.com/mbe/article/22/5/1185/1066885)), to infer these dynamics from sequence data. 
 
-## Programs used in this Exercise
-
-{% include_relative programs-used.md %}
-* BEAST SSM (standard substitution models) package - containing the following standard time-reversible substitution models: 
-  JC, F81, K80, HKY, TrNf, TrN, TPM1, TPM1f, TPM2, TPM2f, TPM3, TPM3f, TIM1, TIM1f, TIM2, TIM2f, TIM3 , TIM3f, TVMf, TVM, SYM, GTR.
+The programs used in this tutorial are listed in [the later section](#programs-used-in-this-exercise).
 
 
 ## Background: Classic and Generalized Plots
@@ -302,6 +298,13 @@ However, if there is population structure,
 for instance sequences were sampled from two different villages and there is much more contact within than between villages, 
 then the results will be biased (Heller, Chikhi, & Siegismund, 2013). 
 Instead a structured model should then be used to account for these biases.
+
+
+## Programs used in this Exercise
+
+{% include_relative programs-used.md %}
+* BEAST SSM (standard substitution models) package - containing the following standard time-reversible substitution models: 
+  JC, F81, K80, HKY, TrNf, TrN, TPM1, TPM1f, TPM2, TPM2f, TPM3, TPM3f, TIM1, TIM1f, TIM2, TIM2f, TIM3 , TIM3f, TVMf, TVM, SYM, GTR.
 
 ## Useful Links
 

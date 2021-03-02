@@ -14,19 +14,7 @@ the phylogeographic diffusion process.
 The additional benefit using this model is that we can summarise the phylogeographic inferences from an analysis,
 and use a virtual globe software to visualize the spatial and temporal information.
 
-
-## Programs used in this Exercise
-
-{% include_relative programs-used.md %}
-- BEAST classic package - Phylogeography is a part of the BEAST-CLASSIC package. 
-BEAST-CLASSIC requires the BEASTlabs package.
-You can install them from [BEAST 2 package manager](http://www.beast2.org/managing-packages/).
-- Babel - A BEAST package containing tools for post-analysis. We will use `StateTransitionCounter`.
-- Spread - summarising the geographic spread in a KML file (available
-from http://www.kuleuven.ac.be/aidslab/phylogeography/SPREAD.html.
-- Google-earth - displaying the KML file (just Google for it, if you have
-not already have it installed).
-
+The programs used in this tutorial are listed in [the later section](#programs-used-in-this-exercise).
 
 ## The NEXUS alignment
 
@@ -294,7 +282,7 @@ The final image look like Figure 5.
 </figure>
 
 
-## Estimated number of transitions
+## The number of estimated transitions
 
 Sometime, we want to visualise how the location states are changed through the phylogeny. 
 `StateTransitionCounter` can count the number of branches in a tree or a set of trees that have a certain state at the parent and another at the node. 
@@ -326,7 +314,7 @@ p <- plotTransCount(stc$hist[grepl("=>Hunan", stc$hist[["Transition"]]),])
 ggsave( paste0("transition-distribution-hunan.png"), p, width = 6, height = 4) 
 ```
 
-The `stc` contains a statistical summary of the transition counts related to the target location, 
+The `stc` contains a statistical summary of the estimated transition counts related to the target location, 
 here is `Hunan`, and a table of the actual counts. 
 To plot a simple graph, we only pick up the transitions to Hunan in the next command,
 and then save the graph a PNG file. The counts are normalised into probabilities. 
@@ -336,8 +324,13 @@ and then save the graph a PNG file. The counts are normalised into probabilities
   <figcaption>Figure 6: The probability distribution of estimated transitions into Hunan from other places.</figcaption>
 </figure>
 
+The x-axis presents the number of estimated transitions in all migration events from one particular location to another which is separated by "=>",
+and y-axis is the probability which is normalised from the total counts.
+As you can see, "Guangxi=>Hunan" (blue) has higher probability than other migration events. 
+This type of visualisation will help you to quantify the uncertainty how the disease (H5N1) spread from/to an interested location, which is estimated from your model and given the data.    
 
-
+Because the posterior trees in this analysis are scaled to time, also known as "time tree", 
+we can convert this graph into daily transitions. More details and visualisations can be seen from [Douglas et. al. 2020](#references).
 
 ## Post processing geography
 
@@ -354,8 +347,8 @@ file. A file `locationCoordinates_H5N1.txt` is prepared in [Spread website](http
 Tip: to find latitude and longitude of locations, you can use Google maps,
 switch on photo's and select a photo at the location of the map. Click the
 photo, then click `Show in Panoramio` and a new page opens that contains the
-locations where the photo was taken. An alternative is to use Google-earth, and
-point the mouse to the location. Google earth shows latitude and longitude of
+locations where the photo was taken. An alternative is to use `Google Earth`, and
+point the mouse to the location. Google-Earth shows latitude and longitude of
 the mouse location at the bottom of the screen.
 
 Now, open the `Output` tab in the panel on the left hand side. Here, you
@@ -367,13 +360,22 @@ occurred.
 If you have a problem to generate KML file, 
 you can download a prepared [output.kml](h5n1Bernoulli/output.kml).
 
-The KML file can be read into `Google earth`. Then, the spread of the epidemic
+The KML file can be read into `Google Earth`. Then, the spread of the epidemic
 can be animated through time. The coloured areas represent the 95% HPD
 regions of the locations of the internal nodes of the summary tree.
 
 
-## Questions
+## Programs used in this Exercise
 
+{% include_relative programs-used.md %}
+- BEAST classic package - Phylogeography is a part of the BEAST-CLASSIC package. 
+BEAST-CLASSIC requires the BEASTlabs package.
+You can install them from [BEAST 2 package manager](http://www.beast2.org/managing-packages/).
+- Babel - A BEAST package containing tools for post-analysis. We will use `StateTransitionCounter`.
+- Spread - summarising the geographic spread in a KML file (available
+from [http://www.kuleuven.ac.be/aidslab/phylogeography/SPREAD.html](http://www.kuleuven.ac.be/aidslab/phylogeography/SPREAD.html).
+- Google-earth - displaying the KML file (just Google for it, if you have
+not already have it installed).
 
 
 ## Useful Links
@@ -392,3 +394,4 @@ the National Academy of Sciences 104, 4473.
 * Bielejec F., Rambaut A., Suchard M.A & Lemey P. (2011). 
 SPREAD: Spatial Phylogenetic Reconstruction of Evolutionary Dynamics. 
 Bioinformatics, 27(20):2910-2912. doi:10.1093.
+* Douglas, J., Mendes, F. K., Bouckaert, R., Xie, D., Jimenez-Silva, C. L., Swanepoel, C., ... & Drummond, A. J. (2020). Phylodynamics reveals the role of human travel and contact tracing in controlling COVID-19 in four island nations. doi: https://doi.org/10.1101/2020.08.04.20168518 
