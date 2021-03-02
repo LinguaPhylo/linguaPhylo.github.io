@@ -10,4 +10,4 @@ permalink: /tutorials/
 
 * [Structured coalescent](tutorials/structured-coalescent.md)
 
-[//]: # (* [Discrete phylogeography](tutorials/discrete-phylogeography.md))
+* [Discrete phylogeography](tutorials/discrete-phylogeography.md)

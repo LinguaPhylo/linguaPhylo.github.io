@@ -327,7 +327,7 @@ and then save the graph a PNG file. The counts are normalised into probabilities
 The x-axis presents the number of estimated transitions in all migration events from one particular location to another which is separated by "=>",
 and y-axis is the probability which is normalised from the total counts.
 As you can see, "Guangxi=>Hunan" (blue) has higher probability than other migration events. 
-This type of visualisation will help you to quantify the uncertainty how the disease (H5N1) spread from/to an interested location, which is estimated from your model and given the data.    
+This type of visualisation will help you to quantify the uncertainty how the disease (H5N1) spread from/to the location(s) of interest, which is simulated from your model and given the data.    
 
 Because the posterior trees in this analysis are scaled to time, also known as "time tree", 
 we can convert this graph into daily transitions. More details and visualisations can be seen from [Douglas et. al. 2020](#references).
