@@ -13,6 +13,6 @@ It will also calculate the posterior clade probability for each node in the sele
 
 For `Target tree type`, we usually keep the default option `Maximum clade credibility tree`, 
 which finds the tree with the highest product of the posterior probability of all its nodes.
-For `Node heights`, we choose either `Mean heights for node heights`. 
+For `Node heights`, we choose `Mean heights for node heights`. 
 This sets the heights (ages) of each node in the tree to the mean height across the entire sample of trees for that clade.
 Some details are described in [beast2.org/summarizing-posterior-trees/](https://www.beast2.org/summarizing-posterior-trees/).

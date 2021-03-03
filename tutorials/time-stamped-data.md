@@ -282,7 +282,7 @@ You will now see the posterior probability densities for the relative substituti
 Summary trees can be viewed using FigTree (a program separate from BEAST) and DensiTree (distributed with BEAST).
 
 <figure class="image">
-  <img src="RSV2.tree.svg" alt="MCC tree">
+  <a href="RSV2.tree.png" target="_blank"><img src="RSV2.tree.png" alt="MCC tree"></a>
   <figcaption>Figure 8: The Maximum clade credibility tree for the G gene of 129 RSVA-2 viral samples.</figcaption>
 </figure>
 

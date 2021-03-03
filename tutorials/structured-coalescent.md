@@ -289,9 +289,10 @@ Additonally, it logs the most likely location of each node.
 After opening the MCC tree in FigTree, we can visualize several things. 
 To color branches, you can go to `Appearance >> Colour` by and select `max`. 
 This is the location that was inferred to be most often the most likely location of the node.
+In addition, you can set the branch `Width by` `max.prob`, and increase the `Line Weight`, which will make the branch width more different regarding to its posterior support. Finally, tick `Legend` and select `max` in the drop list of `Attribute`. 
 
 <figure class="image">
-  <img src="tree.svg" alt="MCC tree">
+  <a href="tree.png" target="_blank"><img src="tree.png" alt="MCC tree"></a>
   <figcaption>Figure 8: Inferred node locations.</figcaption>
 </figure>
 
