@@ -56,12 +56,12 @@ isolated from a variety of hosts 1996 - 2005 across sample locations.
 
 {% include_relative discrete-traits.md  locations='Fujian, HongKong, Hunan, Guangxi, and Guangdong' 
                     using='`extractTrait` given the separator `_`, and taking the 3rd element given `i=2`' 
-                    traits='trait_D' %}
+                    traits='D_trait' %}
 
-The function `extractTrait` creates an one-site alignment `trait_D` to store the locations which map to taxa. 
+The function `extractTrait` creates an one-site alignment `D_trait` to store the locations which map to taxa. 
 It is called as the discrete trait alignment. 
-The 2nd graphical component `trait_D` (blue circle) on the bottom is the random variable containing the discrete trait alignment simulated by the defined priors and models.
-Because we clamped the discrete trait alignment containing the actual locations to the `trait_D` in this analysis,
+The 2nd graphical component `D_trait` (blue circle) on the bottom is the random variable containing the discrete trait alignment simulated by the defined priors and models.
+Because we clamped the discrete trait alignment containing the actual locations to the `D_trait` in this analysis,
 it will use the actual locations instead of simulated locations.
 
 
@@ -74,7 +74,7 @@ the first part is modeling evolutionary history and demographic structure based 
 and the second part is defining how to sample the discrete states (locations) from the phylogeny $\psi$ shared with the 1st part.
 
 For the nucleotide alignment, we use the HKY model with estimated frequencies. 
-{% include_relative rate-heterogeneity.md %}
+{% include_relative rate-heterogeneity.md shape='$\gamma$' %}
 More details can be seen in the [Bayesian Skyline Plots](/tutorials/skyline-plots/#constructing-the-model-block-in-linguaphylo) tutorial. 
 
 We use a strict molecular clock, but to make the analysis converge a bit quicker, 
@@ -85,7 +85,7 @@ Then we define the priors for the following parameters:
 1. the effective population size _$\theta$_;  
 2. the transition/transversion ratio _$\kappa$_;
 3. the base frequencies _$\pi$_.
-4. the shape of the discretized gamma distribution _shape_. 
+4. the shape of the discretized gamma distribution _$\gamma$_. 
 
 The next step is the geographic model. 
 In the discrete phylogeography, the probability of transitioning to a new location through the time is computed by 
@@ -102,14 +102,15 @@ and $\Pi = diag(\pi)$ where $\pi$ is the equilibrium trait frequencies.
 After the normalization, $\mu$ measures the number of migration events per unit time $t$.
 The detail is explained in [Lemey et al., 2009](#references).
 
-So, assuming migration to be symmetric in this analysis, we define a vector variable `trait_rates` with the length of $ \frac{K \times (K-1)}{2} $ to store the off-diagonal entries of the unnormalised $S$. Another boolean vector `trait_indicators` with the same length determines which infinitesimal rates are zero, 
+So, assuming migration to be symmetric in this analysis, we define a vector variable `R_trait` with the length of $ \frac{K \times (K-1)}{2} $ to store the off-diagonal entries of the unnormalised $S$. Another boolean vector `I` with the same length determines which infinitesimal rates are zero, 
 which is performed by the function `select`. 
 This implements the Bayesian stochastic search variable selection (BSSVS).  
 
 In addition, we define the priors for the following parameters:
-5. the trait clock rate _traitClockRate_;
-6. the relative migration rates *trait_indicators*;
-7. the trait frequencies *trait_$\pi$*. 
+5. the trait clock rate _$\mu$_trait_;
+6. the relative migration rates *R_trait*;
+7. the boolean vector *I*;
+8. the trait frequencies *$\pi$_trait*. 
 
 
 ## Producing BEAST XML using LPhyBEAST
@@ -185,11 +186,11 @@ Uniform(psi.uniform)                                      -     149131     20672
 Exchange(psi.wideExchange)                                -       1648     354053    0.11850    0.00463 
 WilsonBalding(psi.wilsonBalding)                          -       2031     353486    0.11850    0.00571 
 ScaleOperator(shape.scale)                          0.41925       7340      18299    0.00866    0.28628 
-ScaleOperator(traitClockRate.scale)                 0.26742       7628      18202    0.00866    0.29532 
-UpDownOperator(traitClockRateUppsiDownOperator)     0.92616      49514     312158    0.12047    0.13690 
-BitFlipOperator(trait_indicators.bitFlip)                 -      40470      89769    0.04340    0.31074 
-DeltaExchangeOperator(trait_pi.deltaExchange)       0.54731      10613      58216    0.02285    0.15419 
-DeltaExchangeOperator(trait_rates.deltaExchange)    0.56871      16443     104534    0.04031    0.13592 
+ScaleOperator(mu_trait.scale)                 0.26742       7628      18202    0.00866    0.29532 
+UpDownOperator(mu_traitUppsiDownOperator)     0.92616      49514     312158    0.12047    0.13690 
+BitFlipOperator(I.bitFlip)                 -      40470      89769    0.04340    0.31074 
+DeltaExchangeOperator(pi_trait.deltaExchange)       0.54731      10613      58216    0.02285    0.15419 
+DeltaExchangeOperator(R_trait.deltaExchange)    0.56871      16443     104534    0.04031    0.13592 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.

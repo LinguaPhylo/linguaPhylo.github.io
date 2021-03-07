@@ -102,7 +102,7 @@ It is an array of locations required by the `StructuredCoalescent` in the `model
 {% include_relative lphy-model.md %}
 
 In this analysis, we will use three HKY models with estimated frequencies. 
-{% include_relative rate-heterogeneity.md %}
+{% include_relative rate-heterogeneity.md shape='shape' %}
 More details can be seen in the [Bayesian Skyline Plots](/tutorials/skyline-plots/#constructing-the-model-block-in-linguaphylo) tutorial. 
 
 Next, we are going to set the priors for MASCOT. 
