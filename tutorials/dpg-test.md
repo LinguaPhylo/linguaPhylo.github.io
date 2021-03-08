@@ -2,7 +2,7 @@
 layout: page
 title: Ancestral Reconstruction using Discrete Phylogeography
 author: 'Walter Xie, Remco Bouckaert, and Alexei Drummond'
-permalink: /tutorials/discrete-phylogeography/
+permalink: /tutorials/dpg-test/
 ---
 
 It guides you through a discrete phylogeography analysis of a H5N1 epidemic in South China. 
