@@ -9,8 +9,7 @@ This tutorial is modified from Taming the BEAST tutorial [Time-stamped data](htt
 
 ## Requirements
 
-The programs used in this tutorial are listed in [the later
-section](#programs-used-in-this-exercise).
+The programs used in this tutorial are listed [below](#programs-used-in-this-exercise).
 In case you have not done it yet, please follow the installation
 instructions [here]() before moving on.
 
