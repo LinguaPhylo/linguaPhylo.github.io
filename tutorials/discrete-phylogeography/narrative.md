@@ -51,6 +51,8 @@
 <span style="color: #000000; font-size: 11pt; font-family: monospace,monospace">}
 </span><br>
 
+<details>
+<summary>Click to expand the auto-generated narrative from LPhyStudio ...</summary>
 <h2>Data</h2>
 
 The number of replicates, <i>L</i> is the number of characters of  alignment, <i>D</i>.
@@ -93,6 +95,7 @@ P(\boldsymbol{\pi}, \kappa, \boldsymbol{r}, \gamma, \boldsymbol{\psi}, \Theta, \
 
 $$
 
+</details>
 ## Graphical Model
 
 
