@@ -33,10 +33,11 @@ isolated from a variety of hosts 1996 - 2005 across sample locations.
 The LPhy scripts to define this analysis is listed below.
 
 
-{% include_relative discrete-phylogeography/narrative.md %}
+[//]: # (## Code, Graphical Model)
+{% include_relative discrete-phylogeography/lphy.md %}
 
 
-## Geographic model
+## Geographic Model
 
 In this analysis, we have two parts mixed in the model section: 
 the first part is modeling evolutionary history and demographic structure based on a nucleotide alignment, 
@@ -217,7 +218,7 @@ In addition, you can set the branch `Width by` `location.prob` according to the 
 You should end up with something like Figure 4.
 
 <figure class="image">
-  <a href="discrete-phylogeography/h5n1_with_trait.tree.png" target="_blank"><img src="discrete-phylogeography/h5n1_with_trait.tree.png" alt="MCC tree"></a>
+  <a href="../discrete-phylogeography/h5n1_with_trait.tree.png" target="_blank"><img src="../discrete-phylogeography/h5n1_with_trait.tree.png" alt="MCC tree"></a>
   <figcaption>Figure 4: Figtree representation of the summary tree. 
   Branch colours represent location and branch widths posterior support for the branch.</figcaption>
 </figure>
@@ -229,7 +230,7 @@ Alternatively, you can load the posterior tree set `h5n1_with_trait.trees` (note
 The final image look like Figure 5.
 
 <figure class="image">
-  <a href="discrete-phylogeography/DensiTree.png" target="_blank"><img src="discrete-phylogeography/DensiTree.png" alt="DensiTree"></a>
+  <a href="../discrete-phylogeography/DensiTree.png" target="_blank"><img src="../discrete-phylogeography/DensiTree.png" alt="DensiTree"></a>
   <figcaption>Figure 5: The posterior tree set visualised in DensiTree.</figcaption>
 </figure>
 
@@ -273,7 +274,7 @@ To plot a simple graph, we only pick up the transitions to Hunan in the next com
 and then save the graph a PNG file. The counts are normalised into probabilities. 
 
 <figure class="image">
-  <a href="discrete-phylogeography/transition-distribution-hunan.png" target="_blank"><img src="discrete-phylogeography/transition-distribution-hunan.png" alt="DensiTree"></a>
+  <a href="../discrete-phylogeography/transition-distribution-hunan.png" target="_blank"><img src="../discrete-phylogeography/transition-distribution-hunan.png" alt="DensiTree"></a>
   <figcaption>Figure 6: The probability distribution of estimated transitions into Hunan from other places.</figcaption>
 </figure>
 
@@ -329,6 +330,10 @@ You can install them from [BEAST 2 package manager](http://www.beast2.org/managi
 from [http://www.kuleuven.ac.be/aidslab/phylogeography/SPREAD.html](http://www.kuleuven.ac.be/aidslab/phylogeography/SPREAD.html).
 - Google-earth - displaying the KML file (just Google for it, if you have
 not already have it installed).
+
+
+[//]: # (## Data, Model, Posterior)
+{% include_relative discrete-phylogeography/narrative.md %}
 
 
 ## Useful Links
