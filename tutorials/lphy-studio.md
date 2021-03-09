@@ -1,16 +1,15 @@
 
-If the scripts contain no errors,
-you can see the graphical model defined for this analysis. 
-To look at the simulated values, including alignment or tree, 
-just simply click the graphic component in the panel.  
+If the script contains no errors, you will be able to see the
+specified graphical model.
+Simulated data, such as the alignment and the tree, can be seen in the
+right-hand panel.
 
 <figure class="image">
   <img src="LinguaPhyloStudio.png" alt="LPhyStudio">
-  <figcaption>{{ include.fignum }}: The Screenshot of LPhy Studio</figcaption>
+  <figcaption>{{ include.fignum }}: A screenshot of LPhy Studio</figcaption>
 </figure>
 
-Tips: the example file `{{ include.lphy }}.lphy` is also available 
-by [HMTL format](./lphy.html). 
-Alternatively, you can look for the menu `File` and then `Examples`, 
-and then find it and load the scripts after clicking. 
+As alternatives to typing or copying-and-pasting the script above,
+you can find it in HTML format [here](./lphy.html), or you can load
+the script with `File` > `Examples` and select `RSV2.lphy`.
 
