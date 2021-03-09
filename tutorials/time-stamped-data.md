@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Time-stamped data
-author: 'Walter Xie and Alexei Drummond'
+author: 'LinguaPhylo core team'
 permalink: /tutorials/time-stamped-data/
 ---
 

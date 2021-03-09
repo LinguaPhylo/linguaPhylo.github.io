@@ -2,7 +2,7 @@
 layout: page
 title: Structured coalescent
 subtitle: MASCOT - parameter and state inference using the approximate structured coalescent
-author: 'Walter Xie and Alexei Drummond'
+author: 'LinguaPhylo core team'
 permalink: /tutorials/structured-coalescent/
 ---
 

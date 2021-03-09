@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Bayesian Skyline Plots
-author: 'Walter Xie and Alexei Drummond'
+author: 'LinguaPhylo core team'
 permalink: /tutorials/skyline-plots/
 ---
 
