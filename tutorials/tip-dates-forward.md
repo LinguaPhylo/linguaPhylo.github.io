@@ -1,12 +1,13 @@
 
-By default all the taxa are assumed to have a date of zero 
-(i.e. the sequences are assumed to be sampled at the same time). 
-In this case, the sequences have been sampled at various dates going back to {{ include.earliest }}. 
+In phylodynamic and macroevolutionary analyses, quite often __all__
+our samples (viral sequences from infected individuals in the
+former case and from different species in the latter, for
+example) were collected only at the present moment.
+In such cases we assign our samples a date of zero to
+represent the present -- this is our default.
 
-The date of each sample is stored in the taxon name {{ include.date_in_name }}. 
-The numbers are years since {{ include.since }}.
-We will use the regular expression `"{{ include.regex }}"` to extract these numbers and turn to ages. 
-In addition, the age direction should be set to the _forward_ in time for this analysis. 
-
-If the setup is correct, the sequences sampled the most recently (i.e. {{ include.last }}) 
-should have a `Age` of 0 while all other tips should be larger then 0.
+As mentioned above, however, our sequences have been sampled at
+various dates going back to {{ include.earliest }}.
+We can see the date of each of our samples (sequences) in the NEXUS
+file, {{ include.date_in_name }}.
+This date can be read as years since {{ include.since }}.

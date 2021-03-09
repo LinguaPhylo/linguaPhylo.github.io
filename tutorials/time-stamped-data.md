@@ -7,63 +7,96 @@ permalink: /tutorials/time-stamped-data/
 
 This tutorial is modified from Taming the BEAST tutorial [Time-stamped data](https://taming-the-beast.org/tutorials/MEP-tutorial/).
 
-This tutorial estimates the rate of evolution from a set of virus sequences which have been isolated 
-at different points in time (heterochronous or time-stamped data). 
-The data are 129 sequences from the G (attachment protein) gene of human respiratory syncytial virus 
-subgroup A (RSVA) ([Zlateva et al., 2004; Zlateva et al., 2005](#references)), 
-with isolation dates ranging from 1956-2002. 
-RSVA causes infections of the lower respiratory tract causing symptoms that are often indistinguishable from the common cold. 
-By age 3, nearly all children will be infected and a small percentage (<3%) will develop more serious inflammation 
-of the bronchioles requiring hospitalisation.
+## Requirements
 
-The aim of this tutorial is to obtain estimates for:
+The programs used in this tutorial are listed in [the later
+section](#programs-used-in-this-exercise).
+In case you have not done it yet, please follow the installation
+instructions [here]() before moving on.
 
-* the rate of molecular evolution
-* the date of the most recent common ancestor
-* the phylogenetic relationships with measures of statistical support.
+## Background
 
-The programs used in this tutorial are listed in [the later section](#programs-used-in-this-exercise).
+In this tutorial, we will study the __phylodynamics of the Respiratory
+syncytial virus subgroup A (RSVA)__.
+RSVA infects the human lower respiratory tract, causing symptoms that
+are often indistinguishable from the common cold.
+By age 3, nearly all children will be infected, and a small percentage
+(<3%) will develop a more serious inflammation of the bronchioles
+requiring hospitalisation.
 
-## The NEXUS alignment
+## Goals
+
+The goal of our phylodynamic analysis is to estimate:
+
+* the rate of molecular evolution (of RSVA's G gene);
+* the date of the most recent common ancestor (MRCA) of all viral
+  samples (i.e., the tree's __root__), interpreted as the first
+  infection event with respect to the samples at hand; 
+* the phylogenetic relationships among viral samples.
+
+## Data
+
+Our data is comprised of 129 molecular sequences coding for RSVA's G
+protein ([Zlateva et al., 2004; Zlateva et al., 2005](#references), a
+glycoprotein that allows the virus to attach itself to the host cells'
+membranes, starting the infection.
+Importantly, our data is __time stamped__ (also referred to as
+__heterochronous__ or __serial__ data) because it was collected at
+multiple time points, from 1956--2002.
+
+Below we further detail how we will treat our molecular data in our
+analyses.
+
+### The NEXUS alignment
 
 {% include_relative download-data.md df='RSV2' df_link='https://raw.githubusercontent.com/CompEvol/beast2/master/examples/nexus/RSV2.nex' %}
-It is also available in the examples/nexus folder where BEAST 2 was installed. 
 
+This .nex file can also be found in the ```examples/nexus``` folder,
+where BEAST 2 was installed.
 
-### Multiple partitions
+#### Multiple partitions
 
-This file contains an alignment of 129 sequences from the G gene of RSVA virus, 629 nucleotides in length. 
-Because this is a protein-coding gene we are going to split the alignment into three partitions representing 
-each of the three codon positions. 
-
-As it is fitting into the reading frame 3, we will use the charset expressions supported by Nexus format. 
-For example, `"3-629\3"` means the 1st codon partition (codon0) starts from the 3rd site and takes every 3 sites until the last site 629.  
-
+Our molecular alignment corresponds to a 629-bp coding sequence of
+RSVA's G protein.
+We are going to partition our alignment into three compartments
+corresponding to the first, second and third codon positions.
 
 ### Tip dates
 
 {% include_relative tip-dates-forward.md  earliest='the 1950s' 
-                    date_in_name='after the last little `s`' 
+                    date_in_name='after the last lower-case `s`' 
                     since='1900' regex='s(\d+)$' last='2002' %}
-
-{% include_relative age-direction.md %}
-
 
 ## Constructing the scripts in LPhy Studio
 
 {% include_relative lphy-scripts.md %}
 
-{::nomarkdown}
-{% include_relative time-stamped-data/lphy.html %}
-{:/}
-
-{% include_relative lphy-studio.md lphy="RSV2" fignum="Figure 1" %}
-
-
 ### Data block
 
 {% include_relative lphy-data.md %}
 
+Our data here consist of molecular alignments and the sample dates.
+
+We start by parsing the latter with regular expression `"{{
+include.regex }}"`, which extracts the sample dates from the NEXUS
+file, converting them to ages in __forward__ time (i.e., the root age
+is 0.0).
+
+{% include_relative age-direction.md %}
+
+Then we must parse the molecular alignments.
+Note that our open reading frame (ORF) starts in position 3, which
+must be reflected by the arguments with pass on to the `charset()`
+function: first (`"3-629\3"`), second (`"1-629\3"`) and third
+(`"2-629\3"`) codon positions.
+
+{::nomarkdown}
+{% include_relative time-stamped-data/lphy_datablock.html %}
+{:/}
+
+If the setup is correct, the most recent sequences (i.e., {{
+include.last }}) should have an `Age` of 0.0, while all other tips
+should be > 0.0.
 
 ### Model block
 
@@ -88,6 +121,19 @@ to these relative rates in the MCMC sampling to help the converagence.
 
 Please note the tree here is already the time tree, the age direction will have been processed in `data` block.
 
+{::nomarkdown}
+{% include_relative time-stamped-data/lphy_modelblock.html %}
+{:/}
+
+### The whole script
+
+Let us look at the whole thing:
+
+{::nomarkdown}
+{% include_relative time-stamped-data/lphy.html %}
+{:/}
+
+{% include_relative lphy-studio.md lphy="RSV2" fignum="Figure 1" %}
 
 ## Producing BEAST XML using LPhyBEAST
 
@@ -311,6 +357,20 @@ In what year did the common ancestor of all RSVA viruses sampled live? What is t
 
 ## References
 
-* Zlateva, K. T., Lemey, P., Vandamme, A.-M., & Van Ranst, M. (2004). Molecular evolution and circulation patterns of human respiratory syncytial virus subgroup a: positively selected sites in the attachment g glycoprotein. J Virol, 78(9), 4675–4683.
-* Zlateva, K. T., Lemey, P., Moës, E., Vandamme, A.-M., & Van Ranst, M. (2005). Genetic variability and molecular evolution of the human respiratory syncytial virus subgroup B attachment G protein. J Virol, 79(14), 9157–9167. https://doi.org/10.1128/JVI.79.14.9157-9167.2005
-* Drummond, A. J., & Bouckaert, R. R. (2014). Bayesian evolutionary analysis with BEAST 2. Cambridge University Press.
+* Zlateva, K. T., Lemey, P., Vandamme, A.-M., & Van Ranst,
+  M. (2004). Molecular evolution and circulation patterns of human
+  respiratory syncytial virus subgroup a: positively selected sites in
+  the attachment g glycoprotein. J. Virol., 78(9), 4675–4683.
+* Zlateva, K. T., Lemey, P., Moës, E., Vandamme, A.-M., & Van Ranst,
+  M. (2005). Genetic variability and molecular evolution of the human
+  respiratory syncytial virus subgroup B attachment G protein. J.
+  Virol., 79(14),
+  9157–9167. https://doi.org/10.1128/JVI.79.14.9157-9167.2005
+* Drummond, A. J., & Bouckaert, R. R. (2014). Bayesian evolutionary
+  analysis with BEAST 2. Cambridge University Press.
+* Höhna, S., Landis, M. J., Heath, T. A., Boussau, B., Lartillot, N.,
+  Moore, B. R., Huelsenbeck, J. P., Ronquist, F. (2016). RevBayes:
+  Bayesian phylogenetic inference using graphical models and an
+  interactive model-specification language. Syst. Biol., 65(4),
+  726-736.
+  

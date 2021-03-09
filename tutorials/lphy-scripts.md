@@ -1,8 +1,11 @@
 
-The software LPhy Studio is used to specify and visualise models 
-as well as simulate data from models defined in LPhy scripts. 
-When you write your LPhy scripts, please be aware that `data` and `model` 
-have been reserved and cannot be used as the variable name.
+LPhy Studio implements a GUI for users to specify and visualize
+probabilistic graphical models, as well as for simulating data 
+under those models.
+These tasks are executed according to an LPhy script the user types
+(or loads) on LPhy Studio's interactive terminal.
 
-The LPhy scripts to define this analysis is below:
+Below, we will build an LPhy script in two parts, the `data` and
+the `model` blocks.
+
 

@@ -1,13 +1,16 @@
 
-The LPhy data block is used to input and store the data, 
-which will be processed by the models defined later, 
-and which also allows you to reuse the another dataset 
-by simply replacing the current data. 
+The `data` block is necessary when we use LPhy Studio to prepare
+input files for inference software (e.g., BEAST 2, RevBayes, etc.).
+The purpose of this block is to tell LPhy which nodes of our graphical
+model are to be treated as known constants (and __not__ to be sampled
+by the inference software). 
+Elsewhere, this procedure has been dubbed "clamping" ([Höhna et al.,
+2016](#references)).
 
-In this block, we normally include the constants for models, 
-the alignment loaded from a NEXUS file, 
-and the meta data regarding to the information of taxa that we have known.
+In this block, we will either type strings representing values to be
+directly assigned to scalar variables, or use LPhy's syntax to extract
+such values from LPhy objects, which might be read from file paths
+given by the user.
 
-Please make sure the tab above the command console is set to `data`, 
-and type or copy and paste the data block scripts into the console.
-
+Note that keyword `data` cannot be used to name variables because it
+is reserved for defining scripting blocks as outlined above.
