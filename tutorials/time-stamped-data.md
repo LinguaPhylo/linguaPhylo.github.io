@@ -64,7 +64,9 @@ corresponding to the first, second and third codon positions.
 
 {% include_relative tip-dates-forward.md  earliest='the 1950s' 
                     date_in_name='after the last lower-case `s`' 
-                    since='1900' regex='s(\d+)$' last='2002' %}
+                    since='1900' %}
+					
+{% include_relative age-direction.md %}
 
 ## Constructing the scripts in LPhy Studio
 
@@ -74,28 +76,28 @@ corresponding to the first, second and third codon positions.
 
 {% include_relative lphy-data.md %}
 
+{::nomarkdown}
+{% include_relative time-stamped-data/lphy_datablock.html %}
+{:/}
+
 Our data here consist of molecular alignments and the sample dates.
 
-We start by parsing the latter with regular expression `"{{
-include.regex }}"`, which extracts the sample dates from the NEXUS
-file, converting them to ages in __forward__ time (i.e., the root age
-is 0.0).
+We start by parsing the latter with regular expression `"s(\d+)"` when
+defining some options in `options={}`.
+This tells LPhy how to extract the sample times from the NEXUS file,
+and then we specify that we want to read those times as dates (i.e.,
+__forward__ in time, with the root time being 0.0).
 
-{% include_relative age-direction.md %}
+In order to check if you have set the sample times correctly, click
+the graphical component `taxa` and check the column `Age`.
+The most recent sequences (i.e., `2002`) should have an `Age` of 0.0,
+while all other tips should be > 0.0.
 
 Then we must parse the molecular alignments.
 Note that our open reading frame (ORF) starts in position 3, which
 must be reflected by the arguments with pass on to the `charset()`
 function: first (`"3-629\3"`), second (`"1-629\3"`) and third
 (`"2-629\3"`) codon positions.
-
-{::nomarkdown}
-{% include_relative time-stamped-data/lphy_datablock.html %}
-{:/}
-
-If the setup is correct, the most recent sequences (i.e., {{
-include.last }}) should have an `Age` of 0.0, while all other tips
-should be > 0.0.
 
 ### Model block
 

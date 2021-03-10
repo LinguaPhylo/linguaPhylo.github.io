@@ -12,5 +12,5 @@ directly assigned to scalar variables, or use LPhy's syntax to extract
 such values from LPhy objects, which might be read from file paths
 given by the user.
 
-Note that keyword `data` cannot be used to name variables because it
-is reserved for defining scripting blocks as outlined above.
+(Note that keyword `data` cannot be used to name variables because it
+is reserved for defining scripting blocks as outlined above.)

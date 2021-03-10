@@ -1,9 +1,17 @@
 
-The LPhy `TimeTree` always take the ages. 
-But there are two different ways in how the meta data (e.g. in the Nexus file) can interpret sampling dates, 
-which are controlled by the age direction defined in LPhy `readNexus`. 
-If the sampling dates are __since some time in the past__, then we set `ageDirection="forward"` or `"dates"`.
-This is usually used for virus data. 
-If the sampling dates are __before the present__, then we set `ageDirection="backward"` or `"ages"`. 
-This is usually used for fossils data. 
-The easiest way to check if you have used the correct one is by clicking the graphical component `taxa` and checking the column `Age`. 
+Whenever tip dates are __heterochronous__ and used as data, they can
+be interpreted in __forward__ time (here, we refer to them simply as
+"__dates__") or __backward__ time (in which case we call them
+"__ages__").
+Whether we read the tip times as dates or ages depends on how the
+models we want to use are parameterized.
+Regardless, the times are first converted into scalar values from 0.0
+to some value > 0.0 (in days, years, millions of years, etc.).
+
+It often makes sense to interpret tip times as ages because (i) we
+usually have many observations from the present moment whose times we
+do not try to estimate (i.e., we treat as constants), and (ii) we
+routinely attempt to estimate tree root or origin times.
+Put differently, it is natural to "anchor" the terminal nodes of our
+tree to the present at time 0.0, and then estimate the height of all
+internal nodes as values > 0.0.
