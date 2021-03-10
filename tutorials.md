@@ -12,7 +12,7 @@ permalink: /tutorials/
 
 * [Skyline plots](tutorials/skyline-plots.md)
 
-### Andvanced
+### Advanced
 
 * [Structured coalescent](tutorials/structured-coalescent.md)
 
