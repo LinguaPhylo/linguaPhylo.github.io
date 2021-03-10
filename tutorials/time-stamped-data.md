@@ -80,24 +80,28 @@ corresponding to the first, second and third codon positions.
 {% include_relative time-stamped-data/lphy_datablock.html %}
 {:/}
 
+***
+
 Our data here consist of molecular alignments and the sample dates.
 
 We start by parsing the latter with regular expression `"s(\d+)"` when
 defining some options in `options={}`.
 This tells LPhy how to extract the sample times from the NEXUS file,
-and then we specify that we want to read those times as dates (i.e.,
-__forward__ in time, with the root time being 0.0).
+and then we specify that we want to read those times as ages (i.e.,
+__backward__ in time, with the youngest sample time being 0.0).
 
 In order to check if you have set the sample times correctly, click
-the graphical component `taxa` and check the column `Age`.
-The most recent sequences (i.e., `2002`) should have an `Age` of 0.0,
-while all other tips should be > 0.0.
+the graphical component `taxa` and check the column `Age`. 
+The most recent sequences (i.e., from 2002 and that end with `s102`)
+should have an `Age` of 0.0, while all other tips should be > 0.0.
 
 Then we must parse the molecular alignments.
 Note that our open reading frame (ORF) starts in position 3, which
-must be reflected by the arguments with pass on to the `charset()`
+must be reflected by the arguments we pass on to the `charset()`
 function: first (`"3-629\3"`), second (`"1-629\3"`) and third
 (`"2-629\3"`) codon positions.
+Finally, we use the last three lines to set the number of loci `L`,
+the number of taxa `n`, and the taxa themselves `taxa`.
 
 ### Model block
 

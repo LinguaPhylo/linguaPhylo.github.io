@@ -1,8 +1,8 @@
 
 Whenever tip dates are __heterochronous__ and used as data, they can
-be interpreted in __forward__ time (here, we refer to them simply as
-"__dates__") or __backward__ time (in which case we call them
-"__ages__").
+be interpreted in natural __forward__ time (here, we refer to them
+simply as "__dates__") or __backward__ time (in which case we call
+them "__ages__").
 Whether we read the tip times as dates or ages depends on how the
 models we want to use are parameterized.
 Regardless, the times are first converted into scalar values from 0.0
