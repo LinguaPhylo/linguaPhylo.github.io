@@ -78,9 +78,7 @@ corresponding to the first, second and third codon positions.
 
 {::nomarkdown}
 {% include_relative time-stamped-data/lphy_datablock.html %}
-{:/}  
-  
-***
+{:/}
   
 Our data here consist of molecular alignments and the sample dates.
 
@@ -101,7 +99,7 @@ must be reflected by the arguments we pass on to the `charset()`
 function: first (`"3-629\3"`), second (`"1-629\3"`) and third
 (`"2-629\3"`) codon positions.
 Finally, we use the last three lines to set the number of loci `L`,
-the number of taxa `n`, and the taxa themselves `taxa`.
+the number of taxa `n`, and the taxa themselves, `taxa`.
 
 ### Model block
 

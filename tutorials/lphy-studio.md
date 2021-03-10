@@ -11,5 +11,5 @@ right-hand panel.
 
 As alternatives to typing or copying-and-pasting the script above,
 you can find it in HTML format [here](./lphy.html), or you can load
-the script with `File` > `Examples` and select `RSV2.lphy`.
+the script with "File" > "Examples" and select `RSV2.lphy`.
 
