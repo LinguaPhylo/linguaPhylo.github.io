@@ -78,10 +78,9 @@ corresponding to the first, second and third codon positions.
 
 {::nomarkdown}
 {% include_relative time-stamped-data/lphy_datablock.html %}
-{:/}
-
+{:/}\
 ***
-
+\
 Our data here consist of molecular alignments and the sample dates.
 
 We start by parsing the latter with regular expression `"s(\d+)"` when
