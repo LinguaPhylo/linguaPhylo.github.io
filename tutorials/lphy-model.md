@@ -1,8 +1,11 @@
 
-The model block is to define and also describe your models and parameters
-in the Bayesian phylogenetic analysis.
-Therefore, your result could be easily reproduced by other researchers. 
+The `model { ... }` block is the main protagonist of our scripts.
+This is where you will specify the many nodes and sampling
+distributions that characterize a probabilistic model.
 
-Please switch the tab to `model`, 
-and type or copy and paste the model block scripts into the console.
+(Note that keyword `model` cannot be used to name variables because it
+is reserved for defining scripting blocks as outlined above.)
 
+In order to start specifying the model block, make sure you type into
+the "model" tab of the command prompt, by clicking "model" at the bottom
+of LPhy Studio's window.

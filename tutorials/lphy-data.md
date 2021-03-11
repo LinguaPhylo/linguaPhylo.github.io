@@ -1,5 +1,5 @@
 
-The `data` block is necessary when we use LPhy Studio to prepare
+The `data { ... }` block is necessary when we use LPhy Studio to prepare
 input files for inference software (e.g., BEAST 2, RevBayes, etc.).
 The purpose of this block is to tell LPhy which nodes of our graphical
 model are to be treated as known constants (and __not__ to be sampled
@@ -14,3 +14,7 @@ given by the user.
 
 (Note that keyword `data` cannot be used to name variables because it
 is reserved for defining scripting blocks as outlined above.)
+
+In order to start specifying the data block, make sure you type into
+the "data" tab of the command prompt, by clicking "data" at the bottom
+of LPhy Studio's window.

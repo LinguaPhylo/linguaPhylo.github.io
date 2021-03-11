@@ -85,48 +85,66 @@ Our data here consist of molecular alignments and the sample dates.
 We start by parsing the latter with regular expression `"s(\d+)"` when
 defining some options in `options={}`.
 This tells LPhy how to extract the sample times from the NEXUS file,
-and then we specify that we want to read those times as ages (i.e.,
-__backward__ in time, with the youngest sample time being 0.0).
+and then we specify that we want to read those times as dates (i.e.,
+__forward__ in time).
+After all, our sample times are given to us in natural time.
 
 In order to check if you have set the sample times correctly, click
-the graphical component `taxa` and check the column `Age`. 
+the graphical component `taxa` and check the column "Age". 
 The most recent sequences (i.e., from 2002 and that end with `s102`)
-should have an `Age` of 0.0, while all other tips should be > 0.0.
+should have an age of 0.0, while all other tips should be > 0.0.
+This is because, as mentioned above, LPhy __always__ treats sample
+times as __ages__.
 
-Then we must parse the molecular alignments.
+Then we must parse the molecular alignments, which we do when
+initializing variable `D`.
 Note that our open reading frame (ORF) starts in position 3, which
 must be reflected by the arguments we pass on to the `charset()`
 function: first (`"3-629\3"`), second (`"1-629\3"`) and third
 (`"2-629\3"`) codon positions.
 Finally, we use the last three lines to set the number of loci `L`,
 the number of taxa `n`, and the taxa themselves, `taxa`.
+Note that `n=length(codon);` is equivalent to `n=3;` because
+`length()` here is extracting the number of partitions in `codon`.
+
+If you want to double check everything you have typed, click the
+"Model" tab in the upper right panel.
 
 ### Model block
 
 {% include_relative lphy-model.md %}
 
-In this analysis, we will use three HKY models with estimated frequencies for each of three partitions, 
-and share the strict clock model and a Kingman coalescent tree generative distribution across partitions. 
-But we are also interested about the relative substitution rate for each of three partitions.
-
-So, we define the priors for the following parameters:
-1. the effective population size _Θ_;  
-2. the general clock rate _clockRate_;
-3. the relative substitution rates _mu_ which has 3 dimensions;
-4. the transition/transversion ratio _kappa_ which also has 3 dimensions;
-5. the base frequencies _pi_. 
-
-The script `n=length(codon);` is equivalent to `n=3;`, since `codon` is a 3-partition alignment.
-Here `rep(element=1.0, times=n)` will create an array of `n` 1.0, which is `[1.0, 1.0, 1.0]`.
-
-The benefit of using 3 relative substitution rates here instead of 3 clock rates is that we could use the DeltaExchangeOperator
-to these relative rates in the MCMC sampling to help the converagence.
-
-Please note the tree here is already the time tree, the age direction will have been processed in `data` block.
+We will specify sampling distributions for the following parameters, in
+this order:
+1. `π`, the equilibrium nucleotide frequencies (with 4 dimensions, one
+for each nucleotide);  
+2. `κ`, twice the transition:transversion (ts:tv) ratio (with 3 dimensions,
+   one for each partition);  
+3. `r`, the global (mean) clock rate;  
+4. `μ`, the relative substitution rates (with 3 dimensions, one for
+   each partition);
+5. `Θ`, the effective population size (with as many dimensions as
+   there are branches in the tree);  
+6. `φ`, the time-scaled (i.e., in absolute time) phylogenetic tree.
 
 {::nomarkdown}
 {% include_relative time-stamped-data/lphy_modelblock.html %}
 {:/}
+
+Note that parameters `π`, `κ` and `μ` are 3-dimensional vectors,
+because they represent the nucleotide equilibrium frequencies,
+(ts:tv)/2, and relative substitution rates of each of the three
+partitions, respectively.
+LPhy conveniently uses vectorization, so `PhyloCTMC` recognizes that
+three parameters above are vectors, and automatically takes care of
+building three separate HKY models, one per partition!
+
+One final remark is that we use `rep(element=1.0, times=n)` (where `n`
+evaluates to 3) to create three concentration vectors (one vector per
+partition) for the `WeightedDirichlet` sampling distribution.
+
+If you want to double check everything you have typed, click the
+“Model” tab in the upper right panel.
 
 ### The whole script
 
@@ -138,7 +156,11 @@ Let us look at the whole thing:
 
 {% include_relative lphy-studio.md lphy="RSV2" fignum="Figure 1" %}
 
-## Producing BEAST XML using LPhyBEAST
+## Phylogenetic inference with BEAST 2
+
+{% include_relative lphy-inference-beast2.md software="BEAST 2" %}
+
+### Producing a BEAST 2 .xml using LPhyBEAST
 
 {% include_relative lphy-beast.md lphy="RSV2" nex="RSV2" %}
 
@@ -146,13 +168,7 @@ Let us look at the whole thing:
 java -jar LPhyBEAST.jar RSV2.lphy
 ```
 
-
-## Running BEAST
-
-<figure class="image">
-  <img src="outercore.png" alt="Package manager">
-  <figcaption>Figure 2: A screenshot of Package Manager.</figcaption>
-</figure>
+### Running BEAST 2
 
 {% include_relative run-beast.md xml="RSV2.xml" %}
 
@@ -231,7 +247,7 @@ Total calculation time: 96.711 seconds
 End likelihood: -6075.359137869203
 ```
 
-## Analysing the BEAST output
+### Analysing the BEAST output
 
 Note that the effective sample sizes (ESSs) for many of the logged quantities are small 
 (ESSs less than 100 will be highlighted in red by Tracer). This is not good. 
@@ -245,7 +261,6 @@ the sampled values against the step in the MCMC chain.
   <img src="short.png" alt="The trace of short run">
   <figcaption>Figure 3: A screenshot of Tracer.</figcaption>
 </figure>
-
 
 Here you can see how the samples are correlated. 
 The default chain length of the MCMC is 1,000,000 in `LPhyBEAST`.
@@ -349,9 +364,18 @@ Below a DensiTree with clade height bars for clades with over 50% support. Root 
 In what year did the common ancestor of all RSVA viruses sampled live? What is the 95% HPD?
 
 
-## Programs used in this Exercise
+## Programs used in this tutorial
 
 {% include_relative programs-used.md %}
+
+You will also need to make sure all required BEAST 2 packages
+(e.g., outercore) have been installed on your local computer.  
+The Package Manager can help you do that (see the screenshot below).  
+
+<figure class="image">
+  <img src="outercore.png" alt="Package manager">
+  <figcaption>Figure 2: A screenshot of Package Manager.</figcaption>
+</figure>
 
 ## Useful Links
 
