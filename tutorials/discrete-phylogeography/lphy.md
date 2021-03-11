@@ -53,11 +53,12 @@
 
 
 <figure class="image">
-  <img src="../discrete-phylogeography/GraphicalModel.png" alt="GraphicalModel.png">
+  <a href="../discrete-phylogeography/GraphicalModel.png" target="_blank">
+    <img src="../discrete-phylogeography/GraphicalModel.png" alt="GraphicalModel.png">
+  </a>
   <figcaption>{{ include.fignum }}: The graphical model</figcaption>
 </figure>
 
 
 
 For the details, please read the auto-generated [narrative](#auto-generated) from LPhyStudio.
-

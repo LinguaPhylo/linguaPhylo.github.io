@@ -11,6 +11,7 @@ The alignment, <i>D<sub>trait</sub></i> extracts the trait from  <i>taxa</i>, wi
 The object, <i>dim</i> comes from the K*(K-1)/2.
 
 
+
 <h2>Model</h2>
 
 The alignment, <i>D</i> is assumed to have evolved under a phylogenetic continuous time Markov process <a href="https://doi.org/10.1007/BF01734359">(Felsenstein; 1981)</a> on  phylogenetic time tree, <i>ψ</i>, with a molecular clock rate of 0.004, an instantaneous rate matrix and siteRates, <i>r</i>.
@@ -32,7 +33,8 @@ The x, <i>R<sub>trait</sub></i> have a Dirichlet distribution prior with a conce
 A concentration is assumed to come from the rep with an element of 1.0 and times, <i>dim</i>.
 The molecular clock rate, <i>μ<sub>trait</sub></i> has a log-normal prior with a mean in log space of 0 and a standard deviation in log space of 1.25.
 
-## Posterior
+
+<h2>Posterior</h2>
 
 $$
 \begin{split}
@@ -43,4 +45,3 @@ $$
 
 
 </div>
-
