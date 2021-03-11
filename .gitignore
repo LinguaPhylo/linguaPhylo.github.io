@@ -4,3 +4,7 @@ _site
 .jekyll-metadata
 .DS_Store
 vendor
+
+# TODO
+Gemfile.lock
+
