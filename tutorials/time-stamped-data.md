@@ -93,40 +93,52 @@ the graphical component `taxa` and check the column `Age`.
 The most recent sequences (i.e., from 2002 and that end with `s102`)
 should have an `Age` of 0.0, while all other tips should be > 0.0.
 
-Then we must parse the molecular alignments.
+Then we must parse the molecular alignments, which we do when
+initializing variable `D`.
 Note that our open reading frame (ORF) starts in position 3, which
 must be reflected by the arguments we pass on to the `charset()`
 function: first (`"3-629\3"`), second (`"1-629\3"`) and third
 (`"2-629\3"`) codon positions.
 Finally, we use the last three lines to set the number of loci `L`,
 the number of taxa `n`, and the taxa themselves, `taxa`.
+Note that `n=length(codon);` is equivalent to `n=3;` because
+`length()` here is extracting the number of partitions in `codon`.
+
+If you want to double check everything you have typed, click the
+"Model" tab in the upper right panel.
 
 ### Model block
 
 {% include_relative lphy-model.md %}
 
-In this analysis, we will use three HKY models with estimated frequencies for each of three partitions, 
-and share the strict clock model and a Kingman coalescent tree generative distribution across partitions. 
-But we are also interested about the relative substitution rate for each of three partitions.
-
-So, we define the priors for the following parameters:
-1. the effective population size _Θ_;  
-2. the general clock rate _clockRate_;
-3. the relative substitution rates _mu_ which has 3 dimensions;
-4. the transition/transversion ratio _kappa_ which also has 3 dimensions;
-5. the base frequencies _pi_. 
-
-The script `n=length(codon);` is equivalent to `n=3;`, since `codon` is a 3-partition alignment.
-Here `rep(element=1.0, times=n)` will create an array of `n` 1.0, which is `[1.0, 1.0, 1.0]`.
-
-The benefit of using 3 relative substitution rates here instead of 3 clock rates is that we could use the DeltaExchangeOperator
-to these relative rates in the MCMC sampling to help the converagence.
-
-Please note the tree here is already the time tree, the age direction will have been processed in `data` block.
+We will specify sampling distributions for the following parameters, in
+this order:
+1. `_π_`, the equilibrium nucleotide frequencies (with 4 dimensions, one
+for each nucleotide);  
+2. `_κ_`, twice the transition:transversion (ts:tv) ratio (with 3 dimensions,
+   one for each partition);  
+3. `_r_`, the global (mean) clock rate;  
+4. `_μ_`, the relative substitution rates (with 3 dimensions, one for
+   each partition);
+5. `_Θ_`, the effective population size (with as many dimensions as
+   there are branches in the tree);  
+6. `_φ_`, the time-scaled (i.e., in absolute time) phylogenetic tree.
 
 {::nomarkdown}
 {% include_relative time-stamped-data/lphy_modelblock.html %}
 {:/}
+
+Note that parameters `_π_`, `_κ_` and `_μ_` are 3-dimensional vectors,
+because they represent the nucleotide equilibrium frequencies,
+(ts:tv)/2, and relative substitution rates of each of the three
+partitions, respectively.
+LPhy conveniently uses vectorization, so `PhyloCTMC` recognizes that
+three parameters above are vectors, and automatically takes care of
+building three separate HKY models, one per partition!
+
+One final remark is that we use `rep(element=1.0, times=n)` (where `n`
+evaluates to 3) to create three concentration vectors (one vector per
+partition) for the `WeightedDirichlet` sampling distribution.
 
 ### The whole script
 
