@@ -85,13 +85,16 @@ Our data here consist of molecular alignments and the sample dates.
 We start by parsing the latter with regular expression `"s(\d+)"` when
 defining some options in `options={}`.
 This tells LPhy how to extract the sample times from the NEXUS file,
-and then we specify that we want to read those times as ages (i.e.,
-__backward__ in time, with the youngest sample time being 0.0).
+and then we specify that we want to read those times as dates (i.e.,
+__forward__ in time).
+After all, our sample times are given to us in natural time.
 
 In order to check if you have set the sample times correctly, click
-the graphical component `taxa` and check the column __Age__. 
+the graphical component `taxa` and check the column "Age". 
 The most recent sequences (i.e., from 2002 and that end with `s102`)
 should have an age of 0.0, while all other tips should be > 0.0.
+This is because, as mentioned above, LPhy __always__ treats sample
+times as __ages__.
 
 Then we must parse the molecular alignments, which we do when
 initializing variable `D`.
