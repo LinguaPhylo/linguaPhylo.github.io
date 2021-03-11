@@ -89,9 +89,9 @@ and then we specify that we want to read those times as ages (i.e.,
 __backward__ in time, with the youngest sample time being 0.0).
 
 In order to check if you have set the sample times correctly, click
-the graphical component `taxa` and check the column `Age`. 
+the graphical component `taxa` and check the column __Age__. 
 The most recent sequences (i.e., from 2002 and that end with `s102`)
-should have an `Age` of 0.0, while all other tips should be > 0.0.
+should have an age of 0.0, while all other tips should be > 0.0.
 
 Then we must parse the molecular alignments, which we do when
 initializing variable `D`.
@@ -113,22 +113,22 @@ If you want to double check everything you have typed, click the
 
 We will specify sampling distributions for the following parameters, in
 this order:
-1. `_π_`, the equilibrium nucleotide frequencies (with 4 dimensions, one
+1. `π`, the equilibrium nucleotide frequencies (with 4 dimensions, one
 for each nucleotide);  
-2. `_κ_`, twice the transition:transversion (ts:tv) ratio (with 3 dimensions,
+2. `κ`, twice the transition:transversion (ts:tv) ratio (with 3 dimensions,
    one for each partition);  
-3. `_r_`, the global (mean) clock rate;  
-4. `_μ_`, the relative substitution rates (with 3 dimensions, one for
+3. `r`, the global (mean) clock rate;  
+4. `μ`, the relative substitution rates (with 3 dimensions, one for
    each partition);
-5. `_Θ_`, the effective population size (with as many dimensions as
+5. `Θ`, the effective population size (with as many dimensions as
    there are branches in the tree);  
-6. `_φ_`, the time-scaled (i.e., in absolute time) phylogenetic tree.
+6. `φ`, the time-scaled (i.e., in absolute time) phylogenetic tree.
 
 {::nomarkdown}
 {% include_relative time-stamped-data/lphy_modelblock.html %}
 {:/}
 
-Note that parameters `_π_`, `_κ_` and `_μ_` are 3-dimensional vectors,
+Note that parameters `π`, `κ` and `μ` are 3-dimensional vectors,
 because they represent the nucleotide equilibrium frequencies,
 (ts:tv)/2, and relative substitution rates of each of the three
 partitions, respectively.
@@ -140,6 +140,9 @@ One final remark is that we use `rep(element=1.0, times=n)` (where `n`
 evaluates to 3) to create three concentration vectors (one vector per
 partition) for the `WeightedDirichlet` sampling distribution.
 
+If you want to double check everything you have typed, click the
+“Model” tab in the upper right panel.
+
 ### The whole script
 
 Let us look at the whole thing:
@@ -150,7 +153,14 @@ Let us look at the whole thing:
 
 {% include_relative lphy-studio.md lphy="RSV2" fignum="Figure 1" %}
 
-## Producing BEAST XML using LPhyBEAST
+## Phylogenetic inference with BEAST 2
+
+Once we have read in our data and defined our model, we can move to
+the task of carrying out statistical inference.
+We shall try to estimate our parameters of interest, and for the
+purposes of this tutorial we will do that using the BEAST 2 program.
+
+### Producing a BEAST 2 .xml using LPhyBEAST
 
 {% include_relative lphy-beast.md lphy="RSV2" nex="RSV2" %}
 
