@@ -155,10 +155,7 @@ Let us look at the whole thing:
 
 ## Phylogenetic inference with BEAST 2
 
-Once we have read in our data and defined our model, we can move to
-the task of carrying out statistical inference.
-We shall try to estimate our parameters of interest, and for the
-purposes of this tutorial we will do that using the BEAST 2 program.
+{% include_relative lphy-inference-beast2.md software="BEAST 2" %}
 
 ### Producing a BEAST 2 .xml using LPhyBEAST
 
@@ -168,13 +165,7 @@ purposes of this tutorial we will do that using the BEAST 2 program.
 java -jar LPhyBEAST.jar RSV2.lphy
 ```
 
-
-## Running BEAST
-
-<figure class="image">
-  <img src="outercore.png" alt="Package manager">
-  <figcaption>Figure 2: A screenshot of Package Manager.</figcaption>
-</figure>
+### Running BEAST 2
 
 {% include_relative run-beast.md xml="RSV2.xml" %}
 
@@ -253,7 +244,7 @@ Total calculation time: 96.711 seconds
 End likelihood: -6075.359137869203
 ```
 
-## Analysing the BEAST output
+### Analysing the BEAST output
 
 Note that the effective sample sizes (ESSs) for many of the logged quantities are small 
 (ESSs less than 100 will be highlighted in red by Tracer). This is not good. 
@@ -267,7 +258,6 @@ the sampled values against the step in the MCMC chain.
   <img src="short.png" alt="The trace of short run">
   <figcaption>Figure 3: A screenshot of Tracer.</figcaption>
 </figure>
-
 
 Here you can see how the samples are correlated. 
 The default chain length of the MCMC is 1,000,000 in `LPhyBEAST`.
@@ -371,9 +361,18 @@ Below a DensiTree with clade height bars for clades with over 50% support. Root 
 In what year did the common ancestor of all RSVA viruses sampled live? What is the 95% HPD?
 
 
-## Programs used in this Exercise
+## Programs used in this tutorial
 
 {% include_relative programs-used.md %}
+
+You will also need to make sure all required BEAST 2 packages
+(e.g., outercore) have been installed on your local computer.  
+The Package Manager can help you do that (see the screenshot below).  
+
+<figure class="image">
+  <img src="outercore.png" alt="Package manager">
+  <figcaption>Figure 2: A screenshot of Package Manager.</figcaption>
+</figure>
 
 ## Useful Links
 

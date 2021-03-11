@@ -6,7 +6,7 @@ right-hand panel.
 
 <figure class="image">
   <img src="LinguaPhyloStudio.png" alt="LPhyStudio">
-  <figcaption>{{ include.fignum }}: A screenshot of LPhy Studio</figcaption>
+  <figcaption>{{ include.fignum }}: A screenshot of LPhy Studio.</figcaption>
 </figure>
 
 As alternatives to typing or copying-and-pasting the script above,

@@ -1,9 +1,11 @@
 
-Once the BEAST file (e.g. {{ include.xml }}) is generated, the next step is to run it in BEAST.
-You also need to make sue all required BEAST 2 packages (e.g. `outercore`) have been installed in your local computer. 
+After LPhyBEAST generates a BEAST 2 .xml file (e.g., {{ include.xml
+}}), we can point BEAST 2 to it, which will then start the inferential
+MCMC analysis.
 
-Now run BEAST and when it asks for an input file, provide your newly created XML file as input. 
-BEAST will then run until it has finished reporting information to the screen. 
-The actual results files are save to the disk in the same location as your input file. 
-The output to the screen will look something like this:
+BEAST 2 will write its outputs to disk into text files specified in
+the .xml file (specific paths can be passed in, but in their absence BEAST
+2 will write the outputs in the same directory from where it was called).
 
+BEAST 2 will also output the progress of the analysis and some summaries to
+the screen, like this:  
