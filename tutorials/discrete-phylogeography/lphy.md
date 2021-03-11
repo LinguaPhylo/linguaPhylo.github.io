@@ -52,6 +52,12 @@
 ## Graphical Model
 
 
+<figure class="image">
+  <img src="../discrete-phylogeography/GraphicalModel.png" alt="GraphicalModel.png">
+  <figcaption>{{ include.fignum }}: The graphical model</figcaption>
+</figure>
+
+
 
 For the details, please read the auto-generated [narrative](#auto-generated) from LPhyStudio.
 

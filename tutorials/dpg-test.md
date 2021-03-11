@@ -14,7 +14,7 @@ the phylogeographic diffusion process.
 The additional benefit using this model is that we can summarise the phylogeographic inferences from an analysis,
 and use a virtual globe software to visualize the spatial and temporal information.
 
-The programs used in this tutorial are listed in [the later section](#programs-used-in-this-exercise).
+The programs used in this tutorial are listed [below](#programs-used-in-this-exercise).
 
 ## The NEXUS alignment
 
@@ -34,7 +34,7 @@ The LPhy scripts to define this analysis is listed below.
 
 
 [//]: # (## Code, Graphical Model)
-{% include_relative discrete-phylogeography/lphy.md %}
+{% include_relative discrete-phylogeography/lphy.md fignum="Figure 1" %}
 
 
 ## Geographic Model
