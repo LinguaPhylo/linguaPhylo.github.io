@@ -12,7 +12,7 @@ A .jar file is just a compressed file that contains all the Java code
 and instructions for running a Java application.
 You can put LPHyBEAST's .jar file wherever you want, just remember to
 point your `java` binary to the correct path when executing the
-following command.
+command below.
 We will just place the .jar file in the same folder as our {{
 include.lphy }}.lphy script.
 

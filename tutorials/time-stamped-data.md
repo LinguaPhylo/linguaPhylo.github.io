@@ -1,11 +1,13 @@
 ---
 layout: page
 title: Time-stamped data
-author: 'LinguaPhylo core team'
+author: 'Fábio K. Mendes, Walter Xie and Alexei J. Drummond'
 permalink: /tutorials/time-stamped-data/
 ---
 
-This tutorial is modified from Taming the BEAST tutorial [Time-stamped data](https://taming-the-beast.org/tutorials/MEP-tutorial/).
+This tutorial is modified from Taming the BEAST material.
+You can find the source tutorial, data and author information
+[here](https://taming-the-beast.org/tutorials/MEP-tutorial/).
 
 ## Requirements
 
@@ -247,43 +249,62 @@ Total calculation time: 96.711 seconds
 End likelihood: -6075.359137869203
 ```
 
-### Analysing the BEAST output
+### Analysing BEAST 2's output
 
-Note that the effective sample sizes (ESSs) for many of the logged quantities are small 
-(ESSs less than 100 will be highlighted in red by Tracer). This is not good. 
-A low ESS means that the trace contains a lot of correlated samples and thus may not represent the posterior distribution well. 
-In the bottom right of the window is a frequency plot of the samples which is expected given the low ESSs is extremely rough.
+We start by opening the Tracer program, and dropping the "RSV2.log"
+file onto Tracer's window.
+Alternatively you can load the trace (.log) file by clicking "File" > "Import
+Trace File...".
 
-If we select the tab on the right-hand-side labelled Trace we can view the raw trace, that is, 
-the sampled values against the step in the MCMC chain.
+Tracer will display several summary statistics computed from the trace
+file in the left-hand and top-right panels.
+Other summaries will be displayed graphically.
+It is all pretty self-evident, just click around to familiarize
+yourself with the program.
+
+The first thing you will notice from this first run is that the
+effective sample sizes (ESSs) for many of the logged quantities are small 
+(ESSs less than 100 will be highlighted in red by Tracer).
+__This is not good__. 
+A low ESS means that the trace contains a lot of correlated samples
+and thus may not represent the posterior distribution well.
+In the bottom-right panel you will see a histogram that looks a bit
+rough.
+This is expected when ESSs are low.
 
 <figure class="image">
   <img src="short.png" alt="The trace of short run">
   <figcaption>Figure 3: A screenshot of Tracer.</figcaption>
 </figure>
 
-Here you can see how the samples are correlated. 
-The default chain length of the MCMC is 1,000,000 in `LPhyBEAST`.
-There are 1800 samples in the trace after removing 10% burnin (we ran the MCMC for steps sampling every 500) 
-but adjacent samples often tend to have similar values. 
-The ESS for the absolute rate of evolution (clockRate) is about 17 so we are only getting 1 independent sample 
-to every 105 ~ 1800/17 actual samples). With a short run such as this one, 
-it may also be the case that the default burn-in of 10% of the chain length is inadequate. 
-Not excluding enough of the start of the chain as burn-in will render estimates of ESS unreliable.
+If you click the "Trace" tab in the upper-right corner, you will see
+the raw trace, that is, the sampled values against the step in the
+MCMC chain.
 
-The simple response to this situation is that we need to run the chain for longer. 
-So let’s go for a chain length of 15,000,000 but keep logging the same number of samples (2,000). 
+The trace shows the value of a given statistic for each sampled step
+of the MCMC chain.
+It will help you see if the chain is mixing well and to what extent
+the samples are correlated. Here you can see how the samples are
+correlated.
+In LPhyBEAST, the default MCMC chain length is 1,000,000.
+After we remove the burn-in (set to 10%), there will be 1,800 samples in
+the trace (we ran the MCMC for steps sampling every 500), 
+Note how adjacent samples often tend to have similar values – not
+great.
 
-Question: what is the logging frequency (logEvery) now?
+The ESS for the mean molecular evolution rate (`r`) is about 17 so we
+are only getting 1 independent sample every 105 samples (to a total of
+~1800/17 "effective" samples).
+With such a short run, it may also be the case that the default
+burn-in of 10% of the chain length is inadequate.
+Not excluding enough of the start of the chain as burn-in will render
+estimates of ESS unreliable.
 
-
-You could run `LPhyBEAST` with the `-l` argument again to create a new XML:
-
-```
-java -jar LPhyBEAST.jar -l 15000000 -o RSV2long.xml RSV2.lphy
-```
-
-or manually edit the XML at the following lines:
+Let us try to fix this low ESS issue by running the MCMC chain for longer.
+We will set the chain length to 15,000,000, but still log the same
+number of samples (2,000).
+This means we should log 15,000,000/2,000 samples, which can be
+manually specified in the .xml file with `logEvery=7500`.
 
 ```
 <run id="MCMC" spec="MCMC" chainLength="15000000" preBurnin="1480">
@@ -295,17 +316,26 @@ or manually edit the XML at the following lines:
 <logger id="psi.treeLogger" spec="Logger" fileName="RSV2long.trees" logEvery="7500">
 ```
 
-Now run BEAST and load the new log file into Tracer (you can leave the old one loaded for comparison).
+You can now run _LPhyBEAST_ again, this time with the `-l` argument
+to create a new XML:
 
-Click on the Trace tab and look at the raw trace plot.
+```
+java -jar LPhyBEAST.jar -l 15000000 -o RSV2long.xml RSV2.lphy
+```
+
+Now run BEAST 2 and again load the new log file into Tracer (you can
+leave the old one loaded for comparison).
+
+Click on the "Trace" tab and look at the raw trace plot.
 
 <figure class="image">
   <img src="long.png" alt="The trace of long run">
   <figcaption>Figure 4: A screenshot of Tracer.</figcaption>
 </figure>
 
-After running the analysis long enough in MCMC, we have the 1800 samples after removing 10% burnin, 
-but with an ESS of each estimated parameter > 200. 
+After running the analysis long enough in MCMC, we have the 1800
+  samples after removing 10% burnin, but with an ESS of each estimated
+  parameter > 200.
 There is still auto-correlation between the samples, 
 but > 200 effectively independent samples will now provide a very good estimate of the posterior distribution. 
 There are no obvious trends in the plot which would suggest that the MCMC has not yet converged, 
