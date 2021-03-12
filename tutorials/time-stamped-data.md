@@ -120,11 +120,12 @@ We will specify sampling distributions for the following parameters, in
 this order:
 1. `π`, the equilibrium nucleotide frequencies (with 4 dimensions, one
 for each nucleotide);  
-2. `κ`, twice the transition:transversion (ts:tv) ratio (with 3 dimensions,
+2. `κ`, twice the transition:transversion bias assuming equal
+   nucleotide frequencies (with 3 dimensions,
    one for each partition);  
-3. `r`, the global (mean) clock rate;  
-4. `μ`, the relative substitution rates (with 3 dimensions, one for
-   each partition);
+3. `μ`, the relative substitution rates (with 3 dimensions, one for
+   each partition);  
+4. `r`, the global (mean) clock rate;  
 5. `Θ`, the effective population size (with as many dimensions as
    there are branches in the tree);  
 6. `φ`, the time-scaled (i.e., in absolute time) phylogenetic tree.
@@ -308,11 +309,8 @@ manually specified in the .xml file with `logEvery=7500`.
 
 ```
 <run id="MCMC" spec="MCMC" chainLength="15000000" preBurnin="1480">
-
 <logger id="Logger" spec="Logger" logEvery="750000">
-
 <logger id="Logger1" spec="Logger" fileName="RSV2long.log" logEvery="7500">
-
 <logger id="psi.treeLogger" spec="Logger" fileName="RSV2long.trees" logEvery="7500">
 ```
 
@@ -323,7 +321,7 @@ to create a new XML:
 java -jar LPhyBEAST.jar -l 15000000 -o RSV2long.xml RSV2.lphy
 ```
 
-Now run BEAST 2 and again load the new log file into Tracer (you can
+Now run BEAST 2 again and load the new log file into Tracer (you can
 leave the old one loaded for comparison).
 
 Click on the "Trace" tab and look at the raw trace plot.
@@ -333,18 +331,25 @@ Click on the "Trace" tab and look at the raw trace plot.
   <figcaption>Figure 4: A screenshot of Tracer.</figcaption>
 </figure>
 
-After running the analysis long enough in MCMC, we have the 1800
-  samples after removing 10% burnin, but with an ESS of each estimated
-  parameter > 200.
-There is still auto-correlation between the samples, 
-but > 200 effectively independent samples will now provide a very good estimate of the posterior distribution. 
-There are no obvious trends in the plot which would suggest that the MCMC has not yet converged, 
-and there are no significant long range fluctuations in the trace which would suggest poor mixing.
+With this much longer MCMC chain, we still have 1,800 samples after
+removing the first 10% as burn-in, but our ESSs are all > 200.
+A large ESS does not mean there is no auto-correlation between
+samples overall, but that we have at least 200 effectively independent
+samples.
+More effective samples means we are approximating the posterior better
+than before, with ESSs < 100.
+You should also keep an eye for weird trends in the trace plot suggesting
+that the MCMC chain has not yet converged (or is struggling to
+converge), like different value "plateaus" attracting the chain for a
+large number of steps.
 
-As we are satisfied with the mixing we can now move on to one of the parameters of interest: substitution rate. 
-Select clockRate in the left-hand table. This is the average substitution rate across all sites in the alignment. 
-Now choose the density plot by selecting the tab labeled Marginal Density. 
-This shows a plot of the marginal posterior probability density of this parameter. 
+Now that we are satisfied with the length of the MCMC chain and its
+mixing, we can move on to one of the parameters of interest: the
+global substitution rate, `r`.
+This is the average substitution rate across all sites in the alignment. 
+First, select "r" in the left-hand panel, and click the "Marginal
+Density" tab in the upper-right corner to see the posterior density
+plot for this parameter.
 You should see a plot similar to this:
 
 <figure class="image">
@@ -352,21 +357,28 @@ You should see a plot similar to this:
   <figcaption>Figure 5: The marginal density in Tracer.</figcaption>
 </figure>
 
+As you can see the, posterior probability density is roughly
+bell-shaped. 
+If the curve does not look very smooth, it is because there is some
+sampling noise: we could smooth it out more if we ran the MCMC chain
+for longer or took more samples.
+Regardless, our mean and highest posterior density interval (HPD; also
+known as the credible interval) estimates should be good given the
+ESSs.
 
-As you can see the posterior probability density is roughly bell-shaped. 
-There is some sampling noise which would be reduced if we ran the chain for longer or 
-sampled more often but we already have a good estimate of the mean and HPD interval. 
-You can overlay the density plots of multiple traces in order to compare them 
-(it is up to the user to determine whether they are comparable on the the same axis or not). 
-Select the relative substitution rates for all three codon positions in the table to the left 
-(labelled mu.0, mu.1 and mu.2). 
-You will now see the posterior probability densities for the relative substitution rate at all three codon positions overlaid:
+Note that you can overlay the density plots of multiple traces in
+order to compare them (it is up to you to determine whether they are
+comparable on the the same axis or not).
+For example: select the relative substitution rates for all three
+codon positions (partitions) in the left-hand panel (labelled "mu.0",
+"mu.1" and "mu.2").  
+You will now see the posterior probability densities for the relative
+substitution rate at all three codon positions overlaid: 
 
 <figure class="image">
   <img src="mu.png" alt="relative substitution rates">
   <figcaption>Figure 6: The posterior probability densities for the relative substitution rates.</figcaption>
 </figure>
-
 
 ## Summarising the trees
 
