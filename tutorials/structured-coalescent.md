@@ -56,18 +56,17 @@ We want to see if we can infer this source-sink dynamic from sequence data using
 
 ## Constructing the scripts in LPhy Studio
 
-{% include_relative lphy-scripts.md %}
+{% include_relative lphy-studio-intro.md %}
 
-{% capture lphy_html %}
-{% include_relative structured-coalescent/lphy.html %}
+The LPhy scripts to define this analysis is listed below.
+
+
+[//]: # (## Code, Graphical Model)
+{% capture lphy_md %}
+{% include_relative structured-coalescent/lphy.md fignum="Figure 1" %}
 {% endcapture %}
 
-{::nomarkdown}
-{{ lphy_html | replace: "11pt", "10pt" }}
-{:/}
-
-
-{% include_relative lphy-studio.md lphy="h3n2" fignum="Figure 1" %}
+{{ lphy_md | replace: "11pt", "10pt" }}
 
 
 ### Data block
@@ -126,14 +125,6 @@ Finally, set the prior for the clock rate. We have a good idea about the clock r
 From previous work by other people, we know that the clock rate will be around 0.005 substitution per site per year. 
 To include that prior knowledger, we can set the prior on the clock rate to a log normal distribution. 
 If we set `meanlog=-5.298` and `sdlog=0.25`, then we expect the clock rate to be with 95% certainty between 0.00306 and 0.00816.
-
-So, we define the priors for the following parameters:
-1. three effective population sizes _Θ_;  
-2. six migration rates backwards in time _m_;
-3. the general clock rate _clockRate_;
-4. the transition/transversion ratio _κ_;
-5. the base frequencies _π_;
-6. the shape of the discretized gamma distribution _shape_.
 
 Please note the dimension of effective population sizes should equal to 
 the number of locations (assuming it is `x`),
@@ -355,6 +346,11 @@ This error can have different origins and a likely incomplete list is the follow
 {% include_relative programs-used.md %}
 * MASCOT package - Marginal approximation of the structured coalescent.
 
+
+[//]: # (## Data, Model, Posterior)
+{% include_relative structured-coalescent/narrative.md %}
+
+
 ## Useful Links
 
 If you interested in the derivations of the marginal approximation of the structured coalescent, 
@@ -362,11 +358,13 @@ you can find them from [Müller, Rasmussen, & Stadler, 2017](#references).
 This paper also explains the mathematical differences to other methods such as the theory underlying BASTA. 
 To get a better idea of how the states of internal nodes are calculated, have a look in this paper [Müller, Rasmussen, & Stadler, 2018](#references).
 
-* MASCOT source code: https://github.com/nicfel/Mascot
+* MASCOT source code: [https://github.com/nicfel/Mascot](https://github.com/nicfel/Mascot)
 {% include_relative links.md %}
 
-## References
 
+[//]: # (## References)
+
+{% include_relative structured-coalescent/references.md %}
 * Müller, N. F., Rasmussen, D., & Stadler, T. (2018). MASCOT: Parameter and state inference under the marginal structured coalescent approximation. Bioinformatics, bty406. https://doi.org/10.1093/bioinformatics/bty406
 * Müller, N. F., Rasmussen, D. A., & Stadler, T. (2017). The Structured Coalescent and its Approximations. Molecular Biology and Evolution, msx186.
 * Drummond, A. J., & Bouckaert, R. R. (2014). Bayesian evolutionary analysis with BEAST 2. Cambridge University Press.
