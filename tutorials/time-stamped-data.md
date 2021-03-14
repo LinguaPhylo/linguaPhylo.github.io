@@ -123,9 +123,9 @@ for each nucleotide);
 2. `κ`, twice the transition:transversion bias assuming equal
    nucleotide frequencies (with 3 dimensions,
    one for each partition);  
-3. `μ`, the relative substitution rates (with 3 dimensions, one for
+3. `r`, the relative substitution rates (with 3 dimensions, one for
    each partition);  
-4. `r`, the global (mean) clock rate;  
+4. `μ`, the global (mean) clock rate;  
 5. `Θ`, the effective population size (with as many dimensions as
    there are branches in the tree);  
 6. `φ`, the time-scaled (i.e., in absolute time) phylogenetic tree.
@@ -134,7 +134,7 @@ for each nucleotide);
 {% include_relative time-stamped-data/lphy_modelblock.html %}
 {:/}
 
-Note that parameters `π`, `κ` and `μ` are 3-dimensional vectors,
+Note that parameters `π`, `κ` and `r` are 3-dimensional vectors,
 because they represent the nucleotide equilibrium frequencies,
 (ts:tv)/2, and relative substitution rates of each of the three
 partitions, respectively.
@@ -146,7 +146,7 @@ One final remark is that we use `rep(element=1.0, times=n)` (where `n`
 evaluates to 3) to create three concentration vectors (one vector per
 partition) for the `WeightedDirichlet` sampling distribution.
 
-If you want to double check everything you have typed, click the
+Again, if you want to double check everything you have typed, click the
 “Model” tab in the upper right panel.
 
 ### The whole script
@@ -293,7 +293,7 @@ the trace (we ran the MCMC for steps sampling every 500),
 Note how adjacent samples often tend to have similar values – not
 great.
 
-The ESS for the mean molecular evolution rate (`r`) is about 17 so we
+The ESS for the mean molecular evolution rate (`μ`) is about 17 so we
 are only getting 1 independent sample every 105 samples (to a total of
 ~1800/17 "effective" samples).
 With such a short run, it may also be the case that the default
@@ -315,7 +315,7 @@ manually specified in the .xml file with `logEvery=7500`.
 ```
 
 You can now run _LPhyBEAST_ again, this time with the `-l` argument
-to create a new XML:
+to create a new .xml file:
 
 ```
 java -jar LPhyBEAST.jar -l 15000000 -o RSV2long.xml RSV2.lphy
@@ -334,19 +334,22 @@ Click on the "Trace" tab and look at the raw trace plot.
 With this much longer MCMC chain, we still have 1,800 samples after
 removing the first 10% as burn-in, but our ESSs are all > 200.
 A large ESS does not mean there is no auto-correlation between
-samples overall, but that we have at least 200 effectively independent
-samples.
+samples overall, but instead that we have at least 200 effectively
+independent samples.
 More effective samples means we are approximating the posterior better
 than before, with ESSs < 100.
-You should also keep an eye for weird trends in the trace plot suggesting
-that the MCMC chain has not yet converged (or is struggling to
-converge), like different value "plateaus" attracting the chain for a
-large number of steps.
+
+(You should keep an eye for weird trends in the trace plot suggesting
+that the MCMC chain has not yet converged, or is struggling to
+converge, like different value "plateaus" attracting the chain for a
+large number of steps.)
 
 Now that we are satisfied with the length of the MCMC chain and its
 mixing, we can move on to one of the parameters of interest: the
-global substitution rate, `r`.
-This is the average substitution rate across all sites in the alignment. 
+global substitution rate, `μ`.
+This is the average substitution rate across all sites in the
+alignment.  
+
 First, select "r" in the left-hand panel, and click the "Marginal
 Density" tab in the upper-right corner to see the posterior density
 plot for this parameter.
@@ -357,7 +360,7 @@ You should see a plot similar to this:
   <figcaption>Figure 5: The marginal density in Tracer.</figcaption>
 </figure>
 
-As you can see the, posterior probability density is roughly
+As we can see in Fig. , posterior probability density is roughly
 bell-shaped. 
 If the curve does not look very smooth, it is because there is some
 sampling noise: we could smooth it out more if we ran the MCMC chain
@@ -370,8 +373,9 @@ Note that you can overlay the density plots of multiple traces in
 order to compare them (it is up to you to determine whether they are
 comparable on the the same axis or not).
 For example: select the relative substitution rates for all three
-codon positions (partitions) in the left-hand panel (labelled "mu.0",
-"mu.1" and "mu.2").  
+codon positions (partitions) in the left-hand panel (labelled "r.0",
+"r.1" and "r.2").  
+
 You will now see the posterior probability densities for the relative
 substitution rate at all three codon positions overlaid: 
 
@@ -380,20 +384,27 @@ substitution rate at all three codon positions overlaid:
   <figcaption>Figure 6: The posterior probability densities for the relative substitution rates.</figcaption>
 </figure>
 
-## Summarising the trees
+### Summarising the trees
 
 {% include_relative tree-annotator.md fignum="Figure 7" %}
 
+### Visualizing the trees
 
-Summary trees can be viewed using FigTree (a program separate from BEAST) and DensiTree (distributed with BEAST).
+Summary trees can be viewed using FigTree and DensiTree, the latter
+being distributed with BEAST.
+In FigTree, just load TreeAnnotator's output file as the input (if you
+were to load the entire tree log file, FigTree would show you each
+tree in the posterior individually).
 
 <figure class="image">
   <a href="RSV2.tree.png" target="_blank"><img src="RSV2.tree.png" alt="MCC tree"></a>
-  <figcaption>Figure 8: The Maximum clade credibility tree for the G gene of 129 RSVA-2 viral samples.</figcaption>
+  <figcaption>Figure 8: The maximum clade credibility (MCC) tree for
+  the G gene of 129 RSVA-2 viral samples.</figcaption>
 </figure>
 
-
-Below a DensiTree with clade height bars for clades with over 50% support. Root canal tree represents maximum clade credibility tree.
+In DensiTree, load the tree log file as the input.
+Here, the tree in blue is the MCC tree, where the green "fuzzy" trees
+are all the other trees in the posterior set.
 
 <figure class="image">
   <img src="DensiTree.png" alt="MCC tree">
@@ -404,7 +415,6 @@ Below a DensiTree with clade height bars for clades with over 50% support. Root 
 ## Questions
 
 In what year did the common ancestor of all RSVA viruses sampled live? What is the 95% HPD?
-
 
 ## Programs used in this tutorial
 
