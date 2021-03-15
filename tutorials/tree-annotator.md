@@ -1,18 +1,12 @@
 
-Because of how peculiar and discrete tree space is, it is a bit harder
-to summarize and visualize the posterior distribution over
-phylogenetic trees, as compared to the mean molecular rate `μ`, for
-example.
-We will use a special tool for that, TreeAnnotator.
-
 Run the program TreeAnnotator, and then choose 10% as the burn-in
 percentage, while keeping "Maximum clade credibility tree" as the 
 "Target tree type".
 For "Node heights", choose "Mean heights".
 Then load the tree log file that BEAST 2 generated (it will end in
 ".trees" by default) as "Input Tree File".
-For this tutorial, the tree log file is called "RSV2long.trees".
-Finally, for "Output File", type "RSV2long.tree".
+For this tutorial, the tree log file is called `{{ include.trees }}`.
+Finally, for "Output File", type `{{ include.mcctree }}`.
 
 <figure class="image">
   <img src="TreeAnnotator.png" alt="TreeAnnotator">

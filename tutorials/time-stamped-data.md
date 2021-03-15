@@ -209,7 +209,7 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1606877948587
+Random number seed: 1615845912025
 
 Loading package outercore v0.0.2
 Loading package BEAST v2.6.3
@@ -219,25 +219,25 @@ Loading package BEASTLabs v1.9.5
     ...
 
     ...
-         950000     -6094.1096     -5484.0922      -610.0174         0.5094         0.2442         0.0894         0.1568         0.3010         0.3966         0.1027         0.1995         0.2722         0.3886         0.0851         0.2539         9.7698         5.0391         4.2272         0.6469         0.8952         1.4562         0.0021        37.3474 1m36s/Msamples
-        1000000     -6075.3591     -5478.9020      -596.4570         0.4658         0.2564         0.0861         0.1915         0.3125         0.4146         0.0913         0.1815         0.3025         0.4006         0.0855         0.2113         9.2114         3.1324         1.9866         0.6728         0.9698         1.3557         0.0022        36.6162 1m36s/Msamples
+       14250000     -6063.0156     -5478.3829      -584.6327         0.4453         0.2635         0.0991         0.1918         0.3156         0.4013         0.1099         0.1731         0.3297         0.3815         0.0805         0.2081         8.6367         2.4577         4.7218         0.6590         0.9514         1.3878         0.0022        32.9745 1m32s/Msamples
+       15000000     -6084.2801     -5475.5226      -608.7575         0.4831         0.2547         0.0719         0.1900         0.3298         0.3977         0.0896         0.1828         0.3307         0.3560         0.0784         0.2347         9.8647         6.7207         2.3282         0.6790         0.9466         1.3727         0.0021        42.8989 1m32s/Msamples
 
-Operator                                       Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                    0.58239       1207       3283    0.00450    0.26882 
-ScaleOperator(clockRate.scale)                0.78079       1058       3397    0.00450    0.23749 
-UpDownOperator(clockRateUppsiDownOperator)    0.96403       9317     125474    0.13497    0.06912 Try setting scaleFactor to about 0.982
-ScaleOperator(kappa.scale)                    0.32448       3419       6453    0.00970    0.34633 
-DeltaExchangeOperator(mu.deltaExchange)       0.28169       1805       5653    0.00730    0.24202 
-DeltaExchangeOperator(pi.0.deltaExchange)     0.12426       1752       7956    0.00970    0.18047 
-DeltaExchangeOperator(pi.1.deltaExchange)     0.11379       1793       7797    0.00970    0.18697 
-DeltaExchangeOperator(pi.2.deltaExchange)     0.11328       1653       8173    0.00970    0.16823 
-Exchange(psi.narrowExchange)                        -      33880     100180    0.13424    0.25272 
-ScaleOperator(psi.rootAgeScale)               0.79310        740       3769    0.00450    0.16412 
-ScaleOperator(psi.scale)                      0.91379       3512     130439    0.13424    0.02622 Try setting scaleFactor to about 0.956
-SubtreeSlide(psi.subtreeSlide)               19.04414       4120     130833    0.13424    0.03053 Try decreasing size to about 9.522
-Uniform(psi.uniform)                                -      72073      61925    0.13424    0.53787 
-Exchange(psi.wideExchange)                          -        361     133824    0.13424    0.00269 
-WilsonBalding(psi.wilsonBalding)                    -        816     133339    0.13424    0.00608 
+Operator                                      Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+ScaleOperator(Theta.scale)                   0.58422      16614      50525    0.00450    0.24746 
+ScaleOperator(kappa.scale)                   0.28040      41974     103342    0.00970    0.28885 
+ScaleOperator(mu.scale)                      0.76529      14501      52878    0.00450    0.21522 
+UpDownOperator(muUppsiDownOperator)          0.97171     179072    1844651    0.13497    0.08849 Try setting scaleFactor to about 0.986
+DeltaExchangeOperator(pi_0.deltaExchange)    0.12994      24853     120092    0.00970    0.17147 
+DeltaExchangeOperator(pi_1.deltaExchange)    0.11348      27701     118149    0.00970    0.18993 
+DeltaExchangeOperator(pi_2.deltaExchange)    0.09963      29401     116628    0.00970    0.20134 
+Exchange(psi.narrowExchange)                       -     496698    1521318    0.13424    0.24613 
+ScaleOperator(psi.rootAgeScale)              0.76259       9275      57928    0.00450    0.13801 
+ScaleOperator(psi.scale)                     0.92619      62536    1949401    0.13424    0.03108 Try setting scaleFactor to about 0.962
+SubtreeSlide(psi.subtreeSlide)               4.49550     263778    1748535    0.13424    0.13108 
+Uniform(psi.uniform)                               -    1081681     931402    0.13424    0.53733 
+Exchange(psi.wideExchange)                         -       4225    2010508    0.13424    0.00210 
+WilsonBalding(psi.wilsonBalding)                   -       9811    2002810    0.13424    0.00487 
+DeltaExchangeOperator(r.deltaExchange)       0.28931      26066      83648    0.00730    0.23758 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -246,13 +246,13 @@ WilsonBalding(psi.wilsonBalding)                    -        816     133339    0
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 96.711 seconds
-End likelihood: -6075.359137869203
+Total calculation time: 1384.077 seconds
+End likelihood: -6084.280183824342
 ```
 
 ### Analysing BEAST 2's output
 
-We start by opening the Tracer program, and dropping the "RSV2.log"
+We start by opening the Tracer program, and dropping the `RSV2.log`
 file onto Tracer's window.
 Alternatively you can load the trace (.log) file by clicking "File" > "Import
 Trace File...".
@@ -275,7 +275,7 @@ This is expected when ESSs are low.
 
 <figure class="image">
   <img src="short.png" alt="The trace of short run">
-  <figcaption>Figure 3: A screenshot of Tracer.</figcaption>
+  <figcaption>Figure 3: A screenshot of Tracer (low ESS).</figcaption>
 </figure>
 
 If you click the "Trace" tab in the upper-right corner, you will see
@@ -293,9 +293,11 @@ the trace (we ran the MCMC for steps sampling every 500),
 Note how adjacent samples often tend to have similar values – not
 great.
 
-The ESS for the mean molecular evolution rate (`μ`) is about 17 so we
-are only getting 1 independent sample every 105 samples (to a total of
-~1800/17 "effective" samples).
+{% assign ess = 25 %}
+
+The ESS for the mean molecular evolution rate (`μ`) is about {{ ess }} so we
+are only getting 1 independent sample every {{ 1800 | divided_by: ess | round: 0 }} samples 
+(to a total of ~1800/{{ ess }} "effective" samples).
 With such a short run, it may also be the case that the default
 burn-in of 10% of the chain length is inadequate.
 Not excluding enough of the start of the chain as burn-in will render
@@ -326,9 +328,11 @@ leave the old one loaded for comparison).
 
 Click on the "Trace" tab and look at the raw trace plot.
 
+{% assign posterior_fig_num = "Figure 4" %}
+
 <figure class="image">
   <img src="long.png" alt="The trace of long run">
-  <figcaption>Figure 4: A screenshot of Tracer.</figcaption>
+  <figcaption>{{ posterior_fig_num }}: A screenshot of Tracer.</figcaption>
 </figure>
 
 With this much longer MCMC chain, we still have 1,800 samples after
@@ -356,11 +360,11 @@ plot for this parameter.
 You should see a plot similar to this:
 
 <figure class="image">
-  <img src="clockRate.png" alt="marginal density">
+  <img src="muDensity.png" alt="marginal density">
   <figcaption>Figure 5: The marginal density in Tracer.</figcaption>
 </figure>
 
-As we can see in Fig. , posterior probability density is roughly
+As we can see in {{ posterior_fig_num }}, posterior probability density is roughly
 bell-shaped. 
 If the curve does not look very smooth, it is because there is some
 sampling noise: we could smooth it out more if we ran the MCMC chain
@@ -380,13 +384,19 @@ You will now see the posterior probability densities for the relative
 substitution rate at all three codon positions overlaid: 
 
 <figure class="image">
-  <img src="mu.png" alt="relative substitution rates">
+  <img src="relativeRates.png" alt="relative substitution rates">
   <figcaption>Figure 6: The posterior probability densities for the relative substitution rates.</figcaption>
 </figure>
 
 ### Summarising the trees
 
-{% include_relative tree-annotator.md fignum="Figure 7" %}
+Because of how peculiar and discrete tree space is, it is a bit harder
+to summarize and visualize the posterior distribution over
+phylogenetic trees, as compared to the mean molecular rate `μ`, for
+example.
+We will use a special tool for that, TreeAnnotator.
+
+{% include_relative tree-annotator.md fignum="Figure 7" trees="RSV2long.trees" mcctree="RSV2long.tree" %}
 
 ### Visualizing the trees
 
@@ -396,9 +406,17 @@ In FigTree, just load TreeAnnotator's output file as the input (if you
 were to load the entire tree log file, FigTree would show you each
 tree in the posterior individually).
 
+{% assign figtree_fig_num = "Figure 8" %}
+
+Selecting `Order nodes` and keeping the default ordrering `increasing` in the `Trees` tab, 
+when you successfully load the MCC tree. 
+In addition, you need to select `Node Bars` and choose `height_95%_HPD`, 
+in order to show the 95% HPD interval of estimated time of most recent common ancestor (tMRCA) in each internal node. 
+You should end up with something like {{ figtree_fig_num }}.
+
 <figure class="image">
   <a href="RSV2.tree.png" target="_blank"><img src="RSV2.tree.png" alt="MCC tree"></a>
-  <figcaption>Figure 8: The maximum clade credibility (MCC) tree for
+  <figcaption>{{ figtree_fig_num }}: The maximum clade credibility (MCC) tree for
   the G gene of 129 RSVA-2 viral samples.</figcaption>
 </figure>
 

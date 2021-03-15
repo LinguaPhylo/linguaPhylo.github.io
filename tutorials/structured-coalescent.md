@@ -267,7 +267,7 @@ are inferred to be from Hong Kong backwards.
 
 ### Make the MCC tree using TreeAnnotator
 
-{% include_relative tree-annotator.md fignum="Figure 7" %}
+{% include_relative tree-annotator.md fignum="Figure 7" trees="h3n2.mascot.trees" mcctree="h3n2.mascot.tree" %}
 
 
 ### Check the MCC tree using FigTree
