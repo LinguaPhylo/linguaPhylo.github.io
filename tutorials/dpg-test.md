@@ -179,7 +179,8 @@ probability. It can be thought of as a Bayesian analog to a confidence interval.
 
 ## Obtaining an estimate of the phylogenetic tree
 
-{% include_relative tree-annotator.md fignum="Figure 3" %}
+{% include_relative tree-annotator.md fig="TreeAnnotator.png" 
+                    fignum="Figure 3" trees="h5n1_with_trait.trees" mcctree="h5n1_with_trait.tree"%}
 
 
 ## Distribution of root location

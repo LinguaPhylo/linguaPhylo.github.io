@@ -396,7 +396,8 @@ phylogenetic trees, as compared to the mean molecular rate `μ`, for
 example.
 We will use a special tool for that, TreeAnnotator.
 
-{% include_relative tree-annotator.md fignum="Figure 7" trees="RSV2long.trees" mcctree="RSV2long.tree" %}
+{% include_relative tree-annotator.md fig="TreeAnnotator.png" 
+                    fignum="Figure 7" trees="RSV2long.trees" mcctree="RSV2long.tree" %}
 
 ### Visualizing the trees
 
