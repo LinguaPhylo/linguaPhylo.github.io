@@ -185,7 +185,7 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-File: h3n2.xml seed: 1606869791987 threads: 1
+File: h3n2.xml seed: 1615933061120 threads: 1
 Loading package outercore v0.0.4
 Loading package BEAST v2.6.3
 Loading package feast v7.5.0
@@ -195,24 +195,24 @@ Loading package BEASTLabs v1.9.5
     ...
 
     ...
-        2850000     -1943.5841     -1910.4078       -33.1762         0.3180         0.2356         0.2179         0.2283         6.3515         0.0038         0.4564         0.2109         0.0072         1.4370         0.0046         0.3049         0.3266         1.0975         0.6720         1.0030 1m18s/Msamples
-        3000000     -1945.4273     -1903.9192       -41.5080         0.3129         0.2285         0.2298         0.2286         4.4207         0.0040         2.4785         1.7704         0.1976         1.2164         0.0205         0.4939         0.1246         1.2726         0.2638         1.1950 1m18s/Msamples
+        2850000     -1959.1130     -1909.1872       -49.9258         0.3346         0.2431         0.2067         0.2155         6.6554         0.0049         0.0226         2.0236         2.0295         1.5471         0.6191         1.3713         2.7094         2.7370         0.3636         0.3053 1m19s/Msamples
+        3000000     -1948.8094     -1911.4173       -37.3920         0.3434         0.2137         0.2119         0.2309         4.7654         0.0046         0.2815         0.1668         0.5808         0.3147         0.2432         0.0219         0.9744         1.5461         0.2835         0.6482 1m19s/Msamples
 
 Operator                                        Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                     0.21204      26069      60421    0.02879    0.30141 
-ScaleOperator(b_m.scale)                       0.16435      41436      99007    0.04677    0.29504 
-ScaleOperator(clockRate.scale)                 0.53046      10370      29376    0.01334    0.26091 
-UpDownOperator(clockRateUptreeDownOperator)    0.90224      49393     320912    0.12343    0.13338 
-ScaleOperator(kappa.scale)                     0.31522      11312      28603    0.01334    0.28340 
-DeltaExchangeOperator(pi.deltaExchange)        0.08275      17014      69283    0.02879    0.19716 
-ScaleOperator(shape.scale)                     0.18551      13514      26255    0.01334    0.33981 
-Exchange(tree.narrowExchange)                        -     164698     194121    0.11981    0.45900 
-ScaleOperator(tree.rootAgeScale)               0.57707       8341      31527    0.01334    0.20922 
-ScaleOperator(tree.scale)                      0.85752      29215     330116    0.11981    0.08130 Try setting scaleFactor to about 0.926
-SubtreeSlide(tree.subtreeSlide)                0.97788      54415     305988    0.11981    0.15098 
-Uniform(tree.uniform)                                -     222223     137194    0.11981    0.61829 
-Exchange(tree.wideExchange)                          -       9120     349928    0.11981    0.02540 
-WilsonBalding(tree.wilsonBalding)                    -      15970     344180    0.11981    0.04434 
+ScaleOperator(Theta.scale)                     0.21497      26555      59796    0.02879    0.30752 
+ScaleOperator(b_m.scale)                       0.17077      42976      97252    0.04677    0.30647 
+ScaleOperator(clockRate.scale)                 0.53780      10752      29340    0.01334    0.26818 
+UpDownOperator(clockRateUptreeDownOperator)    0.87419      37037     334281    0.12343    0.09974 Try setting scaleFactor to about 0.935
+ScaleOperator(kappa.scale)                     0.31810      11633      28273    0.01334    0.29151 
+DeltaExchangeOperator(pi.deltaExchange)        0.08683      15982      70350    0.02879    0.18512 
+ScaleOperator(shape.scale)                     0.17203      12430      27315    0.01334    0.31274 
+Exchange(tree.narrowExchange)                        -     165668     193507    0.11981    0.46125 
+ScaleOperator(tree.rootAgeScale)               0.56484       7578      32547    0.01334    0.18886 
+ScaleOperator(tree.scale)                      0.83129      23941     334988    0.11981    0.06670 Try setting scaleFactor to about 0.912
+SubtreeSlide(tree.subtreeSlide)                0.97316      54258     305601    0.11981    0.15078 
+Uniform(tree.uniform)                                -     221430     136965    0.11981    0.61784 
+Exchange(tree.wideExchange)                          -       9390     349950    0.11981    0.02613 
+WilsonBalding(tree.wilsonBalding)                    -      15971     344235    0.11981    0.04434 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -221,8 +221,7 @@ WilsonBalding(tree.wilsonBalding)                    -      15970     344180    
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 238.438 seconds
-End likelihood: -1945.427363390188
+Total calculation time: 241.086 seconds
 ```
 
 ## Analysing the BEAST output
