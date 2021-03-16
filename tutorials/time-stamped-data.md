@@ -50,7 +50,7 @@ analyses.
 
 ### The NEXUS alignment
 
-{% include_relative download-data.md df='RSV2' df_link='https://raw.githubusercontent.com/CompEvol/beast2/master/examples/nexus/RSV2.nex' %}
+{% include_relative templates/download-data.md df='RSV2' df_link='https://raw.githubusercontent.com/CompEvol/beast2/master/examples/nexus/RSV2.nex' %}
 
 This .nex file can also be found in the ```examples/nexus``` folder,
 where BEAST 2 was installed.
@@ -64,15 +64,15 @@ corresponding to the first, second and third codon positions.
 
 ### Tip dates
 
-{% include_relative tip-dates-forward.md  earliest='the 1950s' 
+{% include_relative templates/tip-dates-forward.md  earliest='the 1950s' 
                     date_in_name='after the last lower-case `s`' 
                     since='1900' %}
 					
-{% include_relative age-direction.md %}
+{% include_relative templates/age-direction.md %}
 
 ## Constructing the scripts in LPhy Studio
 
-{% include_relative lphy-scripts.md %}
+{% include_relative templates/lphy-scripts.md %}
 
 ### Data block
 
@@ -103,7 +103,7 @@ corresponding to the first, second and third codon positions.
 {% endcapture %}
 
 
-{% include_relative lphy-data.md %}
+{% include_relative templates/lphy-data.md %}
 
 {::nomarkdown}
    {{ lphy_data }}
@@ -141,7 +141,7 @@ If you want to double check everything you have typed, click the
 
 ### Model block
 
-{% include_relative lphy-model.md %}
+{% include_relative templates/lphy-model.md %}
 
 We will specify sampling distributions for the following parameters, in
 this order:
@@ -185,15 +185,15 @@ Let us look at the whole thing:
   {{ lphy_html }}
 {:/}
 
-{% include_relative lphy-studio.md lphy="RSV2" fignum="Figure 1" %}
+{% include_relative templates/lphy-studio.md lphy="RSV2" fignum="Figure 1" %}
 
 ## Phylogenetic inference with BEAST 2
 
-{% include_relative lphy-inference-beast2.md software="BEAST 2" %}
+{% include_relative templates/lphy-inference-beast2.md software="BEAST 2" %}
 
 ### Producing a BEAST 2 .xml using LPhyBEAST
 
-{% include_relative lphy-beast.md lphy="RSV2" nex="RSV2" %}
+{% include_relative templates/lphy-beast.md lphy="RSV2" nex="RSV2" %}
 
 ```
 java -jar LPhyBEAST.jar RSV2.lphy
@@ -201,7 +201,7 @@ java -jar LPhyBEAST.jar RSV2.lphy
 
 ### Running BEAST 2
 
-{% include_relative run-beast.md xml="RSV2.xml" %}
+{% include_relative templates/run-beast.md xml="RSV2.xml" %}
 
 ```
                          BEAST v2.6.3, 2002-2020
@@ -424,7 +424,7 @@ phylogenetic trees, as compared to the mean molecular rate `μ`, for
 example.
 We will use a special tool for that, TreeAnnotator.
 
-{% include_relative tree-annotator.md fig="TreeAnnotator.png" 
+{% include_relative templates/tree-annotator.md fig="TreeAnnotator.png" 
                     fignum="Figure 7" trees="RSV2long.trees" mcctree="RSV2long.tree" %}
 
 ### Visualizing the trees
@@ -465,7 +465,7 @@ In what year did the common ancestor of all RSVA viruses sampled live? What is t
 
 ## Programs used in this tutorial
 
-{% include_relative programs-used.md %}
+{% include_relative templates/programs-used.md %}
 
 You will also need to make sure all required BEAST 2 packages
 (e.g., outercore) have been installed on your local computer.  
@@ -478,7 +478,7 @@ The Package Manager can help you do that (see the screenshot below).
 
 ## Useful Links
 
-{% include_relative links.md %}
+{% include_relative templates/links.md %}
 
 
 ## References

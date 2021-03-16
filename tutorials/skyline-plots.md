@@ -15,7 +15,7 @@ It is non-parametric since there is no underlying system of differential equatio
 In this tutorial we will look at a popular coalescent method, 
 the Coalescent Bayesian Skyline plot ([Drummond, Rambaut, Shapiro, & Pybus, 2005](https://academic.oup.com/mbe/article/22/5/1185/1066885)), to infer these dynamics from sequence data. 
 
-The programs used in this tutorial are listed in [the later section](#programs-used-in-this-exercise).
+The programs used in this tutorial are listed [below](#programs-used-in-this-exercise).
 
 
 ## Background: Classic and Generalized Plots
@@ -43,7 +43,8 @@ The resulting stepwise function has `m − 1` change points (`1 ≤ m ≤ n−1`
 
 ## The NEXUS alignment
 
-{% include_relative download-data.md df='hcv' df_link='https://github.com/taming-the-beast/Skyline-plots/raw/master/data/hcv.nexus' %}
+{% include_relative templates/download-data.md df='hcv' 
+                    df_link='https://github.com/taming-the-beast/Skyline-plots/raw/master/data/hcv.nexus' %}
 
 The dataset consists of an alignment of 63 Hepatitis C sequences sampled in 1993 in Egypt ([Ray, Arthur, Carella, Bukh, & Thomas, 2000](#references)). 
 This dataset has been used previously to test the performance of skyline methods ([Drummond, Rambaut, Shapiro, & Pybus, 2005, and Stadler, Kuhnert, Bonhoeffer, & Drummond, 2013](#references)).
@@ -63,19 +64,19 @@ We will try to infer this increase from sequence data.
 
 ## Constructing the scripts in LPhy Studio
 
-{% include_relative lphy-scripts.md %}
+{% include_relative templates/lphy-scripts.md %}
 
 {::nomarkdown}
 {% include_relative skyline-plots/lphy.html %}
 {:/}
 
 
-{% include_relative lphy-studio.md lphy="hcv_coal" fignum="Figure 3" %}
+{% include_relative templates/lphy-studio.md lphy="hcv_coal" fignum="Figure 3" %}
 
 
 ### Data block
 
-{% include_relative lphy-data.md %}
+{% include_relative templates/lphy-data.md %}
 
 In the script, `taxa` and `L` respectively stores the taxa from the alignment `D` and the length of `D`.
 `numGroups = 4` sets the number of grouped intervals in the generalized Coalescent Bayesian Skyline plots, 
@@ -83,7 +84,7 @@ and `w` defines `n − 1` effective population sizes, which is the same number o
 
 ### Model block
 
-{% include_relative lphy-model.md %}
+{% include_relative templates/lphy-model.md %}
 
 In this analysis, we will use the GTR model, 
 which is the most general reversible model and estimates transition probabilities between individual nucleotides separately. 
@@ -91,7 +92,7 @@ That means that the transition probabilities between e.g. **A** and **T** will b
 however transition probabilities from **A** to **C** will be the same as **C** to **A** etc. 
 The nucleotide equilibrium state frequencies _π_ are estimated here.
 
-{% include_relative rate-heterogeneity.md shape='shape' %}
+{% include_relative templates/rate-heterogeneity.md shape='shape' %}
 
 As explained in (Yang, 2006), the shape parameter α is inversely related to the extent of rate variation at sites. 
 If α > 1, the distribution is bell-shaped, meaning that most sites have intermediate rates around 1, while few sites have either very low or very high rates. 
@@ -142,7 +143,7 @@ Tips: by default all group sizes in SkylineCoalescent function are 1 which is eq
 
 ## Producing BEAST XML using LPhyBEAST
 
-{% include_relative lphy-beast.md lphy="hcv_coal" nex="hcv" %}
+{% include_relative templates/lphy-beast.md lphy="hcv_coal" nex="hcv" %}
 
 ```
 java -jar LPhyBEAST.jar -l 40000000 hcv_coal.lphy
@@ -151,7 +152,7 @@ java -jar LPhyBEAST.jar -l 40000000 hcv_coal.lphy
 
 ## Running BEAST
 
-{% include_relative run-beast.md xml="hcv_coal.xml" %}
+{% include_relative templates/run-beast.md xml="hcv_coal.xml" %}
 
 ```
                          BEAST v2.6.3, 2002-2020
@@ -228,7 +229,7 @@ End likelihood: -6639.672594349279
 
 ## Analysing the BEAST output
 
-{%- include_relative tracer.md logfile="hcv_coal" fignum="Figure 5" -%}
+{%- include_relative templates/tracer.md logfile="hcv_coal" fignum="Figure 5" -%}
 
 
 For the reconstruction of the population dynamics, we need two files, the `hcv_coal.log` file and the `hcv_coal.trees` file. 
@@ -302,13 +303,13 @@ Instead a structured model should then be used to account for these biases.
 
 ## Programs used in this Exercise
 
-{% include_relative programs-used.md %}
+{% include_relative templates/programs-used.md %}
 * BEAST SSM (standard substitution models) package - containing the following standard time-reversible substitution models: 
   JC, F81, K80, HKY, TrNf, TrN, TPM1, TPM1f, TPM2, TPM2f, TPM3, TPM3f, TIM1, TIM1f, TIM2, TIM2f, TIM3 , TIM3f, TVMf, TVM, SYM, GTR.
 
 ## Useful Links
 
-{% include_relative links.md %}
+{% include_relative templates/links.md %}
 
 ## References
 

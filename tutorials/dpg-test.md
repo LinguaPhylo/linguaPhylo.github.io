@@ -18,7 +18,7 @@ The programs used in this tutorial are listed [below](#programs-used-in-this-exe
 
 ## The NEXUS alignment
 
-{% include_relative download-data.md df='h5n1' 
+{% include_relative templates/download-data.md df='h5n1' 
                     df_link='https://raw.githubusercontent.com/BEAST2-Dev/beast-classic/master/examples/nexus/H5N1.nex' %}
 
 The data is a subset of original dataset [Wallace et al., 2007](#references), 
@@ -28,7 +28,7 @@ isolated from a variety of hosts 1996 - 2005 across sample locations.
 
 ## Constructing the scripts in LPhy Studio
 
-{% include_relative lphy-studio-intro.md %}
+{% include_relative templates/lphy-studio-intro.md %}
 
 The LPhy scripts to define this analysis is listed below.
 
@@ -67,7 +67,7 @@ This implements the Bayesian stochastic search variable selection (BSSVS).
 
 ## Producing BEAST XML using LPhyBEAST
 
-{% include_relative lphy-beast.md lphy="h5n1" nex="H5N1" %}
+{% include_relative templates/lphy-beast.md lphy="h5n1" nex="H5N1" %}
 
 ```
 java -jar LPhyBEAST.jar -l 30000000 h5n1.lphy
@@ -76,7 +76,7 @@ java -jar LPhyBEAST.jar -l 30000000 h5n1.lphy
 
 ## Running BEAST
 
-{% include_relative run-beast.md xml="h5n1.xml" %}
+{% include_relative templates/run-beast.md xml="h5n1.xml" %}
 
 ```
                          BEAST v2.6.3, 2002-2020
@@ -157,7 +157,7 @@ End likelihood: -5953.588976905855
 
 ## Analysing the BEAST output
 
-{% include_relative tracer.md logfile="h5n1" fignum="Figure 2" %}
+{% include_relative templates/tracer.md logfile="h5n1" fignum="Figure 2" %}
 
 Remember that MCMC is a stochastic algorithm so the actual numbers will
 not be exactly the same.
@@ -179,7 +179,7 @@ probability. It can be thought of as a Bayesian analog to a confidence interval.
 
 ## Obtaining an estimate of the phylogenetic tree
 
-{% include_relative tree-annotator.md fig="TreeAnnotator.png" 
+{% include_relative templates/tree-annotator.md fig="TreeAnnotator.png" 
                     fignum="Figure 3" trees="h5n1_with_trait.trees" mcctree="h5n1_with_trait.tree"%}
 
 
@@ -322,7 +322,7 @@ regions of the locations of the internal nodes of the summary tree.
 
 ## Programs used in this Exercise
 
-{% include_relative programs-used.md %}
+{% include_relative templates/programs-used.md %}
 - BEAST classic package - Phylogeography is a part of the BEAST-CLASSIC package. 
 BEAST-CLASSIC requires the BEASTlabs package.
 You can install them from [BEAST 2 package manager](http://www.beast2.org/managing-packages/).
@@ -339,7 +339,7 @@ not already have it installed).
 
 ## Useful Links
 
-{% include_relative links.md %}
+{% include_relative templates/links.md %}
 
 
 [//]: # (## References)

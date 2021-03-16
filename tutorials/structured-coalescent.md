@@ -45,7 +45,8 @@ The programs used in this tutorial are listed in [the later section](#programs-u
 
 ## The NEXUS alignment
 
-{% include_relative download-data.md df='H3N2' df_link='http://github.com/nicfel/Mascot-Tutorial/raw/master/data/H3N2.nexus' %}
+{% include_relative templates/download-data.md df='H3N2' 
+                    df_link='http://github.com/nicfel/Mascot-Tutorial/raw/master/data/H3N2.nexus' %}
 
 The dataset consists of 24 Influenza A/H3N2 sequences (between 2000 and 2001) subsampled from the original dataset, which are sampled in Hong Kong, New York and in New Zealand. 
 South-East Asia has been hypothesized to be a global source location of seasonal Influenza, 
@@ -56,7 +57,7 @@ We want to see if we can infer this source-sink dynamic from sequence data using
 
 ## Constructing the scripts in LPhy Studio
 
-{% include_relative lphy-studio-intro.md %}
+{% include_relative templates/lphy-studio-intro.md %}
 
 The LPhy scripts to define this analysis is listed below.
 
@@ -71,7 +72,7 @@ The LPhy scripts to define this analysis is listed below.
 
 ### Data block
 
-{% include_relative lphy-data.md %}
+{% include_relative templates/lphy-data.md %}
 
 ### Tip dates
 
@@ -90,7 +91,7 @@ How to set the age direction in LPhy is available in the [Time-stamped data](/tu
 
 ### Tip locations
 
-{% include_relative discrete-traits.md  locations='Hong Kong, New York and New Zealand' 
+{% include_relative templates/discrete-traits.md  locations='Hong Kong, New York and New Zealand' 
                     using='`split` given the separator `|`, and taking the 4th element given `i=3`' 
                     traits='demes' %}
 It is an array of locations required by the `StructuredCoalescent` in the `model` section later.
@@ -98,10 +99,10 @@ It is an array of locations required by the `StructuredCoalescent` in the `model
 
 ### Model block
 
-{% include_relative lphy-model.md %}
+{% include_relative templates/lphy-model.md %}
 
 In this analysis, we will use three HKY models with estimated frequencies. 
-{% include_relative rate-heterogeneity.md shape='shape' %}
+{% include_relative templates/rate-heterogeneity.md shape='shape' %}
 More details can be seen in the [Bayesian Skyline Plots](/tutorials/skyline-plots/#constructing-the-model-block-in-linguaphylo) tutorial. 
 
 Next, we are going to set the priors for MASCOT. 
@@ -134,7 +135,7 @@ then the dimension of migration rates backwards in time should equal to
 
 ## Producing BEAST XML using LPhyBEAST
 
-{% include_relative lphy-beast.md lphy="h3n2" nex="h3n2" %}
+{% include_relative templates/lphy-beast.md lphy="h3n2" nex="h3n2" %}
 
 ```
 java -jar LPhyBEAST.jar -l 30000000 h3n2.lphy
@@ -143,7 +144,7 @@ java -jar LPhyBEAST.jar -l 30000000 h3n2.lphy
 
 ## Running BEAST
 
-{% include_relative run-beast.md xml="h3n2.xml" %}
+{% include_relative templates/run-beast.md xml="h3n2.xml" %}
 
 
 ```
@@ -267,7 +268,7 @@ are inferred to be from Hong Kong backwards.
 
 ### Make the MCC tree using TreeAnnotator
 
-{% include_relative tree-annotator.md fig="TreeAnnotator.png" 
+{% include_relative templates/tree-annotator.md fig="TreeAnnotator.png" 
                     fignum="Figure 7" trees="h3n2.mascot.trees" mcctree="h3n2.mascot.tree" %}
 
 
@@ -344,7 +345,7 @@ This error can have different origins and a likely incomplete list is the follow
 
 ## Programs used in this Exercise
 
-{% include_relative programs-used.md %}
+{% include_relative templates/programs-used.md %}
 * MASCOT package - Marginal approximation of the structured coalescent.
 
 
@@ -360,7 +361,7 @@ This paper also explains the mathematical differences to other methods such as t
 To get a better idea of how the states of internal nodes are calculated, have a look in this paper [Müller, Rasmussen, & Stadler, 2018](#references).
 
 * MASCOT source code: [https://github.com/nicfel/Mascot](https://github.com/nicfel/Mascot)
-{% include_relative links.md %}
+{% include_relative templates/links.md %}
 
 
 [//]: # (## References)

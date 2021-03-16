@@ -18,7 +18,7 @@ The programs used in this tutorial are listed in [the later section](#programs-u
 
 ## The NEXUS alignment
 
-{% include_relative download-data.md df='h5n1' 
+{% include_relative templates/download-data.md df='h5n1' 
                     df_link='https://raw.githubusercontent.com/BEAST2-Dev/beast-classic/master/examples/nexus/H5N1.nex' %}
 
 The data is a subset of original dataset [Wallace et al., 2007](#references), 
@@ -28,7 +28,7 @@ isolated from a variety of hosts 1996 - 2005 across sample locations.
 
 ## Constructing the scripts in LPhy Studio
 
-{% include_relative lphy-scripts.md %}
+{% include_relative templates/lphy-scripts.md %}
 
 {% capture lphy_html %}
 {% include_relative discrete-phylogeography/lphy.html %}
@@ -39,22 +39,22 @@ isolated from a variety of hosts 1996 - 2005 across sample locations.
 {:/}
 
 
-{% include_relative lphy-studio.md lphy="h5n1" fignum="Figure 1" %}
+{% include_relative templates/lphy-studio.md lphy="h5n1" fignum="Figure 1" %}
 
 
 ### Data block
 
-{% include_relative lphy-data.md %}
+{% include_relative templates/lphy-data.md %}
 
 ### Tip dates
 
-{% include_relative tip-dates-forward.md  earliest='1997' 
+{% include_relative templates/tip-dates-forward.md  earliest='1997' 
                     date_in_name='after the last `_`' 
                     since='1900' regex='_(\d+)$' last='2005' %}
 
 ### Tip locations
 
-{% include_relative discrete-traits.md  locations='Fujian, HongKong, Hunan, Guangxi, and Guangdong' 
+{% include_relative templates/discrete-traits.md  locations='Fujian, HongKong, Hunan, Guangxi, and Guangdong' 
                     using='`extractTrait` given the separator `_`, and taking the 3rd element given `i=2`' 
                     traits='D_trait' %}
 
@@ -67,7 +67,7 @@ it will use the actual locations instead of simulated locations.
 
 ### Model block
 
-{% include_relative lphy-model.md %}
+{% include_relative templates/lphy-model.md %}
 
 In this analysis, we have two parts mixed in the `model` section: 
 the first part is modeling evolutionary history and demographic structure based on a nucleotide alignment, 
@@ -115,7 +115,7 @@ In addition, we define the priors for the following parameters:
 
 ## Producing BEAST XML using LPhyBEAST
 
-{% include_relative lphy-beast.md lphy="h5n1" nex="H5N1" %}
+{% include_relative templates/lphy-beast.md lphy="h5n1" nex="H5N1" %}
 
 ```
 java -jar LPhyBEAST.jar -l 30000000 h5n1.lphy
@@ -124,7 +124,7 @@ java -jar LPhyBEAST.jar -l 30000000 h5n1.lphy
 
 ## Running BEAST
 
-{% include_relative run-beast.md xml="h5n1.xml" %}
+{% include_relative templates/run-beast.md xml="h5n1.xml" %}
 
 ```
                          BEAST v2.6.3, 2002-2020
@@ -205,7 +205,7 @@ End likelihood: -5953.588976905855
 
 ## Analysing the BEAST output
 
-{% include_relative tracer.md logfile="h5n1" fignum="Figure 2" %}
+{% include_relative templates/tracer.md logfile="h5n1" fignum="Figure 2" %}
 
 Remember that MCMC is a stochastic algorithm so the actual numbers will
 not be exactly the same.
@@ -227,7 +227,8 @@ probability. It can be thought of as a Bayesian analog to a confidence interval.
 
 ## Obtaining an estimate of the phylogenetic tree
 
-{% include_relative tree-annotator.md fignum="Figure 3" %}
+{% include_relative templates/tree-annotator.md fig="TreeAnnotator.png" 
+                    fignum="Figure 3" trees="h5n1_with_trait.trees" mcctree="h5n1_with_trait.tree"%}
 
 
 ## Distribution of root location
@@ -369,7 +370,7 @@ regions of the locations of the internal nodes of the summary tree.
 
 ## Programs used in this Exercise
 
-{% include_relative programs-used.md %}
+{% include_relative templates/programs-used.md %}
 - BEAST classic package - Phylogeography is a part of the BEAST-CLASSIC package. 
 BEAST-CLASSIC requires the BEASTlabs package.
 You can install them from [BEAST 2 package manager](http://www.beast2.org/managing-packages/).
@@ -382,7 +383,7 @@ not already have it installed).
 
 ## Useful Links
 
-{% include_relative links.md %}
+{% include_relative templates/links.md %}
 
 
 ## References
