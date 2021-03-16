@@ -76,10 +76,41 @@ corresponding to the first, second and third codon positions.
 
 ### Data block
 
+{% capture lphy_html %}
+{% include_relative time-stamped-data/lphy.html %}
+{% endcapture %}
+
+{% assign spans = lphy_html | split: "</span><br>" %}
+
+
+{% for line in spans %}
+  {% if line contains "model" %}
+     {% assign lastLineData = forloop.index0 | minus: 1 %}
+     {% break %}
+  {% endif %}
+{% endfor %}
+
+{% capture lphy_data %}
+   {% for i in (0..lastLineData) %}
+       {{ spans[i] | append: "</span><br>" }}
+   {% endfor %}
+{% endcapture %}
+
+{% assign firstLineModel = lastLineData | plus: 1 %}
+{% capture lphy_model %}
+  {% for i in (firstLineModel..spans.size) %}
+    {{ spans[i] | append: "</span><br>" }}
+    {% if spans[i] contains "}" %}
+       {% break %}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+
 {% include_relative lphy-data.md %}
 
 {::nomarkdown}
-{% include_relative time-stamped-data/lphy_datablock.html %}
+   {{ lphy_data }}
 {:/}
   
 Our data here consist of molecular alignments and the sample dates.
@@ -128,10 +159,10 @@ for each nucleotide);
 4. `μ`, the global (mean) clock rate;  
 5. `Θ`, the effective population size (with as many dimensions as
    there are branches in the tree);  
-6. `φ`, the time-scaled (i.e., in absolute time) phylogenetic tree.
+6. `ψ`, the time-scaled (i.e., in absolute time) phylogenetic tree.
 
 {::nomarkdown}
-{% include_relative time-stamped-data/lphy_modelblock.html %}
+  {{ lphy_model }}
 {:/}
 
 Note that parameters `π`, `κ` and `r` are 3-dimensional vectors,
@@ -154,7 +185,7 @@ Again, if you want to double check everything you have typed, click the
 Let us look at the whole thing:
 
 {::nomarkdown}
-{% include_relative time-stamped-data/lphy.html %}
+  {{ lphy_html }}
 {:/}
 
 {% include_relative lphy-studio.md lphy="RSV2" fignum="Figure 1" %}
