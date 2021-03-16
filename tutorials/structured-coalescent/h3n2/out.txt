@@ -1,0 +1,188 @@
+
+                        BEAST v2.6.3, 2002-2020
+             Bayesian Evolutionary Analysis Sampling Trees
+                       Designed and developed by
+ Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
+                                    
+                   Centre for Computational Evolution
+                         University of Auckland
+                       r.bouckaert@auckland.ac.nz
+                        alexei@cs.auckland.ac.nz
+                                    
+                   Institute of Evolutionary Biology
+                        University of Edinburgh
+                           a.rambaut@ed.ac.uk
+                                    
+                    David Geffen School of Medicine
+                 University of California, Los Angeles
+                           msuchard@ucla.edu
+                                    
+                      Downloads, Help & Resources:
+                           http://beast2.org/
+                                    
+  Source code distributed under the GNU Lesser General Public License:
+                   http://github.com/CompEvol/beast2
+                                    
+                           BEAST developers:
+   Alex Alekseyenko, Trevor Bedford, Erik Bloomquist, Joseph Heled, 
+ Sebastian Hoehna, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, 
+Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, 
+          Oliver Pybus, Tim Vaughan, Chieh-Hsi Wu, Walter Xie
+                                    
+                               Thanks to:
+          Roald Forsberg, Beth Shapiro and Korbinian Strimmer
+
+Random number seed: 1615933061120
+
+A/New_York/169/2000|CY000657|2000.005464|New_York = 1.9863169999998718 (1.9863169999998718)
+A/Hong_Kong/CUHK51431/2001|EU857032|2001.983562|Hong_Kong = 0.008219000000053711 (0.008219000000053711)
+A/Canterbury/149/2001|CY009436|2001.613699|New_Zealand = 0.3780819999999494 (0.3780819999999494)
+A/Hong_Kong/1269/2001|KP457669|2001.657534|Hong_Kong = 0.33424700000000485 (0.33424700000000485)
+A/Waikato/5/2001|CY013072|2001.367123|New_Zealand = 0.624657999999954 (0.624657999999954)
+A/New_York/402/2001|CY003088|2001.986301|New_York = 0.005480000000034124 (0.005480000000034124)
+A/Auckland/589/2000|CY023002|2000.740437|New_Zealand = 1.2513440000000173 (1.2513440000000173)
+A/Hong_Kong/CUHK26969/2000|EU856954|2000.573770|Hong_Kong = 1.4180109999999786 (1.4180109999999786)
+A/Auckland/588/2000|CY022501|2000.732240|New_Zealand = 1.2595409999998992 (1.2595409999998992)
+A/Canterbury/75/2000|CY016403|2000.702186|New_Zealand = 1.289594999999963 (1.289594999999963)
+A/New_York/273/2001|CY001720|2001.991781|New_York = 0.0 (0.0)
+A/Hong_Kong/CUHK22163/2000|EU856926|2000.174863|Hong_Kong = 1.816917999999987 (1.816917999999987)
+A/New_York/436/2000|CY003264|2000.024590|New_York = 1.967190999999957 (1.967190999999957)
+A/New_York/437/2000|CY003272|2000.030055|New_York = 1.9617259999999987 (1.9617259999999987)
+A/Waikato/5/2000|CY011960|2000.661202|New_Zealand = 1.3305789999999433 (1.3305789999999433)
+A/Hong_Kong/1585/2000|KP456729|2000.546448|Hong_Kong = 1.4453329999998914 (1.4453329999998914)
+A/Hong_Kong/CUHK27157/2000|EU856956|2000.592896|Hong_Kong = 1.3988849999998365 (1.3988849999998365)
+A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong = 1.9644590000000335 (1.9644590000000335)
+A/Hong_Kong/CUHK20294/2000|EU856897|2000.030055|Hong_Kong = 1.9617259999999987 (1.9617259999999987)
+A/Hong_Kong/CUHK20173/2000|EU856890|2000.016393|Hong_Kong = 1.975387999999839 (1.975387999999839)
+A/New_York/152/2000|CY001136|2000.046448|New_York = 1.9453329999998914 (1.9453329999998914)
+A/Hong_Kong/CUHK24510/2001|EU856945|2001.534247|Hong_Kong = 0.45753399999989597 (0.45753399999989597)
+A/Canterbury/81/2000|CY008788|2000.721311|New_Zealand = 1.270469999999932 (1.270469999999932)
+A/Waikato/17/2000|CY013397|2000.724044|New_Zealand = 1.2677369999998973 (1.2677369999998973)
+A/New_York/169/2000|CY000657|2000.005464|New_York = New_York (NaN)
+A/Hong_Kong/CUHK51431/2001|EU857032|2001.983562|Hong_Kong = Hong_Kong (NaN)
+A/Canterbury/149/2001|CY009436|2001.613699|New_Zealand = New_Zealand (NaN)
+A/Hong_Kong/1269/2001|KP457669|2001.657534|Hong_Kong = Hong_Kong (NaN)
+A/Waikato/5/2001|CY013072|2001.367123|New_Zealand = New_Zealand (NaN)
+A/New_York/402/2001|CY003088|2001.986301|New_York = New_York (NaN)
+A/Auckland/589/2000|CY023002|2000.740437|New_Zealand = New_Zealand (NaN)
+A/Hong_Kong/CUHK26969/2000|EU856954|2000.573770|Hong_Kong = Hong_Kong (NaN)
+A/Auckland/588/2000|CY022501|2000.732240|New_Zealand = New_Zealand (NaN)
+A/Canterbury/75/2000|CY016403|2000.702186|New_Zealand = New_Zealand (NaN)
+A/New_York/273/2001|CY001720|2001.991781|New_York = New_York (NaN)
+A/Hong_Kong/CUHK22163/2000|EU856926|2000.174863|Hong_Kong = Hong_Kong (NaN)
+A/New_York/436/2000|CY003264|2000.024590|New_York = New_York (NaN)
+A/New_York/437/2000|CY003272|2000.030055|New_York = New_York (NaN)
+A/Waikato/5/2000|CY011960|2000.661202|New_Zealand = New_Zealand (NaN)
+A/Hong_Kong/1585/2000|KP456729|2000.546448|Hong_Kong = Hong_Kong (NaN)
+A/Hong_Kong/CUHK27157/2000|EU856956|2000.592896|Hong_Kong = Hong_Kong (NaN)
+A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong = Hong_Kong (NaN)
+A/Hong_Kong/CUHK20294/2000|EU856897|2000.030055|Hong_Kong = Hong_Kong (NaN)
+A/Hong_Kong/CUHK20173/2000|EU856890|2000.016393|Hong_Kong = Hong_Kong (NaN)
+A/New_York/152/2000|CY001136|2000.046448|New_York = New_York (NaN)
+A/Hong_Kong/CUHK24510/2001|EU856945|2001.534247|Hong_Kong = Hong_Kong (NaN)
+A/Canterbury/81/2000|CY008788|2000.721311|New_Zealand = New_Zealand (NaN)
+A/Waikato/17/2000|CY013397|2000.724044|New_Zealand = New_Zealand (NaN)
+A/New_York/402/2001|CY003088|2001.986301|New_York: 987 4
+A/New_York/273/2001|CY001720|2001.991781|New_York: 987 4
+A/Canterbury/81/2000|CY008788|2000.721311|New_Zealand: 987 4
+A/New_York/152/2000|CY001136|2000.046448|New_York: 987 4
+A/Hong_Kong/CUHK20292/2000|EU856896|2000.027322|Hong_Kong: 987 4
+A/New_York/169/2000|CY000657|2000.005464|New_York: 987 4
+A/Hong_Kong/CUHK20294/2000|EU856897|2000.030055|Hong_Kong: 987 4
+A/New_York/437/2000|CY003272|2000.030055|New_York: 987 4
+A/Hong_Kong/CUHK22163/2000|EU856926|2000.174863|Hong_Kong: 987 4
+A/Hong_Kong/CUHK20173/2000|EU856890|2000.016393|Hong_Kong: 987 4
+A/New_York/436/2000|CY003264|2000.024590|New_York: 987 4
+A/Canterbury/149/2001|CY009436|2001.613699|New_Zealand: 987 4
+A/Waikato/5/2001|CY013072|2001.367123|New_Zealand: 987 4
+A/Hong_Kong/CUHK51431/2001|EU857032|2001.983562|Hong_Kong: 987 4
+A/Waikato/5/2000|CY011960|2000.661202|New_Zealand: 987 4
+A/Waikato/17/2000|CY013397|2000.724044|New_Zealand: 987 4
+A/Canterbury/75/2000|CY016403|2000.702186|New_Zealand: 987 4
+A/Auckland/589/2000|CY023002|2000.740437|New_Zealand: 987 4
+A/Auckland/588/2000|CY022501|2000.732240|New_Zealand: 987 4
+A/Hong_Kong/1269/2001|KP457669|2001.657534|Hong_Kong: 987 4
+A/Hong_Kong/CUHK26969/2000|EU856954|2000.573770|Hong_Kong: 987 4
+A/Hong_Kong/CUHK24510/2001|EU856945|2001.534247|Hong_Kong: 987 4
+A/Hong_Kong/1585/2000|KP456729|2000.546448|Hong_Kong: 987 4
+A/Hong_Kong/CUHK27157/2000|EU856956|2000.592896|Hong_Kong: 987 4
+Alignment(D)
+  24 taxa
+  987 sites
+  58 patterns
+
+  Using BEAGLE version: 2.1.2 resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_SSE THREADING_NONE PROCESSOR_CPU FRAMEWORK_CPU
+===============================================================================
+Citations for this model:
+
+Bouckaert, Remco, Timothy G. Vaughan, Joëlle Barido-Sottani, Sebastián Duchêne, Mathieu Fourment, 
+Alexandra Gavryushkina, Joseph Heled, Graham Jones, Denise Kühnert, Nicola De Maio, Michael Matschiner, 
+Fábio K. Mendes, Nicola F. Müller, Huw A. Ogilvie, Louis du Plessis, Alex Popinga, Andrew Rambaut, 
+David Rasmussen, Igor Siveroni, Marc A. Suchard, Chieh-Hsi Wu, Dong Xie, Chi Zhang, Tanja Stadler, 
+Alexei J. Drummond 
+  BEAST 2.5: An advanced software platform for Bayesian evolutionary analysis. 
+  PLoS computational biology 15, no. 4 (2019): e1006650.
+
+Nicola F. Müller, David A. Rasmussen, Tanja Stadler (2017)
+  The Structured Coalescent and its Approximations.
+  Mol Biol Evol 2017 msx186. doi: 10.1093/molbev/msx186
+
+Hasegawa M, Kishino H, Yano T (1985) Dating the human-ape splitting by a
+  molecular clock of mitochondrial DNA. Journal of Molecular Evolution
+  22:160-174.
+
+Nicola F. Müller, David A. Rasmussen, Tanja Stadler (2018)
+  MASCOT: parameter and state inference under the marginal
+  structured coalescent approximation
+  Bioinformatics, , bty406, https://doi.org/10.1093/bioinformatics/bty406
+
+===============================================================================
+Start likelihood: -2669.402630299166 
+         Sample      posterior     likelihood          prior           pi.A           pi.C           pi.G           pi.T          kappa      clockRate          shape b_m.Hon_w_York b_m.Hon_ealand b_m.New_g_Kong b_m.New_ealand b_m.New_g_Kong b_m.New_w_York Theta.H_g_Kong Theta.New_York Theta.N_ealand
+              0     -2255.6118     -2168.3830       -87.2288         0.2880         0.2143         0.2140         0.2835         4.6187         0.0044        27.5178         0.7888         1.6664         0.7939         1.2144         2.4757         1.3858         0.0943         0.7254         0.7186 --
+         150000     -1939.4992     -1908.0941       -31.4051         0.3692         0.2151         0.1863         0.2293         7.6659         0.0043         0.0248         0.8675         0.0616         0.6824         0.0493         0.4709         0.3505         1.2978         0.3647         0.3301 --
+         300000     -1944.5417     -1903.2528       -41.2888         0.3544         0.2191         0.2043         0.2221         5.1109         0.0039         1.2650         1.5874         0.5035         1.5791         1.2490         0.6338         0.4858         0.3608         0.9938         0.4532 --
+         450000     -1955.5495     -1905.5824       -49.9670         0.3541         0.2064         0.2084         0.2310         7.8603         0.0037         0.0819         1.9148         0.9143         1.0339         0.5211         0.8231         2.1077         1.3040         2.7648         0.0932 --
+         600000     -1951.9700     -1905.6555       -46.3144         0.3300         0.2338         0.2171         0.2189         6.3825         0.0033         0.6418         0.2141         1.1688         1.5600         0.1470         2.8374         0.8541         0.7654         1.5521         1.0346 --
+         750000     -1941.4383     -1899.2683       -42.1699         0.3368         0.2319         0.2182         0.2129         4.1196         0.0038         5.3551         0.7506         0.1882         1.8269         0.0050         0.3761         0.2384         0.4293         4.7079         0.6056 --
+         900000     -1940.3914     -1904.9497       -35.4417         0.3348         0.2349         0.1895         0.2406         5.0956         0.0049        13.7448         2.3896         0.0826         1.4182         0.0076         1.0633         0.8204         0.2357         1.1896         0.1946 1m19s/Msamples
+        1050000     -1961.4739     -1909.0581       -52.4158         0.3565         0.2236         0.1962         0.2235         6.8118         0.0035         1.2234         2.9477         0.0415         1.1493         2.2325         1.6732         0.0351         2.5500         0.6741         0.4066 1m19s/Msamples
+        1200000     -1945.6462     -1908.4696       -37.1765         0.3275         0.2310         0.2227         0.2186         5.1100         0.0053         0.4236         1.7428         0.0739         0.0121         0.4374         0.5422         0.0273         2.5047         0.6991         0.8954 1m19s/Msamples
+        1350000     -1965.3504     -1909.5757       -55.7746         0.3414         0.2295         0.2037         0.2253         3.9467         0.0032         0.3463         0.0514         0.5486         1.1151         1.4279         1.7832         1.0996         1.1422         1.8401         3.1368 1m18s/Msamples
+        1500000     -1965.3772     -1909.4214       -55.9558         0.3066         0.2332         0.2201         0.2400         7.4536         0.0025         0.5230         0.6247 5.437612935E-5         1.1345         1.0869         0.3266         0.1160         1.3745         1.5290         1.5618 1m19s/Msamples
+        1650000     -1957.6994     -1904.0169       -53.6824         0.3345         0.2083         0.2047         0.2523         6.5704         0.0029         2.8991         0.0295         0.0760         1.4318         1.4119         0.4465         0.3419         1.7379         0.8747         1.3422 1m19s/Msamples
+        1800000     -1949.1660     -1907.2181       -41.9479         0.3430         0.2200         0.2130         0.2238         8.3747         0.0038         0.5390         0.2396         0.7783         0.1888         0.9682         0.0038         1.4764         1.1291         2.2115         0.1442 1m19s/Msamples
+        1950000     -1957.2683     -1909.2674       -48.0009         0.3212         0.2236         0.2400         0.2150         7.3921         0.0032         0.1257         1.5862         0.2184         4.0154         0.6800         1.4415         0.8719         0.8229         0.3765         0.6406 1m19s/Msamples
+        2100000     -1950.6709     -1904.7722       -45.8986         0.3327         0.2443         0.1991         0.2236         6.5594         0.0028         0.1022         1.8774 5.318967099E-4         3.8576         0.9533         0.1667         0.1225         0.8811         1.8958         0.7605 1m19s/Msamples
+        2250000     -1961.5921     -1910.4560       -51.1360         0.3155         0.2259         0.2056         0.2527         9.1256         0.0033         3.2244         1.0175         0.2857         2.6567         0.2701         0.0647         0.5284         0.6650         4.3280         1.5340 1m19s/Msamples
+        2400000     -1949.9758     -1910.3185       -39.6572         0.3565         0.2196         0.1944         0.2293         6.0438         0.0044         1.6669         1.1303         0.3598         0.1811         0.6966         0.6354         1.0756         0.7376         0.2999         0.5470 1m19s/Msamples
+        2550000     -1951.5380     -1909.4256       -42.1124         0.3261         0.2198         0.2233         0.2306         7.1415         0.0029         0.1089         2.8803         0.3492         0.0303         0.2565         0.9867         0.7305         0.9964         2.1308         0.5756 1m19s/Msamples
+        2700000     -1954.7804     -1906.5307       -48.2496         0.3214         0.2490         0.2057         0.2238         7.8348         0.0041         0.3103         0.6607         0.2664         2.0164         0.0278         0.0070         1.3117         2.4026         1.0177         0.6242 1m19s/Msamples
+        2850000     -1959.1130     -1909.1872       -49.9258         0.3346         0.2431         0.2067         0.2155         6.6554         0.0049         0.0226         2.0236         2.0295         1.5471         0.6191         1.3713         2.7094         2.7370         0.3636         0.3053 1m19s/Msamples
+        3000000     -1948.8094     -1911.4173       -37.3920         0.3434         0.2137         0.2119         0.2309         4.7654         0.0046         0.2815         0.1668         0.5808         0.3147         0.2432         0.0219         0.9744         1.5461         0.2835         0.6482 1m19s/Msamples
+
+Operator                                        Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+ScaleOperator(Theta.scale)                     0.21497      26555      59796    0.02879    0.30752 
+ScaleOperator(b_m.scale)                       0.17077      42976      97252    0.04677    0.30647 
+ScaleOperator(clockRate.scale)                 0.53780      10752      29340    0.01334    0.26818 
+UpDownOperator(clockRateUptreeDownOperator)    0.87419      37037     334281    0.12343    0.09974 Try setting scaleFactor to about 0.935
+ScaleOperator(kappa.scale)                     0.31810      11633      28273    0.01334    0.29151 
+DeltaExchangeOperator(pi.deltaExchange)        0.08683      15982      70350    0.02879    0.18512 
+ScaleOperator(shape.scale)                     0.17203      12430      27315    0.01334    0.31274 
+Exchange(tree.narrowExchange)                        -     165668     193507    0.11981    0.46125 
+ScaleOperator(tree.rootAgeScale)               0.56484       7578      32547    0.01334    0.18886 
+ScaleOperator(tree.scale)                      0.83129      23941     334988    0.11981    0.06670 Try setting scaleFactor to about 0.912
+SubtreeSlide(tree.subtreeSlide)                0.97316      54258     305601    0.11981    0.15078 
+Uniform(tree.uniform)                                -     221430     136965    0.11981    0.61784 
+Exchange(tree.wideExchange)                          -       9390     349950    0.11981    0.02613 
+WilsonBalding(tree.wilsonBalding)                    -      15971     344235    0.11981    0.04434 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 241.086 seconds

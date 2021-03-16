@@ -61,10 +61,12 @@ We want to see if we can infer this source-sink dynamic from sequence data using
 
 The LPhy scripts to define this analysis is listed below.
 
+{% assign current_fig_num = 1 %}
+{% assign lphy_fig = "Figure " | append: current_fig_num  %}
 
 [//]: # (## Code, Graphical Model)
 {% capture lphy_md %}
-{% include_relative structured-coalescent/lphy.md fignum="Figure 1" %}
+{% include_relative structured-coalescent/lphy.md fignum=lphy_fig %}
 {% endcapture %}
 
 {{ lphy_md | replace: "11pt", "10pt" }}
@@ -83,9 +85,11 @@ to extract these decimal numbers and turn to ages.
 
 How to set the age direction in LPhy is available in the [Time-stamped data](/tutorials/time-stamped-data/#tip-dates) tutorial.
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
 <figure class="image">
   <img src="ages.png" alt="ages">
-  <figcaption>Figure 2: The ages of tips</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: The ages of tips</figcaption>
 </figure>
 
 
@@ -226,9 +230,10 @@ End likelihood: -1945.427363390188
 First, we can open the `h3n2.log` file in tracer to check if the MCMC has converged. 
 The ESS value should be above 200 for almost all values and especially for the posterior estimates.
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
 <figure class="image">
   <img src="posterior.png" alt="Tracer">
-  <figcaption>Figure 3: Check if the posterior converged.</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: Check if the posterior converged.</figcaption>
 </figure>
 
 
@@ -238,9 +243,10 @@ This tells us that two lineages that are in New Zealand are expected to coalesce
 
 Tips: you can click the `Setup...` button to adjust the view range of X-axis.
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
 <figure class="image">
   <img src="popsize.png" alt="The trace of long run">
-  <figcaption>Figure 4: Compare the different inferred effective population sizes.</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: Compare the different inferred effective population sizes.</figcaption>
 </figure>
 
 In this example, we have relatively little information about the effective population sizes of each location. 
@@ -248,9 +254,10 @@ This can lead to estimates that are greatly informed by the prior.
 Additionally, there can be great differences between median and mean estimates. 
 The median estimates are generally more reliable since they are less influence by extreme values.
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
 <figure class="image">
   <img src="popsize2.png" alt="marginal density">
-  <figcaption>Figure 5: Differences between mean and median estimates.</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: Differences between mean and median estimates.</figcaption>
 </figure>
 
 We can then look at the inferred migration rates. 
@@ -260,16 +267,18 @@ this means that lineages from New York are inferred to be likely from Hong Kong 
 In the inferred phylogenies, we should therefore make the observation that lineages ancestral to samples from New York 
 are inferred to be from Hong Kong backwards.
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
 <figure class="image">
   <img src="migrationRates.png" alt="relative substitution rates">
-  <figcaption>Figure 6: Compare the inferred migration rates.</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: Compare the inferred migration rates.</figcaption>
 </figure>
 
 
 ### Make the MCC tree using TreeAnnotator
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
 {% include_relative templates/tree-annotator.md fig="TreeAnnotator.png" 
-                    fignum=7 trees="h3n2.mascot.trees" mcctree="h3n2.mascot.tree" %}
+                    fignum=current_fig_num trees="h3n2.mascot.trees" mcctree="h3n2.mascot.tree" %}
 
 
 ### Check the MCC tree using FigTree
@@ -284,9 +293,10 @@ To color branches, you can go to `Appearance >> Colour` by and select `max`.
 This is the location that was inferred to be most often the most likely location of the node.
 In addition, you can set the branch `Width by` `max.prob`, and increase the `Line Weight`, which will make the branch width more different regarding to its posterior support. Finally, tick `Legend` and select `max` in the drop list of `Attribute`. 
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
 <figure class="image">
   <a href="tree.png" target="_blank"><img src="tree.png" alt="MCC tree"></a>
-  <figcaption>Figure 8: Inferred node locations.</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: Inferred node locations.</figcaption>
 </figure>
 
 We can now determine if lineages ancestral to samples from New York are actually inferred to be from Hong Kong, 
