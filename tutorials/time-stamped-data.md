@@ -82,21 +82,17 @@ corresponding to the first, second and third codon positions.
 
 {% assign spans = lphy_html | split: "</span><br>" %}
 
-
-{% for line in spans %}
-  {% if line contains "model" %}
-     {% assign lastLineData = forloop.index0 | minus: 1 %}
-     {% break %}
-  {% endif %}
-{% endfor %}
-
 {% capture lphy_data %}
-   {% for i in (0..lastLineData) %}
-       {{ spans[i] | append: "</span><br>" }}
+   {% for i in (0..spans.size) %}
+     {% if spans[i] contains "model" %}
+       {% assign firstLineModel = forloop.index0 %}
+       {% break %}
+     {% else %} 
+       {{ spans[i] | append: "</span><br>" }}       
+     {% endif %}
    {% endfor %}
 {% endcapture %}
 
-{% assign firstLineModel = lastLineData | plus: 1 %}
 {% capture lphy_model %}
   {% for i in (firstLineModel..spans.size) %}
     {{ spans[i] | append: "</span><br>" }}
@@ -162,8 +158,9 @@ for each nucleotide);
 6. `ψ`, the time-scaled (i.e., in absolute time) phylogenetic tree.
 
 {::nomarkdown}
-  {{ lphy_model }}
+  {{ lphy_model | append: "<br>" }}
 {:/}
+
 
 Note that parameters `π`, `κ` and `r` are 3-dimensional vectors,
 because they represent the nucleotide equilibrium frequencies,
