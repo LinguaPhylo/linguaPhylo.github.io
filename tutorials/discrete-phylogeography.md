@@ -74,7 +74,7 @@ the first part is modeling evolutionary history and demographic structure based 
 and the second part is defining how to sample the discrete states (locations) from the phylogeny $\psi$ shared with the 1st part.
 
 For the nucleotide alignment, we use the HKY model with estimated frequencies. 
-{% include_relative rate-heterogeneity.md shape='$\gamma$' %}
+{% include_relative templates/rate-heterogeneity.md shape='$\gamma$' %}
 More details can be seen in the [Bayesian Skyline Plots](/tutorials/skyline-plots/#constructing-the-model-block-in-linguaphylo) tutorial. 
 
 We use a strict molecular clock, but to make the analysis converge a bit quicker, 
