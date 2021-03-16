@@ -50,7 +50,8 @@ analyses.
 
 ### The NEXUS alignment
 
-{% include_relative templates/download-data.md df='RSV2' df_link='https://raw.githubusercontent.com/CompEvol/beast2/master/examples/nexus/RSV2.nex' %}
+{% include_relative templates/download-data.md df='RSV2' 
+                    df_link='https://raw.githubusercontent.com/CompEvol/beast2/master/examples/nexus/RSV2.nex' %}
 
 This .nex file can also be found in the ```examples/nexus``` folder,
 where BEAST 2 was installed.
@@ -185,7 +186,9 @@ Let us look at the whole thing:
   {{ lphy_html }}
 {:/}
 
-{% include_relative templates/lphy-studio.md lphy="RSV2" fignum="Figure 1" %}
+{% assign current_fig_num = 1 %}
+
+{% include_relative templates/lphy-studio.md lphy="RSV2" fignum=current_fig_num %}
 
 ## Phylogenetic inference with BEAST 2
 
@@ -301,9 +304,11 @@ In the bottom-right panel you will see a histogram that looks a bit
 rough.
 This is expected when ESSs are low.
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
 <figure class="image">
   <img src="short.png" alt="The trace of short run">
-  <figcaption>Figure 3: A screenshot of Tracer (low ESS).</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: A screenshot of Tracer (low ESS).</figcaption>
 </figure>
 
 If you click the "Trace" tab in the upper-right corner, you will see
@@ -356,11 +361,12 @@ leave the old one loaded for comparison).
 
 Click on the "Trace" tab and look at the raw trace plot.
 
-{% assign posterior_fig_num = "Figure 4" %}
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+{% assign posterior_fig_num = current_fig_num %}
 
 <figure class="image">
   <img src="long.png" alt="The trace of long run">
-  <figcaption>{{ posterior_fig_num }}: A screenshot of Tracer.</figcaption>
+  <figcaption>Figure {{ posterior_fig_num }}: A screenshot of Tracer.</figcaption>
 </figure>
 
 With this much longer MCMC chain, we still have 1,800 samples after
@@ -387,12 +393,14 @@ Density" tab in the upper-right corner to see the posterior density
 plot for this parameter.
 You should see a plot similar to this:
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
 <figure class="image">
   <img src="muDensity.png" alt="marginal density">
-  <figcaption>Figure 5: The marginal density in Tracer.</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: The marginal density in Tracer.</figcaption>
 </figure>
 
-As we can see in {{ posterior_fig_num }}, posterior probability density is roughly
+As we can see in Figure {{ posterior_fig_num }}, posterior probability density is roughly
 bell-shaped. 
 If the curve does not look very smooth, it is because there is some
 sampling noise: we could smooth it out more if we ran the MCMC chain
@@ -411,9 +419,11 @@ codon positions (partitions) in the left-hand panel (labelled "r.0",
 You will now see the posterior probability densities for the relative
 substitution rate at all three codon positions overlaid: 
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
 <figure class="image">
   <img src="relativeRates.png" alt="relative substitution rates">
-  <figcaption>Figure 6: The posterior probability densities for the relative substitution rates.</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: The posterior probability densities for the relative substitution rates.</figcaption>
 </figure>
 
 ### Summarising the trees
@@ -424,8 +434,10 @@ phylogenetic trees, as compared to the mean molecular rate `μ`, for
 example.
 We will use a special tool for that, TreeAnnotator.
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
 {% include_relative templates/tree-annotator.md fig="TreeAnnotator.png" 
-                    fignum="Figure 7" trees="RSV2long.trees" mcctree="RSV2long.tree" %}
+                    fignum=current_fig_num trees="RSV2long.trees" mcctree="RSV2long.tree" %}
 
 ### Visualizing the trees
 
@@ -435,17 +447,19 @@ In FigTree, just load TreeAnnotator's output file as the input (if you
 were to load the entire tree log file, FigTree would show you each
 tree in the posterior individually).
 
-{% assign figtree_fig_num = "Figure 8" %}
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
+{% assign figtree_fig_num = current_fig_num %}
 
 Selecting `Order nodes` and keeping the default ordrering `increasing` in the `Trees` tab, 
 when you successfully load the MCC tree. 
 In addition, you need to select `Node Bars` and choose `height_95%_HPD`, 
 in order to show the 95% HPD interval of estimated time of most recent common ancestor (tMRCA) in each internal node. 
-You should end up with something like {{ figtree_fig_num }}.
+You should end up with something like Figure {{ figtree_fig_num }}.
 
 <figure class="image">
   <a href="RSV2.tree.png" target="_blank"><img src="RSV2.tree.png" alt="MCC tree"></a>
-  <figcaption>{{ figtree_fig_num }}: The maximum clade credibility (MCC) tree for
+  <figcaption>Figure {{ figtree_fig_num }}: The maximum clade credibility (MCC) tree for
   the G gene of 129 RSVA-2 viral samples.</figcaption>
 </figure>
 
@@ -453,9 +467,11 @@ In DensiTree, load the tree log file as the input.
 Here, the tree in blue is the MCC tree, where the green "fuzzy" trees
 are all the other trees in the posterior set.
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
 <figure class="image">
   <img src="DensiTree.png" alt="MCC tree">
-  <figcaption>Figure 9: The posterior tree set visualised in DensiTree.</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: The posterior tree set visualised in DensiTree.</figcaption>
 </figure>
 
 
@@ -471,9 +487,11 @@ You will also need to make sure all required BEAST 2 packages
 (e.g., outercore) have been installed on your local computer.  
 The Package Manager can help you do that (see the screenshot below).  
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
 <figure class="image">
   <img src="outercore.png" alt="Package manager">
-  <figcaption>Figure 2: A screenshot of Package Manager.</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: A screenshot of Package Manager.</figcaption>
 </figure>
 
 ## Useful Links

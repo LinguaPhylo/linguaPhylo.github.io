@@ -71,7 +71,7 @@ We will try to infer this increase from sequence data.
 {:/}
 
 
-{% include_relative templates/lphy-studio.md lphy="hcv_coal" fignum="Figure 3" %}
+{% include_relative templates/lphy-studio.md lphy="hcv_coal" fignum=3 %}
 
 
 ### Data block

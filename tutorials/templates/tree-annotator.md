@@ -10,7 +10,7 @@ Finally, for "Output File", type `{{ include.mcctree }}`.
 
 <figure class="image">
   <img src="{{ include.fig }}" alt="TreeAnnotator">
-  <figcaption>{{ include.fignum }}: TreeAnnotator for creating a summary tree from a posterior tree set.</figcaption>
+  <figcaption>Figure {{ include.fignum }}: TreeAnnotator for creating a summary tree from a posterior tree set.</figcaption>
 </figure>
 
 This setup will take the set of trees in the tree log file, and
