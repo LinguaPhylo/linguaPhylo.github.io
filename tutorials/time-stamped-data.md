@@ -312,17 +312,17 @@ This is expected when ESSs are low.
   showing the sampling histogram of `μ` from a short run.</figcaption>
 </figure>
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
 If you click the "Trace" tab in the upper-right corner, you will see
 the raw trace, that is, the sampled values against the step in the
-MCMC chain.
+MCMC chain (Fig. {{ posterior_fig_num }}).
 
 The trace shows the value of a given statistic for each sampled step
 of the MCMC chain.
 It will help you see if the chain is mixing well and to what extent
 the samples are correlated. Here you can see how the samples are
 correlated.
-
-{% assign current_fig_num = current_fig_num | plus: 1 %}
 
 <figure class="image">
   <img src="short2.png" alt="The trace of short run">
