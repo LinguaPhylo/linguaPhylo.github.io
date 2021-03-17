@@ -23,7 +23,9 @@ The programs used in this tutorial are listed [below](#programs-used-in-this-exe
 [(Drummond, Rambaut, Shapiro, & Pybus, 2005)](https://academic.oup.com/mbe/article/22/5/1185/1066885) explained 
 these concepts in the figure below:
 
-{% assign bs1_fig_num = 'Figure 1' %}
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
+{% assign bs1_fig_num = "Figure " | append: current_fig_num  %}
 
 <figure class="image" id="bs1_fig">
   <img src="BS1.png" alt="Bayesian Skyline">
@@ -49,7 +51,9 @@ The resulting stepwise function has `m − 1` change points (`1 ≤ m ≤ n−1`
 The dataset consists of an alignment of 63 Hepatitis C sequences sampled in 1993 in Egypt ([Ray, Arthur, Carella, Bukh, & Thomas, 2000](#references)). 
 This dataset has been used previously to test the performance of skyline methods ([Drummond, Rambaut, Shapiro, & Pybus, 2005, and Stadler, Kuhnert, Bonhoeffer, & Drummond, 2013](#references)).
 
-{% assign pop_fig_num = 'Figure 2' %}
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
+{% assign pop_fig_num = "Figure " | append: current_fig_num  %}
 
 With an estimated 15-25%, Egypt has the highest Hepatits C prevalence in the world. 
 In the mid 20th century, the prevalence of Hepatitis C increased drastically 
@@ -70,8 +74,9 @@ We will try to infer this increase from sequence data.
 {% include_relative skyline-plots/lphy.html %}
 {:/}
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
 
-{% include_relative templates/lphy-studio.md lphy="hcv_coal" fignum=3 %}
+{% include_relative templates/lphy-studio.md lphy="hcv_coal" fignum=current_fig_num %}
 
 
 ### Data block
@@ -100,9 +105,11 @@ In particular, when α → ∞, the distribution degenerates into the model of a
 If α ≤ 1, the distribution has a highly skewed L-shape, meaning that most sites have very low rates of substitution or are nearly 'invariable', 
 but there are some substitution hotspots with high rates. 
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
 <figure class="image">
   <img src="DiscGamma.png" alt="discretized gamma">
-  <figcaption>Figure 4: (Yang 2006, Fig. 1.6) Probability density function of the gamma distribution for variable rates among sites. 
+  <figcaption>Figure {{ current_fig_num }}: (Yang 2006, Fig. 1.6) Probability density function of the gamma distribution for variable rates among sites. 
   The scale parameter of the distribution is fixed so that the mean is 1; 
   as a result, the density involves only the shape parameters α. 
   The x-axis is the substitution rate, while the y-axis is proportional to the number of sites with that rate.</figcaption>
@@ -229,7 +236,9 @@ End likelihood: -6639.672594349279
 
 ## Analysing the BEAST output
 
-{%- include_relative templates/tracer.md logfile="hcv_coal" fignum="Figure 5" -%}
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
+{%- include_relative templates/tracer.md logfile="hcv_coal" fignum=current_fig_num -%}
 
 
 For the reconstruction of the population dynamics, we need two files, the `hcv_coal.log` file and the `hcv_coal.trees` file. 
@@ -244,9 +253,11 @@ the age of the youngest tip is the time when the most recent sample was collecte
 
 Press **OK** to reconstruct the past population dynamics.
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
 <figure class="image">
   <img src="BSAnalysis.png" alt="Reconstructing the Bayesian Skyline plot">
-  <figcaption>Figure 6: reconstructing the Bayesian Skyline plot in Tracer.</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: reconstructing the Bayesian Skyline plot in Tracer.</figcaption>
 </figure>
 
 The output will have the years on the x-axis and the effective population size on the y-axis. 
@@ -257,9 +268,11 @@ similar to what is seen below.
 Note that the reconstruction will only work if the *.log and *.trees files contain the same number of states 
 and both files were logged at the same frequency.
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
 <figure class="image">
   <img src="BSplot.png" alt="Coalescent Bayesian Skyline plot">
-  <figcaption>Figure 7: Bayesian Skyline analysis output. 
+  <figcaption>Figure {{ current_fig_num }}: Bayesian Skyline analysis output. 
   The black line is the median estimate of the estimated effective population size (can be changed to the mean estimate). 
   The two blue lines are the upper and lower bounds of the 95% HPD interval. 
   The x-axis is the time in years and the y-axis is on a log-scale.</figcaption>
