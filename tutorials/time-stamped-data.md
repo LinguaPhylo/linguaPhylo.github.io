@@ -38,7 +38,7 @@ The goal of our phylodynamic analysis is to estimate:
 ## Data
 
 Our data is comprised of 129 molecular sequences coding for RSVA's G
-protein ([Zlateva et al., 2004; Zlateva et al., 2005](#references), a
+protein ([Zlateva et al., 2004; Zlateva et al., 2005](#references)), a
 glycoprotein that allows the virus to attach itself to the host cells'
 membranes, starting the infection.
 Importantly, our data is __time stamped__ (also referred to as
@@ -137,7 +137,7 @@ the number of taxa `n`, and the taxa themselves, `taxa`.
 Note that `n=length(codon);` is equivalent to `n=3;` because
 `length()` here is extracting the number of partitions in `codon`.
 
-If you want to double check everything you have typed, click the
+If you want to double-check everything you have typed, click the
 "Model" tab in the upper right panel.
 
 ### Model block
@@ -175,7 +175,7 @@ One final remark is that we use `rep(element=1.0, times=n)` (where `n`
 evaluates to 3) to create three concentration vectors (one vector per
 partition) for the `WeightedDirichlet` sampling distribution.
 
-Again, if you want to double check everything you have typed, click the
+Again, if you want to double-check everything you have typed, click the
 “Model” tab in the upper right panel.
 
 ### The whole script
@@ -307,8 +307,9 @@ This is expected when ESSs are low.
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 
 <figure class="image">
-  <img src="short.png" alt="The trace of short run">
-  <figcaption>Figure {{ current_fig_num }}: A screenshot of Tracer (low ESS).</figcaption>
+  <img src="short.png" alt="The posterior histogram of mu">
+  <figcaption>Figure {{ current_fig_num }}: A screenshot of Tracer
+  showing the sampling histogram of `μ` from a short run.</figcaption>
 </figure>
 
 If you click the "Trace" tab in the upper-right corner, you will see
@@ -320,9 +321,18 @@ of the MCMC chain.
 It will help you see if the chain is mixing well and to what extent
 the samples are correlated. Here you can see how the samples are
 correlated.
+
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
+<figure class="image">
+  <img src="short2.png" alt="The trace of short run">
+  <figcaption>Figure {{ current_fig_num }}: A screenshot of Tracer
+  showing the trace of a short run.</figcaption>
+</figure>
+
 In LPhyBEAST, the default MCMC chain length is 1,000,000.
 After we remove the burn-in (set to 10%), there will be 1,800 samples in
-the trace (we ran the MCMC for steps sampling every 500), 
+the trace (we ran the MCMC for steps sampling every 500).
 Note how adjacent samples often tend to have similar values – not
 great.
 
@@ -366,7 +376,8 @@ Click on the "Trace" tab and look at the raw trace plot.
 
 <figure class="image">
   <img src="long.png" alt="The trace of long run">
-  <figcaption>Figure {{ posterior_fig_num }}: A screenshot of Tracer.</figcaption>
+  <figcaption>Figure {{ posterior_fig_num }}: A screenshot of Tracer
+  showing the trace of a long run.</figcaption>
 </figure>
 
 With this much longer MCMC chain, we still have 1,800 samples after
@@ -375,7 +386,7 @@ A large ESS does not mean there is no auto-correlation between
 samples overall, but instead that we have at least 200 effectively
 independent samples.
 More effective samples means we are approximating the posterior better
-than before, with ESSs < 100.
+than before, when ESSs were less than 100.
 
 (You should keep an eye for weird trends in the trace plot suggesting
 that the MCMC chain has not yet converged, or is struggling to
@@ -388,7 +399,7 @@ global substitution rate, `μ`.
 This is the average substitution rate across all sites in the
 alignment.  
 
-First, select "r" in the left-hand panel, and click the "Marginal
+First, select "mu" in the left-hand panel, and click the "Marginal
 Density" tab in the upper-right corner to see the posterior density
 plot for this parameter.
 You should see a plot similar to this:
@@ -397,11 +408,13 @@ You should see a plot similar to this:
 
 <figure class="image">
   <img src="muDensity.png" alt="marginal density">
-  <figcaption>Figure {{ current_fig_num }}: The marginal density in Tracer.</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: A screenshot of Tracer
+  showing the marginal posterior probability density of the mean
+  substitution rate, `μ`.</figcaption>
 </figure>
 
-As we can see in Figure {{ posterior_fig_num }}, posterior probability density is roughly
-bell-shaped. 
+As we can see in Figure {{ posterior_fig_num }}, the marginal
+posterior probability density of `μ` is roughly bell-shaped. 
 If the curve does not look very smooth, it is because there is some
 sampling noise: we could smooth it out more if we ran the MCMC chain
 for longer or took more samples.
@@ -413,8 +426,8 @@ Note that you can overlay the density plots of multiple traces in
 order to compare them (it is up to you to determine whether they are
 comparable on the the same axis or not).
 For example: select the relative substitution rates for all three
-codon positions (partitions) in the left-hand panel (labelled "r.0",
-"r.1" and "r.2").  
+codon positions (partitions) in the left-hand panel (labelled "r_0",
+"r_1" and "r_2").  
 
 You will now see the posterior probability densities for the relative
 substitution rate at all three codon positions overlaid: 
@@ -423,7 +436,9 @@ substitution rate at all three codon positions overlaid:
 
 <figure class="image">
   <img src="relativeRates.png" alt="relative substitution rates">
-  <figcaption>Figure {{ current_fig_num }}: The posterior probability densities for the relative substitution rates.</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: A screenshot of Tracer
+  showing the marginal posterior probability densities for the
+  relative substitution rates, `r_0`, `r_1` and `r_2`.</figcaption> 
 </figure>
 
 ### Summarising the trees
@@ -442,7 +457,7 @@ We will use a special tool for that, TreeAnnotator.
 ### Visualizing the trees
 
 Summary trees can be viewed using FigTree and DensiTree, the latter
-being distributed with BEAST.
+being distributed with BEAST 2.
 In FigTree, just load TreeAnnotator's output file as the input (if you
 were to load the entire tree log file, FigTree would show you each
 tree in the posterior individually).
@@ -451,11 +466,15 @@ tree in the posterior individually).
 
 {% assign figtree_fig_num = current_fig_num %}
 
-Selecting `Order nodes` and keeping the default ordrering `increasing` in the `Trees` tab, 
-when you successfully load the MCC tree. 
-In addition, you need to select `Node Bars` and choose `height_95%_HPD`, 
-in order to show the 95% HPD interval of estimated time of most recent common ancestor (tMRCA) in each internal node. 
-You should end up with something like Figure {{ figtree_fig_num }}.
+After loading the MCC tree in FigTree, click on the "Trees" tab on the
+left-hand side, then select "Order nodes" while keeping the default
+ordering ("increasing").
+In addition, check "Node Bars", choosing "height_95%_HPD" for
+"Display".
+This last step shows the estimated 95% HPD intervals for all node
+heights.
+You should end up with a tree like the one in Figure {{
+figtree_fig_num }}.
 
 <figure class="image">
   <a href="RSV2.tree.png" target="_blank"><img src="RSV2.tree.png" alt="MCC tree"></a>
@@ -473,7 +492,6 @@ are all the other trees in the posterior set.
   <img src="DensiTree.png" alt="MCC tree">
   <figcaption>Figure {{ current_fig_num }}: The posterior tree set visualised in DensiTree.</figcaption>
 </figure>
-
 
 ## Questions
 
