@@ -5,6 +5,6 @@ and select the file that BEAST has created called `{{ include.logfile }}.log`. Y
 see a window like in {{ include.fignum }}.
 
 <figure class="image">
-  <img src="Tracer.png" alt="The trace of short run">
-  <figcaption>{{ include.fignum }}: A screenshot of Tracer.</figcaption>
+  <img src="Tracer.png" alt="A screenshot of Tracer">
+  <figcaption>Figure {{ include.fignum }}: A screenshot of Tracer.</figcaption>
 </figure>

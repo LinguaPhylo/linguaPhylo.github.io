@@ -1,0 +1,77 @@
+
+                        BEAST v2.6.3, 2002-2020
+             Bayesian Evolutionary Analysis Sampling Trees
+                       Designed and developed by
+ Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
+                                    
+                   Centre for Computational Evolution
+                         University of Auckland
+                       r.bouckaert@auckland.ac.nz
+                        alexei@cs.auckland.ac.nz
+                                    
+                   Institute of Evolutionary Biology
+                        University of Edinburgh
+                           a.rambaut@ed.ac.uk
+                                    
+                    David Geffen School of Medicine
+                 University of California, Los Angeles
+                           msuchard@ucla.edu
+                                    
+                      Downloads, Help & Resources:
+                           http://beast2.org/
+                                    
+  Source code distributed under the GNU Lesser General Public License:
+                   http://github.com/CompEvol/beast2
+                                    
+                           BEAST developers:
+   Alex Alekseyenko, Trevor Bedford, Erik Bloomquist, Joseph Heled, 
+ Sebastian Hoehna, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, 
+Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, 
+          Oliver Pybus, Tim Vaughan, Chieh-Hsi Wu, Walter Xie
+                                    
+                               Thanks to:
+          Roald Forsberg, Beth Shapiro and Korbinian Strimmer
+
+Random number seed: 1615932842156
+
+Alignment(D)
+  63 taxa
+  411 sites
+  246 patterns
+
+  Using BEAGLE version: 2.1.2 resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_SSE THREADING_NONE PROCESSOR_CPU FRAMEWORK_CPU
+===============================================================================
+Citations for this model:
+
+Bouckaert, Remco, Timothy G. Vaughan, Joëlle Barido-Sottani, Sebastián Duchêne, Mathieu Fourment, 
+Alexandra Gavryushkina, Joseph Heled, Graham Jones, Denise Kühnert, Nicola De Maio, Michael Matschiner, 
+Fábio K. Mendes, Nicola F. Müller, Huw A. Ogilvie, Louis du Plessis, Alex Popinga, Andrew Rambaut, 
+David Rasmussen, Igor Siveroni, Marc A. Suchard, Chieh-Hsi Wu, Dong Xie, Chi Zhang, Tanja Stadler, 
+Alexei J. Drummond 
+  BEAST 2.5: An advanced software platform for Bayesian evolutionary analysis. 
+  PLoS computational biology 15, no. 4 (2019): e1006650.
+
+Drummond, A. J., Rambaut, A., Shapiro, B, & Pybus, O. G. (2005).
+Bayesian coalescent inference of past population dynamics from molecular sequences.
+Molecular biology and evolution, 22(5), 1185-1192.
+
+===============================================================================
+Start likelihood: -15308.975943185453 
+         Sample      posterior     likelihood          prior           pi.A           pi.C           pi.G           pi.T       rates.AC       rates.AG       rates.AT       rates.CG       rates.CT       rates.GT          shape    groupSizes1    groupSizes2    groupSizes3    groupSizes4        Theta.0        Theta.1        Theta.2        Theta.3
+              0     -9704.8935     -9065.3787      -639.5147         0.2606         0.3363         0.1385         0.2644         0.0121         0.2254         0.1866         0.1116         0.2427         0.2212         0.3038              6             16             10             30      6533.9762     11616.4315     13602.0697     14705.5190 --
+        2000000     -6624.3033     -6159.4699      -464.8333         0.2101         0.3110         0.2415         0.2373         0.0434         0.3259         0.0708         0.0258         0.5013         0.0324         0.3298             10             15             12             25      8591.2083       308.0220       310.6327       309.3228 --
+        4000000     -6628.1309     -6160.0129      -468.1179         0.1972         0.3228         0.2410         0.2388         0.0351         0.3572         0.0851         0.0272         0.4601         0.0350         0.4184             14             29             15              4      5174.6260       314.9800        71.5886       306.4408 --
+        6000000     -6628.3593     -6176.0831      -452.2761         0.1927         0.3340         0.2393         0.2338         0.0442         0.3691         0.0694         0.0224         0.4563         0.0383         0.3454             14             41              5              2      8961.9723       180.5812       566.6070        30.1655 --
+        8000000     -6620.3832     -6151.1308      -469.2523         0.1890         0.3271         0.2220         0.2617         0.0586         0.4095         0.0492         0.0297         0.4019         0.0506         0.3237              5              7              5             45      5638.8872      4985.9490       735.3286       181.8943 --
+       10000000     -6634.2728     -6155.6125      -478.6602         0.1984         0.3127         0.2369         0.2518         0.0537         0.3131         0.0640         0.0290         0.4857         0.0543         0.3389             15             35              6              6      6157.7287       262.4517       274.9721       454.8792 --
+       12000000     -6632.0543     -6156.4402      -475.6141         0.1798         0.3330         0.2415         0.2455         0.0608         0.3590         0.0574         0.0221         0.4502         0.0502         0.3566             13              9             31              9      8673.2771       563.1260       207.4236       351.1949 1m26s/Msamples
+       14000000     -6604.0547     -6159.4034      -444.6513         0.1900         0.3444         0.2292         0.2363         0.0517         0.3890         0.0656         0.0238         0.4268         0.0426         0.3585             15             24             19              4      4065.2914       109.7974       144.2011       321.7280 1m26s/Msamples
+       16000000     -6618.0640     -6162.0308      -456.0331         0.1839         0.3163         0.2487         0.2509         0.0529         0.3715         0.0490         0.0338         0.4588         0.0337         0.3907              3              8             50              1     10400.1367      9044.3131       239.4212        60.8851 1m27s/Msamples
+       18000000     -6607.1897     -6174.8154      -432.3743         0.2000         0.3159         0.2357         0.2482         0.0510         0.3869         0.0696         0.0269         0.4144         0.0510         0.3754             10              3             37             12     10330.2241      2253.5788        75.2420       281.7353 1m28s/Msamples
+       20000000     -6632.1711     -6167.8696      -464.3014         0.2033         0.3255         0.2253         0.2457         0.0439         0.3472         0.0852         0.0301         0.4580         0.0353         0.3890             14             13             31              4      5238.2486       691.5507       113.3322       620.0903 1m28s/Msamples
+       22000000     -6601.7945     -6157.3072      -444.4872         0.1788         0.3468         0.2222         0.2520         0.0537         0.3705         0.0743         0.0214         0.4322         0.0476         0.3597              9              5             43              5      7643.3009      1507.8786       161.4099       288.8816 1m28s/Msamples
+       24000000     -6620.1297     -6166.9619      -453.1678         0.2206         0.3262         0.2143         0.2388         0.0524         0.3805         0.0429         0.0343         0.4373         0.0523         0.3967             13              6             39              4      6285.7708       309.7145       132.2869       253.9971 1m29s/Msamples
+       26000000     -6625.4418     -6158.2819      -467.1599         0.1935         0.3316         0.2063         0.2684         0.0506         0.4036         0.0536         0.0265         0.4223         0.0431         0.3655             13             33             12              4      6168.7167       207.0890       216.4639       436.4389 1m29s/Msamples
+       28000000     -6643.1138     -6167.5685      -475.5453         0.2094         0.3182         0.2352         0.2370         0.0654         0.3168         0.0542         0.0226         0.5003         0.0404         0.4019             11              7              1             43      8427.2091      1227.9502      1161.0368       188.8011 1m29s/Msamples
+       30000000     -6634.6464     -6162.5428      -472.1036         0.1980         0.3231         0.2340         0.2447         0.0526         0.3268         0.0506         0.0283         0.4915         0.0498         0.3507             12             20             25              5      5075.6011       867.5803       106.8653       451.7345 1m29s/Msamples
