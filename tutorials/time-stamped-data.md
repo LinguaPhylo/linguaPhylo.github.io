@@ -316,7 +316,7 @@ This is expected when ESSs are low.
 
 If you click the "Trace" tab in the upper-right corner, you will see
 the raw trace, that is, the sampled values against the step in the
-MCMC chain (Fig. {{ posterior_fig_num }}).
+MCMC chain (Fig. {{ current_fig_num }}).
 
 The trace shows the value of a given statistic for each sampled step
 of the MCMC chain.
