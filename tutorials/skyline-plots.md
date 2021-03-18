@@ -23,7 +23,8 @@ The programs used in this tutorial are listed [below](#programs-used-in-this-exe
 [(Drummond, Rambaut, Shapiro, & Pybus, 2005)](https://academic.oup.com/mbe/article/22/5/1185/1066885) explained 
 these concepts in the figure below:
 
-{% assign current_fig_num = current_fig_num | plus: 1 %}
+[//]: # (Figure 1)
+{% assign current_fig_num = 1 %} 
 
 {% assign bs1_fig_num = "Figure " | append: current_fig_num  %}
 
@@ -70,13 +71,11 @@ We will try to infer this increase from sequence data.
 
 {% include_relative templates/lphy-scripts.md %}
 
-{::nomarkdown}
-{% include_relative skyline-plots/lphy.html %}
-{:/}
-
 {% assign current_fig_num = current_fig_num | plus: 1 %}
+{% assign lphy_fig = "Figure " | append: current_fig_num  %}
 
-{% include_relative templates/lphy-studio.md lphy="hcv_coal" fignum=current_fig_num %}
+[//]: # (## Code, Graphical Model)
+{% include_relative skyline-plots/lphy.md fignum=lphy_fig %}
 
 
 ### Data block
@@ -123,26 +122,30 @@ We will use an estimate inferred in [Pybus et al., 2001](#references) to fix the
 In this case all the samples were contemporaneous (sampled at the same time) and the clock rate is simply 
 a scaling of the estimated tree branch lengths (in substitutions/site) into calendar time.
 
-So, let's set the clock rate _mu_ to 0.00079 s/s/y
+So, let's set the clock rate _$\mu$_ to 0.00079 s/s/y
 
 In addition, we define the priors for the following parameters:
 1. the vector of effective population sizes _Θ_;  
 2. the relative rates of the GTR process _rates_; 
 3. the base frequencies _π_;
-4. the shape of the discretized gamma distribution _shape_.
+4. the shape of the discretized gamma distribution _$\gamma$_.
 
 Here we setup a Markov chain of effective population sizes using `ExpMarkovChain`, 
-and apply a `LogNormal` distribution to the mean of the exponential from which the first value of the chain is drawn.
-The `groupSizes` are positive integers randomly sampled by `RandomComposition` with the dimension of `numGroups`, 
-and they should sum to the number of coalescent intervals.
+and apply a `LogNormal` distribution to the first value of the chain.
+Please note that the first value _Θ1_ is measured from the tips according to 
+([Drummond, Rambaut, Shapiro, & Pybus, 2005](https://academic.oup.com/mbe/article/22/5/1185/1066885)).
+The vector of group sizes `A` are positive integers randomly sampled by the function `RandomComposition` 
+where the vector's dimension equals to a constant `numGroups`, 
+and they should sum to the number of coalescent events `w`.
 
 
 ### Questions
 
 
-1. what does `numGroups = 4` and `w` define according to the [{{ bs1_fig_num }}](#bs1_fig) (the classic and generalized Coalescent Bayesian Skyline plots)?
+1. What are `numGroups` and `w` according to the [{{ bs1_fig_num }}](#bs1_fig)?
+And how to compute the number of coalescent events given the number of taxa?
 
-2. how to change the above LPhy scripts to use the classic Skyline coalescent?
+2. How to change the above LPhy scripts to use the classic Skyline coalescent?
 
 Tips: by default all group sizes in SkylineCoalescent function are 1 which is equivalent to the classic skyline coalescent.
 
@@ -319,6 +322,11 @@ Instead a structured model should then be used to account for these biases.
 {% include_relative templates/programs-used.md %}
 * BEAST SSM (standard substitution models) package - containing the following standard time-reversible substitution models: 
   JC, F81, K80, HKY, TrNf, TrN, TPM1, TPM1f, TPM2, TPM2f, TPM3, TPM3f, TIM1, TIM1f, TIM2, TIM2f, TIM3 , TIM3f, TVMf, TVM, SYM, GTR.
+
+
+[//]: # (## Data, Model, Posterior)
+{% include_relative skyline-plots/narrative.md %}
+
 
 ## Useful Links
 
