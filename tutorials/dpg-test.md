@@ -70,7 +70,8 @@ This implements the Bayesian stochastic search variable selection (BSSVS).
 {% include_relative templates/lphy-beast.md lphy="h5n1" nex="H5N1" %}
 
 ```
-java -jar LPhyBEAST.jar -l 30000000 h5n1.lphy
+# BEAST_DIR = "/Applications/BEAST2.6.3"
+$BEAST_DIR/bin/applauncher LPhyBEAST -l 30000000 tutorials/h5n1.lphy
 ```
 
 

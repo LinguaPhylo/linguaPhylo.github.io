@@ -142,7 +142,8 @@ then the dimension of migration rates backwards in time should equal to
 {% include_relative templates/lphy-beast.md lphy="h3n2" nex="h3n2" %}
 
 ```
-java -jar LPhyBEAST.jar -l 30000000 h3n2.lphy
+# BEAST_DIR = "/Applications/BEAST2.6.3"
+$BEAST_DIR/bin/applauncher LPhyBEAST -l 30000000 tutorials/h3n2.lphy
 ```
 
 

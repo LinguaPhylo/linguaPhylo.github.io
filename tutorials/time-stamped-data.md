@@ -199,7 +199,8 @@ Let us look at the whole thing:
 {% include_relative templates/lphy-beast.md lphy="RSV2" nex="RSV2" %}
 
 ```
-java -jar LPhyBEAST.jar RSV2.lphy
+# BEAST_DIR = "/Applications/BEAST2.6.3"
+$BEAST_DIR/bin/applauncher LPhyBEAST tutorials/RSV2.lphy 
 ```
 
 ### Running BEAST 2
@@ -363,7 +364,7 @@ You can now run _LPhyBEAST_ again, this time with the `-l` argument
 to create a new .xml file:
 
 ```
-java -jar LPhyBEAST.jar -l 15000000 -o RSV2long.xml RSV2.lphy
+$BEAST_DIR/bin/applauncher LPhyBEAST -l 15000000 -wd tutorials -o RSV2long.xml RSV2.lphy
 ```
 
 Now run BEAST 2 again and load the new log file into Tracer (you can
