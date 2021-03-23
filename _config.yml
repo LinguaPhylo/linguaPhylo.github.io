@@ -34,6 +34,7 @@ mathjax: true
 theme: minima
 header_pages:
   - about.md
+  - setup.md
   - tutorials.md
 plugins:
   - jekyll-feed
