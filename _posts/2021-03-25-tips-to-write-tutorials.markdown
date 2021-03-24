@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "Tips to write tutorials"
+title:  "Tips to Write LPhyBEAST Tutorials"
+author: Walter Xie
 date:   2021-03-25
 categories: tutorials
 ---
@@ -21,12 +22,14 @@ if necessary, you are welcome to create new templates.
 To reuse these templates in your main markdown file, 
 you can simply copy the example below using a template [lphy-beast.md](templates/lphy-beast.md):
 
+{% raw %}
 ```
 {% include_relative templates/lphy-beast.md lphy="hcv_coal" %}
 ```
+{% endraw %}
 
 As you can see, [lphy-beast.md](templates/lphy-beast.md) has 1 variable `lphy`, 
-which is declared as `{{include.lphy}}` in the template. 
+which is declared as {% raw %}`{{include.lphy}}`{% endraw %} in the template. 
 The prefix `include` is always required for any variables.
 
 Then, given `lphy="hcv_coal"`, this variable will be replaced to `hcv_coal` 
@@ -42,27 +45,34 @@ even though you would change their ordering later.
 
 Assign 1 to the variable `current_fig_num`:
 
+{% raw %}
 ```
 {% assign current_fig_num = 1 %} 
 ```
+{% endraw %}
 
 Then append "Figure " before 1:
 
+{% raw %}
 ```
 {% assign bs1_fig_num = "Figure " | append: current_fig_num  %}
 ```
+{% endraw %}
 
 So you will have "Figure 1" in your first figure caption:
 
-```
+{% raw %}
+```html
 <figure class="image" id="bs1_fig">
   <img src="BS1.png" alt="Bayesian Skyline">
   <figcaption>{{ bs1_fig_num }}: ... </figcaption>
 </figure>
 ```
+{% endraw %}
 
 For the rest of numbers, just add 1 each time before you use it:
 
+{% raw %}
 ```
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 ```
@@ -73,18 +83,20 @@ you can define another variable to keep its value, such as
 ```
 {% assign pop_fig_num = "Figure " | append: current_fig_num  %}
 ```
+{% endraw %}
 
 In practice, whatever you move, add, or delete your figures, 
 as long as `plus: 1` is correctly distributed, 
 you do not have to manually check and correct these numbers anymore.    
-<span style='font-size:10px;'>&#128513;</span>
+<span style='font-size:30px;'>&#128513;</span>
 
 ## Writing math in Latex 
 
 You can directly write math symbols and equations in your tutorial markdown file,
-indicated by special delimiters like \$\$...\$\$ or \$...\$ for inline.
+indicated by special delimiters like <span>$</span><span>$</span>...<span>$</span><span>$</span> 
+or <span>$</span>...<span>$</span> for inline.
 
-The detail is described in [MathJax doc](http://docs.mathjax.org/en/latest/input/tex/index.html).
+More details are described in [MathJax doc](http://docs.mathjax.org/en/latest/input/tex/index.html).
  
 
 ## Auto-generated narrative 
