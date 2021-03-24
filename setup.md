@@ -124,7 +124,7 @@ If the LPhyBEAST and its dependencies are installed properly, the command below 
 $BEAST_DIR/bin/applauncher LPhyBEAST -h
 ```
 
-### AppLaucher failed by Java version
+### LPhyBEAST failed by Java version
 
 If the `applauncher LPhyBEAST -h` failed with the following error message about Java version:
 
