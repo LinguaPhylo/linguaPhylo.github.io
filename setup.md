@@ -44,7 +44,7 @@ java -jar LPhy.v0.0.2.jar tutorials/RSV2.lphy
 [LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) is distributed as a [BEAST 2 package](https://www.beast2.org/managing-packages/),
 you can use an application called `Package Manager`, which is distributed with BEAST 2 together,
 to install it and its dependent packages as below. 
-Please not the name of package is case-sensitive.
+Please note the name of package is case-sensitive.
 
 ```bash
 # BEAST_DIR = "/Applications/BEAST2.6.3"
@@ -98,7 +98,7 @@ then please install it manually following the steps below:
 1. Go to the [LPhyBEAST release page](https://github.com/LinguaPhylo/LPhyBeast/releases)
 download the latest version (LPhyBEAST.v???.zip);
 
-2. [Locate your BEAST 2 packages installation directories](https://www.beast2.org/managing-packages/) 
+2. Locate your local [BEAST 2 packages installation directories](https://www.beast2.org/managing-packages/) 
 and delete everything (corrupted zip file) under the `lphybeast` folder.
 If it does not exist, then create the sub-directory `lphybeast` under the folder containing all packages;
 
@@ -106,13 +106,15 @@ If it does not exist, then create the sub-directory `lphybeast` under the folder
 The example command line in Linux is 
 `unzip  ~/Downloads/LPhyBEAST.v0.0.2.zip -d ~/.beast/2.6/lphybeast/`;
 
-4. Check if there is the `lib` sub-folder under the `lphybeast` folder and if it contains any .jar file, 
+4. Check if there is the `lib` sub-folder under the `lphybeast` folder and if it contains any .jar files, 
 and then run `packagemanager -list` to ensure it is installed;
 
 5. The dependent BEAST 2 packages are list in the release page. Make sure all of them are installed. 
 
 __Tips:__ you can run `packagemanager -add lphybeast` first to install all dependent packages, 
-and follow the above steps to re-install `lphybeast` manually.
+and follow the above steps to re-install `lphybeast` package manually.
+Then run `applauncher LPhyBEAST -h`, if any dependent packages are missing, there will be a pop-up error message to show what they are one by one. You would therefore install them manually following the above steps.
+
 
 More details about [managing BEAST 2 packages](https://www.beast2.org/managing-packages/) are available.
 
