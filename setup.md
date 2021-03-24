@@ -129,7 +129,10 @@ $BEAST_DIR/bin/applauncher LPhyBEAST -h
 If the `applauncher LPhyBEAST -h` failed with the following error message about Java version:
 
 ```
-java.lang.UnsupportedClassVersionError: lphybeast/LPhyBEAST has been compiled by a more recent version of the Java Runtime (class file version 60.0), this version of the Java Runtime only recognizes class file versions up to 52.0
+java.lang.UnsupportedClassVersionError: 
+lphybeast/LPhyBEAST has been compiled by a more recent version 
+of the Java Runtime (class file version 60.0), this version of 
+the Java Runtime only recognizes class file versions up to 52.0
 	at java.lang.ClassLoader.defineClass1(Native Method)
 	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
 	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
