@@ -92,9 +92,20 @@ you do not have to manually check and correct these numbers anymore.
 
 ## Writing math in Latex 
 
-You can directly write math symbols and equations in your tutorial markdown file,
-indicated by special delimiters like <span>$</span><span>$</span>...<span>$</span><span>$</span> 
+You can directly write math symbols and equations in your markdown file,
+wrapped by dollar signs like <span>$</span><span>$</span>...<span>$</span><span>$</span> 
 or <span>$</span>...<span>$</span> for inline.
+
+For example,
+
+```
+$$ P(t) = e^{\Lambda t} $$ 
+```
+
+will look like this in the website:  
+
+$$ P(t) = e^{\Lambda t} $$ 
+
 
 More details are described in [MathJax doc](http://docs.mathjax.org/en/latest/input/tex/index.html).
  
