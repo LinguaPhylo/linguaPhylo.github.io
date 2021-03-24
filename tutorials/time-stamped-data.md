@@ -196,7 +196,7 @@ Let us look at the whole thing:
 
 ### Producing a BEAST 2 .xml using LPhyBEAST
 
-{% include_relative templates/lphy-beast.md lphy="RSV2" nex="RSV2" %}
+{% include_relative templates/lphy-beast.md lphy="RSV2" %}
 
 ```
 # BEAST_DIR = "/Applications/BEAST2.6.3"

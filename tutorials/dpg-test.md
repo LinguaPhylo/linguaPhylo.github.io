@@ -67,7 +67,7 @@ This implements the Bayesian stochastic search variable selection (BSSVS).
 
 ## Producing BEAST XML using LPhyBEAST
 
-{% include_relative templates/lphy-beast.md lphy="h5n1" nex="H5N1" %}
+{% include_relative templates/lphy-beast.md lphy="h5n1" %}
 
 ```
 # BEAST_DIR = "/Applications/BEAST2.6.3"

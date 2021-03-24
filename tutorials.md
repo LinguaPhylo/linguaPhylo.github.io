@@ -21,7 +21,7 @@ permalink: /tutorials/
 
 ## How to write a tutorial 
 
-* [Tips]()
+* [Tips](tips-for-jekyll)
 
 ### Setup
 

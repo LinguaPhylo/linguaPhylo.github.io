@@ -139,7 +139,7 @@ then the dimension of migration rates backwards in time should equal to
 
 ## Producing BEAST XML using LPhyBEAST
 
-{% include_relative templates/lphy-beast.md lphy="h3n2" nex="h3n2" %}
+{% include_relative templates/lphy-beast.md lphy="h3n2" %}
 
 ```
 # BEAST_DIR = "/Applications/BEAST2.6.3"

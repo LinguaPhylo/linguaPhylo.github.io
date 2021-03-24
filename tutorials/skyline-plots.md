@@ -153,7 +153,7 @@ Tips: by default all group sizes in SkylineCoalescent function are 1 which is eq
 
 ## Producing BEAST XML using LPhyBEAST
 
-{% include_relative templates/lphy-beast.md lphy="hcv_coal" nex="hcv" %}
+{% include_relative templates/lphy-beast.md lphy="hcv_coal" %}
 
 ```bash
 # BEAST_DIR = "/Applications/BEAST2.6.3"
