@@ -8,9 +8,9 @@ permalink: /setup/
 
 LPhy and LPhyBEAST are developed on Java 16. 
 You can either install [Oracle JDK 16](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html) 
-or [OpenJDK 16](https://jdk.java.net/16/). 
+or [OpenJDK 16](https://jdk.java.net/16/). Please make sure `JAVA_HOME` is setup properly.
 
-After Java is installed, use the command line below to check your Java version:
+Use the command line below to check your Java version:
 
 ```bash
 java -version
@@ -123,4 +123,21 @@ If the LPhyBEAST and its dependencies are installed properly, the command below 
 ```bash
 $BEAST_DIR/bin/applauncher LPhyBEAST -h
 ```
+
+### AppLaucher failed by Java version
+
+If the `applauncher LPhyBEAST -h` failed with the following error message about Java version:
+
+```
+java.lang.UnsupportedClassVersionError: lphybeast/LPhyBEAST has been compiled by a more recent version of the Java Runtime (class file version 60.0), this version of the Java Runtime only recognizes class file versions up to 52.0
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:468)
+```
+
+First, check if your local Java is 16 using `java -version`. 
+If yes, you need to download BEAST 2 without JRE, because with JRE, 
+`applauncher` will be forced to use the provided JRE in BEAST 2 which currently is 1.8.
+
 
