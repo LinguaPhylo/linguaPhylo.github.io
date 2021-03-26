@@ -21,7 +21,7 @@ permalink: /tutorials/
 
 ## How to write a tutorial 
 
-* [Tips](tips-for-jekyll)
+* [Tips]({% link _posts/2021-03-25-tips-to-write-tutorials.markdown %})
 
 ### Setup
 
