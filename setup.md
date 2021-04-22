@@ -23,20 +23,35 @@ download the latest released version (LPhy.v???.zip), and unzip the compressed f
 then you will see a folder with same name (LPhy.v???). 
 Finally, copy or move the folder with everything inside to your applications folder.
 
-There should be a jar file named with version numbers (e.g. `LPhy.v0.0.2.jar`) insider the folder.
+{% assign version = 0.0.3 %}
+
+There should be a jar file named with version numbers (e.g. `LPhy.v{{ version }}.jar`) insider the folder.
 You can either double-click the jar file, or use the following command line to start the LPhy Studio, 
 which is a Java GUI to specify and visualise graphical models 
 as well as simulate data from models defined in LPhy script.
 
 ```bash
-java -jar LPhy.v0.0.2.jar
+LPHY_PATH = ~/WorkSpace/linguaPhylo/
+cd $LPHY_PATH
+java -jar LPhy.v{{ version }}.jar
 ```
 
-You can also give a LPhy script file name:
+You can also give a LPhy script file name with its absolute path. 
+Here we use the script `RSV2.lphy` under the `tutorials` folder:
 
 ```bash
-java -jar LPhy.v0.0.2.jar tutorials/RSV2.lphy
+java -jar LPhy.v{{ version }}.jar $LPHY_PATH/tutorials/RSV2.lphy
 ```
+
+Or work on the folder containing scripts:
+
+```bash
+cd $LPHY_PATH/tutorials/
+java -jar $LPHY_PATH/LPhy.v{{ version }}.jar RSV2.lphy
+```
+
+The data is `$LPHY_PATH/tutorials/data/RSV2.nex`, which is loaded by a LPhy function
+`readNexus(file="data/RSV2.nex", ...);` inside the script using the relative path.
 
 
 ## LPhyBEAST
@@ -66,10 +81,32 @@ To start LPhyBEAST, you can use BEAST 2 `applauncher`, which is also distributed
 Here is some [details](https://www.beast2.org/2019/09/26/command-line-tricks.html) how to run it from the command line.
 
 ```bash
-$BEAST_DIR/bin/applauncher LPhyBEAST tutorials/RSV2.lphy
+$BEAST_DIR/bin/applauncher LPhyBEAST $LPHY_PATH/tutorials/RSV2.lphy
 ```
 
-The usage is available by the command below:
+Or work on the folder containing scripts:
+
+```bash
+cd $LPHY_PATH/tutorials/
+$BEAST_DIR/bin/applauncher LPhyBEAST RSV2.lphy
+```
+
+Alternatively, launch from another place but set the working directory 
+to the folder containing scripts using `-wd`:
+
+```bash
+$BEAST_DIR/bin/applauncher LPhyBEAST -wd ~/WorkSpace/linguaPhylo/tutorials/ -l 15000000 -o RSV2long.xml RSV2.lphy
+```
+
+Create 5 XML for simulations:
+```bash
+$BEAST_DIR/bin/applauncher LPhyBEAST -wd ~/WorkSpace/linguaPhylo/tutorials/ -r 5 RSV2.lphy
+```
+
+Please note: every time after loading a script file, LPhyBEAST (and LPhy Studio) will set the system environment variable `user.dir` to the folder containing this file. This folder will be used as the reference when the data path inside the scrips is a relative path. So, for a LPhy script, the relative path is always referring to the folder where it is. Then the data can be easily organized with the scripts together.
+
+
+The usage can be seen by the command below:
 
 ```bash
 $BEAST_DIR/bin/applauncher LPhyBEAST -h
@@ -104,7 +141,7 @@ If it does not exist, then create the sub-directory `lphybeast` under the folder
 
 3. Unzip the compressed LPhyBEAST.v???.zip file to the BEAST 2 package `lphybeast` folder. 
 The example command line in Linux is 
-`unzip  ~/Downloads/LPhyBEAST.v0.0.2.zip -d ~/.beast/2.6/lphybeast/`;
+`unzip  ~/Downloads/LPhyBEAST.v{{ version }}.zip -d ~/.beast/2.6/lphybeast/`;
 
 4. Check if there is the `lib` sub-folder under the `lphybeast` folder and if it contains any .jar files, 
 and then run `packagemanager -list` to ensure it is installed;
