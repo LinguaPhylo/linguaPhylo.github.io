@@ -23,7 +23,7 @@ download the latest released version (LPhy.v???.zip), and unzip the compressed f
 then you will see a folder with same name (LPhy.v???). 
 Finally, copy or move the folder with everything inside to your applications folder.
 
-{% assign version = 0.0.3 %}
+{% assign version = "0.0.3" %}
 
 There should be a jar file named with version numbers (e.g. `LPhy.v{{ version }}.jar`) insider the folder.
 You can either double-click the jar file, or use the following command line to start the LPhy Studio, 
@@ -95,16 +95,16 @@ Alternatively, launch from another place but set the working directory
 to the folder containing scripts using `-wd`:
 
 ```bash
-$BEAST_DIR/bin/applauncher LPhyBEAST -wd ~/WorkSpace/linguaPhylo/tutorials/ -l 15000000 -o RSV2long.xml RSV2.lphy
+$BEAST_DIR/bin/applauncher LPhyBEAST -wd $LPHY_PATH/tutorials/ -l 15000000 -o RSV2long.xml RSV2.lphy
 ```
 
 Create 5 XML for simulations:
 ```bash
-$BEAST_DIR/bin/applauncher LPhyBEAST -wd ~/WorkSpace/linguaPhylo/tutorials/ -r 5 RSV2.lphy
+$BEAST_DIR/bin/applauncher LPhyBEAST -wd $LPHY_PATH/tutorials/ -r 5 RSV2.lphy
 ```
 
 Please note: every time after loading a script file, LPhyBEAST (and LPhy Studio) will set the system environment variable `user.dir` to the folder containing this file. This folder will be used as the reference when the data path inside the scrips is a relative path. So, for a LPhy script, the relative path is always referring to the folder where it is. Then the data can be easily organized with the scripts together.
-
+Please see the example scripts, such as `tutorials/RSV2.lphy` or `examples/fullDataExample.lphy`.
 
 The usage can be seen by the command below:
 
