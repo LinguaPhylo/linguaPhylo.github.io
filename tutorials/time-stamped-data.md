@@ -13,7 +13,7 @@ You can find the source tutorial, data and author information
 
 The programs used in this tutorial are listed [below](#programs-used-in-this-exercise).
 In case you have not done it yet, please follow the installation
-instructions [here](../setup) before moving on.
+instructions [here](../setup.md) before moving on.
 
 ## Background
 
