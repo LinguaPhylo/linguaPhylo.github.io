@@ -3,7 +3,7 @@
 <h2>Data</h2>
 
 The number of replicates, <i>L</i> is the number of characters of  alignment, <i>D</i>.
-The alignment, <i>D</i> is read from the Nexus file with a file name of "tutorials/data/H5N1.nex" and <i>options</i>.
+The alignment, <i>D</i> is read from the Nexus file with a file name of "data/H5N1.nex" and <i>options</i>.
 The <i>options</i> are ageDirection="forward" and ageRegex="_(\d+)$".
 The <i>taxa</i> is the list of taxa of  alignment, <i>D</i>.
 The int, <i>K</i> is the number of states of  alignment, <i>D<sub>trait</sub></i>.

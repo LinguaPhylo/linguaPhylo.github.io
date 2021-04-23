@@ -143,7 +143,7 @@ then the dimension of migration rates backwards in time should equal to
 
 ```
 # BEAST_DIR = "/Applications/BEAST2.6.3"
-$BEAST_DIR/bin/applauncher LPhyBEAST -l 30000000 tutorials/h3n2.lphy
+$BEAST_DIR/bin/applauncher LPhyBEAST -l 30000000 h3n2.lphy
 ```
 
 

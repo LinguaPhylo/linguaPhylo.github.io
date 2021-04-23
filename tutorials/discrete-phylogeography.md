@@ -14,7 +14,7 @@ the phylogeographic diffusion process.
 The additional benefit using this model is that we can summarise the phylogeographic inferences from an analysis,
 and use a virtual globe software to visualize the spatial and temporal information.
 
-The programs used in this tutorial are listed in [the later section](#programs-used-in-this-exercise).
+The programs used in this tutorial are listed [below](#programs-used-in-this-exercise).
 
 ## The NEXUS alignment
 
@@ -28,66 +28,24 @@ isolated from a variety of hosts 1996 - 2005 across sample locations.
 
 ## Constructing the scripts in LPhy Studio
 
-{% include_relative templates/lphy-scripts.md %}
+{% include_relative templates/lphy-studio-intro.md %}
 
-{% capture lphy_html %}
-{% include_relative discrete-phylogeography/lphy.html %}
-{% endcapture %}
-
-{::nomarkdown}
-{{ lphy_html | replace: "11pt", "10pt" }}
-{:/}
+The LPhy scripts to define this analysis is listed below.
 
 
-{% include_relative templates/lphy-studio.md lphy="h5n1" fignum="Figure 1" %}
+[//]: # (## Code, Graphical Model)
+{% include_relative discrete-phylogeography/lphy.md fignum="Figure 1" %}
 
 
-### Data block
+## Geographic Model
 
-{% include_relative templates/lphy-data.md %}
-
-### Tip dates
-
-{% include_relative templates/tip-dates-forward.md  earliest='1997' 
-                    date_in_name='after the last `_`' 
-                    since='1900' regex='_(\d+)$' last='2005' %}
-
-### Tip locations
-
-{% include_relative templates/discrete-traits.md  locations='Fujian, HongKong, Hunan, Guangxi, and Guangdong' 
-                    using='`extractTrait` given the separator `_`, and taking the 3rd element given `i=2`' 
-                    traits='D_trait' %}
-
-The function `extractTrait` creates an one-site alignment `D_trait` to store the locations which map to taxa. 
-It is called as the discrete trait alignment. 
-The 2nd graphical component `D_trait` (blue circle) on the bottom is the random variable containing the discrete trait alignment simulated by the defined priors and models.
-Because we clamped the discrete trait alignment containing the actual locations to the `D_trait` in this analysis,
-it will use the actual locations instead of simulated locations.
-
-
-### Model block
-
-{% include_relative templates/lphy-model.md %}
-
-In this analysis, we have two parts mixed in the `model` section: 
+In this analysis, we have two parts mixed in the model section: 
 the first part is modeling evolutionary history and demographic structure based on a nucleotide alignment, 
 and the second part is defining how to sample the discrete states (locations) from the phylogeny $\psi$ shared with the 1st part.
 
-For the nucleotide alignment, we use the HKY model with estimated frequencies. 
-{% include_relative templates/rate-heterogeneity.md shape='$\gamma$' %}
-More details can be seen in the [Bayesian Skyline Plots](/tutorials/skyline-plots/#constructing-the-model-block-in-linguaphylo) tutorial. 
+For the nucleotide alignment, We fix a strict molecular clock to 0.004, to make the analysis converge a bit quicker.
 
-We use a strict molecular clock, but to make the analysis converge a bit quicker, 
-it is fixed to 0.004. 
-We choose a Kingman coalescent tree generative distribution as the tree prior. 
-
-Then we define the priors for the following parameters:
-1. the effective population size _$\theta$_;  
-2. the transition/transversion ratio _$\kappa$_;
-3. the base frequencies _$\pi$_.
-4. the shape of the discretized gamma distribution _$\gamma$_. 
-
-The next step is the geographic model. 
+The next is the geographic model. 
 In the discrete phylogeography, the probability of transitioning to a new location through the time is computed by 
 
 $$ P(t) = e^{\Lambda t} $$ 
@@ -106,19 +64,14 @@ So, assuming migration to be symmetric in this analysis, we define a vector vari
 which is performed by the function `select`. 
 This implements the Bayesian stochastic search variable selection (BSSVS).  
 
-In addition, we define the priors for the following parameters:
-5. the trait clock rate _$\mu$_trait_;
-6. the relative migration rates *R_trait*;
-7. the boolean vector *I*;
-8. the trait frequencies *$\pi$_trait*. 
-
 
 ## Producing BEAST XML using LPhyBEAST
 
-{% include_relative templates/lphy-beast.md lphy="h5n1" nex="H5N1" %}
+{% include_relative templates/lphy-beast.md lphy="h5n1" %}
 
 ```
-java -jar LPhyBEAST.jar -l 30000000 h5n1.lphy
+# BEAST_DIR = "/Applications/BEAST2.6.3"
+$BEAST_DIR/bin/applauncher LPhyBEAST -l 30000000 h5n1.lphy
 ```
 
 
@@ -267,7 +220,7 @@ In addition, you can set the branch `Width by` `location.prob` according to the 
 You should end up with something like Figure 4.
 
 <figure class="image">
-  <a href="h5n1_with_trait.tree.png" target="_blank"><img src="h5n1_with_trait.tree.png" alt="MCC tree"></a>
+  <a href="../discrete-phylogeography/h5n1_with_trait.tree.png" target="_blank"><img src="../discrete-phylogeography/h5n1_with_trait.tree.png" alt="MCC tree"></a>
   <figcaption>Figure 4: Figtree representation of the summary tree. 
   Branch colours represent location and branch widths posterior support for the branch.</figcaption>
 </figure>
@@ -279,7 +232,7 @@ Alternatively, you can load the posterior tree set `h5n1_with_trait.trees` (note
 The final image look like Figure 5.
 
 <figure class="image">
-  <a href="DensiTree.png" target="_blank"><img src="DensiTree.png" alt="DensiTree"></a>
+  <a href="../discrete-phylogeography/DensiTree.png" target="_blank"><img src="../discrete-phylogeography/DensiTree.png" alt="DensiTree"></a>
   <figcaption>Figure 5: The posterior tree set visualised in DensiTree.</figcaption>
 </figure>
 
@@ -323,7 +276,7 @@ To plot a simple graph, we only pick up the transitions to Hunan in the next com
 and then save the graph a PNG file. The counts are normalised into probabilities. 
 
 <figure class="image">
-  <a href="transition-distribution-hunan.png" target="_blank"><img src="transition-distribution-hunan.png" alt="DensiTree"></a>
+  <a href="../discrete-phylogeography/transition-distribution-hunan.png" target="_blank"><img src="../discrete-phylogeography/transition-distribution-hunan.png" alt="DensiTree"></a>
   <figcaption>Figure 6: The probability distribution of estimated transitions into Hunan from other places.</figcaption>
 </figure>
 
@@ -381,13 +334,18 @@ from [http://www.kuleuven.ac.be/aidslab/phylogeography/SPREAD.html](http://www.k
 not already have it installed).
 
 
+[//]: # (## Data, Model, Posterior)
+{% include_relative discrete-phylogeography/narrative.md %}
+
+
 ## Useful Links
 
 {% include_relative templates/links.md %}
 
 
-## References
+[//]: # (## References)
 
+{% include_relative discrete-phylogeography/references.md %}
 * Lemey, P., Rambaut, A., Drummond, A. J. and Suchard,
 M. A. (2009). Bayesian phylogeography finds its roots. PLoS Comput Biol
 5, e1000520.

@@ -13,7 +13,7 @@ You can find the source tutorial, data and author information
 
 The programs used in this tutorial are listed [below](#programs-used-in-this-exercise).
 In case you have not done it yet, please follow the installation
-instructions [here]() before moving on.
+instructions [here](../setup) before moving on.
 
 ## Background
 
@@ -200,7 +200,7 @@ Let us look at the whole thing:
 
 ```
 # BEAST_DIR = "/Applications/BEAST2.6.3"
-$BEAST_DIR/bin/applauncher LPhyBEAST tutorials/RSV2.lphy 
+$BEAST_DIR/bin/applauncher LPhyBEAST RSV2.lphy 
 ```
 
 ### Running BEAST 2
@@ -364,7 +364,8 @@ You can now run _LPhyBEAST_ again, this time with the `-l` argument
 to create a new .xml file:
 
 ```
-$BEAST_DIR/bin/applauncher LPhyBEAST -l 15000000 -wd tutorials -o RSV2long.xml RSV2.lphy
+# MY_SCRIPT_PATH = ~/WorkSpace/linguaPhylo/tutorials/
+$BEAST_DIR/bin/applauncher LPhyBEAST -wd $MY_SCRIPT_PATH -l 15000000 -o RSV2long.xml RSV2.lphy
 ```
 
 Now run BEAST 2 again and load the new log file into Tracer (you can

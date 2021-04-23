@@ -3,7 +3,7 @@
 <h2>Data</h2>
 
 The number of replicates, <i>L</i> is the number of characters of  alignment, <i>D</i>.
-The alignment, <i>D</i> is read from the Nexus file with a file name of "tutorials/data/hcv.nexus".
+The alignment, <i>D</i> is read from the Nexus file with a file name of "data/hcv.nexus".
 numGroups = 4
 The n, <i>w</i> is calculated by  taxa.length()-1.
 The <i>taxa</i> is the list of taxa of  alignment, <i>D</i>.

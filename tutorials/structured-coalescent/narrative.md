@@ -3,7 +3,7 @@
 <h2>Data</h2>
 
 Number of replicates, <i>L</i> is the number of characters of  alignment, <i>D</i>.
-The alignment, <i>D</i> is read from the Nexus file with a file name of "tutorials/data/h3n2.nexus" and <i>options</i>.
+The alignment, <i>D</i> is read from the Nexus file with a file name of "data/h3n2.nexus" and <i>options</i>.
 The <i>options</i> are ageDirection="forward" and ageRegex=".*\|.*\|(\d*\.\d+|\d+\.\d*)\|.*$".
 Number of replicates, <i>dim</i> comes from the S*(S-1).
 The integer, <i>S</i> is the length of an object.
