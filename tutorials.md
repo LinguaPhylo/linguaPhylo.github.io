@@ -6,6 +6,8 @@ permalink: /tutorials/
 
 ## LPhy BEAST
 
+* Please read the [installation instructions](setup.md) before moving on.
+
 ### Beginner
 
 * [Time-stamped data tutorial](tutorials/time-stamped-data.md)
