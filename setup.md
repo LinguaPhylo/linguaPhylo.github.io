@@ -115,8 +115,9 @@ $BEAST_DIR/bin/applauncher LPhyBEAST -h
 
 ### Manual installation
 
-The current version of `Package Manager` may download a corrupted zip file if it is big (~20MB),
-due to the GitHub issue.
+The `Package Manager` version 2.6.3 has a size-limit for downloading files. 
+LPhyBEAST package is over that limit, so the zip file will be corrupted.
+This issue has been solved at the higher version > 2.6.3.
 
 If you are getting the following error message, when you install `lphybeast` package:
 
