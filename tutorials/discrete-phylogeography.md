@@ -70,7 +70,7 @@ This implements the Bayesian stochastic search variable selection (BSSVS).
 {% include_relative templates/lphy-beast.md lphy="h5n1" %}
 
 ```
-# BEAST_DIR = "/Applications/BEAST2.6.3"
+# BEAST_DIR = "/Applications/BEAST2.6.5"
 $BEAST_DIR/bin/applauncher LPhyBEAST -l 30000000 h5n1.lphy
 ```
 
@@ -80,7 +80,7 @@ $BEAST_DIR/bin/applauncher LPhyBEAST -l 30000000 h5n1.lphy
 {% include_relative templates/run-beast.md xml="h5n1.xml" %}
 
 ```
-                         BEAST v2.6.3, 2002-2020
+                         BEAST v2.6.5, 2002-2020
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -113,37 +113,31 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1614208278348
-
-Loading package outercore v0.0.2
-Loading package BEAST v2.6.3
-Loading package feast v7.4.1
-Loading package BEASTLabs v1.9.5
-Loading package BEAST_CLASSIC v1.5.0
+Random number seed: 1622765548891
 
     ...
 
     ...
-        2850000     -5958.0570     -5837.5606      -120.4963         0.3328         0.1859         0.2322         0.2489         8.2417         0.3507         7.7953         0.1249         0.2570         0.1683         0.3524         0.0971              1              1              1              1              1              1              1              1              1              0         0.1726         0.0857         0.0236         0.1984         0.1218         0.0099         0.1197         0.0946         0.0852         0.0879         0.2469 1m20s/Msamples
-        3000000     -5953.5889     -5833.0862      -120.5027         0.3372         0.1973         0.2230         0.2423        10.0566         0.3012         7.9571         0.2938         0.1581         0.2429         0.2732         0.0317              1              0              0              0              1              1              1              1              1              1         0.1223         0.0255         0.0504         0.2905         0.1107         0.0093         0.0907         0.0157         0.2071         0.0775         0.2856 1m20s/Msamples
+       28500000     -5944.7208     -5832.4174      -112.3034         0.3258         0.1953         0.2215         0.2573         9.8272         0.3230         7.0644         0.1450         0.2684         0.0973         0.1102         0.0614         0.3173              1              0              0              1              0              0              0              0              0              0              1              0              1              0              0         0.0733         0.0201         0.0553         0.0824         0.0776         0.0502         0.0987         0.2817 9.888282872E-4 2.945698158E-4         0.1168         0.0295         0.0337         0.0671         0.0116         0.5471 1m49s/Msamples
+       30000000     -5937.7611     -5825.9374      -111.8236         0.3635         0.1906         0.2072         0.2385         9.7791         0.4147         7.4488         0.1870         0.1186         0.2852         0.2348         0.1126         0.0615              1              0              1              1              1              1              1              0              1              1              1              0              1              1              1         0.1268         0.0451         0.0275         0.1033         0.0454         0.1588         0.0472         0.0848         0.0106         0.0339         0.1906         0.0531         0.0127         0.0116         0.0478         0.3052 1m48s/Msamples
 
-Operator                                             Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                          0.47755       7889      18091    0.00866    0.30366 
-ScaleOperator(kappa.scale)                          0.51553       6568      19129    0.00866    0.25559 
-DeltaExchangeOperator(pi.deltaExchange)             0.08096       7617      48109    0.01868    0.13669 
-Exchange(psi.narrowExchange)                              -      61125     294888    0.11850    0.17169 
-ScaleOperator(psi.rootAgeScale)                     0.78835       4262      22126    0.00866    0.16151 
-ScaleOperator(psi.scale)                            0.90464      35422     318780    0.11850    0.10001 
-SubtreeSlide(psi.subtreeSlide)                      0.92028      67975     287756    0.11850    0.19109 
-Uniform(psi.uniform)                                      -     149131     206729    0.11850    0.41907 
-Exchange(psi.wideExchange)                                -       1648     354053    0.11850    0.00463 
-WilsonBalding(psi.wilsonBalding)                          -       2031     353486    0.11850    0.00571 
-ScaleOperator(shape.scale)                          0.41925       7340      18299    0.00866    0.28628 
-ScaleOperator(mu_trait.scale)                 0.26742       7628      18202    0.00866    0.29532 
-UpDownOperator(mu_traitUppsiDownOperator)     0.92616      49514     312158    0.12047    0.13690 
-BitFlipOperator(I.bitFlip)                 -      40470      89769    0.04340    0.31074 
-DeltaExchangeOperator(pi_trait.deltaExchange)       0.54731      10613      58216    0.02285    0.15419 
-DeltaExchangeOperator(R_trait.deltaExchange)    0.56871      16443     104534    0.04031    0.13592 
+Operator                                          Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+BitFlipOperator(I.bitFlip)                             -     653446    1021886    0.05581    0.39004 
+DeltaExchangeOperator(R_trait.deltaExchange)     0.55597     153434    1443787    0.05318    0.09606 Try setting delta to about 0.278
+ScaleOperator(Theta.scale)                       0.44711      66855     184309    0.00838    0.26618 
+ScaleOperator(gamma.scale)                       0.40516      66491     185171    0.00838    0.26421 
+ScaleOperator(kappa.scale)                       0.50973      63223     188554    0.00838    0.25111 
+ScaleOperator(mu_trait.scale)                    0.26384      70353     182053    0.00838    0.27873 
+UpDownOperator(mu_traitUppsiDownOperator)        0.92926     502637    2996849    0.11665    0.14363 
+DeltaExchangeOperator(pi.deltaExchange)          0.06343      97042     444990    0.01809    0.17903 
+DeltaExchangeOperator(pi_trait.deltaExchange)    0.53826     105596     670293    0.02587    0.13610 
+Exchange(psi.narrowExchange)                           -     585329    2857237    0.11475    0.17003 
+ScaleOperator(psi.rootAgeScale)                  0.77538      36626     215828    0.00838    0.14508 
+ScaleOperator(psi.scale)                         0.90646     351746    3090591    0.11475    0.10218 
+SubtreeSlide(psi.subtreeSlide)                   1.30719     450857    2992914    0.11475    0.13092 
+Uniform(psi.uniform)                                   -    1438457    1999757    0.11475    0.41837 
+Exchange(psi.wideExchange)                             -      15474    3426678    0.11475    0.00450 
+WilsonBalding(psi.wilsonBalding)                       -      19894    3421644    0.11475    0.00578 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -152,8 +146,8 @@ DeltaExchangeOperator(R_trait.deltaExchange)    0.56871      16443     104534   
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 244.148 seconds
-End likelihood: -5953.588976905855
+Total calculation time: 3191.75 seconds
+End likelihood: -5937.761100406069
 ```
 
 ## Analysing the BEAST output
@@ -192,18 +186,19 @@ you can see the set of meta data for the root.
 Looking for the last entries of `location.set` and `location.set.prob`, 
 you might find something like this:
 ```
-location.set = {Guangdong,HongKong,Hunan,Guangxi,Fujian}
-location.set.prob = {0.1971127151582454,0.5885619100499723,0.0416435313714603,0.11715713492504164,0.0555247084952804}
+location.set = {Guangdong,HongKong,Hunan,Guangxi,Fujian,?}
+location.set.prob = {0.18878400888395336,0.5857856746252083,0.031093836757357024,0.1243753470294281,0.05441421432537479,0.015546918378678512}
 ```
 This means that we have the following distribution for the root location:
 
 | Location| Probability      |
 |---------|------------------|
-|Guangdong|0.1971127151582454|
-|HongKong|0.5885619100499723|
-|Hunan|0.0416435313714603|
-|Guangxi|0.11715713492504164|
-|Fujian|0.0555247084952804|
+|Guangdong|0.18878400888395336|
+|HongKong|0.5857856746252083|
+|Hunan|0.031093836757357024|
+|Guangxi|0.1243753470294281|
+|Fujian|0.05441421432537479|
+|Fujian|0.015546918378678512|
 
 This distribution shows that the 95% HPD consists of all locations except Hunan, 
 with a strong indication that HongKong might be the root with over 58% probability. 

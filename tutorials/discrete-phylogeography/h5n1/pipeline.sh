@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BEAST="/Applications/BEAST2.6.3/bin/"
+BEAST="/Applications/BEAST2.6.5/bin/"
 
 # cd h5n1
 # run BEAST
