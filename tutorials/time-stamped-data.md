@@ -199,7 +199,7 @@ Let us look at the whole thing:
 {% include_relative templates/lphy-beast.md lphy="RSV2" %}
 
 ```
-# BEAST_DIR = "/Applications/BEAST2.6.5"
+# BEAST_DIR = "/Applications/BEAST2"
 $BEAST_DIR/bin/applauncher LPhyBEAST RSV2.lphy 
 ```
 

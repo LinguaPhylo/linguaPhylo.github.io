@@ -70,7 +70,7 @@ This implements the Bayesian stochastic search variable selection (BSSVS).
 {% include_relative templates/lphy-beast.md lphy="h5n1" %}
 
 ```
-# BEAST_DIR = "/Applications/BEAST2.6.5"
+# BEAST_DIR = "/Applications/BEAST2/"
 $BEAST_DIR/bin/applauncher LPhyBEAST -l 30000000 h5n1.lphy
 ```
 
