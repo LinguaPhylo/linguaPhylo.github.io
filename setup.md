@@ -23,7 +23,7 @@ download the latest released version (LPhy.v???.zip), and unzip the compressed f
 then you will see a folder with same name (LPhy.v???). 
 Finally, copy or move the folder with everything inside to your applications folder.
 
-{% assign version = "0.0.3" %}
+{% assign version = "0.0.4" %}
 
 There should be a jar file named with version numbers (e.g. `LPhy.v{{ version }}.jar`) insider the folder.
 You can either double-click the jar file, or use the following command line to start the LPhy Studio, 
@@ -54,15 +54,17 @@ The data is `$LPHY_PATH/tutorials/data/RSV2.nex`, which is loaded by a LPhy func
 `readNexus(file="data/RSV2.nex", ...);` inside the script using the relative path.
 
 
-## LPhyBEAST
+## LPhyBEAST installation
 
 [LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) is distributed as a [BEAST 2 package](https://www.beast2.org/managing-packages/),
 you can use an application called `Package Manager`, which is distributed with BEAST 2 together,
 to install it and its dependent packages as below. 
 Please note the name of package is case-sensitive.
 
+{% assign beastversion = "2.6.5" %}
+
 ```bash
-# BEAST_DIR = "/Applications/BEAST2.6.3"
+# BEAST_DIR = "/Applications/BEAST{{ beastversion }}"
 $BEAST_DIR/bin/packagemanager -add lphybeast 
 ```
 
@@ -72,6 +74,16 @@ and make sure the column `Installed Version` shows a version number not `NA`:
 ```bash
 $BEAST_DIR/bin/packagemanager -list 
 ```
+
+If you have installed LPhyBEAST previously, we recommend you remove the old version first,
+using the command below, then install it.
+
+```bash
+$BEAST_DIR/bin/packagemanager -del lphybeast 
+```
+
+
+## LPhyBEAST usage
 
 Though LPhyBEAST depends on LPhy, you will not find it in the list, because LPhy is not a BEAST 2 package. 
 But it will be included in LPhyBEAST's libraries during the release. 
@@ -91,11 +103,22 @@ cd $LPHY_PATH/tutorials/
 $BEAST_DIR/bin/applauncher LPhyBEAST RSV2.lphy
 ```
 
-Alternatively, launch from another place but set the working directory 
-to the folder containing scripts using `-wd`:
+**Note:** if your lphy script contains the relative path to load a file (e.g. alignment), 
+e.g. `D = readNexus(file="data/RSV2.nex", ...);`, then that path will be relative to where the lphy file located. 
+Please always check if your data path is correct, before you produce the XML.   
+  
+
+Alternatively, using `-wd`, you can work at another folder, but point out where the input and output are:
 
 ```bash
-$BEAST_DIR/bin/applauncher LPhyBEAST -wd $LPHY_PATH/tutorials/ -l 15000000 -o RSV2long.xml RSV2.lphy
+$BEAST_DIR/bin/applauncher LPhyBEAST -l 15000000 -wd $LPHY_PATH/tutorials/ -o RSV2long.xml RSV2.lphy
+```
+
+Using `-wd` can also allow you load lphy from a different path, 
+but output XML file into the given folder (`$MY_XML_FOLDER`):
+
+```bash
+$BEAST_DIR/bin/applauncher LPhyBEAST -wd $MY_XML_FOLDER -l 15000000 $LPHY_PATH/tutorials/RSV2.lphy
 ```
 
 Create 5 XML for simulations:
@@ -111,6 +134,27 @@ The usage can be seen by the command below:
 ```bash
 $BEAST_DIR/bin/applauncher LPhyBEAST -h
 ```
+
+
+### LPhyBEAST failed by Java version
+
+If the `applauncher LPhyBEAST -h` failed with the following error message about Java version:
+
+```
+java.lang.UnsupportedClassVersionError: 
+lphybeast/LPhyBEAST has been compiled by a more recent version 
+of the Java Runtime (class file version 60.0), this version of 
+the Java Runtime only recognizes class file versions up to 52.0
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:468)
+```
+
+First, check if your local Java is 16 using `java -version`. 
+If yes, you need to download BEAST 2 without JRE, because with JRE, 
+`applauncher` will be forced to use the provided JRE in BEAST 2 which currently is 1.8.
+
 
 
 ### Manual installation
@@ -161,24 +205,3 @@ If the LPhyBEAST and its dependencies are installed properly, the command below 
 ```bash
 $BEAST_DIR/bin/applauncher LPhyBEAST -h
 ```
-
-### LPhyBEAST failed by Java version
-
-If the `applauncher LPhyBEAST -h` failed with the following error message about Java version:
-
-```
-java.lang.UnsupportedClassVersionError: 
-lphybeast/LPhyBEAST has been compiled by a more recent version 
-of the Java Runtime (class file version 60.0), this version of 
-the Java Runtime only recognizes class file versions up to 52.0
-	at java.lang.ClassLoader.defineClass1(Native Method)
-	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
-	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
-	at java.net.URLClassLoader.defineClass(URLClassLoader.java:468)
-```
-
-First, check if your local Java is 16 using `java -version`. 
-If yes, you need to download BEAST 2 without JRE, because with JRE, 
-`applauncher` will be forced to use the provided JRE in BEAST 2 which currently is 1.8.
-
-
