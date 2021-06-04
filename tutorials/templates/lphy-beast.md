@@ -13,6 +13,8 @@ to install it.
 To start LPhyBEAST, we have to use BEAST 2 `applauncher`, which is also distributed with BEAST 2.
 Here is some [details](https://www.beast2.org/2019/09/26/command-line-tricks.html) how to run it from the command line.
 
+Some [technical guides](https://linguaphylo.github.io/setup/) can help you to start.
+
 In our {{ include.lphy }}.lphy script, the alignment file is assumed to locate under the folder `tutorials/data/`.
 So we need to go to its parent folder, which is normally where the LPhy is installed, 
 run LPhyBEAST as below and check the end of message to find where is the generated XML. 

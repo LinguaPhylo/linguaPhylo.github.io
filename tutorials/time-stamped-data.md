@@ -199,7 +199,7 @@ Let us look at the whole thing:
 {% include_relative templates/lphy-beast.md lphy="RSV2" %}
 
 ```
-# BEAST_DIR = "/Applications/BEAST2.6.3"
+# BEAST_DIR = "/Applications/BEAST2.6.5"
 $BEAST_DIR/bin/applauncher LPhyBEAST RSV2.lphy 
 ```
 
@@ -208,7 +208,7 @@ $BEAST_DIR/bin/applauncher LPhyBEAST RSV2.lphy
 {% include_relative templates/run-beast.md xml="RSV2.xml" %}
 
 ```
-                         BEAST v2.6.3, 2002-2020
+                         BEAST v2.6.5, 2002-2020
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -241,35 +241,29 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1615845912025
-
-Loading package outercore v0.0.2
-Loading package BEAST v2.6.3
-Loading package feast v7.4.1
-Loading package BEASTLabs v1.9.5
-
+Random number seed: 1622764828047
     ...
 
     ...
-       14250000     -6063.0156     -5478.3829      -584.6327         0.4453         0.2635         0.0991         0.1918         0.3156         0.4013         0.1099         0.1731         0.3297         0.3815         0.0805         0.2081         8.6367         2.4577         4.7218         0.6590         0.9514         1.3878         0.0022        32.9745 1m32s/Msamples
-       15000000     -6084.2801     -5475.5226      -608.7575         0.4831         0.2547         0.0719         0.1900         0.3298         0.3977         0.0896         0.1828         0.3307         0.3560         0.0784         0.2347         9.8647         6.7207         2.3282         0.6790         0.9466         1.3727         0.0021        42.8989 1m32s/Msamples
+         950000     -6079.9655     -5478.8367      -601.1287         0.4394         0.2880         0.0799         0.1925         0.2849         0.4208         0.1046         0.1896         0.2816         0.3837         0.0922         0.2423        11.1661         3.2157         5.1059         0.7299         0.9736         1.2950         0.0023        39.0070 2m17s/Msamples
+        1000000     -6067.4526     -5479.6833      -587.7693         0.5137         0.2380         0.0903         0.1579         0.3206         0.4005         0.0970         0.1816         0.3359         0.3949         0.0733         0.1957        12.2206         1.4502         3.5749         0.6667         0.9711         1.3604         0.0023        41.3278 2m17s/Msamples
 
 Operator                                      Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                   0.58422      16614      50525    0.00450    0.24746 
-ScaleOperator(kappa.scale)                   0.28040      41974     103342    0.00970    0.28885 
-ScaleOperator(mu.scale)                      0.76529      14501      52878    0.00450    0.21522 
-UpDownOperator(muUppsiDownOperator)          0.97171     179072    1844651    0.13497    0.08849 Try setting scaleFactor to about 0.986
-DeltaExchangeOperator(pi_0.deltaExchange)    0.12994      24853     120092    0.00970    0.17147 
-DeltaExchangeOperator(pi_1.deltaExchange)    0.11348      27701     118149    0.00970    0.18993 
-DeltaExchangeOperator(pi_2.deltaExchange)    0.09963      29401     116628    0.00970    0.20134 
-Exchange(psi.narrowExchange)                       -     496698    1521318    0.13424    0.24613 
-ScaleOperator(psi.rootAgeScale)              0.76259       9275      57928    0.00450    0.13801 
-ScaleOperator(psi.scale)                     0.92619      62536    1949401    0.13424    0.03108 Try setting scaleFactor to about 0.962
-SubtreeSlide(psi.subtreeSlide)               4.49550     263778    1748535    0.13424    0.13108 
-Uniform(psi.uniform)                               -    1081681     931402    0.13424    0.53733 
-Exchange(psi.wideExchange)                         -       4225    2010508    0.13424    0.00210 
-WilsonBalding(psi.wilsonBalding)                   -       9811    2002810    0.13424    0.00487 
-DeltaExchangeOperator(r.deltaExchange)       0.28931      26066      83648    0.00730    0.23758 
+ScaleOperator(Theta.scale)                   0.63281       1426       3100    0.00450    0.31507 
+ScaleOperator(kappa.scale)                   0.34579       3555       6070    0.00970    0.36935 
+ScaleOperator(mu.scale)                      0.73189        829       3579    0.00450    0.18807 
+UpDownOperator(muUppsiDownOperator)          0.96114       8363     127174    0.13497    0.06170 Try setting scaleFactor to about 0.98
+DeltaExchangeOperator(pi_0.deltaExchange)    0.11883       1848       7697    0.00970    0.19361 
+DeltaExchangeOperator(pi_1.deltaExchange)    0.12557       1648       8136    0.00970    0.16844 
+DeltaExchangeOperator(pi_2.deltaExchange)    0.10541       1754       7864    0.00970    0.18237 
+Exchange(psi.narrowExchange)                       -      34025     100095    0.13424    0.25369 
+ScaleOperator(psi.rootAgeScale)              0.77138        705       3803    0.00450    0.15639 
+ScaleOperator(psi.scale)                     0.92575       4055     129740    0.13424    0.03031 Try setting scaleFactor to about 0.962
+SubtreeSlide(psi.subtreeSlide)               5.55829      14955     119345    0.13424    0.11136 
+Uniform(psi.uniform)                               -      72300      62379    0.13424    0.53683 
+Exchange(psi.wideExchange)                         -        351     134365    0.13424    0.00261 
+WilsonBalding(psi.wilsonBalding)                   -        769     132705    0.13424    0.00576 
+DeltaExchangeOperator(r.deltaExchange)       0.29898       1708       5658    0.00730    0.23188 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -278,8 +272,8 @@ DeltaExchangeOperator(r.deltaExchange)       0.28931      26066      83648    0.
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 1384.077 seconds
-End likelihood: -6084.280183824342
+Total calculation time: 140.526 seconds
+End likelihood: -6067.4526573438525
 ```
 
 ### Analysing BEAST 2's output
