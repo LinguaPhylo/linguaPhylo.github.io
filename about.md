@@ -4,11 +4,26 @@ title: About
 permalink: /about/
 ---
 
+## Writing scripts
+
+You can either to write LPhy scripts in LPhyStudio, which is a Java GUI,
+or complete them using a text editor and save them into a file with the `.lphy` extension.   
+
+### With or without code blocks
+
+If you are working in LPhyStudio, you do not need to add `data` and `model` keywords to specify the code blocks.
+The GUI already has `data` and `model` tabs on the bottom panel.
+
+But if you are writing scripts into a file, then these two keywords are necessary.
+You may see some example files containing no `data` block. 
+Because they are simulations, the data is simulated from the model.
+
+
 ## LPhy specification
 
 ### Code blocks
 
-The LPhy scripts contains `data` and `model` blocks.
+The LPhy scripts contains `data { ... }` and `model { ... }` blocks enclosed by the curly brackets.
 
 The LPhy data block is used to input and store the data, 
 which will be processed by the models defined later, 
@@ -24,6 +39,7 @@ in the Bayesian phylogenetic analysis.
 Therefore, your result could be easily reproduced by other researchers. 
 
 Please be aware that `data` and `model` have been reserved and cannot be used as the variable name.
+
 
 ### Code convetions
 
