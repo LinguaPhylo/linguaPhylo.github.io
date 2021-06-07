@@ -57,9 +57,27 @@ The data is `$LPHY_PATH/tutorials/data/RSV2.nex`, which is loaded by a LPhy func
 ## LPhyBEAST installation
 
 [LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) is distributed as a [BEAST 2 package](https://www.beast2.org/managing-packages/),
-you can use an application called `Package Manager`, which is distributed with BEAST 2 together,
-to install it and its dependent packages as below. 
-Please note the name of package is case-sensitive.
+you can use an application called `Package Manager`, which is distributed with BEAST 2 together.
+Open `BEAUti`, and click the menu `File` => `Manage Packages`. 
+The `Package Manager` will show all the available packages listed in alphabetical order.
+Select `lphybeast` and click the `Install/Upgrade` button. 
+The installation may take few minutes, since it is going to install all dependent packages as well, 
+please wait until the dialog is poped up to confirm lphybeast installed successfully.
+
+<figure class="image">
+  <img src="Installed.png" alt="Installed">
+  <figcaption>The confirmation for lphybeast installed successfully.</figcaption>
+</figure>
+ 
+
+The `Package Manager` should show installed versions of lphybeast and its dependent packages as below. 
+
+<figure class="image">
+  <img src="InstallLPhyBEAST.png" alt="Install LPhyBEAST">
+  <figcaption>Package Manager shows installed packages.</figcaption>
+</figure>
+
+Alternatively, you can install it using the command line below, but please note the name of package is case-sensitive.
 
 {% assign beastversion = "2.6.5" %}
 

@@ -14,7 +14,7 @@ the phylogeographic diffusion process.
 The additional benefit using this model is that we can summarise the phylogeographic inferences from an analysis,
 and use a virtual globe software to visualize the spatial and temporal information.
 
-The programs used in this tutorial are listed [below](#programs-used-in-this-exercise).
+The programs used in this tutorial are listed [below](#programs-used-in-this-tutorial).
 
 ## The NEXUS alignment
 
@@ -316,7 +316,7 @@ can be animated through time. The coloured areas represent the 95% HPD
 regions of the locations of the internal nodes of the summary tree.
 
 
-## Programs used in this Exercise
+## Programs used in this tutorial
 
 {% include_relative templates/programs-used.md %}
 - BEAST classic package - Phylogeography is a part of the BEAST-CLASSIC package. 

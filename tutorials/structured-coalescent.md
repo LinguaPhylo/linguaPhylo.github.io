@@ -41,7 +41,7 @@ The aim is to:
 - Get to know how to choose the set-up of such an analysis
 - Learn how to read the output of a MASCOT analysis
 
-The programs used in this tutorial are listed [below](#programs-used-in-this-exercise).
+The programs used in this tutorial are listed [below](#programs-used-in-this-tutorial).
 
 ## The NEXUS alignment
 
@@ -349,7 +349,7 @@ This error can have different origins and a likely incomplete list is the follow
 4. There is strong subpopulation structure within the different subpopulations used. 
    In that case, reconsider if the individual sub-populations used are reasonable.
 
-## Programs used in this Exercise
+## Programs used in this tutorial
 
 {% include_relative templates/programs-used.md %}
 * MASCOT package - Marginal approximation of the structured coalescent.

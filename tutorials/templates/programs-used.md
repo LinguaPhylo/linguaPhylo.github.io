@@ -2,7 +2,9 @@
 The following software will be used in this tutorial:
 
 * LPhy Studio - this software will specify and visualise models as well as simulate data from models defined in LPhy scripts.
+  It is available for download from [LPhy releases](https://github.com/LinguaPhylo/linguaPhylo/releases).
 * LPhy BEAST - this software will construct an input file for BEAST.
+  The installation guide and usage be found from [here](https://linguaphylo.github.io/setup/).
 * BEAST - this package contains the BEAST program, BEAUti, DensiTree, TreeAnnotator and other utility programs. 
   This tutorial is written for BEAST v2.6.x, which has support for multiple partitions. 
   It is available for download from [http://www.beast2.org](http://www.beast2.org).

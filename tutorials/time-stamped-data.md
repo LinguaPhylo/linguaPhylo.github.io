@@ -11,7 +11,7 @@ You can find the source tutorial, data and author information
 
 ## Requirements
 
-The programs used in this tutorial are listed [below](#programs-used-in-this-exercise).
+The programs used in this tutorial are listed [below](#programs-used-in-this-tutorial).
 In case you have not done it yet, please follow the installation
 instructions [here](../setup.md) before moving on.
 
