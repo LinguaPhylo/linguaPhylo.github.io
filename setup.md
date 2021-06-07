@@ -65,16 +65,16 @@ The installation may take few minutes, since it is going to install all dependen
 please wait until the dialog is poped up to confirm lphybeast installed successfully.
 
 <figure class="image">
-  <img src="Installed.png" alt="Installed">
-  <figcaption>The confirmation for lphybeast installed successfully.</figcaption>
+  <img src="/images/Installed.png" alt="Installed">
+  <figcaption>Figure 1: The confirmation for lphybeast installed successfully.</figcaption>
 </figure>
  
 
 The `Package Manager` should show installed versions of lphybeast and its dependent packages as below. 
 
 <figure class="image">
-  <img src="InstallLPhyBEAST.png" alt="Install LPhyBEAST">
-  <figcaption>Package Manager shows installed packages.</figcaption>
+  <img src="/images/InstallLPhyBEAST.png" alt="Install LPhyBEAST">
+  <figcaption>Figure 2: Package Manager shows installed packages.</figcaption>
 </figure>
 
 Alternatively, you can install it using the command line below, but please note the name of package is case-sensitive.
