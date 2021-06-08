@@ -9,8 +9,9 @@ before you continue on this tutorial.
 
 Please note if you are working in LPhyStudio, 
 you __do not__ need to add `data` and `model` keywords and curly brackets to define the code blocks.
-We are supposed to add the lines without the `data {  }` and `model {  }` to the field at the bottom of the window,
-where the `data` and `model` tabs in the GUI are used to specify which block we are working on.
+We are supposed to add the lines without the `data {  }` and `model {  }` to the command line console 
+at the bottom of the window, where the `data` and `model` tabs in the GUI are used to specify 
+which block we are working on.
 
 Below, we will build an LPhy script in two parts, the `data` and
 the `model` blocks.

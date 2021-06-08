@@ -13,8 +13,9 @@ or complete them using a text editor and save them into a file with the `.lphy` 
 
 If you are working in LPhyStudio, you do not need to add `data` and `model` keywords 
 and curly brackets to define the code blocks.
-We are supposed to add the lines without the `data {  }` and `model {  }` to the field at the bottom of the window,
-where the `data` and `model` tabs in the GUI are used to specify which block we are working on.
+We are supposed to add the lines without the `data {  }` and `model {  }` to the the command line console 
+at the bottom of the window, where the `data` and `model` tabs in the GUI are used to specify 
+which block we are working on.
 
 But if you are writing scripts into a file, then these two keywords are necessary.
 You may see some example files containing no `data` block. 
@@ -55,7 +56,7 @@ the (e.g. imported) alignment, which is known as "data clamping".
 
 ### Greek letters
 
-In the LPhyStudio command line console, greek letters can be input by using latex style (e.g. typing \alpha), 
+In the LPhyStudio command line console, greek letters can be inputted by using latex style (e.g. typing `\alpha`), 
 and then it will get converted to the Unicode after the following space is typed.
 Copy-and-paste also does the tricks.
 
