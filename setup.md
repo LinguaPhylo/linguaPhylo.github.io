@@ -53,6 +53,9 @@ java -jar $LPHY_PATH/LPhy.v{{ version }}.jar RSV2.lphy
 The data is `$LPHY_PATH/tutorials/data/RSV2.nex`, which is loaded by a LPhy function
 `readNexus(file="data/RSV2.nex", ...);` inside the script using the relative path.
 
+If you are new to LPhy, we recommend you to read this [introduction](https://linguaphylo.github.io/about/) first, 
+before you continue on any tutorials. 
+
 
 ## LPhyBEAST installation
 
