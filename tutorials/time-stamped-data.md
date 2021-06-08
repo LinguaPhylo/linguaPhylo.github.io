@@ -362,9 +362,12 @@ to create a new .xml file:
 $BEAST_DIR/bin/applauncher LPhyBEAST -wd $MY_SCRIPT_PATH -l 15000000 -o RSV2long.xml RSV2.lphy
 ```
 
-Now run BEAST 2 again and load the new log file into Tracer (you can
-leave the old one loaded for comparison).
+Now run BEAST 2 again. It may take about half an hour to complete using modern computers.  
+If you do not want to wait, you can download the 
+[RSV2long.log and RSV2long.trees](https://github.com/LinguaPhylo/linguaPhylo.github.io/tree/master/tutorials/time-stamped-data/RSV2)
+completed by running the longer MCMC chain.
 
+Load the new log file into Tracer after it is finished (you can leave the old one loaded for comparison).
 Click on the "Trace" tab and look at the raw trace plot.
 
 {% assign current_fig_num = current_fig_num | plus: 1 %}
