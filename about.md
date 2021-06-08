@@ -9,10 +9,12 @@ permalink: /about/
 You can either to write LPhy scripts in LPhyStudio, which is a Java GUI,
 or complete them using a text editor and save them into a file with the `.lphy` extension.   
 
-### With or without code blocks
+### With or without keywords
 
-If you are working in LPhyStudio, you do not need to add `data` and `model` keywords to specify the code blocks.
-The GUI already has `data` and `model` tabs on the bottom panel.
+If you are working in LPhyStudio, you do not need to add `data` and `model` keywords 
+and curly brackets to define the code blocks.
+We are supposed to add the lines without the `data {  }` and `model {  }` to the field at the bottom of the window,
+where the `data` and `model` tabs in the GUI are used to specify which block we are working on.
 
 But if you are writing scripts into a file, then these two keywords are necessary.
 You may see some example files containing no `data` block. 
