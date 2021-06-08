@@ -53,6 +53,12 @@ also appears in the `data` block, the simulated alignment will be replaced by
 the (e.g. imported) alignment, which is known as "data clamping".
 
 
+### Greek letters
+
+In the LPhyStudio command line console, greek letters can be input by using latex style (e.g. typing \alpha), 
+and then it will get converted to the Unicode after the following space is typed.
+Copy-and-paste also does the tricks.
+
 
 ### Tree generative distributions
 
