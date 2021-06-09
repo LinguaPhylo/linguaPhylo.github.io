@@ -145,17 +145,17 @@ spec="Alignment">
             
         <state id="State" spec="State">
                     
-            <stateNode id="pi" spec="outercore.parameter.KeyRealParameter" dimension="4" keys="A C G T" lower="0.0" upper="1.0">0.37657140810672507 0.3712988835669934 0.07574623458524934 0.17638347374103205</stateNode>
+            <parameter id="pi" spec="parameter.RealParameter" dimension="4" keys="A C G T" lower="0.0" name="stateNode" upper="1.0">0.0699010760845587 0.40043150547320194 0.3328381598073185 0.19682925863492082</parameter>
                     
-            <stateNode id="rates" spec="outercore.parameter.KeyRealParameter" dimension="6" keys="AC AG AT CG CT GT" lower="0.0" upper="1.0">0.06648872724585844 0.3482229154650707 0.28561370504780964 0.057807954269760466 0.2018018537989048 0.04006484417259583</stateNode>
+            <parameter id="rates" spec="parameter.RealParameter" dimension="6" keys="AC AG AT CG CT GT" lower="0.0" name="stateNode" upper="1.0">0.16365090509883837 0.298222682076011 0.08646313323434168 0.036218198352809206 0.3480558465239356 0.06738923471406406</parameter>
                     
-            <parameter id="gamma" spec="parameter.RealParameter" lower="0.0" name="stateNode">2.8010559956880448</parameter>
+            <parameter id="gamma" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.30316848880799396</parameter>
                     
-            <stateNode id="A" spec="outercore.parameter.KeyIntegerParameter" dimension="4" idStart1="true" lower="1">42 6 11 3</stateNode>
+            <stateNode id="A" spec="parameter.IntegerParameter" dimension="4" keys="1 2 3 4" lower="1">11 13 35 3</stateNode>
                     
-            <stateNode id="Theta" spec="outercore.parameter.KeyRealParameter" dimension="4" idStart1="true">20207.47165677844 53728.57364135197 7043.555960816111 1324.3459859722389</stateNode>
+            <parameter id="Theta" spec="parameter.RealParameter" dimension="4" keys="1 2 3 4" name="stateNode">1033.7084676275356 1404.1573812934141 1073.7680314219235 849.3284481033814</parameter>
                     
-            <stateNode id="psi" spec="beast.util.TreeParser" IsLabelledNewick="true" newick="((((((AF271883i_2432:300.49338683798777,AF271860i_3400:300.49338683798777):118.74584069173648,AF271886i_3319:419.23922752972425):2857.3415187709397,(AF271854i_2856:44.488100908155786,AF271877i_1999:44.488100908155786):3232.092645392508):566.1745810296356,((AF271829i_0923:18.507696390418843,AF271861i_3452:18.507696390418843):713.775134213341,AF271882i_2153:732.2828306037597):3110.47249672654):2743.171548665064,(((AF271825i_0800:420.85409818629535,AF271868i_3471:420.85409818629535):2436.2032293237253,((((AF271881i_2116:105.49619502971426,AF271857i_2957:105.49619502971426):31.79905697626755,AF271871i_4036:137.2952520059818):873.6259221110454,(AF271843i_2147:100.30478405034033,AF271844i_2150:100.30478405034033):910.6163900666869):36.609399195497645,(AF271845i_2386:56.81103234355796,AF271851i_2681:56.81103234355796):990.719540968967):1809.5267541974956):3332.30641183224,(((((((AF271827i_0883:197.87581547573745,AF271838i_1803:197.87581547573745):92.85654933529338,AF271866i_3465:290.73236481103083):270.0428806516892,(AF271833i_1240:257.6228733041784,AF271884i_2659:257.6228733041784):303.1523721585416):219.8077354389144,AF271835i_1767:780.5829809016344):208.2757535179818,(AF271865i_3463:561.3772364265039,(AF271856i_2926:102.47147160592313,AF271859i_3393:102.47147160592313):458.9057648205808):427.48149799311227):2882.40969862519,(((((AF271826i_0873:582.4573872840703,AF271828i_0922:582.4573872840703):3017.6472961237764,((AF271878i_2000:246.2493176882817,((AF271863i_3460:149.25618716651715,AF271850i_2673:149.25618716651715):79.69263017456595,(AF271879i_2113:204.46055233809767,AF271873i_4055:204.46055233809767):24.48826500298543):17.300500347198607):12.493654563359797,AF271874i_1359:258.7429722516415):3341.3617111562053):57.68368371965016,((AF271840i_2130:214.5284379975041,AF271836i_1796:214.5284379975041):1460.9493511384348,(AF271837i_1801:740.5990788972802,AF271841i_2134:740.5990788972802):934.8787102386589):1982.3105779915577):82.34725007244697,(AF271831i_1164:3691.7365515716338,((AF271872i_4053:319.54960330360825,AF271858i_3318:319.54960330360825):538.7111664162306,(AF271849i_2663:820.7330026964933,AF271887i_3405:820.7330026964933):37.52776702334563):2833.4757818517946):48.39906562830993):125.39926474383401,((AF271842i_2141:551.7355588491863,AF271870i_4033:551.7355588491863):2887.1278065106676,(AF271867i_3468:30.929319769243378,AF271830i_1150:30.929319769243378):3407.934045590611):426.6715165839237):5.733551101028297):2270.9274902223974,((AF271847i_2438:1828.2942542425185,(AF271852i_2685:802.3134833684247,AF271876i_1797:802.3134833684247):1025.9807708740937):4271.856579684607,((((AF271880i_2115:1.58018406412429,AF271875i_1380:1.58018406412429):180.58659198355434,AF271864i_3461:182.16677604767864):3581.616449777285,(((AF271855i_2862:36.59762366771304,AF271839i_1997:36.59762366771304):258.2306219525432,AF271853i_2852:294.8282456202562):515.4967147840232,AF271832i_1226:810.3249604042794):2953.4582654206843):45.48440573240168,(((AF271846i_2429:361.02510797427874,AF271848i_2446:361.02510797427874):36.70843398076613,AF271885i_3289:397.73354195504487):613.3662244538633,AF271834i_1339:1011.0997664089082):2798.167865148457):2290.8832023697605):42.04508934007754):47.16781607505709):396.56313665310336):786.6079925258882,(AF271869i_4020:4490.0767162251495,AF271862i_3458:4490.0767162251495):2882.4581522961025):0.0;">
+            <stateNode id="psi" spec="beast.util.TreeParser" IsLabelledNewick="true" newick="((((AF271871i_4036:39.68288365786548,AF271862i_3458:39.68288365786548):136.41117136253632,(AF271830i_1150:26.655830238008686,AF271851i_2681:26.655830238008686):149.43822478239312):331.8577986391457,((AF271834i_1339:7.069160967215435,AF271868i_3471:7.069160967215435):20.965386874990173,(AF271845i_2386:9.820507523864194,(AF271825i_0800:1.31372694647788,AF271864i_3461:1.31372694647788):8.506780577386314):18.214040318341414):479.9173058173419):414.9510317519429,((((AF271833i_1240:88.54333023916584,(((AF271872i_4053:2.7665785190484646,(AF271857i_2957:2.2517403309285893,AF271883i_2432:2.2517403309285893):0.5148381881198754):27.51471686951362,AF271865i_3463:30.281295388562086):10.192683826328647,AF271855i_2862:40.47397921489073):48.06935102427511):141.9398074333944,(AF271836i_1796:183.9121928967746,(((AF271849i_2663:84.26078680144914,AF271827i_0883:84.26078680144914):16.805112349506913,((AF271876i_1797:13.117385432743758,AF271884i_2659:13.117385432743758):32.179145693933975,(AF271853i_2852:9.681841370268275,AF271866i_3465:9.681841370268275):35.61468975640946):55.76936802427832):20.434409910060822,AF271858i_3318:121.50030906101688):62.41188383575772):46.57094477578565):1.1505921075306276,(AF271863i_3460:39.36665135013148,(AF271873i_4055:10.128728085279281,AF271854i_2856:10.128728085279281):29.237923264852196):192.26707842995938):616.5227389098391,((AF271832i_1226:628.6143935432216,(((AF271882i_2153:18.325635601108893,AF271838i_1803:18.325635601108893):60.08247969373803,(((AF271843i_2147:0.3507800965548746,AF271879i_2113:0.3507800965548746):3.970184625017347,AF271848i_2446:4.320964721572222):28.2631818832992,AF271867i_3468:32.58414660487142):45.8239686899755):234.07100041155263,((((AF271847i_2438:63.62063226062172,(AF271860i_3400:43.01689465721075,AF271852i_2685:43.01689465721075):20.60373760341097):15.816829961769898,(AF271856i_2926:44.93119813433547,(AF271826i_0873:32.17557689340641,AF271886i_3319:32.17557689340641):12.75562124092906):34.50626408805615):58.3645795253332,AF271880i_2115:137.80204174772481):9.474296522905888,(((((AF271837i_1801:1.257088397924882,AF271878i_2000:1.257088397924882):2.023595113504663,AF271881i_2116:3.2806835114295447):32.93301406527802,(AF271870i_4033:19.37009992135404,(AF271842i_2141:11.597735954671844,AF271877i_1999:11.597735954671844):7.772363966682196):16.843597655353527):33.882836188787074,(AF271839i_1997:9.00262838118365,AF271859i_3393:9.00262838118365):61.09390538431099):55.22401750827213,((AF271828i_0922:32.1683386996689,(AF271861i_3452:3.4436718898836207,AF271875i_1380:3.4436718898836207):28.72466680978528):72.33347561109144,((AF271887i_3405:39.38068947139607,(AF271840i_2130:7.241461769374599,(AF271846i_2429:4.743484300118546,AF271844i_2150:4.743484300118546):2.4979774692560532):32.13922770202147):55.59089315193923,AF271841i_2134:94.9715826233353):9.530231687425058):20.818736963006415):21.955786996863935):165.20277743576887):316.135277836822):102.57841647605949,(((AF271829i_0923:12.548956559939892,(AF271850i_2673:6.140474081063295,AF271835i_1767:6.140474081063295):6.408482478876597):62.494749328947535,(AF271869i_4020:49.70752637546892,(AF271874i_1359:16.806862852667148,AF271885i_3289:16.806862852667148):32.90066352280178):25.336179513418507):121.08950148064888,AF271831i_1164:196.1332073695363):535.0596026497448):116.9636586706489):74.74641672156042):0.0;">
                             
                 <taxonset id="TaxonSet" spec="TaxonSet">
                                     
@@ -295,13 +295,11 @@ spec="Alignment">
                     
             <distribution id="prior" spec="util.CompoundDistribution">
                             
-                <distribution id="gamma.prior" spec="beast.math.distributions.Prior" x="@gamma">
+                <distribution id="pi.prior" spec="beast.math.distributions.Prior" x="@pi">
                                     
-                    <distr id="LogNormalDistributionModel" spec="beast.math.distributions.LogNormalDistributionModel">
+                    <distr id="Dirichlet" spec="beast.math.distributions.Dirichlet">
                                             
-                        <parameter id="RealParameter" spec="parameter.RealParameter" name="M">0.0</parameter>
-                                            
-                        <parameter id="RealParameter1" spec="parameter.RealParameter" name="S">2.0</parameter>
+                        <parameter id="RealParameter" spec="parameter.RealParameter" dimension="4" estimate="false" name="alpha">3.0 3.0 3.0 3.0</parameter>
                                         
                     </distr>
                                 
@@ -309,13 +307,15 @@ spec="Alignment">
                             
                 <distribution id="rates.prior" spec="beast.math.distributions.Prior" x="@rates">
                                     
-                    <distr id="Dirichlet" spec="beast.math.distributions.Dirichlet">
+                    <distr id="Dirichlet1" spec="beast.math.distributions.Dirichlet">
                                             
-                        <alpha id="KeyRealParameter" spec="outercore.parameter.KeyRealParameter" dimension="6" estimate="false">1.0 2.0 1.0 1.0 2.0 1.0</alpha>
+                        <parameter id="RealParameter1" spec="parameter.RealParameter" dimension="6" estimate="false" name="alpha">1.0 2.0 1.0 1.0 2.0 1.0</parameter>
                                         
                     </distr>
                                 
                 </distribution>
+                            
+                <distribution id="MarkovChainDistribution" spec="beast.math.distributions.MarkovChainDistribution" parameter="@Theta"/>
                             
                 <distribution id="BayesianSkyline" spec="BayesianSkyline" groupSizes="@A" popSizes="@Theta">
                                     
@@ -323,11 +323,13 @@ spec="Alignment">
                                 
                 </distribution>
                             
-                <distribution id="pi.prior" spec="beast.math.distributions.Prior" x="@pi">
+                <distribution id="gamma.prior" spec="beast.math.distributions.Prior" x="@gamma">
                                     
-                    <distr id="Dirichlet1" spec="beast.math.distributions.Dirichlet">
+                    <distr id="LogNormalDistributionModel" spec="beast.math.distributions.LogNormalDistributionModel">
                                             
-                        <alpha id="KeyRealParameter1" spec="outercore.parameter.KeyRealParameter" dimension="4" estimate="false">3.0 3.0 3.0 3.0</alpha>
+                        <parameter id="RealParameter2" spec="parameter.RealParameter" name="M">0.0</parameter>
+                                            
+                        <parameter id="RealParameter3" spec="parameter.RealParameter" name="S">2.0</parameter>
                                         
                     </distr>
                                 
@@ -339,15 +341,13 @@ spec="Alignment">
                                     
                     <distr id="LogNormalDistributionModel1" spec="beast.math.distributions.LogNormalDistributionModel">
                                             
-                        <parameter id="RealParameter2" spec="parameter.RealParameter" name="M">9.0</parameter>
+                        <parameter id="RealParameter4" spec="parameter.RealParameter" name="M">9.0</parameter>
                                             
-                        <parameter id="RealParameter3" spec="parameter.RealParameter" name="S">2.0</parameter>
+                        <parameter id="RealParameter5" spec="parameter.RealParameter" name="S">2.0</parameter>
                                         
                     </distr>
                                 
                 </distribution>
-                            
-                <distribution id="MarkovChainDistribution" spec="outercore.math.distributions.MarkovChainDistribution" parameter="@Theta"/>
                         
             </distribution>
                     
@@ -369,7 +369,7 @@ spec="Alignment">
                                     
                     <branchRateModel id="StrictClockModel" spec="beast.evolution.branchratemodel.StrictClockModel">
                                             
-                        <parameter id="RealParameter4" spec="parameter.RealParameter" name="clock.rate">7.9E-4</parameter>
+                        <parameter id="RealParameter6" spec="parameter.RealParameter" name="clock.rate">7.9E-4</parameter>
                                         
                     </branchRateModel>
                                 
@@ -385,9 +385,9 @@ spec="Alignment">
                 
         </operator>
             
-        <operator id="Theta.scale" spec="ScaleOperator" parameter="@Theta" scaleFactor="0.75" weight="2.6390158215457884"/>
+        <operator id="Theta.scale" spec="ScaleOperator" parameter="@Theta" weight="2.6390158215457884"/>
             
-        <operator id="gamma.scale" spec="ScaleOperator" parameter="@gamma" scaleFactor="0.75" weight="1.0"/>
+        <operator id="gamma.scale" spec="ScaleOperator" parameter="@gamma" weight="1.0"/>
             
         <operator id="pi.deltaExchange" spec="DeltaExchangeOperator" delta="0.25" weight="2.157669279974593">
                     
@@ -397,11 +397,11 @@ spec="Alignment">
             
         <operator id="psi.narrowExchange" spec="Exchange" tree="@psi" weight="17.975218683822295"/>
             
-        <operator id="psi.rootAgeScale" spec="ScaleOperator" rootOnly="true" scaleFactor="0.75" tree="@psi" upper="0.975" weight="1.0"/>
+        <operator id="psi.rootAgeScale" spec="ScaleOperator" rootOnly="true" tree="@psi" upper="0.975" weight="1.0"/>
             
-        <operator id="psi.scale" spec="ScaleOperator" scaleFactor="0.75" tree="@psi" upper="0.975" weight="17.975218683822295"/>
+        <operator id="psi.scale" spec="ScaleOperator" tree="@psi" upper="0.975" weight="17.975218683822295"/>
             
-        <operator id="psi.subtreeSlide" spec="SubtreeSlide" size="737.2534868521254" tree="@psi" weight="17.975218683822295"/>
+        <operator id="psi.subtreeSlide" spec="SubtreeSlide" size="92.29028854114905" tree="@psi" weight="17.975218683822295"/>
             
         <operator id="psi.uniform" spec="Uniform" tree="@psi" weight="17.975218683822295"/>
             
