@@ -51,14 +51,13 @@ Therefore, your result could be easily reproduced by other researchers.
 Please be aware that `data` and `model` have been reserved and cannot be used as the variable name.
 
 
-### Code convetions
+### Code conventions
 
 - The variables that are estimated in the model are called random variables in LPhy. 
 They should be assigned by `~`.
-- The other variables are used to store values should be assigned by common sign `=`.
-- If the same variable (name) storing alignment in the `model` block 
-also appears in the `data` block, the simulated alignment will be replaced by 
-the (e.g. imported) alignment, which is known as "data clamping".
+- Constants or values resulting from deterministic functions are assigned using the equal sign `=`.
+- If the same variable name is used for data in the `data` block 
+also appears for a random variable in the `model` block, then the value in the data block will be used for inference (called 'data clamping').
 
 
 ### Tree generative distributions
