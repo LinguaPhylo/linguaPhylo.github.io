@@ -12,13 +12,13 @@ It is separately distributed as a BEAST 2 package,
 and the source code is available at [https://github.com/LinguaPhylo/LPhyBeast](https://github.com/LinguaPhylo/LPhyBeast).
 
 Most of LPhy `Value` and `Generator` can directly map to BEAST 2 objects, 
-so that the process of creating the corresponding BEAST 2 objects from them will be implemented into a concrete class, 
-by respectively implementing either the interface `ValueToBEAST<T, S extends BEASTInterface>` 
+so that the Java code to create their corresponding BEAST 2 objects will be implemented into a concrete class, 
+that implements the respective interface from either `ValueToBEAST<T, S extends BEASTInterface>` 
 or `GeneratorToBEAST<T extends Generator, S extends BEASTInterface>`.
 
-The type `T` in `ValueToBEAST` is a type `T` wrapped by `Value<T>`, 
+The type `T` in `ValueToBEAST` is a (LPhy) data type wrapped by `Value<T>`, 
 but in `GeneratorToBEAST` it is a `Generator` (mostly `GenerativeDistribution`) that generates `Value`.
-The type `S` will be the BEAST 2 object to be created eventually.
+The type `S` will be the BEAST 2 object to be created eventually in both cases.
 
 
 {% highlight java %}
@@ -137,9 +137,13 @@ public interface GeneratorToBEAST<T extends Generator, S extends BEASTInterface>
 
 However, sometimes there is no directly mapping between LPhy and BEAST 2 objects. 
 In this circumstance, we have to either create some intermediate BEAST 2 objects 
-in order to generate the BEAST 2 correct XML, 
-or remove some unnecessary BEAST 2 objects to generate a particular XML section.
+in order to generate the correct BEAST 2 XML, 
+or remove some "unnecessary" BEAST 2 objects created by the above "auto-mapping" mechanism
+to generate a particular XML section.
 
-The util class `lphybeast.Exclusion` is also used to exclude those LPhy `Value` and `Generator` 
-which do not need to map to BEAST 2 objects. 
+In addition, there are two validations to check if any LPhy `Value` and `Generator` 
+parsed from scripts have their `ValueToBEAST` or `GeneratorToBEAST` being implemented. 
+So, the utility class `lphybeast.Exclusion` is used to exclude those LPhy `Value` and `Generator` 
+that do not need to map to BEAST 2 objects, 
+which avoids throwing _UnsupportedOperationException_ from the validation.
 
