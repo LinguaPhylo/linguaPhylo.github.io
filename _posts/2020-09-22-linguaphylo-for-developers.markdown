@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "LinguaPhylo for developers"
+author: Alexei Drummond
 date:   2020-09-22
 categories: programming
 ---
