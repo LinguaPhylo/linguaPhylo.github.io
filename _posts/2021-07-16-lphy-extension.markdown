@@ -160,10 +160,10 @@ java -p lib:lphy-studio-0.1.0.jar -m lphystudio
 
 where `-p` declares the module path separated by `:`. 
 Here it includes the jar file of LPhy Studio, 
-and the ``lib" folder under this jar file to contain all required libraries or LPhy extensions,
+and the "lib" folder under this jar file to contain all required libraries or LPhy extensions,
 such as the LPhy modular jar. 
-You can replace the ``lib" folder path to your own library path, or add another modular jar not in the ``lib" folder. 
-`-m` declares the module name and it should be always ``lphystudio".
-If you are using any LPhy extensions, copy its modular jar into the ``lib" folder and then launch LPhy Studio.
+You can replace the "lib" folder path to your own library path, or add another modular jar not in the "lib" folder. 
+`-m` declares the module name and it should be always "lphystudio".
+If you are using any LPhy extensions, copy its modular jar into the "lib" folder and then launch LPhy Studio.
 
 
