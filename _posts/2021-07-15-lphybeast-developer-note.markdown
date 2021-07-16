@@ -11,13 +11,13 @@ and some data and produces a [BEAST 2](https://www.beast2.org) XML input file.
 It is separately distributed as a BEAST 2 package,
 and the source code is available at [https://github.com/LinguaPhylo/LPhyBeast](https://github.com/LinguaPhylo/LPhyBeast).
 
-Most of LPhy `Value` and `Generator` can directly map to BEAST 2 objects, 
-so that the Java code to create their corresponding BEAST 2 objects will be implemented into a concrete class, 
-that implements the respective interface from either `ValueToBEAST<T, S extends BEASTInterface>` 
+Most of LPhy `Value` or `Generator` can be directly converted to an equivalent BEAST 2 object. 
+To do so, it needs to create a concrete Java class that implements the respective interface, 
+namely either `ValueToBEAST<T, S extends BEASTInterface>` 
 or `GeneratorToBEAST<T extends Generator, S extends BEASTInterface>`.
 
 The type `T` in `ValueToBEAST` is a (LPhy) data type wrapped by `Value<T>`, 
-but in `GeneratorToBEAST` it is a `Generator` (mostly `GenerativeDistribution`) that generates `Value`.
+but in `GeneratorToBEAST` `T` is a `Generator` (mostly `GenerativeDistribution`) that generates `Value`.
 The type `S` will be the BEAST 2 object to be created eventually in both cases.
 
 
