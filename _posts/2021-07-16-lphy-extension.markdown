@@ -73,7 +73,8 @@ import ...;
 public interface LPhyExtension {
 
     /**
-     * @return the list of new {@link GenerativeDistribution} implemented in the LPhy extension.
+     * @return the list of new {@link GenerativeDistribution} implemented 
+     *         in the LPhy extension.
      */
     List<Class<? extends GenerativeDistribution>> getDistributions();
 
@@ -85,7 +86,8 @@ public interface LPhyExtension {
     /**
      * @return the map of new {@link SequenceType} implemented in the LPhy extension.
      *         The string key is a keyword to represent this SequenceType.
-     *         The keyword can be used to identify and initialise the corresponding sequence type.
+     *         The keyword can be used to identify and initialise the 
+     *         corresponding sequence type.
      */
     Map<String, ? extends SequenceType> getSequenceTypes();
 
@@ -111,12 +113,12 @@ public class LPhyExtImpl implements LPhyExtension {
 
     List<Class<? extends GenerativeDistribution>> genDists = Arrays.asList(
             // probability distribution
-            Normal.class, LogNormal.class, Exp.class, Bernoulli.class, Poisson.class, 
+            Normal.class, LogNormal.class, Exp.class, 
             ... );
 
     List<Class<? extends Func>> functions = Arrays.asList(ARange.class, ArgI.class,
             // Substitution models
-            JukesCantor.class, K80.class, F81.class, HKY.class, GTR.class, WAG.class, 
+            JukesCantor.class, K80.class, F81.class, HKY.class, 
             ... );
 
     /**
