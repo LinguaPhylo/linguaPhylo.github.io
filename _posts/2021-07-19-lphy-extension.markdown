@@ -2,15 +2,16 @@
 layout: post
 title:  "LPhy Extension Mechanism"
 author: Walter Xie
-date:   2021-07-16
+date:   2021-07-19
 categories: programming
 ---
 
 The LPhy extension mechanism uses the Service Provider Interface (SPI) with the Java Platform Module System (JPMS).
-But in this mechanism, every _Service Provider_ class that implements _SPI_ requires a zero argument constructor.
-To avoid this complexity to create such a constructor for every extensible service, 
-we invented a _Container_ class (in each Java module) used as the _Provider_ class, 
-which lists all extended Java classes from Lphy.
+In this mechanism, we invented a _Container_ class (in each Java module) used as the _Provider_ class, 
+which declares all extended Java classes from LPhy module, and which implements _SPI_ defined in LPhy module.
+
+
+## Project structure
 
 The [LPhy repository](https://github.com/LinguaPhylo/linguaPhylo) contains two modules 
 separated in two subfolder LPhy (containing core classes, such as parser, distributions, functions and data types) 
@@ -36,6 +37,8 @@ linguaPhylo
     └──tutorials
 ```
 
+## SPI and the extension's container provider class
+
 The [module lphy](https://github.com/LinguaPhylo/linguaPhylo/blob/master/LPhy/src/module-info.java)
 declares the package dependencies and SPI 
 [LPhyExtension](https://github.com/LinguaPhylo/linguaPhylo/blob/master/LPhy/src/lphy/spi/LPhyExtImpl.java)
@@ -46,9 +49,9 @@ exports lphy.spi;
 uses lphy.spi.LPhyExtension;
 {% endhighlight %}
 
-Becaseu we consider the core itself as an extension, so the Container Provider class 
+Becaseu we consider the core itself as an extension, the Container Provider class 
 [LPhyExtImpl](https://github.com/LinguaPhylo/linguaPhylo/blob/master/LPhy/src/lphy/spi/LPhyExtension.java)
-is also declared in this module.
+is also required to declare in this module using the following one-line code.
 
 {% highlight java %}
 provides lphy.spi.LPhyExtension with lphy.spi.LPhyExtImpl;
@@ -153,8 +156,98 @@ the [module lphystudio](https://github.com/LinguaPhylo/linguaPhylo/blob/master/L
 only has an one-line declaration to require the module lphy, but no Provider class. 
 
 
-After downloading the modular jar files (lphy-studio-?.?.?.jar and lphy-?.?.?.jar) from the LPhy release, 
-the following command line can be used to launch LPhy Studio.
+## Launching LPhy studio
+
+As a developer, you can launch LPhy studio from an IDE (e.g. IntelliJ). 
+First, you need to create two IntelliJ modules as below:
+
+{% assign current_fig_num = 1 %}
+
+<center>
+<figure class="image">
+  <img src="/images/LPhyModule.png" width="80%" alt="LPhy module">
+  <figcaption>Figure {{ current_fig_num }}: LPhy module in IntelliJ.</figcaption>
+</figure>  
+</center>
+
+LPhy module has a "lib" folder to containing all 3rd part library jars that it depends on.
+I recommand to create an IntelliJ [global library](https://www.jetbrains.com/help/idea/library.html) 
+as below, so that it can be reused by different IntelliJ projects. 
+If you want to control which jar should be in or not in your dependencies, 
+you can alternatively add those jars one by one into LPhy module. 
+
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
+<center>
+<figure class="image">
+  <img src="/images/LPhyLib.png" width="80%" alt="LPhy module lib">
+  <figcaption>Figure {{ current_fig_num }}: LPhy module "lib" configuration in IntelliJ.</figcaption>
+</figure>
+</center>
+  
+
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
+<center>
+<figure class="image">
+  <img src="/images/LPhyModuleSrc.png" alt="LPhy module Sources">
+  <figcaption>Figure {{ current_fig_num }}: LPhy module "Sources" configuration in IntelliJ.</figcaption>
+</figure>
+</center>
+  
+
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
+<center>
+<figure class="image">
+  <img src="/images/LPhyStudioModule.png" width="80%" alt="LPhyStudio module">
+  <figcaption>Figure {{ current_fig_num }}: LPhyStudio module in IntelliJ.</figcaption>
+</figure>
+</center>
+  
+
+Here, LPhyStudio module is depeneded on LPhy module. 
+After creating an IntelliJ application as below, you can run or debug LPhy Studio.
+
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
+<center>
+<figure class="image">
+  <img src="/images/LPhyStudioApp.png" width="80%" alt="LPhy Studio App">
+  <figcaption>Figure {{ current_fig_num }}: LPhy studio app in IntelliJ.</figcaption>
+</figure>
+</center>
+  
+
+If you still prefer to see these two modules in one place in the IntelliJ project, 
+you can create an empty IntelliJ module from the root folder of this repository.
+
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
+<center>
+<figure class="image">
+  <img src="/images/EmptyModule.png" width="80%" alt="EmptyModule">
+  <figcaption>Figure {{ current_fig_num }}: Empty root module in IntelliJ.</figcaption>
+</figure>
+</center>
+  
+
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
+<center>
+<figure class="image">
+  <img src="/images/EmptyModule2.png" alt="EmptyModule2">
+  <figcaption>Figure {{ current_fig_num }}: Empty root module in IntelliJ.</figcaption>
+</figure>
+</center>
+  
+
+
+As an user, you can download the released version from the 
+[LPhy release page](https://github.com/LinguaPhylo/linguaPhylo/releases).
+The release will contain two modular jar files (lphy-studio-?.?.?.jar and lphy-?.?.?.jar) 
+excluding the 3rd party libraries. 
+The following command line can be used to launch LPhy studio:
 
 ```
 java -p lib:lphy-studio-0.1.0.jar -m lphystudio

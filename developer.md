@@ -16,7 +16,7 @@ implemented by the Java Platform Module System (JPMS).
 
 ## For LPhy extension developers
 
-* [LPhy Extension Mechanism]({% link _posts/2021-07-16-lphy-extension.markdown %})
+* [LPhy Extension Mechanism]({% link _posts/2021-07-19-lphy-extension.markdown %})
 
 * Slides
 
