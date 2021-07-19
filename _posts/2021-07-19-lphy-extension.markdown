@@ -6,9 +6,10 @@ date:   2021-07-19
 categories: programming
 ---
 
-The LPhy extension mechanism uses the Service Provider Interface (SPI) with the Java Platform Module System (JPMS).
-In this mechanism, we invented a _Container_ class (in each Java module) used as the _Provider_ class, 
-which declares all extended Java classes from LPhy module, and which implements _SPI_ defined in LPhy module.
+LPhy extensions are implemented by using the Service Provider Interface (SPI) 
+within the Java Platform Module System (JPMS).
+An LPhy extension module implements the [LPhyExtension](https://github.com/LinguaPhylo/linguaPhylo/blob/master/LPhy/src/lphy/spi/LPhyExtImpl.java) 
+interface to provide a list of the classes that the extension module provides to extend the functionality of LPhy.
 
 
 ## Project structure
