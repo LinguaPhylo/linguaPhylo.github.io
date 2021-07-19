@@ -171,11 +171,12 @@ First, you need to create two IntelliJ modules as below:
 </figure>  
 </center>
 
-LPhy module has a "lib" folder to containing all 3rd part library jars that it depends on.
+This LPhy module has a "lib" folder to containing all 3rd part library jars that it depends on.
 I recommand to create an IntelliJ [global library](https://www.jetbrains.com/help/idea/library.html) 
 as below, so that it can be reused by different IntelliJ projects. 
 If you want to control which jar should be in or not in your dependencies, 
-you can alternatively add those jars one by one into LPhy module. 
+you can alternatively add those jars one by one into the LPhy module. 
+If you choose to do the latter, then you do not need to create the IntelliJ library from the "lib" folder. 
 
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 
@@ -207,8 +208,8 @@ you can alternatively add those jars one by one into LPhy module.
 </center>
   
 
-Here, LPhyStudio module is depeneded on LPhy module. 
-After creating an IntelliJ application as below, you can run or debug LPhy Studio.
+Here, the LPhyStudio module is depeneded on the LPhy module. 
+After creating an IntelliJ application as below, you can run LPhy Studio or debug the code.
 
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 
@@ -247,8 +248,8 @@ you can create an empty IntelliJ module from the root folder of this repository.
 As an user, you can download the released version from the 
 [LPhy release page](https://github.com/LinguaPhylo/linguaPhylo/releases).
 The release will contain two modular jar files (lphy-studio-?.?.?.jar and lphy-?.?.?.jar) 
-excluding the 3rd party libraries. 
-The following command line can be used to launch LPhy studio:
+besides the required 3rd party libraries. 
+The following command line can be used to launch the LPhy studio application:
 
 ```
 java -p lib:lphy-studio-0.1.0.jar -m lphystudio
@@ -258,8 +259,10 @@ where `-p` declares the module path separated by `:`.
 Here it includes the jar file of LPhy Studio, 
 and the "lib" folder under this jar file to contain all required libraries or LPhy extensions,
 such as the LPhy modular jar. 
-You can replace the "lib" folder path to your own library path, or add another modular jar not in the "lib" folder. 
+You can replace the "lib" folder path to your own library path, 
+or add another modular jar not existing in the "lib" folder. 
 `-m` declares the module name and it should be always "lphystudio".
-If you are using any LPhy extensions, copy its modular jar into the "lib" folder and then launch LPhy Studio.
+If you are using any LPhy extensions, copy its modular jar into the "lib" folder 
+and then restart LPhy Studio.
 
 
