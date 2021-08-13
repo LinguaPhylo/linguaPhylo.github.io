@@ -20,6 +20,12 @@ permalink: /tutorials/
 
 * [Discrete phylogeography](tutorials/discrete-phylogeography.md)
 
+### Model validation
+
+* [LPhy simulations (coming soon)]()
+
+* [5-Step Pipeline to Summarise Coverage Tests](https://github.com/walterxie/TraceR/blob/master/examples/Pipeline.md)
+
 
 ## How to write a tutorial 
 
