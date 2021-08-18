@@ -22,9 +22,9 @@ permalink: /tutorials/
 
 ### Model validation
 
-* [LPhy simulations (coming soon)]()
+* [LPhy simulations to validate models (coming soon)]()
 
-* [5-Step Pipeline to Summarise Coverage Tests](https://github.com/walterxie/TraceR/blob/master/examples/Pipeline.md)
+* [5-Step Pipeline to summarise coverage](https://github.com/walterxie/TraceR/blob/master/examples/Pipeline.md)
 
 
 ## How to write a tutorial 
