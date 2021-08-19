@@ -98,41 +98,100 @@ They can be saved into files by clicking the `File` menu and
 
 The GUI LPhy studio is not convenient for batch processing. 
 We recommend to use LPhyBEAST to run the following command in the terminal, 
-which will true values and true trees from the simulations, 
-and also BEAST 2 XMLs for Bayesian inference.
+which will log true values and true trees from the simulations, 
+and also create BEAST 2 XMLs for Bayesian inference.
 
 ```
-$LPhyBEAST$ -r 110 -l 50000000
-            -o $USER_HOME$/WorkSpace/linguaPhylo/manuscript/xmls/al2.xml
-            $USER_HOME$/WorkSpace/linguaPhylo/tutorials/RSV2sim.lphy
+$LPhyBEAST -r 110 -l 50000000
+           -o ~/WorkSpace/linguaPhylo/manuscript/xmls/al2.xml
+           ~/WorkSpace/linguaPhylo/tutorials/RSV2sim.lphy
 ```
 
-where `$USER_HOME$` is your home directory assigned to the 
-[path variable of IntelliJ](https://www.jetbrains.com/help/idea/absolute-path-variables.html)
+where `$LPhyBEAST` is the command to start your LPhyBEAST. 
+The rests are the arguments to indicate creating 
+BEAST XMLs (including extra logs containing "true" values and "true" trees) 
+from 110 simulations with a file steam "al2",
+and saving to the folder "~/WorkSpace/.../xmls/".
 
-BEAST XMLs and true values from 110 simulations will be created in the folder 
-"~/WorkSpace/.../xmls/".
+The benefit of using `-r` is that LPhyBEAST will create the XMLs 
+whose log file names are distinct to one another.
+They are concatenated by the same file steam and index numbers 
+which are separated by an underscore.
 
+For example, in the generated `al2_0.xml`, the log file name is `al2_0.log`
+and tree log file name is `al2_0.trees`. 
+So you do not need to worry about the overwriting problem, when you run all XMLs
+in the same folder.
 
-## BEAST logs
+More usage details are available [here](https://linguaphylo.github.io/setup/).
 
-Run XMLs using BEAST 2, and put all BEAST logs and trees in the same folder 
-for the pipeline. 
-All required logs (we do not BEAST tree logs) are available from 
+## BEAST runs
+
+The following Linux commands will run all XMLs in the same folder,
+where `$BEAST2` is the folder containing BEAST 2. 
+
+```
+for xml in *.xml; do
+    echo "run $xml"
+    $BEAST2/bin/beast -beagle_SSE $xml
+done
+```
+
+It will take a while if not using a HPC (High Performance Computing) cluster. 
+But you can download all required logs (we do not need BEAST tree logs) from 
 [LPhy website](https://github.com/LinguaPhylo/linguaPhylo.github.io/tree/master/covgtest).
-The full version of backups is also available in the Dropbox.
 
-## R pipeline
+The Linux command below will uncompress all `tar.gz` files:
 
-The results are summarised by
+```
+ls *.gz |xargs -n1 tar -xzf
+```
+
+
+## Coverage
+
+The results can be summarised by
 [5-Step Pipeline](https://github.com/walterxie/TraceR/blob/master/examples/Pipeline.md),
 which will produce intermediate `*.tsv` files containing the statistic summaries 
 in each step.
-The R script [PlotValidations.R](PlotValidations.R) is the code to plot figures.
 
-## Summary and Figure
+It can create the figure to report coverage, for example, the coverage of 
+mutation rate parameter "mu" looks like:
 
-The final summary `*.tsv` for each parameters and true values are in the same folder,
-but figures are in the sub-folder `figs`.
+<figure class="image">
+  <a href="mu.png" target="_blank">
+    <img src="mu.png" alt="mu.png">
+  </a>
+  <figcaption>Figure 2: the coverage of mu</figcaption>
+</figure>
+
+The x-axis represents the "true" value of "mu", which has been created by 
+LPhy during the simulation. The y-axis represents the posterior of "mu"
+sampled by BEAST 2. There are 100 dots and bars in this graph. 
+Each bar is the 95% HPD interval of the posterior samples of "mu" in one simulation, 
+and the dot inside the bar is the mean. 
+
+If the "true" value falls into the 95% HPD interval, the result will be valid,
+and then the bar will be coloured as blue.
+Otherwise, the validation will fail, and the bar is red.
+There are 93 simulations having the "true" value falling into the 95% HPD interval
+for "mu", so the coverage will be 93%.
+
+Sometimes, the log-scale is required, such as "theta":
+
+<figure class="image">
+  <a href="theta-lg10.png" target="_blank">
+    <img src="theta-lg10.png" alt="theta-lg10.png">
+  </a>
+  <figcaption>Figure 3: the coverage of theta</figcaption>
+</figure>
+
+A good coverage for all parameters from model validation is the confirmation of 
+a valid method or model.
+
+If the coverage is low, before you make a conclusion that your method or model 
+would have something wrong, you should check whether the posteriors are converged.
+It is not solid evidence to prove the convergence, 
+even though the ESSs of every parameters are greater than 200.
 
 
