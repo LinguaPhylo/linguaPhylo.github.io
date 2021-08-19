@@ -141,9 +141,9 @@ done
 
 It will take a while if not using a HPC (High Performance Computing) cluster. 
 But you can download all required logs (we do not need BEAST tree logs) from 
-the [LPhy repository](https://github.com/LinguaPhylo/linguaPhylo.github.io/tree/master/covgtest).
-
-The Linux command below will uncompress all `tar.gz` files:
+the LPhy website [repository](https://github.com/LinguaPhylo/linguaPhylo.github.io/tree/master/covgtest).
+They are compressed into several *.tar.gz files.
+You need to extract the logs into the same folder using the Linux command below:
 
 ```
 ls *.gz |xargs -n1 tar -xzf
