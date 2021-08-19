@@ -44,6 +44,13 @@ for this tutorial:
 
 {% include_relative model-validation/lphy.md %}
 
+Before you continue, please note here we want to simulate data from the exactly  
+same model as used the [time-stamped data](time-stamped-data) tutorial, 
+including all meta-data, such as dates and taxa names.
+It will be easy to extract these meta-data from the real data in `RSV2.nex`,
+but the real data is not required in the simulations.
+Please do not be confused with the requirements between simulations and real data analyses. 
+
 This script defines a simple 3-partition model to simulate 3 alignments 
 using HKY with estimated frequencies and Coalescent at the constant population size.
 The strict molecular clock is applied. 
@@ -62,12 +69,6 @@ Furthermore, In the `model {...}` section,
 the last LPhy command `sim ~ PhyloCTMC(...)` explicitly instructs 
 not to clamp the real data `codon`, but to export the vector of simulated  
 alignments named as `sim`.
-
-Please note here we want to simulate data from the exactly same model as used the 
-[time-stamped data](time-stamped-data) tutorial, including dates and taxa names.
-It will be easy to extract these meta-data from the real data in `RSV2.nex`,
-but the real data is not required in the simulations.
-Please do not be confused with the requirements between simulations and real data analyses. 
 
 You can look at another simple simulation using [HKY+Coalescent](https://github.com/LinguaPhylo/linguaPhylo/blob/master/examples/hkyCoalescent.lphy).
 More examples are available in the [examples](https://github.com/LinguaPhylo/linguaPhylo/blob/master/examples/)
