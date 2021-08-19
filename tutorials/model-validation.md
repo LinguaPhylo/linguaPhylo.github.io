@@ -100,7 +100,7 @@ They can be saved into files by clicking the `File` menu and
 
 The GUI LPhy studio is not convenient for batch processing, 
 and does not have inference engine. 
-But we can use the following command in the terminal to create XMLs
+But we can run the following command in the terminal to create XMLs
 for simulations through LPhyBEAST, and then run these XMLs using BEAST 2:
 
 ```
@@ -141,7 +141,7 @@ done
 
 It will take a while if not using a HPC (High Performance Computing) cluster. 
 But you can download all required logs (we do not need BEAST tree logs) from 
-[LPhy website](https://github.com/LinguaPhylo/linguaPhylo.github.io/tree/master/covgtest).
+the [LPhy repository](https://github.com/LinguaPhylo/linguaPhylo.github.io/tree/master/covgtest).
 
 The Linux command below will uncompress all `tar.gz` files:
 
