@@ -68,8 +68,10 @@ Please note here we want to simulate data from the exactly same model as used th
 It will be easy to extract these meta-data from the real data in `RSV2.nex`,
 but the real data is not required in the simulations.
 Please do not be confused with the requirements between simulations and real data analyses. 
+
 You can look at another simple simulation using [HKY+Coalescent](https://github.com/LinguaPhylo/linguaPhylo/blob/master/examples/hkyCoalescent.lphy).
-More examples are available in the LPhy repository "examples" folder.
+More examples are available in the [examples](https://github.com/LinguaPhylo/linguaPhylo/blob/master/examples/)
+folder in the LPhy repository.
 
 
 ## LPhy Studio
@@ -80,11 +82,11 @@ and load it into LPhy studio.
 
 Change the number in the text field "reps:" from 1 to 10, 
 then click the button "Sample". 
-After switching the tab to "Variable Log", you can see the "true" values 
+After switching the tab to "Variable Log", you will see the "true" values 
 of these 10 simulations. Switching the tab to "Variable Log", 
-you can see the "true" trees of these 10 simulations.
+you will see the "true" trees of these 10 simulations.
 They can be saved into files by clicking the `File` menu and 
-`Save (Tree) VariableLog to File ...` 
+`Save VariableLog to File ...` or `Save Tree VariableLog to File ...`.
 
 <figure class="image">
   <a href="studio.png" target="_blank">
@@ -94,12 +96,12 @@ They can be saved into files by clicking the `File` menu and
 </figure>
 
 
-## Setup simulations
+## LPhyBEAST and Batch processing
 
-The GUI LPhy studio is not convenient for batch processing. 
-We recommend to use LPhyBEAST to run the following command in the terminal, 
-which will log true values and true trees from the simulations, 
-and also create BEAST 2 XMLs for Bayesian inference.
+The GUI LPhy studio is not convenient for batch processing, 
+and does not have inference engine. 
+But we can use the following command in the terminal to create XMLs
+for simulations through LPhyBEAST, and then run these XMLs using BEAST 2:
 
 ```
 $LPhyBEAST -r 110 -l 50000000
@@ -107,17 +109,17 @@ $LPhyBEAST -r 110 -l 50000000
            ~/WorkSpace/linguaPhylo/tutorials/RSV2sim.lphy
 ```
 
-where `$LPhyBEAST` is the command to start your LPhyBEAST. 
-The rests are the arguments to indicate creating 
-BEAST XMLs (including extra logs containing "true" values and "true" trees) 
-from 110 simulations with a file steam "al2",
-and saving to the folder "~/WorkSpace/.../xmls/".
+`$LPhyBEAST` supposes to be the command to [start LPhyBEAST](https://linguaphylo.github.io/setup/). 
+The rests are the arguments to indicate creating 110 BEAST XMLs 
+with a file steam "al2",
+and saving all files to the folder "~/WorkSpace/.../xmls/".
+This will also create extra logs containing "true" values and "true" trees from
+110 simulations.
 
 The benefit of using `-r` is that LPhyBEAST will create the XMLs 
 whose log file names are distinct to one another.
-They are concatenated by the same file steam and index numbers 
-which are separated by an underscore.
-
+Their names are concatenated by the same file steam and index numbers 
+and separated by an underscore.
 For example, in the generated `al2_0.xml`, the log file name is `al2_0.log`
 and tree log file name is `al2_0.trees`. 
 So you do not need to worry about the overwriting problem, when you run all XMLs
@@ -156,7 +158,7 @@ which will produce intermediate `*.tsv` files containing the statistic summaries
 in each step.
 
 It can create the figure to report coverage, for example, the coverage of 
-mutation rate parameter "mu" looks like:
+the mutation rate parameter "mu" looks like:
 
 <figure class="image">
   <a href="mu.png" target="_blank">
@@ -177,7 +179,7 @@ Otherwise, the validation will fail, and the bar is red.
 There are 93 simulations having the "true" value falling into the 95% HPD interval
 for "mu", so the coverage will be 93%.
 
-Sometimes, the log-scale is required, such as "theta":
+Sometimes, the log-scale is required, such as the population size "theta":
 
 <figure class="image">
   <a href="theta-lg10.png" target="_blank">
@@ -187,7 +189,7 @@ Sometimes, the log-scale is required, such as "theta":
 </figure>
 
 A good coverage for all parameters from model validation is the confirmation of 
-a valid method or model.
+a successfully validated method or model.
 
 If the coverage is low, before you make a conclusion that your method or model 
 would have something wrong, you should check whether the posteriors are converged.
