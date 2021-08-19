@@ -96,7 +96,7 @@ They can be saved into files by clicking the `File` menu and
 </figure>
 
 
-## LPhyBEAST and Batch processing
+## LPhyBEAST and batch processing
 
 The GUI LPhy studio is not convenient for batch processing, 
 and does not have inference engine. 
@@ -113,8 +113,13 @@ $LPhyBEAST -r 110 -l 50000000
 The rests are the arguments to indicate creating 110 BEAST XMLs 
 with a file steam "al2",
 and saving all files to the folder "~/WorkSpace/.../xmls/".
-This will also create extra logs containing "true" values and "true" trees from
-110 simulations.
+This will also create extra logs containing "true" values and "true" trees. 
+In the end, we will check ESS and only select 100 results to calculate 
+the coverage. 
+Those 10 extra simulation results will be used to replace any of 100 results 
+having low ESS (<200) if there is any.
+The processing detail is explained in the guide of 
+[5-Step Pipeline](https://github.com/walterxie/TraceR/blob/master/examples/Pipeline.md),
 
 The benefit of using `-r` is that LPhyBEAST will create the XMLs 
 whose log file names are distinct to one another.
