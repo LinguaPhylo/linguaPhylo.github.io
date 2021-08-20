@@ -55,7 +55,7 @@ Please do not be confused with the requirements between simulations and real dat
 This script defines a simple 3-partition model to simulate 3 alignments 
 using HKY with estimated frequencies and Coalescent at the constant population size.
 The strict molecular clock is applied. 
-It is modified from the script in the [time-stamped data](time-stamped-data) tutorial.
+It is modified from the script in the [time-stamped data](/tutorials/time-stamped-data) tutorial.
 So more details about the model and priors are explained in that tutorial.
 
 This simple model is very popular when analysing the coding genes. 
@@ -71,7 +71,8 @@ the last LPhy command `sim ~ PhyloCTMC(...)` explicitly instructs
 not to clamp the real data `codon`, but to export the vector of simulated  
 alignments named as `sim`.
 
-For the details of this model, please read the auto-generated [narrative](https://linguaphylo.github.io/tutorials/skyline-plots/#auto-generated)
+For the details of this model, please read the auto-generated
+[narrative](/tutorials/model-validation/#auto-generated)
 from LPhy studio, where the data section is removed.
 
 Alternatively, you can look at another simple simulation using [HKY+Coalescent](https://github.com/LinguaPhylo/linguaPhylo/blob/master/examples/hkyCoalescent.lphy).

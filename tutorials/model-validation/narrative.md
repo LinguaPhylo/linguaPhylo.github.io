@@ -1,14 +1,5 @@
 
 <div id="auto-generated" style="background-color: #DCDCDC; padding: 10px; border: 1px solid gray; margin: 0; ">
-<h2>Data</h2>
-
-The vector of integers, <i>L</i> are the number of characters of  each element in  vector of alignments, <i>codon</i>.
-Vector of alignments, <i>codon</i> are the character sets ["3-629\3", "1-629\3", "2-629\3"] of  alignment, <i>D</i>.
-The alignment, <i>D</i> is read from the Nexus file with a file name of "data/RSV2.nex" and <i>options</i>.
-The <i>options</i> are ageDirection="forward" and ageRegex="s(\d+)$".
-The integer, <i>n</i> is the length of vector of alignments, <i>codon</i>.
-The <i>taxa</i> is the list of taxa of  alignment, <i>D</i>.
-
 
 
 <h2>Model</h2>
