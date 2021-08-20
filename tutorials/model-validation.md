@@ -8,10 +8,11 @@ permalink: /tutorials/model-validation/
 It is very important that LPhy and LPhyBEAST developers should
 use the well-calibrated study to validate their new methods and models 
 before publishing them. 
-The study will verify whether the developed method or model satisfy 
-its proposed functionality or accuracy.
+The study will verify whether the developed method or model satisfies 
+its proposed functionality and also has a good accuracy.
 
-If you are not familiar with this process, we recommend you read the 
+If you are not familiar with this process and its principles, 
+we recommend you read the
 [BEAST 2 developer guide](https://github.com/rbouckaert/DeveloperManual)
 before starting this tutorial.
 
@@ -19,17 +20,17 @@ before starting this tutorial.
 ## Goals
 
 From this tutorial, you suppose to learn how to use LPhy and LPhyBEAST 
-to validate a model following these steps:
+to validate a phylogenetic model following these steps:
 
 - write a simple LPhy script to simulation alignments;
 - run simulations using LPhyStudio;
 - create BEAST 2 XML using the simulated data and specified models;
-- batch processing BEAST runs.
+- batch processing BEAST runs;
+- understand the coverage and be able to explain the test result.
 
 A separated guide for a 
 [5-Step pipeline](https://github.com/walterxie/TraceR/blob/master/examples/Pipeline.md) 
-in a R package will help you to summarise BEAST logs and visualise the result
-from the model validation. 
+in a R package will help you to summarise BEAST logs and visualise the result. 
 
 Alternatively, this tutorial can be used for other purposes of running simulations,  
 such as learning the scales or dynamics of a specified phylogenetic model.
@@ -37,14 +38,14 @@ such as learning the scales or dynamics of a specified phylogenetic model.
 
 ## Creating a LPhy script
 
-First, we need to create a LPhy script to configure our simulations.
-We have provided the following
-[script](https://github.com/LinguaPhylo/linguaPhylo/blob/master/tutorials/RSV2sim.lphy) 
+First, we need to create a LPhy script to configure the simulations.
+We have provided the following script
+[RSV2sim.lphy](https://github.com/LinguaPhylo/linguaPhylo/blob/master/tutorials/RSV2sim.lphy) 
 for this tutorial:
 
 {% include_relative model-validation/lphy.md %}
 
-Before you continue, please note here we want to simulate data from the exactly  
+Before you continue, please note here we want to simulate data from the exactly
 same model as used the [time-stamped data](time-stamped-data) tutorial, 
 including all meta-data, such as dates and taxa names.
 It will be easy to extract these meta-data from the real data in `RSV2.nex`,
@@ -70,18 +71,23 @@ the last LPhy command `sim ~ PhyloCTMC(...)` explicitly instructs
 not to clamp the real data `codon`, but to export the vector of simulated  
 alignments named as `sim`.
 
-You can look at another simple simulation using [HKY+Coalescent](https://github.com/LinguaPhylo/linguaPhylo/blob/master/examples/hkyCoalescent.lphy).
+For the details of this model, please read the auto-generated [narrative](https://linguaphylo.github.io/tutorials/skyline-plots/#auto-generated)
+from LPhy studio, where the data section is removed.
+
+Alternatively, you can look at another simple simulation using [HKY+Coalescent](https://github.com/LinguaPhylo/linguaPhylo/blob/master/examples/hkyCoalescent.lphy).
 More examples are available in the [examples](https://github.com/LinguaPhylo/linguaPhylo/blob/master/examples/)
 folder in the LPhy repository.
 
 
 ## LPhy Studio
 
+LPhy studio is a GUI to parse your script into the probabilistic graphical models. 
 You can download 
 [RSV2sim.lphy](https://github.com/LinguaPhylo/linguaPhylo/blob/master/tutorials/RSV2sim.lphy)
 and load it into LPhy studio.
 
-Change the number in the text field "reps:" from 1 to 10, 
+Now we are going to run 10 simulations. 
+Change the number in the text field "reps:" from 1 to 10,  
 then click the button "Sample". 
 After switching the tab to "Variable Log", you will see the "true" values 
 of these 10 simulations. Switching the tab to "Variable Log", 
@@ -96,13 +102,20 @@ They can be saved into files by clicking the `File` menu and
   <figcaption>Figure 1: simulations using LPhy studio</figcaption>
 </figure>
 
+Clicking any nodes in the graph, you can view the "true" values of that variable 
+from the last simulation.
+
 
 ## LPhyBEAST and batch processing
 
-The GUI LPhy studio is not convenient for batch processing, 
-and does not have inference engine. 
-But we can run the following command in the terminal to create XMLs
-for simulations through LPhyBEAST, and then run these XMLs using BEAST 2:
+LPhy studio does not have inference engine, so that we need to start
+[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast) to run the simulations
+configured by the LPhy script, and create BEAST 2 XMLs based on these
+simulation results.
+These XMLs will contain the simulated alignments and the models specified by 
+your script. 
+
+Run the following command in the terminal to complete this task:
 
 ```
 $LPhyBEAST -r 110 -l 50000000
@@ -136,7 +149,7 @@ More usage details are available [here](https://linguaphylo.github.io/setup/).
 ## BEAST runs
 
 The following Linux commands will run all XMLs in the same folder,
-where `$BEAST2` is the folder containing BEAST 2. 
+where `$BEAST2` is the folder containing BEAST 2 package. 
 
 ```
 for xml in *.xml; do
@@ -203,4 +216,6 @@ would have something wrong, you should check whether the posteriors are converge
 It is not solid evidence to prove the convergence, 
 even though the ESSs of every parameters are greater than 200.
 
+[//]: # (## Model, Posterior)
+{% include_relative model-validation/narrative.md %}
 
