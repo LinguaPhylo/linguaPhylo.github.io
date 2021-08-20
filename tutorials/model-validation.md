@@ -45,10 +45,10 @@ for this tutorial:
 
 {% include_relative model-validation/lphy.md %}
 
-Before you continue, please note here we want to simulate data from the exactly
+Before you continue, please **note** here we want to simulate data from the exactly
 same model as used the [time-stamped data](time-stamped-data) tutorial, 
 including all meta-data, such as dates and taxa names.
-It will be easy to extract these meta-data from the real data in `RSV2.nex`,
+It will be easy to extract these meta-data from the real data in "RSV2.nex",
 but the real data is not required in the simulations.
 Please do not be confused with the requirements between simulations and real data analyses. 
 
@@ -61,14 +61,14 @@ So more details about the model and priors are explained in that tutorial.
 This simple model is very popular when analysing the coding genes. 
 Each of 3 partitions can be referred to the sites at each codon position.
 
-In the `data {...}` section, we are loading `RSV2.nex` to extract taxa names 
+In the `data {...}` section, we are loading "RSV2.nex" to extract taxa names 
 and associated dates. Such information is retained in the variable `taxa`.
 In addition, the number of partitions `n` and the vector of number of sites 
 in each partition `L` are also extracted from the real data.
 
 Furthermore, In the `model {...}` section, 
 the last LPhy command `sim ~ PhyloCTMC(...)` explicitly instructs 
-not to clamp the real data `codon`, but to export the vector of simulated  
+not to clamp the real data `codon`, but to export the vector of simulated
 alignments named as `sim`.
 
 For the details of this model, please read the auto-generated
