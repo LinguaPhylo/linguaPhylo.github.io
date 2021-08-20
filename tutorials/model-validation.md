@@ -120,14 +120,15 @@ Run the following command in the terminal to complete this task:
 
 ```
 $LPhyBEAST -r 110 -l 50000000
-           -o ~/WorkSpace/linguaPhylo/manuscript/xmls/al2.xml
-           ~/WorkSpace/linguaPhylo/tutorials/RSV2sim.lphy
+           -o $MY_XML_FOLDER/al2.xml
+           $LPHY_PATH/tutorials/RSV2sim.lphy
 ```
 
 `$LPhyBEAST` supposes to be the command to [start LPhyBEAST](https://linguaphylo.github.io/setup/). 
-The rests are the arguments to indicate creating 110 BEAST XMLs 
-with a file steam "al2",
-and saving all files to the folder "~/WorkSpace/.../xmls/".
+The rests are the arguments to indicate creating 110 BEAST XMLs with a file steam
+"al2", and saving all XMLs to the folder `$MY_XML_FOLDER` (e.g. "/home/.../WorkSpace/xmls/").
+The absolute path must be used for both `$MY_XML_FOLDER` and `$LPHY_PATH`.
+
 This will also create extra logs containing "true" values and "true" trees. 
 In the end, we will check ESS and only select 100 results to calculate 
 the coverage. 
