@@ -29,8 +29,9 @@ If you are interested in our design, please look at this [post](https://linguaph
 {% assign lphy_version = "1.0.0" %}
 
 Go to [LPhy release page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
-download the latest released version `LPhyStudio-{{ lphy_version }}.zip`, 
-and unzip the compressed file, then you will see a folder containing
+and download the latest released version, for example, 
+`LPhyStudio-{{ lphy_version }}.zip` at the time of writing. 
+Unzip the compressed file, then you will see a folder containing
 a jar file `lphy-studio-{{ lphy_version }}.jar` and other sub-folders
 containing example scripts or libraries. 
 This folder will be your `$LPHY_PATH`.
@@ -70,33 +71,41 @@ before you continue on any tutorials.
 ## LPhyBEAST installation
 
 [LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) is distributed
-as a [BEAST 2 package](https://www.beast2.org/managing-packages/).
-You can intall it using another application called `Package Manager`
-distributed with BEAST 2 together.
+as a [BEAST 2 package](https://www.beast2.org/managing-packages/) named as `lphybeast`.
+You can install it using another application called `Package Manager` distributed
+with BEAST 2 together.
 Open `BEAUti`, and click the menu `File` => `Manage Packages`. 
-The `Package Manager` will show all the available packages listed in alphabetical order.
 
+However, `Package Manager` will not show `lphybeast` by default, so you need to
+add the extra repository link "https://raw.githubusercontent.com/CompEvol/CBAN/master/packages-extra.xml"
+to the `Package Manager`.
+To do so, click the button `Package repositories` to open the dialog 
+"BEAST 2 Package Repository Manager", and click the button `Add URL` to fill in
+that extra repository link and click `OK`.
+You will see the link is appeared in the dialog as shown in the screen shot below.
+Remember to click the button `Done` to complete.
+The `lphybeast` will appear in the list of available packages in `Package Manager`,
+which are sorted by alphabetical orders. 
 
-
+<figure class="image">
+  <img src="/images/PackagesExtra.png" alt="PackagesExtra">
+  <figcaption>Figure 1: Adding the extra package repository link.</figcaption>
+</figure>
 
 Select `lphybeast` and click the `Install/Upgrade` button. 
 The installation may take few minutes, since it is going to install all dependent packages as well, 
-please wait until the dialog is popped up to confirm "lphybeast" installed successfully.
+please wait until the dialog is popped up to confirm `lphybeast` installed successfully.
 
 <figure class="image">
   <img src="/images/Installed.png" alt="Installed">
-  <figcaption>Figure 1: The confirmation for lphybeast installed successfully.</figcaption>
+  <figcaption>Figure 2: The confirmation for lphybeast installed successfully.</figcaption>
 </figure>
  
+Restart the `Package Manager`, `lphybeast` should show installed versions 
+as well as its dependent packages. 
 
-The `Package Manager` should show installed versions of lphybeast and its dependent packages as below. 
-
-<figure class="image">
-  <img src="/images/InstallLPhyBEAST.png" alt="Install LPhyBEAST">
-  <figcaption>Figure 2: Package Manager shows installed packages.</figcaption>
-</figure>
-
-Alternatively, you can install it using the command line below, but please note the name of package is case-sensitive.
+Alternatively, you can install it using the command line below, 
+but please note the name of package is case-sensitive.
 
 {% assign beastversion = "2.6.6" %}
 
