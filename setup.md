@@ -88,7 +88,9 @@ The `lphybeast` will appear in the list of available packages in `Package Manage
 which are sorted by alphabetical orders. 
 
 <figure class="image">
-  <img src="/images/PackagesExtra.png" alt="PackagesExtra">
+  <a href="/images/PackagesExtra.png">
+    <img src="/images/PackagesExtra.png" alt="PackagesExtra">
+  </a>
   <figcaption>Figure 1: Adding the extra package repository link.</figcaption>
 </figure>
 
