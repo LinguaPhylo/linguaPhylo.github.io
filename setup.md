@@ -169,19 +169,18 @@ We recommend to change the absolute path in `readNexus` if the script is not sha
 Otherwise, please always check if the relative path is correct, 
 before you generate the XML.   
 
-
-Alternatively, using `-wd`, you can work at another folder, but point out where the input and output are:
-
-```bash
-$BEAST_DIR/bin/applauncher lphybeast -l 15000000 -wd $LPHY_PATH/tutorials/ -o RSV2long.xml RSV2.lphy
-```
-
-Using `-wd` can also allow you load lphy from a different path, 
-but output XML file into the given folder (`$MY_XML_FOLDER`):
+To avoid the confusion and complexity of using the relative paths,
+we provide `-wd` to define the working directory for all relative paths. 
+You can organise everything in a folder, and use the following command below:
 
 ```bash
-$BEAST_DIR/bin/applauncher lphybeast -wd $MY_XML_FOLDER -l 15000000 $LPHY_PATH/tutorials/RSV2.lphy
+$BEAST_DIR/bin/applauncher lphybeast -wd $LPHY_PATH/tutorials/ -l 15000000 -o RSV2long.xml RSV2.lphy
 ```
+
+This also has two extra arguments: 
+- `-l` changes the MCMC chain length (default to 1 million) in the XML;
+- `-o` replaces the output file name (default to use the same file steam as the lphy input file).
+
 
 Create 5 XML for simulations:
 ```bash
