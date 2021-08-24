@@ -16,56 +16,72 @@ Use the command line below to check your Java version:
 java -version
 ```
 
-## LPhy 
+## LPhy Studio
+
+LPhy studio is the GUI for LPhy language. 
+From the version 1.0.0, the extension mechanism using the latest technology 
+known as the Java Platform Module System (JPMS) is implemented. 
+It works differently to the previous Java (1.8) mechanism. 
+The [module system](https://openjdk.java.net/jeps/261) page from OpenJDK 
+provides a full introduction to the technical details.
+If you are interested in our design, please look at this [post](https://linguaphylo.github.io/programming/2021/07/19/lphy-extension.html).
+
+{% assign lphy_version = "1.0.0" %}
 
 Go to [LPhy release page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
-download the latest released version (LPhy.v???.zip), and unzip the compressed file, 
-then you will see a folder with same name (LPhy.v???). 
-Finally, copy or move the folder with everything inside to your applications folder.
+download the latest released version `LPhyStudio-{{ lphy_version }}.zip`, 
+and unzip the compressed file, then you will see a folder containing
+a jar file `lphy-studio-{{ lphy_version }}.jar` and other sub-folders
+containing example scripts or libraries. 
+This folder will be your `$LPHY_PATH`.
+You can copy or move the folder with everything to your working space.
 
-{% assign version = "0.0.4" %}
-
-There should be a jar file named with version numbers (e.g. `LPhy.v{{ version }}.jar`) insider the folder.
-You can either double-click the jar file, or use the following command line to start the LPhy Studio, 
-which is a Java GUI to specify and visualise graphical models 
-as well as simulate data from models defined in LPhy script.
+The following command line will launch LPhy studio,
+where `-p` declares your module path including the LPhy studio jar 
+and the sub-folder "lib" containing all required libraries. 
+You can replace your own libraries folder to a different path. 
+`-m` declares the module name and it should be always "lphystudio".
 
 ```bash
 LPHY_PATH = ~/WorkSpace/linguaPhylo/
 cd $LPHY_PATH
-java -jar LPhy.v{{ version }}.jar
+java -p lib:lphy-studio-{{ lphy_version }}.jar -m lphystudio
 ```
 
-You can also give a LPhy script file name with its absolute path. 
-Here we use the script `RSV2.lphy` under the `tutorials` folder:
+If you are using any extensions, copy it into the "lib"" folder 
+and then run this command to launch LPhy studio.
+
+You can also give a LPhy script file name with its path. 
+Here we use the relative script to load `RSV2.lphy`:
 
 ```bash
-java -jar LPhy.v{{ version }}.jar $LPHY_PATH/tutorials/RSV2.lphy
+java -p lib:lphy-studio-{{ lphy_version }}.jar -m lphystudio tutorials/RSV2.lphy
 ```
 
-Or work on the folder containing scripts:
+Please note both the module path and the LPhy script path are the relative paths,
+as well as `readNexus(file="data/RSV2.nex", ...);` inside the LPhy script.
+If you want to use the absolute path, please make sure every paths are defined correctly. 
 
-```bash
-cd $LPHY_PATH/tutorials/
-java -jar $LPHY_PATH/LPhy.v{{ version }}.jar RSV2.lphy
-```
-
-The data is `$LPHY_PATH/tutorials/data/RSV2.nex`, which is loaded by a LPhy function
-`readNexus(file="data/RSV2.nex", ...);` inside the script using the relative path.
-
-If you are new to LPhy, we recommend you to read this [introduction](https://linguaphylo.github.io/about/) first, 
+If you are new to LPhy, we recommend you to read this 
+[introduction](https://linguaphylo.github.io/about/),
 before you continue on any tutorials. 
 
 
 ## LPhyBEAST installation
 
-[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) is distributed as a [BEAST 2 package](https://www.beast2.org/managing-packages/),
-you can use an application called `Package Manager`, which is distributed with BEAST 2 together.
+[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) is distributed
+as a [BEAST 2 package](https://www.beast2.org/managing-packages/).
+You can intall it using another application called `Package Manager`
+distributed with BEAST 2 together.
 Open `BEAUti`, and click the menu `File` => `Manage Packages`. 
 The `Package Manager` will show all the available packages listed in alphabetical order.
+
+
+
+
 Select `lphybeast` and click the `Install/Upgrade` button. 
 The installation may take few minutes, since it is going to install all dependent packages as well, 
-please wait until the dialog is poped up to confirm lphybeast installed successfully.
+please wait until the dialog is popped up to confirm "lphybeast" installed successfully.
 
 <figure class="image">
   <img src="/images/Installed.png" alt="Installed">
@@ -82,7 +98,7 @@ The `Package Manager` should show installed versions of lphybeast and its depend
 
 Alternatively, you can install it using the command line below, but please note the name of package is case-sensitive.
 
-{% assign beastversion = "2.6.5" %}
+{% assign beastversion = "2.6.6" %}
 
 ```bash
 # BEAST_DIR = "/Applications/BEAST{{ beastversion }}"
@@ -207,7 +223,7 @@ If it does not exist, then create the sub-directory `lphybeast` under the folder
 
 3. Unzip the compressed LPhyBEAST.v???.zip file to the BEAST 2 package `lphybeast` folder. 
 The example command line in Linux is 
-`unzip  ~/Downloads/LPhyBEAST.v{{ version }}.zip -d ~/.beast/2.6/lphybeast/`;
+`unzip  ~/Downloads/LPhyBEAST.v???.zip -d ~/.beast/2.6/lphybeast/`;
 
 4. Check if there is the `lib` sub-folder under the `lphybeast` folder and if it contains any .jar files, 
 and then run `packagemanager -list` to ensure it is installed;
