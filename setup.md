@@ -123,7 +123,7 @@ and make sure the column `Installed Version` shows a version number not `NA`:
 $BEAST_DIR/bin/packagemanager -list 
 ```
 
-If you have installed LPhyBEAST previously, we recommend you remove the old version first,
+If you have installed lphybeast previously, we recommend you remove the old version first,
 using the command below, then install it.
 
 ```bash
@@ -139,48 +139,63 @@ which is also distributed with BEAST 2 together.
 Here is some [details](https://www.beast2.org/2019/09/26/command-line-tricks.html)
 how to run it from the command line.
 
-```bash
-$BEAST_DIR/bin/applauncher LPhyBEAST $LPHY_PATH/tutorials/RSV2.lphy
-```
+Now, we can run the following command line to show the usage, 
+and also check if it is installed properly :
 
-Or work on the folder containing scripts:
+```bash
+$BEAST_DIR/bin/applauncher lphybeast -h
+```
+where the `$BEAST_DIR` is the folder containing BEAST 2.
+
+Then, try to create "RSV2.xml" from the tutorial script "RSV2.lphy":
 
 ```bash
 cd $LPHY_PATH/tutorials/
-$BEAST_DIR/bin/applauncher LPhyBEAST RSV2.lphy
+$BEAST_DIR/bin/applauncher lphybeast RSV2.lphy
 ```
 
-**Note:** if your lphy script contains the relative path to load a file (e.g. alignment), 
-e.g. `D = readNexus(file="data/RSV2.nex", ...);`, then that path will be relative to where the lphy file located. 
-Please always check if your data path is correct, before you produce the XML.   
-  
+Or use the absolute path and work from a different folder:
+
+```bash
+cd $MY_PATH
+$BEAST_DIR/bin/applauncher lphybeast $LPHY_PATH/tutorials/RSV2.lphy
+```
+
+**Note:** this script contains the relative path to load data, 
+`D = readNexus(file="data/RSV2.nex", ...);`, 
+which is always relative to the working directory.
+Here is the folder where "RSV2.lphy" located. 
+We recommend to change the absolute path in `readNexus` if the script is not shared.
+Otherwise, please always check if the relative path is correct, 
+before you generate the XML.   
+
 
 Alternatively, using `-wd`, you can work at another folder, but point out where the input and output are:
 
 ```bash
-$BEAST_DIR/bin/applauncher LPhyBEAST -l 15000000 -wd $LPHY_PATH/tutorials/ -o RSV2long.xml RSV2.lphy
+$BEAST_DIR/bin/applauncher lphybeast -l 15000000 -wd $LPHY_PATH/tutorials/ -o RSV2long.xml RSV2.lphy
 ```
 
 Using `-wd` can also allow you load lphy from a different path, 
 but output XML file into the given folder (`$MY_XML_FOLDER`):
 
 ```bash
-$BEAST_DIR/bin/applauncher LPhyBEAST -wd $MY_XML_FOLDER -l 15000000 $LPHY_PATH/tutorials/RSV2.lphy
+$BEAST_DIR/bin/applauncher lphybeast -wd $MY_XML_FOLDER -l 15000000 $LPHY_PATH/tutorials/RSV2.lphy
 ```
 
 Create 5 XML for simulations:
 ```bash
-$BEAST_DIR/bin/applauncher LPhyBEAST -wd $LPHY_PATH/tutorials/ -r 5 RSV2.lphy
+$BEAST_DIR/bin/applauncher lphybeast -wd $LPHY_PATH/tutorials/ -r 5 RSV2.lphy
 ```
 
-Please note: every time after loading a script file, LPhyBEAST (and LPhy Studio) will set the system environment variable `user.dir` to the folder containing this file. This folder will be used as the reference when the data path inside the scrips is a relative path. So, for a LPhy script, the relative path is always referring to the folder where it is. Then the data can be easily organized with the scripts together.
+Please note: every time after loading a script file, 
+LPhyBEAST (and LPhy Studio) will set the system environment variable `user.dir` 
+to the folder containing this file. 
+This folder will be used as the reference when the data path inside the scrips is a relative path. 
+So, for a LPhy script, the relative path is always referring to the folder where it is. 
+Then the data can be easily organized with the scripts together.
 Please see the example scripts, such as `tutorials/RSV2.lphy` or `examples/fullDataExample.lphy`.
 
-The usage can be seen by the command below:
-
-```bash
-$BEAST_DIR/bin/applauncher LPhyBEAST -h
-```
 
 
 ### LPhyBEAST failed by Java version
