@@ -84,8 +84,6 @@ To do so, click the button `Package repositories` to open the dialog
 that extra repository link and click `OK`.
 You will see the link is appeared in the dialog as shown in the screen shot below.
 Remember to click the button `Done` to complete.
-The `lphybeast` will appear in the list of available packages in `Package Manager`,
-which are sorted by alphabetical orders. 
 
 <figure class="image">
   <a href="/images/PackagesExtra.png">
@@ -94,7 +92,9 @@ which are sorted by alphabetical orders.
   <figcaption>Figure 1: Adding the extra package repository link.</figcaption>
 </figure>
 
-Select `lphybeast` and click the `Install/Upgrade` button. 
+The `lphybeast` will appear in the list of available packages in `Package Manager`,
+which are sorted by alphabetical orders. 
+Select it and click the `Install/Upgrade` button. 
 The installation may take few minutes, since it is going to install all dependent packages as well, 
 please wait until the dialog is popped up to confirm `lphybeast` installed successfully.
 
@@ -103,7 +103,7 @@ please wait until the dialog is popped up to confirm `lphybeast` installed succe
   <figcaption>Figure 2: The confirmation for lphybeast installed successfully.</figcaption>
 </figure>
  
-Restart the `Package Manager`, `lphybeast` should show installed versions 
+Restart the `Package Manager`, `lphybeast` should show its installed version
 as well as its dependent packages. 
 
 Alternatively, you can install it using the command line below, 
@@ -130,15 +130,14 @@ using the command below, then install it.
 $BEAST_DIR/bin/packagemanager -del lphybeast 
 ```
 
+The LPhy will be included in LPhyBEAST's libraries, as long as you install it successfully. 
 
 ## LPhyBEAST usage
 
-Though LPhyBEAST depends on LPhy, you will not find it in the list, because LPhy is not a BEAST 2 package. 
-But it will be included in LPhyBEAST's libraries during the release. 
-So you do not have to worry it as long as you install LPhyBEAST properly. 
-
-To start LPhyBEAST, you can use BEAST 2 `applauncher`, which is also distributed with BEAST 2.
-Here is some [details](https://www.beast2.org/2019/09/26/command-line-tricks.html) how to run it from the command line.
+To use the `lphybeast` package, you need to start it through BEAST 2 `applauncher`,
+which is also distributed with BEAST 2 together.
+Here is some [details](https://www.beast2.org/2019/09/26/command-line-tricks.html)
+how to run it from the command line.
 
 ```bash
 $BEAST_DIR/bin/applauncher LPhyBEAST $LPHY_PATH/tutorials/RSV2.lphy
