@@ -140,7 +140,7 @@ Here is some [details](https://www.beast2.org/2019/09/26/command-line-tricks.htm
 how to run it from the command line.
 
 Now, we can run the following command line to show the usage, 
-and also check if it is installed properly :
+and also check if it is installed properly:
 
 ```bash
 $BEAST_DIR/bin/applauncher lphybeast -h
