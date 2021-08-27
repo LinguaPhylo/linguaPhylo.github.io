@@ -4,9 +4,10 @@ title: Developer Note
 permalink: /developer/
 ---
 
-LPhy and LPhyBEAST are developed based on Java 16, which is the latest long-term support (LTS) version.
-The LPhy extension mechanism uses the Service Provider Interface (SPI) 
-implemented by the Java Platform Module System (JPMS). 
+LPhy and LPhyBEAST are developed based on Java 16,
+which is the latest long-term support (LTS) version.
+The LPhy extension mechanism is implemented using
+the Service Provider Interface (SPI) and the Java Platform Module System (JPMS). 
 
 
 ## For LPhy core developers
@@ -28,20 +29,22 @@ implemented by the Java Platform Module System (JPMS).
 
 ## For LPhyBEAST extension developers
 
-* [LPhyBEAST Extension Mechanism]()
+* [LPhyBEAST Extension Mechanism (coming soon ...)]()
 
 
 ## Extension Examples
 
-* [Hello LPhy](https://github.com/LinguaPhylo/HelloLPhy)
+* [Hello LPhy (proposing ...)](https://github.com/LinguaPhylo/HelloLPhy)
 
-* [Phylonco]()
+* [Phylonco (coming ...)]()
 
 
 ## Useful links
 
-* [SPI (Service Provider Interface)](https://www.infoq.com/articles/java11-aware-service-module/)
+[//]: # (https://www.infoq.com/articles/java11-aware-service-module/)
+* [SPI (Service Provider Interface)](https://www.baeldung.com/java-spi)
 
+[//]: # (https://openjdk.java.net/jeps/261)
 * [A Guide to Java 9 Modularity](https://www.baeldung.com/java-9-modularity)
 
 * [Project Jigsaw: Module System Quick-Start Guide](https://openjdk.java.net/projects/jigsaw/quick-start)

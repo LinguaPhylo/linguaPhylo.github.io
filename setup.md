@@ -19,11 +19,12 @@ java -version
 ## LPhy Studio
 
 LPhy studio is the GUI for LPhy language. 
-From the version 1.0.0, the extension mechanism using the latest technology 
-known as the Java Platform Module System (JPMS) is implemented. 
-It works differently to the previous Java (1.8) mechanism. 
-The [module system](https://openjdk.java.net/jeps/261) page from OpenJDK 
-provides a full introduction to the technical details.
+From the version 1.0.0, an extension mechanism is implemented 
+using the latest technologies known as 
+the [Service Provider Interface (SPI)](https://www.baeldung.com/java-spi) and
+the [Java Platform Module System (JPMS)](https://openjdk.java.net/jeps/261). 
+It works differently to the Java ($\leq$1.8) non-modular mechanism. 
+
 If you are interested in our design, please look at this [post](https://linguaphylo.github.io/programming/2021/07/19/lphy-extension.html).
 
 {% assign lphy_version = "1.0.0" %}
@@ -109,7 +110,7 @@ as well as its dependent packages.
 Alternatively, you can install it using the command line below, 
 but please note the name of package is case-sensitive.
 
-{% assign beastversion = "2.6.6" %}
+{% assign beastversion = "2.6.x" %}
 
 ```bash
 # BEAST_DIR = "/Applications/BEAST{{ beastversion }}"
@@ -130,20 +131,31 @@ using the command below, then install it.
 $BEAST_DIR/bin/packagemanager -del lphybeast 
 ```
 
-The LPhy will be included in LPhyBEAST's libraries, as long as you install it successfully. 
+### LPhy non-modular jar 
+
+Unfortunately, BEAST 2.6.x is not using the Java module system.
+To compromise with non-modular applications, we separately release 
+a non-modular jar for LPhy but using META-INF to trigger SPI. 
+
+To complete this installation, you need to create the folder named exactly as
+`lphy` under the `$BEAST_DIR` folder, and download the non-modular jar
+`lphy-j8-{{ lphy_version }}.jar` and the script `lphybeast` into the `lphy` folder.
+Eventually, we can start LPhyBEAST using the script `lphybeast`.
+
+The bash script `lphybeast` will launch LPhyBEAST through another BEAST 2 
+application called [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
+which is also distributed with BEAST 2 together.
+
 
 ## LPhyBEAST usage
 
-To use the `lphybeast` package, you need to start it through BEAST 2 `applauncher`,
-which is also distributed with BEAST 2 together.
-Here is some [details](https://www.beast2.org/2019/09/26/command-line-tricks.html)
-how to run it from the command line.
-
+Make sure you have `lphy-j8-{{ lphy_version }}.jar` and the script `lphybeast`
+in the correct path. 
 Now, we can run the following command line to show the usage, 
 and also check if it is installed properly:
 
 ```bash
-$BEAST_DIR/bin/applauncher lphybeast -h
+$BEAST_DIR/lphy/lphybeast -h
 ```
 where the `$BEAST_DIR` is the folder containing BEAST 2.
 
@@ -151,21 +163,21 @@ Then, try to create "RSV2.xml" from the tutorial script "RSV2.lphy":
 
 ```bash
 cd $LPHY_PATH/tutorials/
-$BEAST_DIR/bin/applauncher lphybeast RSV2.lphy
+$BEAST_DIR/lphy/lphybeast RSV2.lphy
 ```
 
 Or use the absolute path and work from a different folder:
 
 ```bash
 cd $MY_PATH
-$BEAST_DIR/bin/applauncher lphybeast $LPHY_PATH/tutorials/RSV2.lphy
+$BEAST_DIR/lphy/lphybeast $LPHY_PATH/tutorials/RSV2.lphy
 ```
 
 **Note:** this script contains the relative path to load data, 
 `D = readNexus(file="data/RSV2.nex", ...);`, 
 which is always relative to the working directory.
 Here is the folder where "RSV2.lphy" located. 
-We recommend to change the absolute path in `readNexus` if the script is not shared.
+We recommend to use the absolute path in `readNexus` if the script is not shared.
 Otherwise, please always check if the relative path is correct, 
 before you generate the XML.   
 
@@ -174,7 +186,7 @@ we provide `-wd` to define the working directory for all relative paths.
 You can organise everything in a folder, and use the following command below:
 
 ```bash
-$BEAST_DIR/bin/applauncher lphybeast -wd $LPHY_PATH/tutorials/ -l 15000000 -o RSV2long.xml RSV2.lphy
+$BEAST_DIR/lphy/lphybeast -wd $LPHY_PATH/tutorials/ -l 15000000 -o RSV2long.xml RSV2.lphy
 ```
 
 This also has two extra arguments: 
@@ -184,7 +196,7 @@ This also has two extra arguments:
 
 Create 5 XML for simulations:
 ```bash
-$BEAST_DIR/bin/applauncher lphybeast -wd $LPHY_PATH/tutorials/ -r 5 RSV2.lphy
+$BEAST_DIR/lphy/lphybeast -wd $LPHY_PATH/tutorials/ -r 5 RSV2.lphy
 ```
 
 Please note: every time after loading a script file, 
@@ -196,10 +208,36 @@ Then the data can be easily organized with the scripts together.
 Please see the example scripts, such as `tutorials/RSV2.lphy` or `examples/fullDataExample.lphy`.
 
 
+### LPhyBEAST failed by an improper installation
+
+If the lphy non-modular jar (e.g. `lphy-j8-{{ lphy_version }}.jar`) is not
+in a correct path, you will see the following exceptions:
+
+```
+GenerativeDistribution : []
+Functions : []
+picocli.CommandLine$PicocliException: An unexpected exception from a static initializer : 
+	at lphybeast.LPhyBEAST.toBEASTXML(Unknown Source)
+	at lphybeast.LPhyBEAST.createXML(Unknown Source)
+  ...
+Caused by: java.lang.ExceptionInInitializerError
+	at lphy.parser.SimulatorListenerImpl$SimulatorASTVisitor.visitMethodCall(SimulatorListenerImpl.java:723)
+	... 
+Caused by: java.lang.RuntimeException: LPhy core did not load properly using SPI mechanism !
+	at lphy.LPhyExtensionFactory.registerExtensions(LPhyExtensionFactory.java:109)
+	... 
+Aug 27, 2021 12:00:42 PM lphybeast.LPhyBEAST main
+SEVERE: LPhyBEAST does not exit normally !
+```
+
+The list of `GenerativeDistribution` and `Functions` implemented in the LPhy 
+cannot be loaded properly according to the error message.
+In the working case, the `[ ]` will contain the list of names of distributions or functions.
+
 
 ### LPhyBEAST failed by Java version
 
-If the `applauncher LPhyBEAST -h` failed with the following error message about Java version:
+If the `lphybeast -h` failed with the following error message about Java version:
 
 ```
 java.lang.UnsupportedClassVersionError: 
