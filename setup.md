@@ -153,11 +153,14 @@ BEAST_DIR
     ├── examples
     ├── images
     ├── lib
+    │    ├── beast.jar
+    │    ...    
     ├── lphy
     │    ├── lphybeast
     │    └── lphy-j8-{{ lphy_version }}.jar
-    └── templates
+    ├── templates
     ...
+    └── VERSION HISTORY.txt
 ```
 
 Eventually, we can start LPhyBEAST using the script `lphybeast`.
