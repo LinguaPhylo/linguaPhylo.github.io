@@ -22,7 +22,7 @@ permalink: /tutorials/
 
 ### Model validation
 
-* [LPhy simulations to validate models (coming soon)]()
+* [LPhy simulations to validate models](model-validation)
 
 * [5-Step Pipeline to summarise coverage](https://github.com/walterxie/TraceR/blob/master/examples/Pipeline.md)
 

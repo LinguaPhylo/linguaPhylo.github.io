@@ -146,8 +146,21 @@ a non-modular jar for LPhy but using META-INF to trigger SPI.
 To complete this installation, you need to create the folder named exactly as
 `lphy` under the `$BEAST_DIR` folder, and download the non-modular jar
 `lphy-j8-{{ lphy_version }}.jar` and the script `lphybeast` into the `lphy` folder.
-Eventually, we can start LPhyBEAST using the script `lphybeast`.
 
+```
+BEAST_DIR
+    ├── bin
+    ├── examples
+    ├── images
+    ├── lib
+    ├── lphy
+    │    ├── lphybeast
+    │    └── lphy-j8-{{ lphy_version }}.jar
+    └── templates
+    ...
+```
+
+Eventually, we can start LPhyBEAST using the script `lphybeast`.
 The bash script `lphybeast` will launch LPhyBEAST through another BEAST 2 
 application called [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
 which is also distributed with BEAST 2 together.
@@ -158,12 +171,12 @@ which is also distributed with BEAST 2 together.
 Make sure you have `lphy-j8-{{ lphy_version }}.jar` and the script `lphybeast`
 in the correct path. 
 Now, we can run the following command line to show the usage, 
-and also check if it is installed properly:
+and also check if it is installed properly, 
+where the `$BEAST_DIR` is the folder containing BEAST 2.
 
 ```bash
 $BEAST_DIR/lphy/lphybeast -h
 ```
-where the `$BEAST_DIR` is the folder containing BEAST 2.
 
 Then, try to create "RSV2.xml" from the tutorial script "RSV2.lphy":
 
