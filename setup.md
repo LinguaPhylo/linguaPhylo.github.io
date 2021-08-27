@@ -4,6 +4,13 @@ title: Setup
 permalink: /setup/
 ---
 
+This page includes the instructions for two applications:
+
+1. LPhy studio - the GUI for LPhy language
+
+2. LPhyBEAST - a BEAST 2 package that takes a LPhy script and produces a BEAST 2 XML file.
+
+
 ## Java 16
 
 LPhy and LPhyBEAST are developed on Java 16. 
@@ -18,7 +25,6 @@ java -version
 
 ## LPhy Studio
 
-LPhy studio is the GUI for LPhy language. 
 From the version 1.0.0, an extension mechanism is implemented 
 using the latest technologies known as 
 the [Service Provider Interface (SPI)](https://www.baeldung.com/java-spi) and
@@ -199,13 +205,11 @@ Create 5 XML for simulations:
 $BEAST_DIR/lphy/lphybeast -wd $LPHY_PATH/tutorials/ -r 5 RSV2.lphy
 ```
 
-Please note: every time after loading a script file, 
-LPhyBEAST (and LPhy Studio) will set the system environment variable `user.dir` 
-to the folder containing this file. 
-This folder will be used as the reference when the data path inside the scrips is a relative path. 
-So, for a LPhy script, the relative path is always referring to the folder where it is. 
-Then the data can be easily organized with the scripts together.
-Please see the example scripts, such as `tutorials/RSV2.lphy` or `examples/fullDataExample.lphy`.
+**Note:** please use `-wd` to simplify your paths according to 
+your local folder structure, not make them more complex.
+For example, if you use `-wd $LPHY_PATH  tutorials/RSV2.lphy` instead, 
+then you have to update the corresponding line in the script to 
+`readNexus(file="tutorials/data/RSV2.nex", ...);`.
 
 
 ### LPhyBEAST failed by an improper installation
