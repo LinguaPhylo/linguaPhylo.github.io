@@ -143,7 +143,7 @@ then the dimension of migration rates backwards in time should equal to
 
 ```
 # BEAST_DIR = "/Applications/BEAST2"
-$BEAST_DIR/bin/applauncher LPhyBEAST -l 30000000 h3n2.lphy
+$BEAST_DIR/lphy/lphybeast -l 30000000 h3n2.lphy
 ```
 
 
@@ -153,7 +153,7 @@ $BEAST_DIR/bin/applauncher LPhyBEAST -l 30000000 h3n2.lphy
 
 
 ```
-                         BEAST v2.6.5, 2002-2020
+                         BEAST v2.6.6, 2002-2020
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -186,29 +186,29 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-File: h3n2.xml seed: 1622765762691 threads: 1
+File: h3n2.xml seed: 1630296535307 threads: 1
 
     ...
 
     ...
-       28500000     -1954.8709     -1914.9398       -39.9310         0.3392         0.1896         0.2060         0.2650         8.1994         0.0039         0.2969         1.1391         1.3819         0.6250         0.3376         0.9565         1.2026         0.5070         2.8734         0.3325 1m28s/Msamples
-       30000000     -1961.0620     -1913.8435       -47.2184         0.3236         0.2271         0.2169         0.2323         5.6425         0.0048         0.5258         0.4895         0.3023         0.0809         0.9378         0.0090         0.8170         1.5857         2.0105         0.4335 1m28s/Msamples
+       28500000     -1953.9985     -1903.1770       -50.8214         0.3498         0.2198         0.1937         0.2365         5.4560         0.0046         0.5595         3.7798         0.4518         0.6711         2.5347         0.1795         2.1426         2.4587         3.7122         0.1873 1m13s/Msamples
+       30000000     -1948.5394     -1906.5726       -41.9668         0.3486         0.2210         0.2017         0.2285         7.4471         0.0047         1.6167         0.4554         0.9991         1.1398         0.5408         1.4781         1.0904         0.5761         2.9541         0.2147 1m14s/Msamples
 
 Operator                                    Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                 0.20070     241385     623340    0.02879    0.27915 
-ScaleOperator(gamma.scale)                 0.16436     118492     282377    0.01334    0.29559 
-ScaleOperator(kappa.scale)                 0.30618     108655     291761    0.01334    0.27136 
-ScaleOperator(m.scale)                     0.15148     376169    1028353    0.04677    0.26783 
-ScaleOperator(mu.scale)                    0.52573     102225     298207    0.01334    0.25529 
-UpDownOperator(muUppsiDownOperator)        0.85823     321015    3379515    0.12343    0.08675 Try setting scaleFactor to about 0.926
-DeltaExchangeOperator(pi.deltaExchange)    0.08566     163919     699770    0.02879    0.18979 
-Exchange(psi.narrowExchange)                     -    1649120    1943213    0.11981    0.45907 
-ScaleOperator(psi.rootAgeScale)            0.56044      75569     324294    0.01334    0.18899 
-ScaleOperator(psi.scale)                   0.83174     241201    3354299    0.11981    0.06708 Try setting scaleFactor to about 0.912
-SubtreeSlide(psi.subtreeSlide)             1.08837     481272    3112444    0.11981    0.13392 
-Uniform(psi.uniform)                             -    2216746    1376901    0.11981    0.61685 
-Exchange(psi.wideExchange)                       -      91262    3505392    0.11981    0.02537 
-WilsonBalding(psi.wilsonBalding)                 -     159341    3433764    0.11981    0.04435 
+ScaleOperator(Theta.scale)                 0.19848     237417     626849    0.02879    0.27470 
+ScaleOperator(gamma.scale)                 0.15667     111703     288282    0.01334    0.27927 
+ScaleOperator(kappa.scale)                 0.29863     104221     295014    0.01334    0.26105 
+ScaleOperator(m.scale)                     0.15125     372893    1027107    0.04677    0.26635 
+ScaleOperator(mu.scale)                    0.52516     102708     297837    0.01334    0.25642 
+UpDownOperator(muUppsiDownOperator)        0.87133     355238    3345290    0.12343    0.09600 Try setting scaleFactor to about 0.933
+DeltaExchangeOperator(pi.deltaExchange)    0.07892     182142     681135    0.02879    0.21099 
+Exchange(psi.narrowExchange)                     -    1647945    1947578    0.11981    0.45833 
+ScaleOperator(psi.rootAgeScale)            0.57049      78998     321178    0.01334    0.19741 
+ScaleOperator(psi.scale)                   0.85243     280423    3313199    0.11981    0.07803 Try setting scaleFactor to about 0.923
+SubtreeSlide(psi.subtreeSlide)             1.01886     513876    3082581    0.11981    0.14288 
+Uniform(psi.uniform)                             -    2218465    1377464    0.11981    0.61694 
+Exchange(psi.wideExchange)                       -      91547    3505021    0.11981    0.02545 
+WilsonBalding(psi.wilsonBalding)                 -     159258    3434632    0.11981    0.04431 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -217,8 +217,8 @@ WilsonBalding(psi.wilsonBalding)                 -     159341    3433764    0.11
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 2643.22 seconds
-End likelihood: -1961.062011428627
+Total calculation time: 2239.001 seconds
+End likelihood: -1948.5394379603993
 ```
 
 ## Analysing the BEAST output

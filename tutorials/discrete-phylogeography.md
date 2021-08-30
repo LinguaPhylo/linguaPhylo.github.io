@@ -71,7 +71,7 @@ This implements the Bayesian stochastic search variable selection (BSSVS).
 
 ```
 # BEAST_DIR = "/Applications/BEAST2/"
-$BEAST_DIR/bin/applauncher LPhyBEAST -l 30000000 h5n1.lphy
+$BEAST_DIR/lphy/lphybeast -l 30000000 h5n1.lphy
 ```
 
 
@@ -80,7 +80,7 @@ $BEAST_DIR/bin/applauncher LPhyBEAST -l 30000000 h5n1.lphy
 {% include_relative templates/run-beast.md xml="h5n1.xml" %}
 
 ```
-                         BEAST v2.6.5, 2002-2020
+                         BEAST v2.6.6, 2002-2020
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -113,31 +113,31 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1622765548891
+Random number seed: 1630297055765
 
     ...
 
     ...
-       28500000     -5944.7208     -5832.4174      -112.3034         0.3258         0.1953         0.2215         0.2573         9.8272         0.3230         7.0644         0.1450         0.2684         0.0973         0.1102         0.0614         0.3173              1              0              0              1              0              0              0              0              0              0              1              0              1              0              0         0.0733         0.0201         0.0553         0.0824         0.0776         0.0502         0.0987         0.2817 9.888282872E-4 2.945698158E-4         0.1168         0.0295         0.0337         0.0671         0.0116         0.5471 1m49s/Msamples
-       30000000     -5937.7611     -5825.9374      -111.8236         0.3635         0.1906         0.2072         0.2385         9.7791         0.4147         7.4488         0.1870         0.1186         0.2852         0.2348         0.1126         0.0615              1              0              1              1              1              1              1              0              1              1              1              0              1              1              1         0.1268         0.0451         0.0275         0.1033         0.0454         0.1588         0.0472         0.0848         0.0106         0.0339         0.1906         0.0531         0.0127         0.0116         0.0478         0.3052 1m48s/Msamples
+       28500000     -5944.2455     -5827.0448      -117.2006         0.3399         0.1966         0.2213         0.2419         9.0864         0.3435        11.2686         0.1867         0.2647         0.3138         0.0809         0.0680         0.0857              1              0              0              0              1              1              0              0              1              0              1              0              1              1              0         0.1816         0.1425         0.1129         0.0293         0.0027         0.0533         0.0319         0.0401         0.1566         0.0027         0.1027         0.0366         0.0762         0.0181         0.0121         1.2087 1m13s/Msamples
+       30000000     -5950.5479     -5838.5861      -111.9617         0.3303         0.1906         0.2404         0.2385         9.0753         0.3814         8.6488         0.1545         0.2185         0.1276         0.1921         0.1870         0.1200              1              1              0              0              1              1              1              1              1              0              1              1              1              0              0         0.0742         0.2046         0.0544         0.1346         0.1126         0.1621         0.1054 4.843411198E-4         0.0024         0.0356         0.0439         0.0273         0.0158         0.0189         0.0068         0.3546 1m12s/Msamples
 
 Operator                                          Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-BitFlipOperator(I.bitFlip)                             -     653446    1021886    0.05581    0.39004 
-DeltaExchangeOperator(R_trait.deltaExchange)     0.55597     153434    1443787    0.05318    0.09606 Try setting delta to about 0.278
-ScaleOperator(Theta.scale)                       0.44711      66855     184309    0.00838    0.26618 
-ScaleOperator(gamma.scale)                       0.40516      66491     185171    0.00838    0.26421 
-ScaleOperator(kappa.scale)                       0.50973      63223     188554    0.00838    0.25111 
-ScaleOperator(mu_trait.scale)                    0.26384      70353     182053    0.00838    0.27873 
-UpDownOperator(mu_traitUppsiDownOperator)        0.92926     502637    2996849    0.11665    0.14363 
-DeltaExchangeOperator(pi.deltaExchange)          0.06343      97042     444990    0.01809    0.17903 
-DeltaExchangeOperator(pi_trait.deltaExchange)    0.53826     105596     670293    0.02587    0.13610 
-Exchange(psi.narrowExchange)                           -     585329    2857237    0.11475    0.17003 
-ScaleOperator(psi.rootAgeScale)                  0.77538      36626     215828    0.00838    0.14508 
-ScaleOperator(psi.scale)                         0.90646     351746    3090591    0.11475    0.10218 
-SubtreeSlide(psi.subtreeSlide)                   1.30719     450857    2992914    0.11475    0.13092 
-Uniform(psi.uniform)                                   -    1438457    1999757    0.11475    0.41837 
-Exchange(psi.wideExchange)                             -      15474    3426678    0.11475    0.00450 
-WilsonBalding(psi.wilsonBalding)                       -      19894    3421644    0.11475    0.00578 
+BitFlipOperator(I.bitFlip)                             -     651693    1024263    0.05581    0.38885 
+DeltaExchangeOperator(R_trait.deltaExchange)     0.46640     184657    1411142    0.05318    0.11571 
+ScaleOperator(Theta.scale)                       0.43485      63778     187713    0.00838    0.25360 
+ScaleOperator(gamma.scale)                       0.40184      65694     185882    0.00838    0.26113 
+ScaleOperator(kappa.scale)                       0.51537      63821     187207    0.00838    0.25424 
+ScaleOperator(mu_trait.scale)                    0.25820      67541     184281    0.00838    0.26821 
+UpDownOperator(mu_traitUppsiDownOperator)        0.91532     408197    3093915    0.11665    0.11656 
+DeltaExchangeOperator(pi.deltaExchange)          0.06406      96355     445917    0.01809    0.17769 
+DeltaExchangeOperator(pi_trait.deltaExchange)    0.52574     108682     667641    0.02587    0.14000 
+Exchange(psi.narrowExchange)                           -     585557    2853896    0.11475    0.17025 
+ScaleOperator(psi.rootAgeScale)                  0.72136      27473     224293    0.00838    0.10912 
+ScaleOperator(psi.scale)                         0.89895     322404    3118404    0.11475    0.09370 Try setting scaleFactor to about 0.948
+SubtreeSlide(psi.subtreeSlide)                   1.04839     569664    2873247    0.11475    0.16546 
+Uniform(psi.uniform)                                   -    1440683    2003805    0.11475    0.41826 
+Exchange(psi.wideExchange)                             -      15480    3425370    0.11475    0.00450 
+WilsonBalding(psi.wilsonBalding)                       -      19869    3421477    0.11475    0.00577 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -146,8 +146,8 @@ WilsonBalding(psi.wilsonBalding)                       -      19894    3421644  
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 3191.75 seconds
-End likelihood: -5937.761100406069
+Total calculation time: 2194.81 seconds
+End likelihood: -5950.54791581041
 ```
 
 ## Analysing the BEAST output

@@ -1,27 +1,27 @@
 <itsabeastystatewerein version='2.0' sample='30000000'>
-<statenode id='pi'>pi[4 1] (0.0,1.0): 0.3236694734020204 0.22712451608005688 0.21690405662291873 0.2323019538949997 </statenode>
-<statenode id='kappa'>kappa[1 1] (0.0,Infinity): 5.642556905031533 </statenode>
-<statenode id='mu'>mu[1 1] (0.0,Infinity): 0.004866934186979525 </statenode>
-<statenode id='gamma'>gamma[1 1] (0.001,1000.0): 0.5258119649581968 </statenode>
-<statenode id='m'>m[6 1] (-Infinity,Infinity): 0.48959071746194294 0.3023236029503585 0.0809443481802767 0.9378694538719247 0.009045891214244461 0.8170411156590901 </statenode>
-<statenode id='Theta'>Theta[3 1] (-Infinity,Infinity): 1.5857874074943004 2.010534411153989 0.4335405480029393 </statenode>
-<statenode id='psi'>(((((0[&amp;deme=Hong_Kong]:0.3910584202174947,13[&amp;deme=New_York]:0.3992554202173766)42:0.37474496559197323,9[&amp;deme=New_York]:0.7548743858094351)40:0.02882858745629946,((((5[&amp;deme=New_Zealand]:0.6427704033337227,22[&amp;deme=Hong_Kong]:0.09632240333366782)43:0.1565534190384168,12[&amp;deme=Hong_Kong]:0.1080678223720728)24:0.10131335962539678,23[&amp;deme=Hong_Kong]:0.20664818199743484)26:0.35169252510808136,(20[&amp;deme=New_York]:0.5373408249077198,21[&amp;deme=New_York]:0.5209478249076125)39:0.040125882197938445)44:0.24722026616005666)32:0.15434684605276905,(10[&amp;deme=New_Zealand]:0.7444680474374947,14[&amp;deme=New_Zealand]:0.9910440474374993)41:1.5552407718809267)33:0.19867516865649515,((((1[&amp;deme=Hong_Kong]:0.23171004980922372,3[&amp;deme=Hong_Kong]:1.3154740498091975)25:0.06020635749040526,18[&amp;deme=Hong_Kong]:1.7017084072995539)45:0.046664526185380195,(15[&amp;deme=Hong_Kong]:0.2697546591280613,(16[&amp;deme=Hong_Kong]:0.18381947295525225,19[&amp;deme=Hong_Kong]:1.1251704729551928)37:0.13238318617286393)36:0.041504274357035076)38:0.3225804982051925,((2[&amp;deme=New_York]:0.3060011181673831,17[&amp;deme=New_York]:0.300521118167349)30:1.7513863113876385,((4[&amp;deme=New_Zealand]:0.1430179736430932,11[&amp;deme=New_Zealand]:0.20585997364313924)28:0.31977661076327357,((6[&amp;deme=New_Zealand]:0.19098059531973255,8[&amp;deme=New_Zealand]:0.18278359531985067)29:0.3056021669938487,7[&amp;deme=New_Zealand]:0.4583317623136356)27:0.04544682209271156)31:0.2640138451487115)34:0.02178500213515866)35:1.0438695562846902)46:0.0</statenode>
+<statenode id='pi'>pi[4 1] (0.0,1.0): 0.3486640446164383 0.22102840013220568 0.20174696164193376 0.22856059360941605 </statenode>
+<statenode id='kappa'>kappa[1 1] (0.0,Infinity): 7.4471416686366965 </statenode>
+<statenode id='mu'>mu[1 1] (0.0,Infinity): 0.004781170438837021 </statenode>
+<statenode id='gamma'>gamma[1 1] (0.001,1000.0): 1.6167158782022666 </statenode>
+<statenode id='m'>m[6 1] (-Infinity,Infinity): 0.45544932264058996 0.9991062391414897 1.1398374663622757 0.5408532322765621 1.4781158053936432 1.0904869133832031 </statenode>
+<statenode id='Theta'>Theta[3 1] (-Infinity,Infinity): 0.576179652960249 2.9541618838805643 0.2147904408713931 </statenode>
+<statenode id='psi'>(((((((0[&amp;deme=Hong_Kong]:0.18089369205523775,6[&amp;deme=New_Zealand]:0.7273416920552926)41:0.2047289937443031,(2[&amp;deme=New_York]:0.25640425096704167,20[&amp;deme=Hong_Kong]:0.23727825096689958)30:8.034348325947072E-4)42:0.024390510418016653,3[&amp;deme=New_York]:0.2652051962175457)39:0.13698441082078627,4[&amp;deme=Hong_Kong]:0.40218960703833195)32:0.4455582141399841,((1[&amp;deme=New_York]:0.24359110473310386,21[&amp;deme=Hong_Kong]:0.23539410473322198)24:0.4699568885099903,17[&amp;deme=New_York]:0.6944219932431794)45:0.12873482793526358)25:0.3460185883264204,(9[&amp;deme=New_Zealand]:0.4383332662402599,19[&amp;deme=New_Zealand]:0.19175726624025535)28:2.339077143264526)37:0.20889468467847072,((((5[&amp;deme=New_Zealand]:0.04034215050564338,(7[&amp;deme=New_Zealand]:0.0015178680940843847,14[&amp;deme=New_Zealand]:0.03157186809414814)26:5.732824116133628E-4)35:0.23974539801455563,(18[&amp;deme=New_Zealand]:0.19777875395321054,23[&amp;deme=New_Zealand]:0.1349367539531645)40:0.0659157945671085)38:0.5477892051958664,(((8[&amp;deme=Hong_Kong]:1.2753075209101983,13[&amp;deme=Hong_Kong]:1.6013355209101494)34:0.03675090224448674,(10[&amp;deme=Hong_Kong]:0.13247506345013038,(16[&amp;deme=Hong_Kong]:0.05697060925079045,22[&amp;deme=Hong_Kong]:0.998321609250731)27:0.12195245419939482)44:0.06849735970466808)29:0.14271504613467578,15[&amp;deme=Hong_Kong]:0.37100946928938705)43:0.2902002844267171)31:0.15761792052457002,(11[&amp;deme=New_York]:0.30998303833134355,12[&amp;deme=New_York]:0.3154630383313777)33:1.921375635909275)36:1.1275484199425532)46:0.0</statenode>
 </itsabeastystatewerein>
 <!--
 {"operators":[
-{"id":"Theta.scale","p":0.20070056670227254,"accept":241385,"reject":623340,"acceptFC":240945,"rejectFC":623230,"rejectIv":0,"rejectOp":0},
-{"id":"gamma.scale","p":0.1643556594882524,"accept":118492,"reject":282377,"acceptFC":118273,"rejectFC":282350,"rejectIv":292,"rejectOp":292},
-{"id":"kappa.scale","p":0.30617930270632854,"accept":108655,"reject":291761,"acceptFC":108448,"rejectFC":291703,"rejectIv":0,"rejectOp":0},
-{"id":"m.scale","p":0.15147643848581555,"accept":376169,"reject":1028353,"acceptFC":375395,"rejectFC":1028208,"rejectIv":0,"rejectOp":0},
-{"id":"mu.scale","p":0.5257276135102984,"accept":102225,"reject":298207,"acceptFC":102084,"rejectFC":298085,"rejectIv":0,"rejectOp":0},
-{"id":"muUppsiDownOperator","p":0.8582298451786767,"accept":321015,"reject":3379515,"acceptFC":320548,"rejectFC":3377618,"rejectIv":1814518,"rejectOp":1814518},
-{"id":"pi.deltaExchange","p":0.08566207974274338,"accept":163919,"reject":699770,"acceptFC":163883,"rejectFC":699246,"rejectIv":64,"rejectOp":64},
-{"id":"psi.narrowExchange","p":"NaN","accept":1649120,"reject":1943213,"acceptFC":1648026,"rejectFC":1942003,"rejectIv":191633,"rejectOp":191633},
-{"id":"psi.rootAgeScale","p":0.5604415157627134,"accept":75569,"reject":324294,"acceptFC":75460,"rejectFC":324152,"rejectIv":95996,"rejectOp":95996},
-{"id":"psi.scale","p":0.8317416894829756,"accept":241201,"reject":3354299,"acceptFC":241030,"rejectFC":3352204,"rejectIv":1494285,"rejectOp":1494285},
-{"id":"psi.subtreeSlide","p":1.0883742774437186,"accept":481272,"reject":3112444,"acceptFC":480666,"rejectFC":3110733,"rejectIv":1385441,"rejectOp":1385441},
-{"id":"psi.uniform","p":"NaN","accept":2216746,"reject":1376901,"acceptFC":2215305,"rejectFC":1376051,"rejectIv":0,"rejectOp":0},
-{"id":"psi.wideExchange","p":"NaN","accept":91262,"reject":3505392,"acceptFC":91206,"rejectFC":3503187,"rejectIv":2636701,"rejectOp":2636701},
-{"id":"psi.wilsonBalding","p":"NaN","accept":159341,"reject":3433764,"acceptFC":159243,"rejectFC":3431613,"rejectIv":593370,"rejectOp":593370}
+{"id":"Theta.scale","p":0.19848307744163254,"accept":237417,"reject":626849,"acceptFC":236924,"rejectFC":626751,"rejectIv":0,"rejectOp":0},
+{"id":"gamma.scale","p":0.15667426292357353,"accept":111703,"reject":288282,"acceptFC":111491,"rejectFC":288253,"rejectIv":409,"rejectOp":409},
+{"id":"kappa.scale","p":0.2986304142333127,"accept":104221,"reject":295014,"acceptFC":104034,"rejectFC":294945,"rejectIv":0,"rejectOp":0},
+{"id":"m.scale","p":0.15124584455612244,"accept":372893,"reject":1027107,"acceptFC":372134,"rejectFC":1026974,"rejectIv":0,"rejectOp":0},
+{"id":"mu.scale","p":0.525163333251642,"accept":102708,"reject":297837,"acceptFC":102585,"rejectFC":297725,"rejectIv":0,"rejectOp":0},
+{"id":"muUppsiDownOperator","p":0.8713296279460853,"accept":355238,"reject":3345290,"acceptFC":354960,"rejectFC":3343223,"rejectIv":1781805,"rejectOp":1781805},
+{"id":"pi.deltaExchange","p":0.07892373180575514,"accept":182142,"reject":681135,"acceptFC":182096,"rejectFC":680640,"rejectIv":50,"rejectOp":50},
+{"id":"psi.narrowExchange","p":"NaN","accept":1647945,"reject":1947578,"acceptFC":1646897,"rejectFC":1946364,"rejectIv":191628,"rejectOp":191628},
+{"id":"psi.rootAgeScale","p":0.5704867982758669,"accept":78998,"reject":321178,"acceptFC":78913,"rejectFC":321005,"rejectIv":95718,"rejectOp":95718},
+{"id":"psi.scale","p":0.8524306597656428,"accept":280423,"reject":3313199,"acceptFC":280316,"rejectFC":3310974,"rejectIv":1494596,"rejectOp":1494596},
+{"id":"psi.subtreeSlide","p":1.0188615055592105,"accept":513876,"reject":3082581,"acceptFC":513319,"rejectFC":3080829,"rejectIv":1364042,"rejectOp":1364042},
+{"id":"psi.uniform","p":"NaN","accept":2218465,"reject":1377464,"acceptFC":2217023,"rejectFC":1376617,"rejectIv":0,"rejectOp":0},
+{"id":"psi.wideExchange","p":"NaN","accept":91547,"reject":3505021,"acceptFC":91477,"rejectFC":3502748,"rejectIv":2637251,"rejectOp":2637251},
+{"id":"psi.wilsonBalding","p":"NaN","accept":159258,"reject":3434632,"acceptFC":159145,"rejectFC":3432400,"rejectIv":592958,"rejectOp":592958}
 ]}
 -->
