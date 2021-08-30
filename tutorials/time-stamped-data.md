@@ -200,7 +200,7 @@ Let us look at the whole thing:
 
 ```
 # BEAST_DIR = "/Applications/BEAST2"
-$BEAST_DIR/bin/applauncher LPhyBEAST RSV2.lphy 
+$BEAST_DIR/lphy/lphybeast RSV2.lphy 
 ```
 
 ### Running BEAST 2
@@ -208,7 +208,7 @@ $BEAST_DIR/bin/applauncher LPhyBEAST RSV2.lphy
 {% include_relative templates/run-beast.md xml="RSV2.xml" %}
 
 ```
-                         BEAST v2.6.5, 2002-2020
+                         BEAST v2.6.6, 2002-2020
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -241,29 +241,29 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1622764828047
+Random number seed: 1630288622480
     ...
 
     ...
-         950000     -6079.9655     -5478.8367      -601.1287         0.4394         0.2880         0.0799         0.1925         0.2849         0.4208         0.1046         0.1896         0.2816         0.3837         0.0922         0.2423        11.1661         3.2157         5.1059         0.7299         0.9736         1.2950         0.0023        39.0070 2m17s/Msamples
-        1000000     -6067.4526     -5479.6833      -587.7693         0.5137         0.2380         0.0903         0.1579         0.3206         0.4005         0.0970         0.1816         0.3359         0.3949         0.0733         0.1957        12.2206         1.4502         3.5749         0.6667         0.9711         1.3604         0.0023        41.3278 2m17s/Msamples
+         950000     -6090.8619     -5484.6314      -606.2305         0.4475         0.2692         0.1000         0.1831         0.3183         0.4213         0.0826         0.1776         0.3530         0.3155         0.0702         0.2611         8.2537         8.5243        10.1785         0.7057         0.9198         1.3729         0.0020        38.8407 2m34s/Msamples
+        1000000     -6084.2226     -5480.6365      -603.5861         0.5015         0.2429         0.0847         0.1706         0.2456         0.4702         0.1013         0.1828         0.3366         0.3591         0.0873         0.2168         6.4508        10.1371         9.5392         0.6864         1.0965         1.2155         0.0022        35.9676 2m34s/Msamples
 
 Operator                                      Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                   0.63281       1426       3100    0.00450    0.31507 
-ScaleOperator(kappa.scale)                   0.34579       3555       6070    0.00970    0.36935 
-ScaleOperator(mu.scale)                      0.73189        829       3579    0.00450    0.18807 
-UpDownOperator(muUppsiDownOperator)          0.96114       8363     127174    0.13497    0.06170 Try setting scaleFactor to about 0.98
-DeltaExchangeOperator(pi_0.deltaExchange)    0.11883       1848       7697    0.00970    0.19361 
-DeltaExchangeOperator(pi_1.deltaExchange)    0.12557       1648       8136    0.00970    0.16844 
-DeltaExchangeOperator(pi_2.deltaExchange)    0.10541       1754       7864    0.00970    0.18237 
-Exchange(psi.narrowExchange)                       -      34025     100095    0.13424    0.25369 
-ScaleOperator(psi.rootAgeScale)              0.77138        705       3803    0.00450    0.15639 
-ScaleOperator(psi.scale)                     0.92575       4055     129740    0.13424    0.03031 Try setting scaleFactor to about 0.962
-SubtreeSlide(psi.subtreeSlide)               5.55829      14955     119345    0.13424    0.11136 
-Uniform(psi.uniform)                               -      72300      62379    0.13424    0.53683 
-Exchange(psi.wideExchange)                         -        351     134365    0.13424    0.00261 
-WilsonBalding(psi.wilsonBalding)                   -        769     132705    0.13424    0.00576 
-DeltaExchangeOperator(r.deltaExchange)       0.29898       1708       5658    0.00730    0.23188 
+ScaleOperator(Theta.scale)                   0.61008       1298       3181    0.00450    0.28980 
+ScaleOperator(kappa.scale)                   0.47919       2976       6630    0.00970    0.30981 
+ScaleOperator(mu.scale)                      0.77528       1071       3560    0.00450    0.23127 
+UpDownOperator(muUppsiDownOperator)          0.94041       5481     130154    0.13497    0.04041 Try setting scaleFactor to about 0.97
+DeltaExchangeOperator(pi_0.deltaExchange)    0.12380       1763       7805    0.00970    0.18426 
+DeltaExchangeOperator(pi_1.deltaExchange)    0.14501       1362       8290    0.00970    0.14111 
+DeltaExchangeOperator(pi_2.deltaExchange)    0.10881       1757       8020    0.00970    0.17971 
+Exchange(psi.narrowExchange)                       -      33869     100180    0.13424    0.25266 
+ScaleOperator(psi.rootAgeScale)              0.76570        567       3843    0.00450    0.12857 
+ScaleOperator(psi.scale)                     0.90191       3141     131241    0.13424    0.02337 Try setting scaleFactor to about 0.95
+SubtreeSlide(psi.subtreeSlide)               4.50313      18248     116199    0.13424    0.13573 
+Uniform(psi.uniform)                               -      72184      61788    0.13424    0.53880 
+Exchange(psi.wideExchange)                         -        318     133559    0.13424    0.00238 
+WilsonBalding(psi.wilsonBalding)                   -        764     133396    0.13424    0.00569 
+DeltaExchangeOperator(r.deltaExchange)       0.30317       1619       5737    0.00730    0.22009 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -272,8 +272,8 @@ DeltaExchangeOperator(r.deltaExchange)       0.29898       1708       5658    0.
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 140.526 seconds
-End likelihood: -6067.4526573438525
+Total calculation time: 154.759 seconds
+End likelihood: -6084.222697270579
 ```
 
 ### Analysing BEAST 2's output
@@ -342,24 +342,14 @@ Not excluding enough of the start of the chain as burn-in will render
 estimates of ESS unreliable.
 
 Let us try to fix this low ESS issue by running the MCMC chain for longer.
-We will set the chain length to 15,000,000, but still log the same
+We will set the chain length to 20,000,000, but still log the same
 number of samples (2,000).
-This means we should log 15,000,000/2,000 samples, which can be
-manually specified in the .xml file with `logEvery=7500`.
-
-```
-<run id="MCMC" spec="MCMC" chainLength="15000000" preBurnin="1480">
-<logger id="Logger" spec="Logger" logEvery="750000">
-<logger id="Logger1" spec="Logger" fileName="RSV2long.log" logEvery="7500">
-<logger id="psi.treeLogger" spec="Logger" fileName="RSV2long.trees" logEvery="7500">
-```
-
 You can now run _LPhyBEAST_ again, this time with the `-l` argument
 to create a new .xml file:
 
 ```
 # MY_SCRIPT_PATH = ~/WorkSpace/linguaPhylo/tutorials/
-$BEAST_DIR/bin/applauncher LPhyBEAST -wd $MY_SCRIPT_PATH -l 15000000 -o RSV2long.xml RSV2.lphy
+$BEAST_DIR/lphy/lphybeast -wd $MY_SCRIPT_PATH -l 20000000 -o RSV2long.xml RSV2.lphy
 ```
 
 Now run BEAST 2 again. It may take about half an hour to complete using modern computers.  
@@ -499,17 +489,6 @@ In what year did the common ancestor of all RSVA viruses sampled live? What is t
 ## Programs used in this tutorial
 
 {% include_relative templates/programs-used.md %}
-
-You will also need to make sure all required BEAST 2 packages
-(e.g., outercore) have been installed on your local computer.  
-The Package Manager can help you do that (see the screenshot below).  
-
-{% assign current_fig_num = current_fig_num | plus: 1 %}
-
-<figure class="image">
-  <img src="outercore.png" alt="Package manager">
-  <figcaption>Figure {{ current_fig_num }}: A screenshot of Package Manager.</figcaption>
-</figure>
 
 ## Useful Links
 

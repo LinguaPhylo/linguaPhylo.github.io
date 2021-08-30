@@ -799,29 +799,29 @@ spec="Alignment">
 
 
 
-    <run id="MCMC" spec="MCMC" chainLength="15000000" preBurnin="1480">
+    <run id="MCMC" spec="MCMC" chainLength="20000000" preBurnin="1480">
             
         <state id="State" spec="State">
                     
-            <parameter id="pi_0" spec="parameter.RealParameter" dimension="4" keys="A C G T" lower="0.0" name="stateNode" upper="1.0">0.2350483637797865 0.1758144932719886 0.2003969775948625 0.3887401653533625</parameter>
+            <parameter id="pi_0" spec="parameter.RealParameter" dimension="4" keys="A C G T" lower="0.0" name="stateNode" upper="1.0">0.27543816618870176 0.21082875016758382 0.41312034782715573 0.10061273581655861</parameter>
                     
-            <parameter id="pi_1" spec="parameter.RealParameter" dimension="4" keys="A C G T" lower="0.0" name="stateNode" upper="1.0">0.26834804783613947 0.17560701558492797 0.10842529087300692 0.4476196457059256</parameter>
+            <parameter id="pi_1" spec="parameter.RealParameter" dimension="4" keys="A C G T" lower="0.0" name="stateNode" upper="1.0">0.4063508244043473 0.3020987054795182 0.1264486377308355 0.165101832385299</parameter>
                     
-            <parameter id="pi_2" spec="parameter.RealParameter" dimension="4" keys="A C G T" lower="0.0" name="stateNode" upper="1.0">0.5183882174967746 0.21173568379698984 0.08858644621079619 0.18128965249543944</parameter>
+            <parameter id="pi_2" spec="parameter.RealParameter" dimension="4" keys="A C G T" lower="0.0" name="stateNode" upper="1.0">0.3270473308875886 0.2472540892822606 0.13231431831115084 0.293384261519</parameter>
                     
-            <parameter id="kappa" spec="parameter.RealParameter" dimension="3" name="stateNode">1.517815714838428 3.6645683489845284 3.859241268285359</parameter>
+            <parameter id="kappa" spec="parameter.RealParameter" dimension="3" name="stateNode">3.9346970336743814 6.124532656753437 5.102827911067279</parameter>
                     
-            <parameter id="r_0" spec="parameter.RealParameter" name="stateNode">1.0654883658358263</parameter>
+            <parameter id="r_0" spec="parameter.RealParameter" name="stateNode">0.4492021152098335</parameter>
                     
-            <parameter id="r_1" spec="parameter.RealParameter" name="stateNode">1.6019318174892205</parameter>
+            <parameter id="r_1" spec="parameter.RealParameter" name="stateNode">2.3728767296164825</parameter>
                     
-            <parameter id="r_2" spec="parameter.RealParameter" name="stateNode">0.3328916660360758</parameter>
+            <parameter id="r_2" spec="parameter.RealParameter" name="stateNode">0.17529830810325492</parameter>
                     
-            <parameter id="mu" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.05228176332498528</parameter>
+            <parameter id="mu" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.2046113231489668</parameter>
                     
-            <parameter id="Theta" spec="parameter.RealParameter" lower="0.0" name="stateNode">5.654676388403145</parameter>
+            <parameter id="Theta" spec="parameter.RealParameter" lower="0.0" name="stateNode">16.881269060277436</parameter>
                     
-            <stateNode id="psi" spec="beast.util.TreeParser" IsLabelledNewick="true" newick="(((S2s76:4.521304274821631,(((((((((MON2s88:0.552512429533909,((((MON5s91:1.3050241921944021,MON51s90:0.30502419219440213):0.8593196642172884,(MON1s89:0.10290865696499552,BIR642s89:0.10290865696499552):0.061435199446695066):1.1204508253646512,BE305s89:1.2847946817763418):0.04903714321275032,(BE4763s88:0.07959957558776765,(SE11s92:3.259544759808282,BIR6190s89:0.25954475980828207):0.8200548157794856):0.2542322494013245):0.21868060454481686):0.18839171468582627,(BE933s88:0.2709479688148395,BE538s88:0.2709479688148395):0.46995617540489576):2.4987074174819046,(BE3785s87:1.3626161603980442,BE076s86:0.36261616039804423):0.8769954013035957):0.39146730173147404,((BE3252s86:0.5111326324076373,((((BE1587s89:0.7109837904461553,((BE369s90:0.47157695478213313,BE191s90:0.47157695478213313):0.38439015094283135,BE138s90:0.8559671057249645):0.8550166847211909):1.1070204182039145,BE071s88:0.8180042086500698):0.505265470445984,BE4147s87:0.32326967909605386):0.9210195899203484,BE410s86:0.24428926901640224):0.26684336339123504):0.46780395652825746,(((WV23836s88:0.7671283608401573,(BIR1734s89:0.6382211002354481,((((BE6274s91:0.38229177488450006,(SE05s91:0.05475130362728997,SE03s91:0.05475130362728997):0.3275404712572101):0.5069261128928311,BE8078s92:1.8892178877773311):1.2275299824603305,(((MON9s91:0.26308208918972475,(((SE10s92:0.29800630965884345,(SE09s92:0.27937431299728743,MON9s92:0.27937431299728743):0.018631996661556016):0.7297927692107162,MADs91:0.02779907886955968):0.14621956838294636,BE6460s91:0.17401864725250604):0.08906344193721871):0.12014451876490106,SE10s91:0.3832266079546258):1.188800470710909,MON1s90:0.5720270786655348):0.5447207915721268):0.04056957712225717,((((BE1440s92:0.3423494294156608,NYCH34s94:2.342349429415661):0.7686118640105288,((((SE05s96:3.0793386869892903,(SE01s95:0.4693987047339192,SE08s96:1.4693987047339192):1.609939982255371):0.06200490569118777,(BE11600s94:1.0445101627003126,(((BE14536s98:2.06466677880858,((BE15752s97:0.35589293157720103,(((BE13393s99:0.4778557083730366,BE11s101:2.4778557083730366):0.19401630756382904,(((BE797s100:0.1171805246643487,(((BE1835s101:0.03506647044339273,BE112s101:0.03506647044339273):0.5698464697006522,BE1224s101:0.604912940144045):0.23547488658360805,BE1343s101:0.840387826727653):0.2767926979366957):0.593864425864695,((BE11129s100:0.0049379200059860295,(BE1717s101:0.189381787077344,BE1836s101:0.189381787077344):0.815556132928642):0.12549609324614464,(BE1937s100:0.1169977063492409,BE11030s100:0.1169977063492409):0.013436306902889772):0.580610937276913):0.4961631179296675,(((BE1441s101:0.6473797035858451,BE332s102:1.647379703585845):0.38867865061149365,BE2122s100:0.036058354197338716):0.8856248492712835,BE2149s100:0.9216832034686222):0.285524864990089):0.4646639474781544):1.6228845777070902,(SE12s97:0.2712872504510164,BE15471s97:0.2712872504510164):0.023469343192939363):0.061136337933245244):0.21736737308198695,BE14898s98:1.573260304659188):0.4914064741493922):0.8916123595739185,(BE14461s98:0.0366761315821833,((BE16s100:0.13432675935935956,BE1061s100:0.13432675935935956):0.6104550374874189,BE11091s100:0.7447817968467785):1.2918943347354048):2.9196030068003154):1.2350091601865572,SE12s94:0.19128829856905583):0.8532218641312568):0.09683342998016542):0.5903893740722914,BE614s93:0.7317329667527694):0.8647115338706204,((MAD8s92:0.17319872794486102,((((NYCH09s93:0.2557856574631465,((BE11465s94:0.022172353361797903,(BE512s95:0.5685212895854805,SE12s95:0.5685212895854805):0.45365106377631736):1.0172280983175277,NYCH17s93:0.0394004516793256):0.21638520578382092):0.5933157328183789,((MAD6s93:0.31597325235278717,(BE10490s93:0.11202205907918206,((NYCH57s94:0.02096270850984361,((BE12216s96:1.5481524589171007,BE174s95:0.5481524589171007):0.411964714000316,(BE12243s96:0.10921550809406266,((BE1936s100:0.10732789408116705,((BE004s102:1.0497051792855865,BE519s101:0.04970517928558649):0.9971386598954755,BE11584s101:1.046843839181062):0.06048405490010511):2.0816551448659064,(((BE1556s101:0.4700804664496314,BE64s101:0.4700804664496314):0.702229191386045,(BE1150s100:0.00195322740835957,BE822s100:0.00195322740835957):0.17035643042731685):0.8569249317201186,(BE13412s99:0.008249541394270032,BE944s100:1.00824954139427):0.02098504816152502):1.1597484493912784):1.9202324691469892):1.850901664823354):0.06084553559242689):0.6565780906248069,((BE12895s95:0.4446766024120308,SE11s95:0.4446766024120308):0.7846940888710474,((BE12350s96:0.33346265241268735,((BE14808s98:0.7581570300997384,(BE13192s99:0.31847600839748047,(BE13462s99:0.22709995075350298,BE13280s99:0.22709995075350298):0.09137605764397749):1.439681021702258):0.23446733922324015,(((BE13425s99:0.8878051917703593,((BE11976s100:0.1770325708415008,BE800s100:0.1770325708415008):0.8347240623736938,BE12028s100:1.0117566332151946):0.8760485585551647):0.36492693596846726,SE02s98:0.2527321277388266):0.0331885281847919,BE13281s99:1.2859206559236185):0.7067037133993601):1.3408382830897088):0.761985537356539,BE13551s95:0.09544818976922631):1.1339225015138519):0.4481701078515723):0.4344812599445316):0.2039511932736051):0.40348363234751083,((MAD2s93:0.25441232348696374,MAD1s93:0.25441232348696374):0.33316192917751053,BE12005s94:1.5875742526644743):0.13188263203582373):0.12964450558122742):0.241555022485068,SE12s92:0.09065641276659342):0.05136241470183123,MAD6s92:0.14201882746842465):0.031179900476436373):0.32846084700316425,SE01s92:0.5016595749480253):0.09478492567536456):0.5145167928027998):0.21875880393110414,MON1s92:1.3297200973572938):0.7892254147165758,BE1591s90:0.11894551207386961):1.0383719352860492):0.4809036528755293):1.1289072606047093):0.25827877845596703,BE119s87:0.02540713929612437):0.8450226518733785,BE307s87:0.8704297911695029):1.1085067977663918):0.6521422744972192):1.4810441423295337,BE156s84:1.1121230057626477):0.19916687229515873,((((BE339s86:1.1026855294040843,BE2466s85:0.10268552940408426):0.08304286755946677,BE183s85:0.18572839696355103):1.033045140658512,BE76s86:2.218773537622063):0.16093683984707496,BE2584s85:1.379710377469138):0.9315795005886685):0.9289347047740577,BE204s84:2.240224582831864):2.3040034501431172,(WV5222s81:0.05667613775347391,WV12342s84:3.056676137753474):1.4875518952215074):2.019976796080744,WV2780s79:1.5642048290557256):5.957099445765905):0.39093036644445434,(WV19983s87:5.6492033217174935,WV6973s82:0.6492033217174935):10.263031319548592):43.10663620314698,(AUSA2s61:5.071818207696026,USALongs56:0.07181820769602609):27.947052636717032):0.0;">
+            <stateNode id="psi" spec="beast.util.TreeParser" IsLabelledNewick="true" newick="(((((BE2466s85:3.918749975478846,((BE410s86:1.8156446253919825,((BIR642s89:2.4699962745541946,(WV23836s88:1.3358330559369342,BE307s87:0.33583305593693424):0.13416321861726033):0.14314862609091072,(MON1s89:0.0759234666517461,(((SE10s91:0.209591387535486,((BE1440s92:0.5580676759568597,(SE10s92:0.5068499651455127,(SE11s92:0.19141962186331618,((((((BE11584s101:0.21979640930270405,BE1224s101:0.21979640930270405):0.8373575448453494,(BE1343s101:0.5691202267101558,BE332s102:1.5691202267101558):0.48803372743789764):0.7187781106883953,BE12028s100:0.7759320648364487):0.9998627607130892,(BE13280s99:0.2560166102761423,((((BE112s101:0.03147875235692621,BE11s101:0.03147875235692621):0.9969908314153992,BE1717s101:1.0284695837723254):0.10910854833785777,BE944s100:0.13757813211018322):0.33949152145252004,BE1441s101:1.4770696535627033):0.778946956713439):0.5197782152733956):5.553736315616055,(((BE16s100:1.4230600465480379,BE004s102:3.423060046548038):4.265522834165367,BE174s95:0.6885828807134047):1.3461691104184208,BE10490s93:0.03475199113182548):0.29477915003376687):0.062029735663987395,BE12895s95:2.3915608768295797):0.7998587450337364):0.31543034328219655):0.05121771081134696):0.6343404615964321,BE614s93:2.192408137553292):0.017183249982194226):0.03135998590170885,MADs91:0.24095137343719486):0.35706873041639575,SE05s91:0.5980201038535906):1.4779033627981555):2.537221433993359):2.202499724746877):1.0960617310548066,BE183s85:1.911706356446789):2.007043619032057):2.272776097496987,(WV6973s82:1.707723877343863,((MON5s91:6.540647599359723,((BE4147s87:0.19873002629820213,((((BE8078s92:0.20085608308127867,(MAD8s92:0.025483640302024213,(NYCH57s94:1.7507736434887544,((((BE15471s97:0.10384244026492961,(BE14898s98:0.66341271340153,BE14536s98:0.66341271340153):0.44042972686339965):1.0906769507442169,((BE1937s100:1.2999561512707896,BE13462s99:0.29995615127078956):0.7685017928343889,(BE1836s101:2.4547369538913864,(BE1150s100:0.6316413029654848,(BE797s100:0.3546458175725187,BE2122s100:0.3546458175725187):0.27699548539296615):0.8230956509259015):0.6137209902137921):2.126061446903968):0.6579248664412098,(BE13412s99:2.542539305882263,(BE1556s101:4.368150227261936,SE12s97:0.36815022726193636):0.17438907862032682):1.3099049515680932):2.5488902683582264,((((SE02s98:3.3858145708557963,BE14461s98:3.3858145708557963):0.675451168548495,NYCH34s94:0.06126573940429125):0.8692916772959567,BE11465s94:0.9305574167002479):0.0956185559850482,(((BE13281s99:0.04077156483779376,BE2149s100:1.0407715648377938):1.8592383847972949,(BE13425s99:0.3327888920487343,((BE1835s101:0.1668325483983204,BE519s101:0.1668325483983204):1.1469802228136583,BE11129s100:0.3138127712119787):1.0189761208367556):1.5672210575863543):4.112110345658475,MAD2s93:0.012120295293563288):0.014055677391732857):0.3751585531232866):0.34943911768017166):0.2747099968132698):0.17537244277925446):0.2691567187504038,(SE09s92:0.2926418113484921,(SE05s96:3.285130451238155,MAD6s93:0.28513045123815495):1.0075113601103372):0.17737099048319038):1.7017306265581915,BE1591s90:0.171743428389874):2.3296292580759523,BIR1734s89:1.5013726864658263):0.6973573398323758):0.9156522498929629,(BE119s87:0.7135498275468066,(BE4763s88:0.5902384010421695,BE369s90:2.5902384010421695):1.1233114265046371):0.4008324486443584):1.4262653231685576):1.9631214291387806,(BE076s86:2.106163769260501,BE156s84:0.10616376926050108):1.3976052592380022):2.2039548488453597):1.48380219563197):0.09792780085017228,((BE071s88:2.2929696106884982,BE3252s86:0.29296961068849825):3.704651088020462,WV12342s84:1.9976206987089604):3.291833175117045):9.919641674683312,WV2780s79:10.209095548509318):18.840579365591744,((USALongs56:0.2514253170751317,((((BE2584s85:2.039191871344187,(MON2s88:0.27818723556617186,BE933s88:0.27818723556617186):4.761004635778015):0.35466931364596377,(BE76s86:2.362019525068483,((((BE538s88:0.8363271420820837,((((BE191s90:0.21583592774638305,SE01s92:2.215835927746383):1.2485693848915957,(BE138s90:1.0757856943807038,NYCH17s93:4.075785694380704):0.388619618257275):0.672692119472492,(BE15752s97:0.4130822116955626,((BE64s101:3.031871869910457,((BE13192s99:0.2129519892145053,BE822s100:1.2129519892145053):0.28688932239936094,BE11091s100:1.4998413116138662):0.532030558296591):0.4370240051344183,BE11976s100:2.4688958750448755):0.9441863366506871):8.724015220414909):0.4681335573300096,BIR6190s89:1.6052309894404804):0.23109615264160333):0.6012574489272602,WV19983s87:0.4375845910093439):0.7661922038604274,BE305s89:3.2037767948697713):1.9103043518906908,(BE339s86:1.1710155137852212,BE3785s87:2.171015513785221):0.9430656329752409):0.2479383783080209):1.0318416599216675):1.6391205317147275,(BE204s84:1.4335943345353535,((((((MON9s91:0.031696104096184285,MAD6s92:1.0316961040961843):0.7715038420089844,((MON1s92:0.1278341257101303,MON9s92:0.1278341257101303):0.9818945747887149,SE03s91:0.1097287004988452):0.6934712456063234):0.7791350435141169,((BE6274s91:0.14643186155736032,BE6460s91:0.14643186155736032):0.33300688814197166,((SE12s95:2.3494519089423545,((((BE12350s96:1.2910522655172105,SE01s95:0.29105226551721053):0.3692178850532706,(((BE13393s99:0.7291487225221975,BE800s100:1.7291487225221975):2.450695729655281,BE12243s96:0.1798444521774787):0.9997361980843396,BE12216s96:1.1795806502618182):0.48068950030866286):0.08934431633189455,((BE11030s100:3.4320458374279674,(BE1936s100:0.0712270351693336,BE1061s100:0.0712270351693336):3.360818802258634):0.534145377610499,BE14808s98:1.9661912150384664):1.7834232518639093):0.5406102905908394,SE08s96:2.290224757493215):1.0592271514491394):2.0342659630521727,(BE11600s94:2.7942582837089454,((BE13551s95:2.1159109779987624,MAD1s93:0.11591097799876238):0.5752554431710912,NYCH09s93:0.6911664211698536):1.1030918625390917):0.5894595882855818):0.09572087770480486):1.1028962399199536):1.2412602216146986,SE12s92:3.823595211233984):0.05488456854005719,((((SE12s94:0.031422885951101875,(SE11s95:0.28118849497053766,BE512s95:0.28118849497053766):0.7502343909805642):0.3562793779104325,BE12005s94:0.3877022638615344):4.508605082518963,MON51s90:0.8963073463804978):0.1910078802271329,MON1s90:1.0873152266076307):0.7911645531664107):0.6062689815242308,BE1587s89:1.4847487612982722):4.948845573237081):1.5993873821695246):5.0893285884214485,WV5222s81:5.122310305126327):20.129115011948805):0.5044757883739877,(AUSA2s61:4.858303421884699,S2s76:19.8583034218847):0.8975976835644204):5.293773808651942):0.0;">
                             
                 <trait id="TraitSet" spec="beast.evolution.tree.TraitSet" traitname="date-backward">
                                     BE8078s92=10.0,
@@ -1227,42 +1227,6 @@ USALongs56=46.0
                     
             <distribution id="prior" spec="util.CompoundDistribution">
                             
-                <distribution id="Theta.prior" spec="beast.math.distributions.Prior" x="@Theta">
-                                    
-                    <distr id="LogNormalDistributionModel" spec="beast.math.distributions.LogNormalDistributionModel">
-                                            
-                        <parameter id="RealParameter" spec="parameter.RealParameter" name="M">3.0</parameter>
-                                            
-                        <parameter id="RealParameter1" spec="parameter.RealParameter" name="S">2.0</parameter>
-                                        
-                    </distr>
-                                
-                </distribution>
-                            
-                <distribution id="kappa.prior" spec="beast.math.distributions.Prior" x="@kappa">
-                                    
-                    <distr id="LogNormalDistributionModel1" spec="beast.math.distributions.LogNormalDistributionModel">
-                                            
-                        <parameter id="RealParameter2" spec="parameter.RealParameter" name="M">1.0</parameter>
-                                            
-                        <parameter id="RealParameter3" spec="parameter.RealParameter" name="S">0.5</parameter>
-                                        
-                    </distr>
-                                
-                </distribution>
-                            
-                <distribution id="mu.prior" spec="beast.math.distributions.Prior" x="@mu">
-                                    
-                    <distr id="LogNormalDistributionModel2" spec="beast.math.distributions.LogNormalDistributionModel">
-                                            
-                        <parameter id="RealParameter4" spec="parameter.RealParameter" name="M">-5.0</parameter>
-                                            
-                        <parameter id="RealParameter5" spec="parameter.RealParameter" name="S">1.25</parameter>
-                                        
-                    </distr>
-                                
-                </distribution>
-                            
                 <distribution id="Coalescent" spec="Coalescent">
                                     
                     <populationModel id="ConstantPopulation" spec="ConstantPopulation" popSize="@Theta"/>
@@ -1271,25 +1235,83 @@ USALongs56=46.0
                                 
                 </distribution>
                             
-                <distribution id="pi_2.prior" spec="beast.math.distributions.Prior" x="@pi_2">
+                <distribution id="mu.prior" spec="beast.math.distributions.Prior" x="@mu">
                                     
-                    <distr id="Dirichlet" spec="beast.math.distributions.Dirichlet">
+                    <distr id="LogNormalDistributionModel" spec="beast.math.distributions.LogNormalDistributionModel">
                                             
-                        <parameter id="RealParameter6" spec="parameter.RealParameter" dimension="4" estimate="false" name="alpha">2.0 2.0 2.0 2.0</parameter>
+                        <parameter id="RealParameter" spec="parameter.RealParameter" name="M">-5.0</parameter>
+                                            
+                        <parameter id="RealParameter1" spec="parameter.RealParameter" name="S">1.25</parameter>
                                         
                     </distr>
                                 
                 </distribution>
                             
-                <distribution id="pi_1.prior" spec="beast.math.distributions.Prior" x="@pi_1">
+                <distribution id="r.prior" spec="beast.math.distributions.Prior">
                                     
-                    <distr id="Dirichlet1" spec="beast.math.distributions.Dirichlet" alpha="@RealParameter6"/>
+                    <x id="r" spec="feast.function.Concatenate">
+                                            
+                        <arg idref="r_0"/>
+                                            
+                        <arg idref="r_1"/>
+                                            
+                        <arg idref="r_2"/>
+                                        
+                    </x>
+                                    
+                    <distr id="WeightedDirichlet" spec="beast.math.distributions.WeightedDirichlet">
+                                            
+                        <parameter id="RealParameter2" spec="parameter.RealParameter" dimension="3" estimate="false" name="alpha">1.0 1.0 1.0</parameter>
+                                            
+                        <weights id="L" spec="parameter.IntegerParameter" dimension="3" estimate="false">209 210 210</weights>
+                                        
+                    </distr>
+                                
+                </distribution>
+                            
+                <distribution id="Theta.prior" spec="beast.math.distributions.Prior" x="@Theta">
+                                    
+                    <distr id="LogNormalDistributionModel1" spec="beast.math.distributions.LogNormalDistributionModel">
+                                            
+                        <parameter id="RealParameter3" spec="parameter.RealParameter" name="M">3.0</parameter>
+                                            
+                        <parameter id="RealParameter4" spec="parameter.RealParameter" name="S">2.0</parameter>
+                                        
+                    </distr>
+                                
+                </distribution>
+                            
+                <distribution id="kappa.prior" spec="beast.math.distributions.Prior" x="@kappa">
+                                    
+                    <distr id="LogNormalDistributionModel2" spec="beast.math.distributions.LogNormalDistributionModel">
+                                            
+                        <parameter id="RealParameter5" spec="parameter.RealParameter" name="M">1.0</parameter>
+                                            
+                        <parameter id="RealParameter6" spec="parameter.RealParameter" name="S">0.5</parameter>
+                                        
+                    </distr>
+                                
+                </distribution>
+                            
+                <distribution id="pi_2.prior" spec="beast.math.distributions.Prior" x="@pi_2">
+                                    
+                    <distr id="Dirichlet" spec="beast.math.distributions.Dirichlet">
+                                            
+                        <parameter id="RealParameter7" spec="parameter.RealParameter" dimension="4" estimate="false" name="alpha">2.0 2.0 2.0 2.0</parameter>
+                                        
+                    </distr>
                                 
                 </distribution>
                             
                 <distribution id="pi_0.prior" spec="beast.math.distributions.Prior" x="@pi_0">
                                     
-                    <distr id="Dirichlet2" spec="beast.math.distributions.Dirichlet" alpha="@RealParameter6"/>
+                    <distr id="Dirichlet1" spec="beast.math.distributions.Dirichlet" alpha="@RealParameter7"/>
+                                
+                </distribution>
+                            
+                <distribution id="pi_1.prior" spec="beast.math.distributions.Prior" x="@pi_1">
+                                    
+                    <distr id="Dirichlet2" spec="beast.math.distributions.Dirichlet" alpha="@RealParameter7"/>
                                 
                 </distribution>
                         
@@ -1305,7 +1327,7 @@ USALongs56=46.0
                                             
                         <substModel id="HKY" spec="HKY">
                                                     
-                            <kappa id="kappa_0" spec="feast.function.Slice" arg="@kappa" index="0"/>
+                            <kappa id="kappa_0" spec="util.Slice" arg="@kappa" index="0"/>
                                                     
                             <frequencies id="Frequencies" spec="Frequencies" frequencies="@pi_0"/>
                                                 
@@ -1325,7 +1347,7 @@ USALongs56=46.0
                                             
                         <substModel id="HKY1" spec="HKY">
                                                     
-                            <kappa id="kappa_1" spec="feast.function.Slice" arg="@kappa" index="1"/>
+                            <kappa id="kappa_1" spec="util.Slice" arg="@kappa" index="1"/>
                                                     
                             <frequencies id="Frequencies1" spec="Frequencies" frequencies="@pi_1"/>
                                                 
@@ -1345,7 +1367,7 @@ USALongs56=46.0
                                             
                         <substModel id="HKY2" spec="HKY">
                                                     
-                            <kappa id="kappa_2" spec="feast.function.Slice" arg="@kappa" index="2"/>
+                            <kappa id="kappa_2" spec="util.Slice" arg="@kappa" index="2"/>
                                                     
                             <frequencies id="Frequencies2" spec="Frequencies" frequencies="@pi_2"/>
                                                 
@@ -1399,7 +1421,7 @@ USALongs56=46.0
             
         <operator id="psi.scale" spec="ScaleOperator" tree="@psi" upper="0.975" weight="29.85705572917783"/>
             
-        <operator id="psi.subtreeSlide" spec="SubtreeSlide" size="7.401887084441306" tree="@psi" weight="29.85705572917783"/>
+        <operator id="psi.subtreeSlide" spec="SubtreeSlide" size="5.204967491410107" tree="@psi" weight="29.85705572917783"/>
             
         <operator id="psi.uniform" spec="Uniform" tree="@psi" weight="29.85705572917783"/>
             
@@ -1407,19 +1429,17 @@ USALongs56=46.0
             
         <operator id="psi.wilsonBalding" spec="WilsonBalding" tree="@psi" weight="29.85705572917783"/>
             
-        <operator id="r.deltaExchange" spec="DeltaExchangeOperator" delta="0.3333333333333333" weight="1.624504792712471">
+        <operator id="r.deltaExchange" spec="DeltaExchangeOperator" delta="0.3333333333333333" weight="1.624504792712471" weightvector="@L">
                     
             <parameter idref="r_0"/>
                     
             <parameter idref="r_1"/>
                     
             <parameter idref="r_2"/>
-                    
-            <weightvector id="L" spec="parameter.IntegerParameter" dimension="3" estimate="false">209 210 210</weightvector>
                 
         </operator>
             
-        <logger id="Logger" spec="Logger" logEvery="750000">
+        <logger id="Logger" spec="Logger" logEvery="1000000">
                     
             <log idref="posterior"/>
                     
@@ -1447,7 +1467,7 @@ USALongs56=46.0
                 
         </logger>
             
-        <logger id="Logger1" spec="Logger" fileName="RSV2long.log" logEvery="7500">
+        <logger id="Logger1" spec="Logger" fileName="RSV2long.log" logEvery="10000">
                     
             <log idref="posterior"/>
                     
@@ -1473,7 +1493,7 @@ USALongs56=46.0
                     
             <log idref="Theta"/>
                     
-            <log id="TreeStatLogger" spec="beast.evolution.tree.TreeStatLogger" logLength="false" tree="@psi"/>
+            <log id="TreeStatLogger" spec="beast.evolution.tree.TreeStatLogger" tree="@psi"/>
                     
             <log idref="codon_0.treeLikelihood"/>
                     
@@ -1483,7 +1503,7 @@ USALongs56=46.0
                 
         </logger>
             
-        <logger id="psi.treeLogger" spec="Logger" fileName="RSV2long.trees" logEvery="7500" mode="tree">
+        <logger id="psi.treeLogger" spec="Logger" fileName="RSV2long.trees" logEvery="10000" mode="tree">
                     
             <log idref="psi"/>
                 

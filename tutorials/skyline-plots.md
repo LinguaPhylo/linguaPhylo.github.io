@@ -157,7 +157,8 @@ Tips: by default all group sizes in SkylineCoalescent function are 1 which is eq
 
 ```bash
 # BEAST_DIR = "/Applications/BEAST2"
-$BEAST_DIR/bin/applauncher LPhyBEAST -l 40000000 hcv_coal.lphy
+cd ~/WorkSpace/linguaPhylo/tutorials/
+$BEAST_DIR/lphy/lphybeast -l 40000000 hcv_coal.lphy
 ```
 
 
@@ -166,7 +167,7 @@ $BEAST_DIR/bin/applauncher LPhyBEAST -l 40000000 hcv_coal.lphy
 {% include_relative templates/run-beast.md xml="hcv_coal.xml" %}
 
 ```
-                         BEAST v2.6.3, 2002-2020
+                         BEAST v2.6.6, 2002-2020
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -200,32 +201,27 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
 
-File: hcv_coal.xml seed: 1605149965228 threads: 2
-Loading package SSM v1.1.0
-Loading package outercore v0.0.4
-Loading package BEAST v2.6.3
-Loading package feast v7.5.0
-Loading package BEASTLabs v1.9.5
+File: hcv_coal.xml seed: 1630290833514 threads: 1
 
     ...
 
     ...
-       38000000         0.1869         0.3096         0.2329         0.2704         0.0507         0.3462         0.0686         0.0216         0.4753         0.0372         0.3565              9             22             22              9      3378.5678       854.0057       142.1376       311.4791     -6642.4068     -6163.8252      -478.5815 1m18s/Msamples
-       40000000         0.2025         0.3337         0.2202         0.2434         0.0474         0.3398         0.0639         0.0267         0.4794         0.0426         0.3401             10             11             30             11     10123.8192      1084.3743       109.4661       180.0131     -6639.6725     -6173.3816      -466.2909 1m18s/Msamples
+       38000000     -6632.7087     -6161.6478      -471.0609         0.2063         0.3178         0.2259         0.2499         0.0461         0.3619         0.0614         0.0340         0.4518         0.0445         0.3966              1             10              2             49      1847.5418      8278.3538       788.9602       243.4601 1m19s/Msamples
+       40000000     -6635.1459     -6184.2080      -450.9379         0.1935         0.3251         0.2391         0.2421         0.0541         0.3255         0.0663         0.0406         0.4662         0.0471         0.3508             13             32             10              7      7759.0760        88.4127       139.5266       295.8700 1m19s/Msamples
 
-Operator                                            Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                         0.28866     231949     650369    0.02201    0.26289 
-DeltaExchangeOperator(groupSizes.deltaExchange)    3.56191     156224     563888    0.01800    0.21694 
-DeltaExchangeOperator(pi.deltaExchange)            0.07410     141834     578582    0.01800    0.19688 
-Exchange(psi.narrowExchange)                             -    2445602    3550044    0.14993    0.40790 
-ScaleOperator(psi.rootAgeScale)                    0.61922      52494     281016    0.00834    0.15740 
-ScaleOperator(psi.scale)                           0.71280    1395832    4600588    0.14993    0.23278 
-SubtreeSlide(psi.subtreeSlide)                    39.30440     848596    5144516    0.14993    0.14160 
-Uniform(psi.uniform)                                     -    2404299    3592791    0.14993    0.40091 
-Exchange(psi.wideExchange)                               -      51825    5945086    0.14993    0.00864 
-WilsonBalding(psi.wilsonBalding)                         -      86203    5914844    0.14993    0.01436 
-DeltaExchangeOperator(rates.deltaExchange)         0.07831     132447     897292    0.02573    0.12862 
-ScaleOperator(shape.scale)                         0.63566      82106     251574    0.00834    0.24606 
+Operator                                       Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+DeltaExchangeOperator(A.deltaExchange)        3.18924     177760     541485    0.01800    0.24715 
+ScaleOperator(Theta.scale)                    0.28842     229995     650541    0.02201    0.26120 
+ScaleOperator(gamma.scale)                    0.63167      81407     252858    0.00834    0.24354 
+DeltaExchangeOperator(pi.deltaExchange)       0.07328     144605     576445    0.01800    0.20055 
+Exchange(psi.narrowExchange)                        -    2453146    3545681    0.14993    0.40894 
+ScaleOperator(psi.rootAgeScale)               0.63607      56804     276244    0.00834    0.17056 
+ScaleOperator(psi.scale)                      0.71569    1416928    4579768    0.14993    0.23628 
+SubtreeSlide(psi.subtreeSlide)               60.10339     575882    5421860    0.14993    0.09602 Try decreasing size to about 30.052
+Uniform(psi.uniform)                                -    2410120    3584371    0.14993    0.40206 
+Exchange(psi.wideExchange)                          -      51775    5949658    0.14993    0.00863 
+WilsonBalding(psi.wilsonBalding)                    -      86216    5907884    0.14993    0.01438 
+DeltaExchangeOperator(rates.deltaExchange)    0.08060     129011     899557    0.02573    0.12543 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -234,8 +230,8 @@ ScaleOperator(shape.scale)                         0.63566      82106     251574
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 3112.102 seconds
-End likelihood: -6639.672594349279
+Total calculation time: 3160.808 seconds
+End likelihood: -6635.145974434814
 ```
 
 ## Analysing the BEAST output
