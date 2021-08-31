@@ -82,8 +82,9 @@ java -p lib:lphy-studio-{{ lphy_version }}.jar -m lphystudio tutorials/RSV2.lphy
 Please **note** both the module path and the LPhy script path are
 the relative paths to your `$LPHY_PATH` folder.
 But the working directory `user.dir` will be changed to the location of
-the loaded script, which is the parent folder of the relative path inside
-the LPhy script, such as `readNexus(file="data/RSV2.nex", ...);`.
+the loaded script, here is the folder `$LPHY_PATH/tutorials`,
+which is the parent folder of the relative path inside the LPhy script,
+such as `readNexus(file="data/RSV2.nex", ...);`.
 If you want to use a different setup,
 please make sure every relative paths are defined correctly. 
 
