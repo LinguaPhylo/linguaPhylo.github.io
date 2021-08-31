@@ -69,7 +69,7 @@ cd $LPHY_PATH
 java -p lib:lphy-studio-{{ lphy_version }}.jar -m lphystudio
 ```
 
-If you are using any extensions, copy it into the "lib"" folder 
+If you are using any extensions, copy it into the "lib" folder 
 and then run this command to launch LPhy studio.
 
 You can also give a LPhy script file name with its path. 
