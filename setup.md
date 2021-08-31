@@ -41,8 +41,21 @@ and download the latest released version, for example,
 Unzip the compressed file, then you will see a folder containing
 a jar file `lphy-studio-{{ lphy_version }}.jar` and other sub-folders
 containing example scripts or libraries. 
-This folder will be your `$LPHY_PATH`.
+This folder will be your `$LPHY_PATH`. 
 You can copy or move the folder with everything to your working space.
+The folder structure looks like:
+
+```
+LPHY_PATH
+    ├── examples
+    ├── lib
+    │    ...
+    │    ├── lphy-{{ lphy_version }}.jar
+    │    ...    
+    ├── lphy-studio-{{ lphy_version }}.jar
+    ├── README.md
+    └── tutorials
+```
 
 The following command line will launch LPhy studio,
 where `-p` declares your module path including the LPhy studio jar 
@@ -66,9 +79,13 @@ Here we use the relative script to load `RSV2.lphy`:
 java -p lib:lphy-studio-{{ lphy_version }}.jar -m lphystudio tutorials/RSV2.lphy
 ```
 
-Please note both the module path and the LPhy script path are the relative paths,
-as well as `readNexus(file="data/RSV2.nex", ...);` inside the LPhy script.
-If you want to use the absolute path, please make sure every paths are defined correctly. 
+Please **note** both the module path and the LPhy script path are
+the relative paths to your `$LPHY_PATH` folder.
+But the working directory `user.dir` will be changed to the location of
+the loaded script, which is the parent folder of the relative path inside
+the LPhy script, such as `readNexus(file="data/RSV2.nex", ...);`.
+If you want to use a different setup,
+please make sure every relative paths are defined correctly. 
 
 If you are new to LPhy, we recommend you to read this 
 [introduction](https://linguaphylo.github.io/about/),
