@@ -73,7 +73,7 @@ If you are using any extensions, copy it into the "lib"" folder
 and then run this command to launch LPhy studio.
 
 You can also give a LPhy script file name with its path. 
-Here we use the relative script to load `RSV2.lphy`:
+Here we use the relative script to load "RSV2.lphy":
 
 ```bash
 java -p lib:lphy-studio-{{ lphy_version }}.jar -m lphystudio tutorials/RSV2.lphy
