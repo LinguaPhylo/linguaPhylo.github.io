@@ -142,7 +142,7 @@ then the dimension of migration rates backwards in time should equal to
 {% include_relative templates/lphy-beast.md lphy="h3n2" %}
 
 ```
-# BEAST_DIR = "/Applications/BEAST2"
+# BEAST_DIR="/Applications/BEAST2"
 $BEAST_DIR/lphy/lphybeast -l 30000000 h3n2.lphy
 ```
 

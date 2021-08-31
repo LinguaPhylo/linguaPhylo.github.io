@@ -199,7 +199,7 @@ Let us look at the whole thing:
 {% include_relative templates/lphy-beast.md lphy="RSV2" %}
 
 ```
-# BEAST_DIR = "/Applications/BEAST2"
+# BEAST_DIR="/Applications/BEAST2"
 $BEAST_DIR/lphy/lphybeast RSV2.lphy 
 ```
 
@@ -348,7 +348,7 @@ You can now run _LPhyBEAST_ again, this time with the `-l` argument
 to create a new .xml file:
 
 ```
-# MY_SCRIPT_PATH = ~/WorkSpace/linguaPhylo/tutorials/
+# MY_SCRIPT_PATH=~/WorkSpace/linguaPhylo/tutorials/
 $BEAST_DIR/lphy/lphybeast -wd $MY_SCRIPT_PATH -l 20000000 -o RSV2long.xml RSV2.lphy
 ```
 

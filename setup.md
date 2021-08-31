@@ -51,7 +51,7 @@ You can replace your own libraries folder to a different path.
 `-m` declares the module name and it should be always "lphystudio".
 
 ```bash
-LPHY_PATH = ~/WorkSpace/linguaPhylo/
+LPHY_PATH=~/WorkSpace/linguaPhylo/
 cd $LPHY_PATH
 java -p lib:lphy-studio-{{ lphy_version }}.jar -m lphystudio
 ```
@@ -119,7 +119,7 @@ but please note the name of package is case-sensitive.
 {% assign beastversion = "2.6.x" %}
 
 ```bash
-# BEAST_DIR = "/Applications/BEAST{{ beastversion }}"
+# BEAST_DIR="/Applications/BEAST{{ beastversion }}"
 $BEAST_DIR/bin/packagemanager -add lphybeast 
 ```
 

@@ -156,7 +156,7 @@ Tips: by default all group sizes in SkylineCoalescent function are 1 which is eq
 {% include_relative templates/lphy-beast.md lphy="hcv_coal" %}
 
 ```bash
-# BEAST_DIR = "/Applications/BEAST2"
+# BEAST_DIR="/Applications/BEAST2"
 cd ~/WorkSpace/linguaPhylo/tutorials/
 $BEAST_DIR/lphy/lphybeast -l 40000000 hcv_coal.lphy
 ```
