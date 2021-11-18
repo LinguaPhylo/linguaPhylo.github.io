@@ -8,7 +8,7 @@ categories: programming
 
 LPhy extensions are implemented by using the Service Provider Interface (SPI) 
 within the Java Platform Module System (JPMS).
-An LPhy extension module implements the [LPhyExtension](https://github.com/LinguaPhylo/linguaPhylo/blob/master/LPhy/src/lphy/spi/LPhyExtension.java) 
+An LPhy extension module implements the [LPhyExtension](https://github.com/LinguaPhylo/linguaPhylo/tree/1.0.1/LPhy/src/lphy/spi/LPhyExtension.java) 
 interface to provide a list of the classes that the extension module provides to extend the functionality of LPhy.
 
 
@@ -40,9 +40,9 @@ linguaPhylo
 
 ## SPI and the extension's container provider class
 
-The [module lphy](https://github.com/LinguaPhylo/linguaPhylo/blob/master/LPhy/src/module-info.java)
+The [module lphy](https://github.com/LinguaPhylo/linguaPhylo/tree/1.0.1/LPhy/src/module-info.java)
 declares the package dependencies and SPI 
-[LPhyExtension](https://github.com/LinguaPhylo/linguaPhylo/blob/master/LPhy/src/lphy/spi/LPhyExtension.java)
+[LPhyExtension](https://github.com/LinguaPhylo/linguaPhylo/tree/1.0.1/LPhy/src/lphy/spi/LPhyExtension.java)
 using the following code. 
 
 {% highlight java %}
@@ -51,7 +51,7 @@ uses lphy.spi.LPhyExtension;
 {% endhighlight %}
 
 Becaseu we consider the core itself as an extension, the Container Provider class 
-[LPhyExtImpl](https://github.com/LinguaPhylo/linguaPhylo/blob/master/LPhy/src/lphy/spi/LPhyExtImpl.java)
+[LPhyExtImpl](https://github.com/LinguaPhylo/linguaPhylo/tree/1.0.1/LPhy/src/lphy/spi/LPhyExtImpl.java)
 is also required to declare in this module using the following one-line code.
 
 {% highlight java %}
@@ -98,7 +98,7 @@ public interface LPhyExtension {
 }
 {% endhighlight %}
 
-Then the Container Provider class [LPhyExtImpl](https://github.com/LinguaPhylo/linguaPhylo/blob/master/LPhy/src/lphy/spi/LPhyExtImpl.java)
+Then the Container Provider class [LPhyExtImpl](https://github.com/LinguaPhylo/linguaPhylo/tree/1.0.1/LPhy/src/lphy/spi/LPhyExtImpl.java)
 lists all required _GenerativeDistribution_, _Func_, and _SequenceType_.
 
 {% highlight java %}
@@ -153,7 +153,7 @@ public class LPhyExtImpl implements LPhyExtension {
 
 
 In the next sub-project LPhyStudio, as it is not a LPhy extension, 
-the [module lphystudio](https://github.com/LinguaPhylo/linguaPhylo/blob/master/LPhyStudio/src/module-info.java)
+the [module lphystudio](https://github.com/LinguaPhylo/linguaPhylo/tree/1.0.1/LPhyStudio/src/module-info.java)
 only has an one-line declaration to require the module lphy, but no Provider class. 
 
 
