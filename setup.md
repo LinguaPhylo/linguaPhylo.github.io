@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Setup
+title: User Manual
 permalink: /setup/
 ---
 
-This page includes the instructions for two applications:
+This page includes the user manuals for two applications:
 
 1. LPhy studio - the GUI for LPhy language
 
@@ -33,14 +33,13 @@ It works differently to the Java ($\leq$1.8) non-modular mechanism.
 
 If you are interested in our design, please look at this [post](https://linguaphylo.github.io/programming/2021/07/19/lphy-extension.html).
 
-{% assign lphy_version = "1.0.0" %}
+{% assign lphy_version = "1.1.0" %}
 
 Go to [LPhy release page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
 and download the latest released version, for example, 
-`LPhyStudio-{{ lphy_version }}.zip` at the time of writing. 
-Unzip the compressed file, then you will see a folder containing
-a jar file `lphy-studio-{{ lphy_version }}.jar` and other sub-folders
-containing example scripts or libraries. 
+`lphy-studio-{{ lphy_version }}.zip` at the time of writing. 
+Unzip the compressed file, then you will see files, e.g. README and LICENSE, 
+and several subfolders containing LPhy example scripts or libraries. 
 This folder will be your `$LPHY_PATH`. 
 You can copy or move the folder with everything to your working space.
 The folder structure looks like:
@@ -51,41 +50,47 @@ LPHY_PATH
     ├── lib
     │    ...
     │    ├── lphy-{{ lphy_version }}.jar
-    │    ...    
-    ├── lphy-studio-{{ lphy_version }}.jar
+    │    ├── lphy-studio-{{ lphy_version }}.jar
+    │    ...
+    ├── LICENSE    
     ├── README.md
+    ├── src
     └── tutorials
+         ├── data
+         ...
 ```
 
 The following command line will launch LPhy studio,
-where `-p` declares your module path including the LPhy studio jar 
-and the sub-folder "lib" containing all required libraries. 
-You can replace your own libraries folder to a different path. 
-`-m` declares the module name and it should be always "lphystudio".
+where `-p` declares your module path the sub-folder "lib" 
+which contains all required libraries (jar files). 
+If necessary, you can replace the module path to your own library path, 
+or add extra paths separated by colon ':'. 
+The second option `-m` declares the module name and it should be always "lphystudio".
 
 ```bash
 LPHY_PATH=~/WorkSpace/linguaPhylo/
 cd $LPHY_PATH
-java -p lib:lphy-studio-{{ lphy_version }}.jar -m lphystudio
+java -p lib -m lphystudio
 ```
 
-If you are using any extensions, copy it into the "lib" folder 
+If you are using any extensions, copy it into the "lib" folder, 
 and then run this command to launch LPhy studio.
 
-You can also give a LPhy script file name with its path. 
-Here we use the relative script to load "RSV2.lphy":
+You can also provide a LPhy script file name with its path. 
+Here is an example that we use the relative script to load "RSV2.lphy":
 
 ```bash
-java -p lib:lphy-studio-{{ lphy_version }}.jar -m lphystudio tutorials/RSV2.lphy
+java -p lib -m lphystudio tutorials/RSV2.lphy
 ```
 
 Please **note**: in the above command line, both the module path and
 the LPhy script path are the relative paths to your `$LPHY_PATH` folder.
 But every time a script is loaded, the working directory `user.dir` will
-be changed to the location of the loaded script. 
-Here is the folder `$LPHY_PATH/tutorials`,
-which is the parent folder of the relative path inside the LPhy script,
+be changed to the location where the script is loaded.
+This is used to cooperate with any relative paths inside the LPhy script, 
 such as `readNexus(file="data/RSV2.nex", ...);`.
+The alignments (e.g. RSV2.nex) are usually stored in the subfolder `data` 
+under the folder `$LPHY_PATH/tutorials`.
 If you want to use a different setup,
 please make sure every relative paths are defined correctly. 
 
@@ -118,7 +123,8 @@ Remember to click the button `Done` to complete.
   <figcaption>Figure 1: Adding the extra package repository link.</figcaption>
 </figure>
 
-The `lphybeast` will appear in the list of available packages in `Package Manager`,
+Restart `Package Manager`. If you add the extra repository correctly, 
+the `lphybeast` will appear in the list of available packages,
 which are sorted by alphabetical orders. 
 Select it and click the `Install/Upgrade` button. 
 The installation may take few minutes, since it is going to install all dependent packages as well, 
@@ -161,22 +167,30 @@ $BEAST_DIR/bin/packagemanager -del lphybeast
 Unfortunately, BEAST 2.6.x is not using the Java module system.
 To compromise with non-modular applications, we separately release 
 a non-modular jar for LPhy but using META-INF to trigger SPI. 
+This jar also includes all required libraries from LPhy.
 
 To complete this installation, you need to create the folder named exactly as
 `lphy` under the `$BEAST_DIR` folder, and download the non-modular jar
-`lphy-j8-{{ lphy_version }}.jar` and the script `lphybeast` into the `lphy` folder.
+`lphy-{{ lphy_version }}-all.jar` from LPhy's Github
+[release](https://github.com/LinguaPhylo/linguaPhylo/releases) page into the `lphy` folder. 
+Secondly, download the script `lphybeast` from 
+[LPhyBEAST's repo](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast),
+and put it into the `bin` folder under `$BEAST_DIR` with other scripts.
+
 
 ```
 BEAST_DIR
     ├── bin
+    │    ...
+    │    ├── lphybeast
+    │    ...
     ├── examples
-    ├── images
+    ...
     ├── lib
     │    ├── beast.jar
     │    ...    
     ├── lphy
-    │    ├── lphybeast
-    │    └── lphy-j8-{{ lphy_version }}.jar
+    │    └── lphy-{{ lphy_version }}-all.jar
     ├── templates
     ...
     └── VERSION HISTORY.txt
@@ -185,33 +199,33 @@ BEAST_DIR
 Eventually, we can start LPhyBEAST using the script `lphybeast`.
 The bash script `lphybeast` will launch LPhyBEAST through another BEAST 2 
 application called [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
-which is also distributed with BEAST 2 together.
+but add the `lphy` folder into the classpath.
 
 
 ## LPhyBEAST usage
 
-Make sure you have `lphy-j8-{{ lphy_version }}.jar` and the script `lphybeast`
-in the correct path. 
+Make sure you have `lphy-{{ lphy_version }}-all.jar` in the correct path
+as well as the script `lphybeast`. 
 Now, we can run the following command line to show the usage, 
 and also check if it is installed properly, 
 where the `$BEAST_DIR` is the folder containing BEAST 2.
 
 ```bash
-$BEAST_DIR/lphy/lphybeast -h
+$BEAST_DIR/bin/lphybeast -h
 ```
 
 Then, try to create "RSV2.xml" from the tutorial script "RSV2.lphy":
 
 ```bash
 cd $LPHY_PATH/tutorials/
-$BEAST_DIR/lphy/lphybeast RSV2.lphy
+$BEAST_DIR/bin/lphybeast RSV2.lphy
 ```
 
 Or use the absolute path and work from a different folder:
 
 ```bash
 cd $MY_PATH
-$BEAST_DIR/lphy/lphybeast $LPHY_PATH/tutorials/RSV2.lphy
+$BEAST_DIR/bin/lphybeast $LPHY_PATH/tutorials/RSV2.lphy
 ```
 
 **Note:** this script contains the relative path to load data, 
@@ -227,7 +241,7 @@ we provide `-wd` to define the working directory for all relative paths.
 You can organise everything in a folder, and use the following command below:
 
 ```bash
-$BEAST_DIR/lphy/lphybeast -wd $LPHY_PATH/tutorials/ -l 15000000 -o RSV2long.xml RSV2.lphy
+$BEAST_DIR/bin/lphybeast -wd $LPHY_PATH/tutorials/ -l 15000000 -o RSV2long.xml RSV2.lphy
 ```
 
 This also has two extra arguments: 
@@ -237,7 +251,7 @@ This also has two extra arguments:
 
 Create 5 XML for simulations:
 ```bash
-$BEAST_DIR/lphy/lphybeast -wd $LPHY_PATH/tutorials/ -r 5 RSV2.lphy
+$BEAST_DIR/bin/lphybeast -wd $LPHY_PATH/tutorials/ -r 5 RSV2.lphy
 ```
 
 **Note:** please use `-wd` to simplify your paths according to 
@@ -249,29 +263,30 @@ then you have to update the corresponding line in the script to
 
 ### LPhyBEAST failed by an improper installation
 
-If the lphy non-modular jar (e.g. `lphy-j8-{{ lphy_version }}.jar`) is not
+If the lphy non-modular jar (e.g. `lphy-{{ lphy_version }}-all.jar`) is not
 in a correct path, you will see the following exceptions:
 
 ```
-GenerativeDistribution : []
-Functions : []
-picocli.CommandLine$PicocliException: An unexpected exception from a static initializer : 
-	at lphybeast.LPhyBEAST.toBEASTXML(Unknown Source)
-	at lphybeast.LPhyBEAST.createXML(Unknown Source)
-  ...
-Caused by: java.lang.ExceptionInInitializerError
-	at lphy.parser.SimulatorListenerImpl$SimulatorASTVisitor.visitMethodCall(SimulatorListenerImpl.java:723)
-	... 
-Caused by: java.lang.RuntimeException: LPhy core did not load properly using SPI mechanism !
-	at lphy.LPhyExtensionFactory.registerExtensions(LPhyExtensionFactory.java:109)
-	... 
-Aug 27, 2021 12:00:42 PM lphybeast.LPhyBEAST main
-SEVERE: LPhyBEAST does not exit normally !
+java.lang.NoClassDefFoundError: lphy/core/LPhyParser
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3334)
+	at java.base/java.lang.Class.getMethodsRecursive(Class.java:3475)
+	at java.base/java.lang.Class.getMethod0(Class.java:3461)
+	at java.base/java.lang.Class.getMethod(Class.java:2193)
+	at beast.app.tools.AppLauncher.runAppFromCMD(Unknown Source)
+	at beast.app.tools.AppLauncher.main(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at beast.app.beastapp.BeastLauncher.run(Unknown Source)
+	at beast.app.tools.AppLauncherLauncher.main(Unknown Source)
+Caused by: java.lang.ClassNotFoundException: lphy.core.LPhyParser
+	at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:433)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:586)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:519)
+	... 13 more
 ```
-
-The list of `GenerativeDistribution` and `Functions` implemented in the LPhy 
-cannot be loaded properly according to the error message.
-In the working case, the `[ ]` will contain the list of names of distributions or functions.
 
 
 ### LPhyBEAST failed by Java version
