@@ -200,7 +200,7 @@ Let us look at the whole thing:
 
 ```
 # BEAST_DIR="/Applications/BEAST2"
-$BEAST_DIR/lphy/lphybeast RSV2.lphy 
+$BEAST_DIR/bin/lphybeast RSV2.lphy 
 ```
 
 ### Running BEAST 2
@@ -349,7 +349,7 @@ to create a new .xml file:
 
 ```
 # MY_SCRIPT_PATH=~/WorkSpace/linguaPhylo/tutorials/
-$BEAST_DIR/lphy/lphybeast -wd $MY_SCRIPT_PATH -l 20000000 -o RSV2long.xml RSV2.lphy
+$BEAST_DIR/bin/lphybeast -wd $MY_SCRIPT_PATH -l 20000000 -o RSV2long.xml RSV2.lphy
 ```
 
 Now run BEAST 2 again. It may take about half an hour to complete using modern computers.  
