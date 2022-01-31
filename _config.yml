@@ -36,6 +36,7 @@ header_pages:
   - about.md
   - setup.md
   - tutorials.md
+  - developer.md
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
