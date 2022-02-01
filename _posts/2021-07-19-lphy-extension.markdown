@@ -15,8 +15,8 @@ An LPhy extension has to be a Java module, which also needs to implement the int
 ## Project structure
 
 The [LPhy repository](https://github.com/LinguaPhylo/linguaPhylo) contains two modules 
-separated in two subfolder LPhy (containing core classes, such as parser, distributions, functions and data types) 
-and LPhyStudio (GUI). The project folder structure looks like:
+separated in two subfolder, where `lphy` contains core classes, such as parser, distributions, functions and data types, 
+and `lphy-studio` are GUI. The project folder structure looks like:
 
 ```
 linguaPhylo
