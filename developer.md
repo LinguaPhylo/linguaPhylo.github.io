@@ -9,6 +9,8 @@ which is the latest long-term support (LTS) version.
 The LPhy extension mechanism is implemented using
 the Service Provider Interface (SPI) and the Java Platform Module System (JPMS). 
 
+All LPhy related projects are now published to the
+[Maven central repo](https://search.maven.org/search?q=g:io.github.linguaphylo).
 
 ## For LPhy core developers
 
