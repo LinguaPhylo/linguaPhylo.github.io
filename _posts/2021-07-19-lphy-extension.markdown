@@ -6,10 +6,10 @@ date:   2021-07-19
 categories: programming
 ---
 
-LPhy extensions are implemented by using the Service Provider Interface (SPI) 
-within the Java Platform Module System (JPMS).
-An LPhy extension module implements the [LPhyExtension](https://github.com/LinguaPhylo/linguaPhylo/tree/1.0.1/LPhy/src/lphy/spi/LPhyExtension.java) 
-interface to provide a list of the classes that the extension module provides to extend the functionality of LPhy.
+The LPhy extension mechanism is implemented using the Service Provider Interface (SPI) 
+and the Java Platform Module System (JPMS).
+An LPhy extension has to be a Java module, which also needs to implement the interface
+`LPhyExtension.java` to provide a list of the required classes to extend the functionality of LPhy.
 
 
 ## Project structure
