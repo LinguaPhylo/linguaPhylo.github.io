@@ -14,7 +14,7 @@ the Service Provider Interface (SPI) and the Java Platform Module System (JPMS).
 
 * [LinguaPhylo for developers]({% link _posts/2020-09-22-linguaphylo-for-developers.markdown %})
 
-* LPhy is a [Gradle project](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md)
+* LPhy is a [Gradle project](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md) now.
 
 ## For LPhy extension developers
 
