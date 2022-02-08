@@ -83,20 +83,21 @@ Here is an example that we use the relative script to load "RSV2.lphy":
 java -p lib -m lphystudio tutorials/RSV2.lphy
 ```
 
-Please **note**: in the above command line, both the module path and
-the LPhy script path are the relative paths to your `$LPHY_PATH` folder.
-But every time a script is loaded, the working directory `user.dir` will
-be changed to the location where the script is loaded.
-This is used to cooperate with any relative paths inside the LPhy script, 
-such as `readNexus(file="data/RSV2.nex", ...);`.
-The alignments (e.g. RSV2.nex) are usually stored in the subfolder `data` 
-under the folder `$LPHY_PATH/tutorials`.
-If you want to use a different setup,
-please make sure every relative paths are defined correctly. 
-
 If you are new to LPhy, we recommend you to read this 
 [introduction](https://linguaphylo.github.io/about/),
 before you continue on any tutorials. 
+
+### Relative file path
+
+Please **note**: in above command line, the LPhy input file path is 
+the relative paths to your current folder `$LPHY_PATH`.
+In order to cooperate with any relative paths inside the LPhy script, 
+such as `readNexus(file="data/RSV2.nex", ...);`, the LPhy studio will 
+set the property `user.dir` to the path where the script is.
+It is comparatively easy to organise all the LPhy scripts in a folder (e.g. tutorials/) 
+and their required alignments (e.g. RSV2.nex) in the subfolder `data` under the folder.
+If you want to use a different setup,
+please make sure every relative paths are defined correctly. 
 
 
 ## LPhyBEAST installation
@@ -228,37 +229,55 @@ cd $MY_PATH
 $BEAST_DIR/bin/lphybeast $LPHY_PATH/tutorials/RSV2.lphy
 ```
 
-**Note:** this script contains the relative path to load data, 
-`D = readNexus(file="data/RSV2.nex", ...);`, 
-which is always relative to the working directory.
-Here is the folder where "RSV2.lphy" located. 
-We recommend to use the absolute path in `readNexus` if the script is not shared.
-Otherwise, please always check if the relative path is correct, 
-before you generate the XML.   
+Create 5 XML for simulations:
+```bash
+$BEAST_DIR/bin/lphybeast -wd $LPHY_PATH/tutorials/ -r 5 RSV2.lphy
+```
 
-To avoid the confusion and complexity of using the relative paths,
-we provide `-wd` to define the working directory for all relative paths. 
-You can organise everything in a folder, and use the following command below:
+### Relative file path
+
+1. If the input/output is a relative path, then concatenate `user.dir` to the front of the path.
+
+
+2. Use `-wd` to set `user.dir`. But if `-wd` is **not** given, 
+the `user.dir` will be set to the path where the LPhy script is.
+
+
+As it is explained in the previous section, this script uses the relative path to load data, 
+`D = readNexus(file="data/RSV2.nex", ...);`. 
+So the `data` subfolder has to be under the folder where "RSV2.lphy" is.
+
+Alternatively, you can use `-wd` to set the working directory, such as:
 
 ```bash
 $BEAST_DIR/bin/lphybeast -wd $LPHY_PATH/tutorials/ -l 15000000 -o RSV2long.xml RSV2.lphy
 ```
 
-This also has two extra arguments: 
+This contains two extra arguments: 
 - `-l` changes the MCMC chain length (default to 1 million) in the XML;
 - `-o` replaces the output file name (default to use the same file steam as the lphy input file).
-
-
-Create 5 XML for simulations:
-```bash
-$BEAST_DIR/bin/lphybeast -wd $LPHY_PATH/tutorials/ -r 5 RSV2.lphy
-```
 
 **Note:** please use `-wd` to simplify your paths according to 
 your local folder structure, not make them more complex.
 For example, if you use `-wd $LPHY_PATH  tutorials/RSV2.lphy` instead, 
 then you have to update the corresponding line in the script to 
 `readNexus(file="tutorials/data/RSV2.nex", ...);`.
+
+
+### IOException
+
+The most cases are caused the inconsistent relative path between the input file 
+and the data inside the LPhy script. Please see the subsection "Relative file path".
+
+
+```
+SEVERE: java.io.IOException: Cannot find Nexus file ! .../data/RSV2.nex, user.dir = ...
+	at lphy.evolution.io.NexusParser.getReader(NexusParser.java:85)
+	at lphy.evolution.io.NexusParser.<init>(NexusParser.java:64)
+	at lphy.core.functions.ReadNexus.apply(ReadNexus.java:66)
+	at lphy.graphicalModel.DeterministicFunction.generate(DeterministicFunction.java:8)
+	at lphy.parser.SimulatorListenerImpl$SimulatorASTVisitor.visitMethodCall(SimulatorListenerImpl.java:856)
+```
 
 
 ### LPhyBEAST failed by an improper installation
