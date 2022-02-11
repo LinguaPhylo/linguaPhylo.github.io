@@ -163,21 +163,40 @@ using the command below, then install it.
 $BEAST_DIR/bin/packagemanager -del lphybeast 
 ```
 
-### LPhy non-modular jar 
+### Install LPhy libraries and set LPHY_LIB path 
 
-Unfortunately, BEAST 2.6.x is not using the Java module system.
-To compromise with non-modular applications, we separately release 
-a non-modular jar for LPhy but using META-INF to trigger SPI. 
-This jar also includes all required libraries from LPhy.
+Unfortunately, BEAST 2.6.x is not using the Java module system and SPI.
+To make SPI work, we need to manually install LPhy libraries and set LPHY_LIB path. 
+This includes 2 steps.
 
-To complete this installation, you need to create the folder named exactly as
-`lphy` under the `$BEAST_DIR` folder, and download the non-modular jar
-`lphy-{{ lphy_version }}-all.jar` from LPhy's Github
-[release](https://github.com/LinguaPhylo/linguaPhylo/releases) page into the `lphy` folder. 
-Secondly, download the script `lphybeast` from 
+First, download the LPhy studio [release](https://github.com/LinguaPhylo/linguaPhylo/releases), 
+such as `lphy-studio-{{ lphy_version }}.zip`, 
+and then unzip it under your `$BEAST_DIR` folder where you installed the BEAST 2.
+The folder `lphy-studio-{{ lphy_version }}` should appear inside your `$BEAST_DIR`.
+Check the subfolder `lib` under the studio folder, you will see several jar files. 
+They are the LPhy libraries that LPhyBEAST is required. 
+
+Secondly, download the bash script `lphybeast` from 
 [LPhyBEAST's repo](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast),
 and put it into the `bin` folder under `$BEAST_DIR` with other scripts.
+It will launch LPhyBEAST through another BEAST 2 
+application called [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
+while adding the `$LPHY_LIB` folder into the classpath.
 
+Here, you need to set your `$LPHY_LIB` in the script same as the path of 
+the subfolder `lib` containing LPhy libraries. As we declare `LPHY_LIB="$BEAST/lphy/lib"` 
+in the script, the folder `lphy-studio-{{ lphy_version }}` then shall be renamed to `lphy`.
+
+<figure class="image">
+  <a href="/images/LPhyLibFolder.png">
+    <img src="/images/LPhyLibFolder.png" alt="LPhyLibFolder">
+  </a>
+  <figcaption>Figure 3: Set LPHY_LIB path.</figcaption>
+</figure>  
+
+Alternatively, you can change `$LPHY_LIB` but keep the folder name unchanged.
+
+The final folder structure looks like:
 
 ```
 BEAST_DIR
@@ -191,25 +210,19 @@ BEAST_DIR
     │    ├── beast.jar
     │    ...    
     ├── lphy
-    │    └── lphy-{{ lphy_version }}-all.jar
+    │    └── lphy-{{ lphy_version }}.jar
     ├── templates
     ...
     └── VERSION HISTORY.txt
 ```
 
 Eventually, we can start LPhyBEAST using the script `lphybeast`.
-The bash script `lphybeast` will launch LPhyBEAST through another BEAST 2 
-application called [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
-but add the `lphy` folder into the classpath.
 
 
 ## LPhyBEAST usage
 
-Make sure you have `lphy-{{ lphy_version }}-all.jar` in the correct path
-as well as the script `lphybeast`. 
-Now, we can run the following command line to show the usage, 
-and also check if it is installed properly, 
-where the `$BEAST_DIR` is the folder containing BEAST 2.
+Make sure you have the script `lphybeast` ready and set `LPHY_LIB` path properly. 
+Now, we can run the following command line to show the usage.
 
 ```bash
 $BEAST_DIR/bin/lphybeast -h
@@ -264,9 +277,12 @@ then you have to update the corresponding line in the script to
 `readNexus(file="tutorials/data/RSV2.nex", ...);`.
 
 
+## If something goes wrong ...
+
+
 ### IOException
 
-The most cases are caused the inconsistent relative path between the input file 
+The most cases are caused by the inconsistent relative path between the input file 
 and the data inside the LPhy script. Please see the subsection "Relative file path".
 
 
@@ -282,8 +298,7 @@ SEVERE: java.io.IOException: Cannot find Nexus file ! .../data/RSV2.nex, user.di
 
 ### LPhyBEAST failed by an improper installation
 
-If the lphy non-modular jar (e.g. `lphy-{{ lphy_version }}-all.jar`) is not
-in a correct path, you will see the following exceptions:
+If the LPhy library folder is not in a correct path, you will see the following exceptions:
 
 ```
 java.lang.NoClassDefFoundError: lphy/core/LPhyParser
@@ -294,12 +309,7 @@ java.lang.NoClassDefFoundError: lphy/core/LPhyParser
 	at java.base/java.lang.Class.getMethod(Class.java:2193)
 	at beast.app.tools.AppLauncher.runAppFromCMD(Unknown Source)
 	at beast.app.tools.AppLauncher.main(Unknown Source)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
-	at beast.app.beastapp.BeastLauncher.run(Unknown Source)
-	at beast.app.tools.AppLauncherLauncher.main(Unknown Source)
+...
 Caused by: java.lang.ClassNotFoundException: lphy.core.LPhyParser
 	at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:433)
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:586)
