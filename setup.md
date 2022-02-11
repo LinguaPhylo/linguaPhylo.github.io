@@ -184,7 +184,7 @@ application called [applauncher](https://www.beast2.org/2019/09/26/command-line-
 while adding the `$LPHY_LIB` folder into the classpath.
 
 Here, you need to set your `$LPHY_LIB` in the script same as the path of 
-the subfolder `lib` containing LPhy libraries. As we declare `LPHY_LIB="$BEAST/lphy/lib"` 
+the subfolder `lib` containing LPhy libraries. As we have declared `LPHY_LIB="$BEAST_DIR/lphy/lib"` 
 in the script, the folder `lphy-studio-{{ lphy_version }}` then shall be renamed to `lphy`.
 
 <figure class="image">
