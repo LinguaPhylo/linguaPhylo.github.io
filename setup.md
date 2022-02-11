@@ -189,7 +189,7 @@ in the script, the folder `lphy-studio-{{ lphy_version }}` then shall be renamed
 
 <figure class="image">
   <a href="/images/LPhyLibFolder.png">
-    <img src="/images/LPhyLibFolder.png" alt="LPhyLibFolder" style="width:350;">
+    <img src="/images/LPhyLibFolder.png" alt="LPhyLibFolder" style="width:350px;">
   </a>
   <figcaption>Figure 3: Set LPHY_LIB path.</figcaption>
 </figure>  
