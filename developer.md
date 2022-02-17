@@ -12,20 +12,32 @@ the Service Provider Interface (SPI) and the Java Platform Module System (JPMS).
 All LPhy related projects are now published to the
 [Maven central repo](https://search.maven.org/search?q=g:io.github.linguaphylo).
 
+
+## Background knowledge
+
+* [Open a Gradle project](https://www.jetbrains.com/idea/guide/tutorials/working-with-gradle/opening-a-gradle-project/)
+
+* [Build, release, publish a Gradle project](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md)
+
+
+## An example to extend LPhy and LPhyBEAST
+
+* [Coming soon]()
+
+
 ## For LPhy core developers
 
-* [LinguaPhylo for developers]({% link _posts/2020-09-22-linguaphylo-for-developers.markdown %})
+* [For LPhy core developers]({% link _posts/2020-09-22-linguaphylo-for-developers.markdown %})
 
-* LPhy is a [Gradle project](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md) now.
 
 ## For LPhy extension developers
 
-* [LPhy Extension Mechanism]({% link _posts/2021-07-19-lphy-extension.markdown %})
+* [For LPhy extension developers]({% link _posts/2021-07-19-lphy-extension.markdown %})
 
  
 ## For LPhyBEAST developers
 
-* [LPhyBEAST developer note]({% link _posts/2021-07-15-lphybeast-developer-note.markdown %})
+* [For LPhyBEAST developers]({% link _posts/2021-07-15-lphybeast-developer-note.markdown %})
 
 
 ## Useful links

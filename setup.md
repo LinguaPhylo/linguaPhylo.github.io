@@ -102,9 +102,9 @@ please make sure every relative paths are defined correctly.
 
 ## LPhyBEAST installation
 
-[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) is distributed
-as a [BEAST 2 package](https://www.beast2.org/managing-packages/) named as `lphybeast`.
-You can install it using another application called `Package Manager` distributed
+[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) depends on BEAST 2.6.6 or higher version, 
+and is distributed as a [BEAST 2 package](https://www.beast2.org/managing-packages/) named as `lphybeast`.
+You can install it using another application called `Package Manager` also distributed
 with BEAST 2 together.
 Open `BEAUti`, and click the menu `File` => `Manage Packages`. 
 
@@ -142,7 +142,7 @@ as well as its dependent packages.
 Alternatively, you can install it using the command line below, 
 but please note the name of package is case-sensitive.
 
-{% assign beastversion = "2.6.x" %}
+{% assign beastversion = "2.6.6" %}
 
 ```bash
 # BEAST_DIR="/Applications/BEAST{{ beastversion }}"
@@ -343,51 +343,3 @@ If yes, you need to download BEAST 2 without JRE, because with JRE,
 
 
 
-### Manual installation
-
-The `Package Manager` version 2.6.3 has a size-limit for downloading files. 
-LPhyBEAST package is over that limit, so the zip file will be corrupted.
-This issue has been solved at the higher version > 2.6.3.
-
-If you are getting the following error message, when you install `lphybeast` package:
-
-```
-java.util.zip.ZipException: error in opening zip file
-	at java.util.zip.ZipFile.open(Native Method)
-	at java.util.zip.ZipFile.<init>(ZipFile.java:225)
-	at java.util.zip.ZipFile.<init>(ZipFile.java:155)
-	at beast.util.PackageManager.doUnzip(Unknown Source)
-	at beast.util.PackageManager.installPackages(Unknown Source)
-	at beast.util.PackageManager.main(Unknown Source)
-```
-
-then please install it manually following the steps below:
-
-1. Go to the [LPhyBEAST release page](https://github.com/LinguaPhylo/LPhyBeast/releases)
-download the latest version (LPhyBEAST.v???.zip);
-
-2. Locate your local [BEAST 2 packages installation directories](https://www.beast2.org/managing-packages/) 
-and delete everything (corrupted zip file) under the `lphybeast` folder.
-If it does not exist, then create the sub-directory `lphybeast` under the folder containing all packages;
-
-3. Unzip the compressed LPhyBEAST.v???.zip file to the BEAST 2 package `lphybeast` folder. 
-The example command line in Linux is 
-`unzip  ~/Downloads/LPhyBEAST.v???.zip -d ~/.beast/2.6/lphybeast/`;
-
-4. Check if there is the `lib` sub-folder under the `lphybeast` folder and if it contains any .jar files, 
-and then run `packagemanager -list` to ensure it is installed;
-
-5. The dependent BEAST 2 packages are list in the release page. Make sure all of them are installed. 
-
-__Tips:__ you can run `packagemanager -add lphybeast` first to install all dependent packages, 
-and follow the above steps to re-install `lphybeast` package manually.
-Then run `applauncher LPhyBEAST -h`, if any dependent packages are missing, there will be a pop-up error message to show what they are one by one. You would therefore install them manually following the above steps.
-
-
-More details about [managing BEAST 2 packages](https://www.beast2.org/managing-packages/) are available.
-
-If the LPhyBEAST and its dependencies are installed properly, the command below will print the expected usage information: 
-
-```bash
-$BEAST_DIR/bin/applauncher LPhyBEAST -h
-```
