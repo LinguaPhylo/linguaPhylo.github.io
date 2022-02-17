@@ -25,17 +25,11 @@ All LPhy related projects are now published to the
 * [Coming soon]()
 
 
-## For LPhy core developers
+## Java development
 
 * [For LPhy core developers]({% link _posts/2020-09-22-linguaphylo-for-developers.markdown %})
 
-
-## For LPhy extension developers
-
 * [For LPhy extension developers]({% link _posts/2021-07-19-lphy-extension.markdown %})
-
- 
-## For LPhyBEAST developers
 
 * [For LPhyBEAST developers]({% link _posts/2021-07-15-lphybeast-developer-note.markdown %})
 
