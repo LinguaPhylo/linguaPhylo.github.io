@@ -11,13 +11,10 @@ This page includes the user manuals for two applications:
 2. LPhyBEAST - a BEAST 2 package that takes a LPhy script and produces a BEAST 2 XML file.
 
 
-## Java 16
+## Java 17
 
-LPhy and LPhyBEAST are developed on Java 16. 
-You can either install [Oracle JDK 16](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html) 
-or [OpenJDK 16](https://jdk.java.net/16/). Please make sure `JAVA_HOME` is setup properly.
-
-Use the command line below to check your Java version:
+LPhy and LPhyBEAST are developed on Java 17. We recommend you install [OpenJDK 17](https://jdk.java.net/17/).
+Please use the command line below to check your Java version:
 
 ```bash
 java -version
@@ -33,7 +30,7 @@ It works differently to the Java ($\leq$1.8) non-modular mechanism.
 
 If you are interested in our design, please look at this [post](https://linguaphylo.github.io/programming/2021/07/19/lphy-extension.html).
 
-{% assign lphy_version = "1.1.0" %}
+{% assign lphy_version = "1.2.0" %}
 
 Go to [LPhy release page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
 and download the latest released version, for example, 
@@ -329,7 +326,7 @@ If the `lphybeast -h` failed with the following error message about Java version
 ```
 java.lang.UnsupportedClassVersionError: 
 lphybeast/LPhyBEAST has been compiled by a more recent version 
-of the Java Runtime (class file version 60.0), this version of 
+of the Java Runtime (class file version 61.0), this version of 
 the Java Runtime only recognizes class file versions up to 52.0
 	at java.lang.ClassLoader.defineClass1(Native Method)
 	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
@@ -337,8 +334,8 @@ the Java Runtime only recognizes class file versions up to 52.0
 	at java.net.URLClassLoader.defineClass(URLClassLoader.java:468)
 ```
 
-First, check if your local Java is 16 using `java -version`. 
-If yes, you need to download BEAST 2 without JRE, because with JRE, 
+First, check if your local Java is 17 using `java -version`. 
+If yes, you need to download and use BEAST 2 without JRE, because with JRE, 
 `applauncher` will be forced to use the provided JRE in BEAST 2 which currently is 1.8.
 
 
