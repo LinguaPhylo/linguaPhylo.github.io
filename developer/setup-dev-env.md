@@ -73,7 +73,7 @@ then you need to check if your Java version is 17. In the screenshot below, the 
 
 <figure class="image">
   <img src="BuildFailJava.png" alt="BuildFailJava">
-  <figcaption>Figure 5: Build fail because of Java version.</figcaption>
+  <figcaption>Figure 5: Build failed because of Java version.</figcaption>
 </figure>
 
 
