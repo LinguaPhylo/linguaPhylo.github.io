@@ -15,9 +15,13 @@ All LPhy related projects are now published to the
 
 ## What should an extension developer know
 
+* [Principles page is coming ...]()
+
 * [Setup development environment](/developer/setup-dev-env)
 
 * [Build, release, publish a Gradle project](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md)
+
+* [Implement an extension](/developer/implement-ext)
 
 
 ## Java development

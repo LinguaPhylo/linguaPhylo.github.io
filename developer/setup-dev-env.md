@@ -68,7 +68,7 @@ and [Kotlin plugin](https://plugins.jetbrains.com/plugin/6954-kotlin).
 
 ### Common problem
 
-If your build failed and the red text message showed "an API of a component compatible with Java 17 ...",
+If your build failed and there was the red text showing "an API of a component compatible with Java 17 ...",
 then you need to check if your Java version is 17. In the screenshot below, the Java version was 1.8.
 
 <figure class="image">
