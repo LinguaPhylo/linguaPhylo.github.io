@@ -13,16 +13,11 @@ All LPhy related projects are now published to the
 [Maven central repo](https://search.maven.org/search?q=g:io.github.linguaphylo).
 
 
-## Background knowledge
+## What should an extension developer know
 
-* [Open a Gradle project](https://www.jetbrains.com/idea/guide/tutorials/working-with-gradle/opening-a-gradle-project/)
+* [Setup development environment](/developer/setup-dev-env)
 
 * [Build, release, publish a Gradle project](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md)
-
-
-## An example to extend LPhy and LPhyBEAST
-
-* [Coming soon]()
 
 
 ## Java development
