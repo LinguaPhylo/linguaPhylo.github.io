@@ -36,6 +36,7 @@ in IntelliJ, becasuse the changes might be lost after reimporting.
 The LPhy and LPhyBEAST is developed on Java 17
 ([LTS](https://www.oracle.com/java/technologies/java-se-support-roadmap.html)). 
 We recommend you install [OpenJDK 17](https://jdk.java.net/17/).
+You can simply download it and decompress into your [JAVA_HOME](https://www.baeldung.com/find-java-home) folder. 
 
 Please configure your IntelliJ project SDK to 17, and also set language level to 17.
 
@@ -43,6 +44,19 @@ Please configure your IntelliJ project SDK to 17, and also set language level to
   <img src="ProjectSDK.png" alt="ProjectSDK">
   <figcaption>Figure 2: Project SDK.</figcaption>
 </figure>
+
+### Working with multiple Java versions
+
+If you have multiple Java versions in your Linux or Mac OS, 
+you can use the following command to switch to Java 17 from another version.
+
+```
+export JAVA_HOME=`/usr/libexec/java_home -v 17`
+```
+
+Use `/usr/libexec/java_home` to show your JAVA_HOME, 
+and `/usr/libexec/java_home -V` to list all available Java versions in your operating system. 
+
 
 ### Gradle
 
