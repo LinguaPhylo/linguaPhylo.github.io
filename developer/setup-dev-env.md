@@ -47,7 +47,7 @@ Please configure your IntelliJ project SDK to 17, and also set language level to
 
 ### Working with multiple Java versions
 
-If you have multiple Java versions in your Linux or Mac OS, 
+If you have multiple Java versions installed in Linux or Mac OS, 
 you can use the following command to switch to Java 17 from another version.
 
 ```
