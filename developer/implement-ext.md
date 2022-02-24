@@ -47,7 +47,7 @@ which uses Java 17, Java module system, and the standardised extension mechanism
   <figcaption>Figure {{ current_fig_num }}: The sub-project "lphy".</figcaption>
 </figure>
 
-On the left side of the figure it shows the required
+On the left side of the figure, it shows the required
 [sub-project structure](https://docs.gradle.org/current/userguide/multi_project_builds.html). 
 The `doc` folder contains automatically generated LPhy language reference.
 The `examples` folder contains the example LPhy scripts (*.lphy).
@@ -71,9 +71,10 @@ For example, here we have the package `phylonco.lphy.evolution` to contain the e
 The package `phylonco.lphy.spi` includes the
 [Container Provider class](https://linguaphylo.github.io/programming/2021/07/19/lphy-extension.html).
 
-On the right side of figure it is the Gradle build file for this subproject.
+On the right side of figure, it is the Gradle build file for this subproject.
 The first block `plugins { }` lists [Gradle plugins](https://docs.gradle.org/current/userguide/plugin_reference.html),
-where `platforms.lphy-java` and `platforms.lphy-publish` define the LPhy extension conventions and share the build logic.
+where `platforms.lphy-java` and `platforms.lphy-publish` define the LPhy extension conventions,
+such as using Java 17, and share the build logic, such as using module path to launch application.
 Their source code and usage is avaiable at [LinguaPhylo/GradlePlugins](https://github.com/LinguaPhylo/GradlePlugins).
 
 After the version and base name are defined, the second block declares the 
@@ -93,7 +94,7 @@ The extension mechanism was developed by BEAST 2 core developers.
   <figcaption>Figure {{ current_fig_num }}: The sub-project "beast2".</figcaption>
 </figure>
 
-On the left side of the figure it shows
+On the left side of the figure, it shows
 
 
 ### lphybeast
