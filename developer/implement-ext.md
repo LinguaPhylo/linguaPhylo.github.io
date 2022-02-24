@@ -22,15 +22,17 @@ you can skip the 5th section "Publish to Maven central repository" and the 6th "
   <figcaption>Figure {{ current_fig_num }}: Project structure and Gradle setting file.</figcaption>
 </figure>
 
-The "beast-phylonco" project contains 3 modules, also known as sub-projects in Gradle. 
-Its project structure can be seen from the [Project tool window](https://www.jetbrains.com/help/idea/project-tool-window.html)
+The "beast-phylonco" project contains 3 modules, also known as
+[subprojects](https://docs.gradle.org/current/userguide/multi_project_builds.html) in Gradle. 
+Its project structure can be seen from the
+[Project tool window](https://www.jetbrains.com/help/idea/project-tool-window.html)
 on the left side of Figure {{ current_fig_num }}. 
 There is a file `settings.gradle.kts` in the project root to configure this structure, 
-where the keyword `include` declares the sub-projects are included.
+where the keyword `include` declares the subprojects are included.
 
-The project root also has a common build file, which is used to define some shared build logics between sub-projects. 
-Each sub-project has its own build file to specify the building process and logics.
-If a sub-project is included in the settings, IntelliJ will automatically create the modules,
+The project root also has a common build file, which is used to define some shared build logics between subprojects. 
+Each subproject has its own build file to specify the building process and logics.
+If a subproject is included in the settings, IntelliJ will automatically create the modules,
 and its build file will also run by default. 
 
 {% assign current_fig_num = 1 %}
@@ -40,24 +42,29 @@ and its build file will also run by default.
   <figcaption>Figure {{ current_fig_num }}: The common build file in the project root.</figcaption>
 </figure>
 
+There are more details about how to
+[organise Gradle projects](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html). 
+But some articles suggest to
+[stop using buildSrc, to use composite builds instead](https://proandroiddev.com/stop-using-gradle-buildsrc-use-composite-builds-instead-3c38ac7a2ab3).
+Therefore, we configure these 3 subprojects to use composite builds.
+
 
 ### lphy
 
-The sub-project "lphy" contains LPhy extension classes, 
+The subproject "lphy" contains LPhy extension classes, 
 which uses Java 17, Java module system, and the standardised extension mechanism using SPI.
 
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 
 <figure class="image">
   <img src="LPhy.png" alt="LPhy">
-  <figcaption>Figure {{ current_fig_num }}: The sub-project "lphy".</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: The subproject "lphy".</figcaption>
 </figure>
 
-On the left side of the figure, it shows the required
-[sub-project structure](https://docs.gradle.org/current/userguide/multi_project_builds.html). 
+On the left side of the figure, it shows the required subproject structure.
 The `doc` folder contains automatically generated LPhy language reference.
 The `examples` folder contains the example LPhy scripts (*.lphy).
-It is important to keep the `examples` folder under the "lphy" sub-project,
+It is important to keep the `examples` folder under the "lphy" subproject,
 LPhy studio will look for this path to list scripts under the working directory (`user.dir`)
 when it starts.
 
@@ -90,14 +97,14 @@ After the version and base name are defined, the second block declares the
 
 ### beast2
 
-The sub-project "beast2" contains the BEAST 2 classes, which uses Java 1.8 and non-module system. 
+The subproject "beast2" contains the BEAST 2 classes, which uses Java 1.8 and non-module system. 
 The extension mechanism was developed by BEAST 2 core developers.
 
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 
 <figure class="image">
   <img src="BEAST2.png" alt="BEAST2">
-  <figcaption>Figure {{ current_fig_num }}: The sub-project "beast2".</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: The subproject "beast2".</figcaption>
 </figure>
 
 On the left side of the figure, it shows
@@ -105,13 +112,13 @@ On the left side of the figure, it shows
 
 ### lphybeast
 
-The sub-project "lphybeast" contains the mapping classes between BEAST 2 and LPhy.
+The subproject "lphybeast" contains the mapping classes between BEAST 2 and LPhy.
 
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 
 <figure class="image">
   <img src="LPhyBEAST.png" alt="LPhyBEAST">
-  <figcaption>Figure {{ current_fig_num }}: The sub-project "lphybeast".</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: The subproject "lphybeast".</figcaption>
 </figure>
 
 
@@ -127,9 +134,11 @@ The sub-project "lphybeast" contains the mapping classes between BEAST 2 and LPh
 
 
 
-## LPhy SPI and the extension's container provider class
+## Extending LPhy classes
 
 
-## LPhyBEAST 
+
+
+## Extending LPhyBEAST classes
 
 
