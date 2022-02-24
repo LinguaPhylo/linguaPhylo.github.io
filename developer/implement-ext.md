@@ -35,12 +35,21 @@ Each subproject has its own build file to specify the building process and logic
 If a subproject is included in the settings, IntelliJ will automatically create the modules,
 and its build file will also run by default. 
 
-{% assign current_fig_num = 1 %}
+{% assign current_fig_num = current_fig_num | plus: 1 %}
 
 <figure class="image">
-  <img src="RootBuild.png" alt="RootBuild">
+<a href="RootBuild.png">
+  <img src="RootBuild.png" alt="RootBuild" style="width: 60%; height: 60%">
+  </a>
   <figcaption>Figure {{ current_fig_num }}: The common build file in the project root.</figcaption>
 </figure>
+
+
+For example, Figure {{ current_fig_num }} assigns version to "0.0.6" and
+group to "io.github.bioDS" for all subprojects.
+But you can overwrite the version in a subproject's build to use a different number.
+The `manifest` block on the bottom defines the common meta information
+shared in all released jar files from 3 subprojects. 
 
 There are more details about how to
 [organise Gradle projects](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html). 
@@ -57,7 +66,9 @@ which uses Java 17, Java module system, and the standardised extension mechanism
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 
 <figure class="image">
-  <img src="LPhy.png" alt="LPhy">
+<a href="LPhy.png">
+  <img src="LPhy.png" alt="LPhy" style="width: 80%; height: 80%">
+  </a>
   <figcaption>Figure {{ current_fig_num }}: The subproject "lphy".</figcaption>
 </figure>
 
@@ -103,11 +114,14 @@ The extension mechanism was developed by BEAST 2 core developers.
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 
 <figure class="image">
-  <img src="BEAST2.png" alt="BEAST2">
+<a href="BEAST2.png">
+  <img src="BEAST2.png" alt="BEAST2" style="width: 70%; height: 70%">
+  </a>
   <figcaption>Figure {{ current_fig_num }}: The subproject "beast2".</figcaption>
 </figure>
 
-On the left side of the figure, it shows
+On the left side of the figure, it shows the same structure as the subproject "lphy".
+But the additional `lib` folder is used to contain the required BEAST 2 libraries.
 
 
 ### lphybeast
@@ -117,7 +131,9 @@ The subproject "lphybeast" contains the mapping classes between BEAST 2 and LPhy
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 
 <figure class="image">
+<a href="LPhyBEAST.png">
   <img src="LPhyBEAST.png" alt="LPhyBEAST">
+  </a>
   <figcaption>Figure {{ current_fig_num }}: The subproject "lphybeast".</figcaption>
 </figure>
 
