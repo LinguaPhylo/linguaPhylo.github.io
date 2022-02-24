@@ -33,6 +33,12 @@ Each sub-project has its own build file to specify the building process and logi
 If a sub-project is included in the settings, IntelliJ will automatically create the modules,
 and its build file will also run by default. 
 
+{% assign current_fig_num = 1 %}
+
+<figure class="image">
+  <img src="RootBuild.png" alt="RootBuild">
+  <figcaption>Figure {{ current_fig_num }}: The common build file in the project root.</figcaption>
+</figure>
 
 
 ### lphy
