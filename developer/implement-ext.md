@@ -35,14 +35,39 @@ and its build file will also run by default.
 
 ### lphy
 
-The sub-project "lphy" contains LPhy extension classes;
+The sub-project "lphy" contains LPhy extension classes, 
+which uses Java 17, Java module system, and the standardised extension mechanism using SPI.
 
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 
 <figure class="image">
   <img src="LPhy.png" alt="LPhy">
-  <figcaption>Figure {{ current_fig_num }}: sub-project "lphy".</figcaption>
+  <figcaption>Figure {{ current_fig_num }}: The sub-project "lphy".</figcaption>
 </figure>
+
+On the left side of the figure it shows the required
+[sub-project structure](https://docs.gradle.org/current/userguide/multi_project_builds.html). 
+The `doc` folder contains automatically generated LPhy language reference.
+The `examples` folder contains the example LPhy scripts (*.lphy).
+It is important to keep the `examples` folder under the "lphy" sub-project,
+LPhy studio will look for this path to list scripts under the working directory (`user.dir`)
+when it starts.
+
+The subfolder `src/main/resources/META-INF/services` has a provider configuration file,
+which is used to register the LPhy extension
+[service provider in Java 1.8](https://docs.oracle.com/javase/tutorial/ext/basics/spi.html).
+This allows the LPhy and its extensions to be able to integrate with the non-module system,
+such as BEAST 2 and its packages.  
+But please note for the newer version of Java, the LPhy extension mechanism still
+uses the `module-info` file to register the service provider.
+
+On the right side of figure it is the Gradle build file for this subproject.
+The first block `plugins { }` lists [Gradle plugins](https://docs.gradle.org/current/userguide/plugin_reference.html),
+where `platforms.lphy-java` and `platforms.lphy-publish` define the LPhy extension conventions and share the build logic.
+Their source code and usage is avaiable at [LinguaPhylo/GradlePlugins](https://github.com/LinguaPhylo/GradlePlugins).
+
+After the version and base name are defined, the second block declares the 
+[dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html).
 
 
 
@@ -50,10 +75,29 @@ The sub-project "lphy" contains LPhy extension classes;
 
 The sub-project "lphybeast" contains the mapping classes between BEAST 2 and LPhy.
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
+<figure class="image">
+  <img src="LPhyBEAST.png" alt="LPhyBEAST">
+  <figcaption>Figure {{ current_fig_num }}: The sub-project "lphybeast".</figcaption>
+</figure>
+
+
+
+
 
 ### beast2
 
 The sub-project "beast2" contains the BEAST 2 classes;
+
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
+<figure class="image">
+  <img src="BEAST2.png" alt="BEAST2">
+  <figcaption>Figure {{ current_fig_num }}: The sub-project "beast2".</figcaption>
+</figure>
+
+
 
 
 
