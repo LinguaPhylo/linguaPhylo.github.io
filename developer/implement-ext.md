@@ -10,8 +10,10 @@ to demonstrate how to implement a LPhy or LPhyBEAST extension.
 Before reading this tutorial, you should have setup your [development environment](/developer/setup-dev-env),
 and learnt the [essential knowledge about Gradle](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md).
 If you have not decided to publish the extensions into the Maven central repository,
-you can skip the 5th section "Publish to Maven central repository" and the 6th "Release deployment".
+you can skip the section "5. Publish to Maven central repository" and "6. Release deployment".
 
+You also need to understand the [technological difference](/developer) among the tree groups of projects:
+lphy, beast2, and lphybeast, before starting this tutorial.
 
 ## Project structure
 
@@ -30,6 +32,8 @@ on the left side of Figure {{ current_fig_num }}.
 There is a file `settings.gradle.kts` in the project root to configure this structure, 
 where the keyword `include` declares the subprojects are included.
 
+### Sharing build between subprojects
+
 The project root also has a common build file, which is used to define some shared build logics between subprojects. 
 Each subproject has its own build file to specify the building process and logics.
 If a subproject is included in the settings, IntelliJ will automatically create the modules,
@@ -44,8 +48,9 @@ and its build file will also run by default.
   <figcaption>Figure {{ current_fig_num }}: The common build file in the project root.</figcaption>
 </figure>
 
+{% assign phylonco_version = "0.0.6" %}
 
-For example, Figure {{ current_fig_num }} assigns version to "0.0.6" and
+For example, Figure {{ current_fig_num }} assigns version to "{{ phylonco_version }}" and
 group to "io.github.bioDS" for all subprojects.
 But you can overwrite the version in a subproject's build to use a different number.
 The `manifest` block on the bottom defines the common meta information
@@ -101,9 +106,45 @@ where `platforms.lphy-java` and `platforms.lphy-publish` define the LPhy extensi
 such as using Java 17, and share the build logic, such as using module path to launch application.
 Their source code and usage is avaiable at [LinguaPhylo/GradlePlugins](https://github.com/LinguaPhylo/GradlePlugins).
 
+### lphy dependencies
+
+{% assign lphy_version = "1.2.0" %}
+
 After the version and base name are defined, the second block declares the 
 [dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html).
+The first dependency is lphy jar. 
+The `implementation` is a Gradle pre-defined
+[configuration](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_plugin_and_dependency_management)
+to resolve dependencies.
+The string inside implementation defines GAV coordinate (Group, Artifact, Version), 
+which will map to a unique corresponding version of a software from all releases.
+It also can be used as a keyword to search in the Maven central repo, for example,
+the group [io.github.linguaphylo](https://search.maven.org/search?q=g:io.github.linguaphylo).
+Here the Phylonco Lphy extension depends on the version {{ lphy_version }} exactly.
+We do not recommend to use version range, unless you fully understand the development history
+and future plan of that project.
 
+The second dependency is lphy-studio jar, because we want to run the studio from this project.
+But it certainly should not be required by the code, which has no GUI extension.
+So, the `runtimeOnly` configuration is used.
+The third dependency is only used for unit tests.
+
+Using the GAV and Maven central repo, you do not have to worry about loading the dependencies of lphy.
+They will be automatically downloaded into your
+[Gradle local repository](https://stackoverflow.com/questions/10834111/gradle-store-on-local-file-system)
+when you first build, according to the dependencies declared in the 
+[pom.xml](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)
+created by [publishing](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md).
+
+Updating your dependencies is important. 
+IntelliJ provides a nice UI for the Gradle project to manage the dependencies.
+
+<figure class="image">
+<a href="DependencyManager.png">
+  <img src="DependencyManager.png" alt="DependencyManager" style="width: 70%; height: 70%">
+  </a>
+  <figcaption>Figure {{ current_fig_num }}: Dependency manager in IntelliJ.</figcaption>
+</figure>
 
 
 ### beast2
@@ -122,6 +163,13 @@ The extension mechanism was developed by BEAST 2 core developers.
 
 On the left side of the figure, it shows the same structure as the subproject "lphy".
 But the additional `lib` folder is used to contain the required BEAST 2 libraries.
+The BEAST 2 and its packages are not using the GAV and Maven central repo mechanism, 
+so that we have to use the
+[file dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html#sub:file_dependencies)
+to host their dependencies in Gradle. 
+In order to recognise the version, we rename the released BEAST 2 jars into a format
+similar with GAV, where the package name follows the version. 
+
 
 
 ### lphybeast
@@ -145,8 +193,10 @@ The subproject "lphybeast" contains the mapping classes between BEAST 2 and LPhy
 
 
 
-## Dependencies
+## Dependency management
 
+The section [Dependency management](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_plugin_and_dependency_management)
+in the Java Plugin doc page is precisely explained the configurations.  
 
 
 
