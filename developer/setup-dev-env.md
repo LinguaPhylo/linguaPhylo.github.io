@@ -104,9 +104,9 @@ then you need to check if your Java version is {{ java_version }}. In the screen
 The extension project supposes to contain 3 modules, also known as sub-projects in Gradle. 
 They are located in the subfolders under the project root folder. 
 
-1. `beast2` contains the BEAST 2 classes;
-2. `lphy` contains LPhy extension classes; 
-3. `lphybeast` contains the mapping classes between BEAST 2 and LPhy.
+1. `mypackage-beast` contains the BEAST 2 extension classes;
+2. `mypackage-lphy` contains LPhy extension classes; 
+3. `mypackage-lphybeast` contains the mapping classes between BEAST 2 and LPhy.
 
 The project folder structure looks like:
 
@@ -114,7 +114,7 @@ The project folder structure looks like:
 mypackage
     ├── build.gradle.kts
     ├── examples
-    ├── beast2
+    ├── mypackage-beast
     │    ├── build.gradle.kts
     │    ├── lib
     │    └── src
@@ -122,7 +122,7 @@ mypackage
     │         │    └── java
     │         │          └── mypackage.beast.*
     │         └── test
-    ├── lphy
+    ├── mypackage-lphy
     │    ├── build.gradle.kts
     │    ├── doc
     │    ├── lib
@@ -137,7 +137,7 @@ mypackage
     │         │                        └── lphy.spi.LPhyExtension
     │         └── test
     │    
-    ├── lphybeast
+    ├── mypackage-lphybeast
     │    ├── build.gradle.kts
     │    ├── lib
     │    └── src
