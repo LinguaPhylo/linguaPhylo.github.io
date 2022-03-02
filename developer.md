@@ -4,7 +4,9 @@ title: Developer Note
 permalink: /developer/
 ---
 
-LPhy and LPhyBEAST are developed based on Java 17,
+{% assign java_version = "17" %}
+
+LPhy and LPhyBEAST are developed based on Java {{ java_version }},
 which is the latest long-term support (LTS) version.
 The LPhy extension mechanism is implemented using
 the Service Provider Interface (SPI) and the Java Platform Module System (JPMS).
@@ -17,14 +19,15 @@ All LPhy related projects are now published to the
 [Maven central repo](https://search.maven.org/search?q=g:io.github.linguaphylo).
 
 
-## Technological variety and system integration 
+## System integration 
 
-First, to be an extension developer, you should be aware that there are 3 groups of projects:
+First, to be an extension developer, you should be aware that there are 3 groups of projects,
+which are using very different technologies:
 
 ### 1. LPhy and LPhy extensions. 
 
 This group is using the latest technologies, 
-such as Java 17, JPMS, and the standardised extension mechanism using SPI.
+such as Java {{ java_version }}, JPMS, and the standardised extension mechanism using SPI.
 
 ### 2. BEAST 2 and its packages.
 
@@ -38,7 +41,7 @@ LPhy does not have any inference engines at the moment,
 so that LPhyBEAST takes the role to convert LPhy model specification and data block into BEAST 2 XML.
 
 It requires an integration between two different systems. 
-This group still uses Java 17, but not JPMS. 
+This group still uses Java {{ java_version }}, but not JPMS. 
 The extension mechanism is similar to the BEAST 2 group,
 and LPhyBEAST and its extensions are released as BEAST 2 packages.
 Therefore, they can be installed and managed by BEAST 2 _Package Manager_.
@@ -46,11 +49,11 @@ However, to be able to trigger SPI, the corresponding LPhy libraries have to be 
 
 ### Gradle project
 
-Gradle is not only a build system (e.g. ANT), but also contains dependency management,
+Gradle is not only a build system (c.f. ANT), but also contains dependency management,
 structuring project, and other advanced features.
 When you are developing a project including extensions from these 3 groups,
 we recommend you use Gradle.
-An model example is available in [implementing an extension](/developer/implement-ext). 
+An [model example](/developer/implement-ext) is available online. 
 
 If you do not want migrate your existing BEAST 2 project to a Gradle project,
 the alternative solution is to create a Gradle project only containing
@@ -65,18 +68,17 @@ separated from your previous BEAST 2 package.
 * [Writing a BEAST 2 Package](https://www.beast2.org/writing-a-beast-2-package/),
 if you are working on a LPhyBEAST extension.
 
-* [Setup development environment](/developer/setup-dev-env)
-
 * [Build, release, publish a Gradle project](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md)
 
+## Step by step tutorial
 
-## Java development
+* [A step-by-step tutorial to implement an extension](/developer/step-by-step)
 
-* [For LPhy core developers]({% link _posts/2020-09-22-linguaphylo-for-developers.markdown %})
+## Advanced tutorials
 
-* [For LPhy extension developers]({% link _posts/2021-07-19-lphy-extension.markdown %})
+* [Gradle project master - project structure](/developer/project-structure/)
 
-* [For LPhyBEAST developers]({% link _posts/2021-07-15-lphybeast-developer-note.markdown %})
+* [Gradle project master - dependencies](/developer/dependencies/)
 
 
 ## Useful links
