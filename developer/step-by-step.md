@@ -53,23 +53,28 @@ you need to use either IntelliJ or `git mv` to move files, otherwise the history
 
 ## 3. Fill in your project metadata
 
-We are using composite builds. In the project root, there is a `settings.gradle.kts` to configure this structure,
-and a common build file `build.gradle.kts`to define some shared build logics between subprojects.
-Each subproject has its own build file to specify the building process and logics. 
+We are using composite builds. 
+In the project root, there is a `settings.gradle.kts` to configure this structure,
+and a common build file `build.gradle.kts` to share build logics.
+Furthermore, each subproject has its own build file. 
 They have been pointed by a red arrow in Figure {{ proj_stru_fig }}.
 
-You need to replace the project metadata in these files into your project information.
+You need to replace the project metadata in these files to your project information.
 The main changes are:
 
-- subprojects.
+- subprojects, please refer to section 2.
 
-- Java version.
+- [group, version and webpage](https://github.com/bioDS/beast-phylonco/blob/eab627fec2ce278ddc81403e75936dee431ecd4b/build.gradle.kts#L31-L33),
+also the overwritten [version](https://github.com/bioDS/beast-phylonco/blob/eab627fec2ce278ddc81403e75936dee431ecd4b/phylonco-lphy/build.gradle.kts#L9-L10).
 
-- group and version.
+- manifest file in each jar, 
+either the [shared attribute](https://github.com/bioDS/beast-phylonco/blob/eab627fec2ce278ddc81403e75936dee431ecd4b/build.gradle.kts#L60)
+or individual attributes, such as [phylonco-beast build](https://github.com/bioDS/beast-phylonco/blob/eab627fec2ce278ddc81403e75936dee431ecd4b/phylonco-beast/build.gradle.kts#L32-L33),
+[phylonco-lphy build](https://github.com/bioDS/beast-phylonco/blob/eab627fec2ce278ddc81403e75936dee431ecd4b/phylonco-lphy/build.gradle.kts#L36-L37),
+and [phylonco-lphybeast build](https://github.com/bioDS/beast-phylonco/blob/eab627fec2ce278ddc81403e75936dee431ecd4b/phylonco-lphybeast/build.gradle.kts#L80-L81).
 
-- jar file manifest, including the main class.
-
-- Maven publication metadata, if you will publish to the Maven central repo.
+- [Maven publication metadata](/developer/project-structure/#maven-publication), 
+if you will publish to the Maven central repo.
 
 The advanced tutorial [Gradle project master - project structure](/developer/project-structure/)
 will explain this in detail. 
