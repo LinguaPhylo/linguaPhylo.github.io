@@ -33,12 +33,14 @@ in IntelliJ, becasuse the changes might be lost after reimporting.
 
 ### Java
 
-The LPhy and LPhyBEAST is developed on Java 17
+{% assign java_version = "17" %}
+
+The LPhy and LPhyBEAST is developed on Java {{ java_version }}
 ([LTS](https://www.oracle.com/java/technologies/java-se-support-roadmap.html)). 
-We recommend you install [OpenJDK 17](https://jdk.java.net/17/).
+We recommend you install [OpenJDK {{ java_version }}](https://jdk.java.net/17/).
 You can simply download it and decompress into your [JAVA_HOME](https://www.baeldung.com/find-java-home) folder. 
 
-Please configure your IntelliJ project SDK to 17, and also set language level to 17.
+Please configure your IntelliJ project SDK to {{ java_version }}, and also set language level to {{ java_version }}.
 
 <figure class="image">
   <img src="ProjectSDK.png" alt="ProjectSDK">
@@ -48,10 +50,10 @@ Please configure your IntelliJ project SDK to 17, and also set language level to
 ### Working with multiple Java versions
 
 If you have multiple Java versions installed in Linux or Mac OS, 
-you can use the following command to switch to Java 17 from another version.
+you can use the following command to switch to Java {{ java_version }} from another version.
 
 ```
-export JAVA_HOME=`/usr/libexec/java_home -v 17`
+export JAVA_HOME=`/usr/libexec/java_home -v {{ java_version }}`
 ```
 
 Use `/usr/libexec/java_home` to show your JAVA_HOME, 
@@ -62,7 +64,7 @@ and `/usr/libexec/java_home -V` to list all available Java versions in your oper
 
 They are also the Gradle projects. Please install [Gradle 7.x](https://gradle.org/install/) before you start.
 
-Please configure your IntelliJ Gradle JVM to 17. You can go to "Preferences", 
+Please configure your IntelliJ Gradle JVM to {{ java_version }}. You can go to "Preferences", 
 and expand `Build, Execution, Deployment` => `Build Tools` => `Gradle`:  
 
 <figure class="image">
@@ -87,8 +89,8 @@ and [Kotlin plugin](https://plugins.jetbrains.com/plugin/6954-kotlin).
 
 ### Common problem
 
-If your build failed and there was the red text showing "an API of a component compatible with Java 17 ...",
-then you need to check if your Java version is 17. In the screenshot below, the Java version was 1.8.
+If your build failed and there was the red text showing "an API of a component compatible with Java {{ java_version }} ...",
+then you need to check if your Java version is {{ java_version }}. In the screenshot below, the Java version was 1.8.
 
 <figure class="image">
   <img src="BuildFailJava.png" alt="BuildFailJava">
