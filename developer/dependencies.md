@@ -11,11 +11,13 @@ and understand the difference between consumers and producers.
 
 ## 1. phylonco-lphy
 
+{% assign fig_dir = "/developer/project-structure" %}
+
 {% assign current_fig_num = 1 %}
 
 <figure class="image">
-<a href="/developer/project-structure/LPhy.png">
-  <img src="/developer/project-structure/LPhy.png" alt="LPhy">
+<a href="{{ fig_dir }}/LPhy.png">
+  <img src="{{ fig_dir }}/LPhy.png" alt="LPhy">
   </a>
   <figcaption>Figure {{ current_fig_num }}: The subproject "phylonco-lphy".</figcaption>
 </figure>
@@ -24,7 +26,7 @@ and understand the difference between consumers and producers.
 
 After the version and base name are defined, the second block declares the 
 [dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html).
-The first dependency is lphy jar. 
+The first dependency is lphy module. 
 The `implementation` is a Gradle pre-defined
 [configuration](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_plugin_and_dependency_management)
 to resolve dependencies.
@@ -36,17 +38,18 @@ Here the "phylonco-lphy" extension depends on the version {{ lphy_version }} exa
 We do not recommend to use version range, unless you fully understand the development history
 and future plan of that project.
 
-The second dependency is lphy-studio jar, because we want to run the studio from this project.
+The second dependency is lphy-studio module, because we want to run the studio from this project.
 But it certainly should not be required by the code, which has no GUI extension.
 So, the `runtimeOnly` configuration is used.
 The third dependency is only used for unit tests.
 
-Using the GAV and Maven central repo, you do not have to worry about loading the dependencies of lphy.
+Using [module dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html#sub:module_dependencies), 
+you do not have to worry about any manual process to load the dependency tree of lphy module.
 They will be automatically downloaded into your
 [Gradle local repository](https://stackoverflow.com/questions/10834111/gradle-store-on-local-file-system)
 when you first build, according to the dependencies declared in the 
 [pom.xml](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)
-created by [publishing](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md).
+created by [publishing](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md) task.
 
 Updating your dependencies is important. 
 IntelliJ provides a nice UI for the Gradle project to manage the dependencies.
@@ -70,28 +73,90 @@ to host their dependencies in Gradle.
 In order to recognise the version, we rename the released BEAST 2 jars into a format
 similar with GAV, where the package name follows the version. 
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
+
+<figure class="image">
+<a href="{{ fig_dir }}/BEAST2.png">
+  <img src="{{ fig_dir }}/BEAST2.png" alt="BEAST2">
+  </a>
+  <figcaption>Figure {{ current_fig_num }}: The subproject "phylonco-beast".</figcaption>
+</figure>
+
 As you can see in Figure {{ current_fig_num }}, this BEAST 2 extension depends on 
-BEAST 2 core and [BEASTLabs](https://github.com/BEAST2-Dev/BEASTLabs).
-The list of available BEAST 2 packages can be seen from [Package Viewer](https://compevol.github.io/CBAN/).
-If you change the drop-down list from the default XML into "packages-extra.xml",
-you can find the webpage to list both "lphybeast" package and "Phylonco" package.
+the jar files of BEAST 2 core and [BEASTLabs](https://github.com/BEAST2-Dev/BEASTLabs).
+`fileTree` is used to load the jar files from the given directory as 
+[file dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html#sub:file_dependencies).
 
 The `api` [configuration](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_separation)
 is declared for BEAST 2 and BEASTLabs, which means these 2 jars will be exposed to consumers,
 which means, for instance, the dependencies of subproject "phylonco-lphybeast" has already included these 2 jars,
 because it depends on this subproject.
 So, we do not have to replicate jars in the "phylonco-lphybeast" `lib` folder.
-But please use `api` wisely and respect to your consumers.
+But please use `api` wisely and 
+[be respectful of consumers](https://docs.gradle.org/current/userguide/library_vs_application.html#sub:being-respectful-consumers).
+
+The list of available BEAST 2 packages and their package dependencies can be seen from
+[Package Viewer](https://compevol.github.io/CBAN/) or Package Manager.
+If you change the drop-down list from the default XML into "packages-extra.xml" in Package Viewer,
+you can find the webpage to list both "lphybeast" package and "Phylonco" package.
+Alternatively, you can find the BEAST 2 package dependencies from the 
+[version.xml](https://github.com/bioDS/beast-phylonco/blob/master/phylonco-lphybeast/version.xml).
 
 
 ## 3. phylonco-lphybeast 
 
+This subproject integrates all LPhy components and BEAST 2 components,
+so its dependencies must include LPhy and its extension, BEAST 2 and its extensions,
+LPhyBEAST core, and all of their dependencies.
 
 
+{% assign current_fig_num = current_fig_num | plus: 1 %}
 
-## 4. Understanding your role
+<figure class="image">
+<a href="{{ fig_dir }}/LPhyBEAST.png">
+  <img src="{{ fig_dir }}/LPhyBEAST.png" alt="LPhyBEAST">
+  </a>
+  <figcaption>Figure {{ current_fig_num }}: The subproject "phylonco-lphybeast".</figcaption>
+</figure>
 
-Producers vs consumers
+In Figure {{ current_fig_num }}, the first `implementation` uses GAV to import the LPhy core into the dependencies.
+The second loads the module "phylonco-lphy", which is the LPhy extension, as
+[project dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html#sub:project_dependencies).
+We recommend to always use GAV if possible, but at the time of writing, 
+"phylonco-lphy" has not been published to the Maven central repo yet.
+
+The third `implementation` loads the module "phylonco-beast". Referring to the section 2, 
+we defined the BEAST 2's and BEASTLabs' dependency configuration type as `api`.
+Therefore, this project dependences (`project(":phylonco-beast")`) include these two jars.
+Moreover, the last `implementation` imports the rest of required BEAST 2 libraries from the `lib` folder.
+
+In the middle, there is a 
+[custom configuration](https://docs.gradle.org/current/userguide/declaring_dependencies.html#sec:defining-custom-configurations) 
+`zippedConfig` to import LPhyBEAST core into the dependencies.
+It is a zip file, so we have to use another task named as `installLPhyBEAST` to unzip it, 
+and pass all of jar file names in its `lib` folder into a Gradle property "lblibs".   
+Then, the next `implementation` loads all jar file names stored in "lblibs". 
+You can find all these jars from the External Libraries in IntelliJ's project view.
+
+
+## Understanding your role
+
+[Producers and consumers](https://docs.gradle.org/current/userguide/library_vs_application.html#sub:being-respectful-consumers) 
+are introduced by the dependency management with Gradle.
+We strongly recommend you read the linked article to understand the roles.
+
+Please __note__ project dependencies across different repositories are absolutely discouraged by Gradle, 
+after distinguishing producers and consumers.
+The consumers should always consume the released or published version, not the latest version of the repository.
+But a snapshot version built from the latest code can be used only for an emergency situation or testing. 
+
+So the developers cannot load multiple projects (repositories) into the same window of IntelliJ anymore, 
+even though one depends on another project.
+Therefore, for convenience of consumers, the producer has to provide the source code during the release. 
+
+It is the consumer's responsibility to decide what version of the library to use. 
+But this principle allows the developer in a consumer role to focus on 
+one version to depend, so as to produce a stable version of his software.
 
 
 ## Further readings

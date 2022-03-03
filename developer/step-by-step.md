@@ -60,7 +60,7 @@ Furthermore, each subproject has its own build file.
 They have been pointed by a red arrow in Figure {{ proj_stru_fig }}.
 
 You need to replace the project metadata in these files to your project information.
-The main changes are:
+The main changes are listed below, and click links to see where they are:
 
 - subprojects, please refer to section 2.
 
@@ -82,7 +82,25 @@ will explain this in detail.
 
 ## 4. Dependency management 
 
-You also need to configure the dependencies for your project.
+In this step, you need to configure the `dependencies` block for your subprojects.
+First we recommend to use 
+[module dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html#sub:module_dependencies), 
+but this requires all libraries are published to the Maven central repo.
+If this is unavailable, then you can consider to use 
+[file dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html#sub:file_dependencies),
+which stores the released libraries in a `lib` folder in the repository and load them as files.
+The significant drawbacks are that you have to manually validate their dependencies and update them.
+Sometimes, if a subproject depends on another in the same repository, 
+you can import it using 
+[project dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html#sub:project_dependencies).
+But we do not recommend this, if the subproject can be imported using module dependencies.
+
+There are several types of 
+[dependency configurations](https://docs.gradle.org/current/userguide/java_plugin.html#tab:configurations).
+Each of them defines a specific scope for the dependencies declared in a Gradle project.
+Please be aware of the [key difference](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_separation)
+between `implementation` and `api`, 
+and [be respectful of consumers](https://docs.gradle.org/current/userguide/library_vs_application.html#sub:being-respectful-consumers).
 
 The advanced tutorial [Gradle project master - dependencies](/developer/dependencies/)
 will introduce the details of these concepts. 
