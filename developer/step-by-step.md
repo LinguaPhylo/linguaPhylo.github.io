@@ -109,8 +109,8 @@ will introduce the details of these concepts.
 ## 5. Java development 
 
 To create a LPhy extension, you need to create the 
-[container provider class](https://linguaphylo.github.io/programming/2021/07/19/lphy-extension.html) 
-under the package `yourpackage.lphy.spi` to list all extended Java classes, 
+[container provider class]({% link _posts/2021-07-19-lphy-extension.markdown %}) 
+under the package `mypackage.lphy.spi` to list all extended Java classes, 
 and register it in the `module-info.java` file.
 The following posts explain how the core and extensions work in a technical level.
 

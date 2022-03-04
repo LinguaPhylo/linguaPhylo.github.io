@@ -65,8 +65,9 @@ Here we create a new concept, called as
 to collect all extended classes in one class, 
 so that we can avoid to create a no-args constructor for every classes.
 
-When you create an extension, you need to remember to give a sensible name to 
-the container provider class in your extension.
+When you create an extension, you need to give a sensible name to 
+the container provider class in your extension, 
+and place it into a package having the name similar to `mypackage.lphy.spi`.
 
 Then, the line pointed by a red arrow in `module-info.java`
 declares the service provider class `phylonco.lphy.spi.Phylonco` 
