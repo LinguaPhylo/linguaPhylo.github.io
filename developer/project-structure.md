@@ -117,6 +117,10 @@ It is __important__ to keep the `examples` folder under the "lphy" subproject,
 LPhy studio will look for this path to list scripts under the working directory (`user.dir`)
 when it starts.
 
+The subfolder `src/main/resources/META-INF/services` has a provider configuration file.
+The details are available in another tutorial 
+[Java extension mechanism of LPhy and LPhyBEAST](/developer/java-dev/).
+
 On the right side of figure,
 it is the [build file](https://github.com/bioDS/beast-phylonco/blob/master/phylonco-lphy/build.gradle.kts)
 for this subproject.
@@ -127,24 +131,6 @@ The first block `plugins { }` lists the required [Gradle plugins](https://docs.g
 where `platforms.lphy-java` and `platforms.lphy-publish` define the LPhy extension conventions,
 such as using Java 17, and share the build logic, such as using module path to launch application.
 Their source code and usage are avaiable at [LinguaPhylo/GradlePlugins](https://github.com/LinguaPhylo/GradlePlugins).
-
-### SPI
-
-The subfolder `src/main/resources/META-INF/services` has a provider configuration file,
-which is used to register the LPhy extension
-[service provider in Java 1.8](https://docs.oracle.com/javase/tutorial/ext/basics/spi.html).
-This allows the LPhy and its extensions to be able to integrate with the non-module system,
-such as BEAST 2 and its packages.  
-But please note for the newer version of Java, the LPhy extension mechanism still
-uses the `module-info` file to register the service provider.
-
-Following Java package [naming conventions](https://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html)
-is critical. Though we are using the module system to avoid namespace collision,
-it'd better to name your Java package by starting with your extension name but not the reserved core name,
-such as lphy, lphybeast, beast, etc. 
-For example, here we have the package `phylonco.lphy.evolution` to contain the extended LPhy data types and models.
-The package `phylonco.lphy.spi` includes the
-[Container Provider class](https://linguaphylo.github.io/programming/2021/07/19/lphy-extension.html).
 
 
 ## 3. phylonco-beast

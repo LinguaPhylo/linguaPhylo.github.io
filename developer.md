@@ -80,6 +80,7 @@ if you are working on a LPhyBEAST extension.
 
 * [Gradle project master - dependencies](/developer/dependencies/)
 
+* [Java extension mechanism of LPhy and LPhyBEAST](/developer/java-dev/)
 
 ## Useful links
 

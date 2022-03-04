@@ -146,17 +146,23 @@ are introduced by the dependency management with Gradle.
 We strongly recommend you read the linked article to understand the roles.
 
 Please __note__ project dependencies across different repositories are absolutely discouraged by Gradle, 
-after distinguishing producers and consumers.
+due to the encapsulation. 
+This also helps to distinguish the responsibilities of producers and consumers.
+The producer has the responsibility to provide the reliable version of the software,
+and use the transitive dependency wisely.
+It is the consumer's responsibility to decide what version of the library to use. 
 The consumers should always consume the released or published version, not the latest version of the repository.
 But a snapshot version built from the latest code can be used only for an emergency situation or testing. 
+This principle allows the developer in a consumer role to focus on 
+one version to develop or extend, so as to produce a stable version of his software.
 
 So the developers cannot load multiple projects (repositories) into the same window of IntelliJ anymore, 
 even though one depends on another project.
 Therefore, for convenience of consumers, the producer has to provide the source code during the release. 
 
-It is the consumer's responsibility to decide what version of the library to use. 
-But this principle allows the developer in a consumer role to focus on 
-one version to depend, so as to produce a stable version of his software.
+Gradle alos introduces a useful feature, 
+the [variant model](https://docs.gradle.org/current/userguide/variant_model.html#understanding-variant-selection),
+which allows a producer creates different releases using the same source code for different kinds of consumers.
 
 
 ## Further readings
