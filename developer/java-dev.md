@@ -103,6 +103,13 @@ The package `phylonco.lphy.spi` includes the container provider class.
 
 ## The extension "phylonco-lphybeast"
 
+To create a LPhyBEAST extension, first you need to write your own mapping classes to implement 
+the interface [ValueToBEAST](https://github.com/LinguaPhylo/LPhyBeast/blob/d564e09c9bd4e81d9236c9dd536bf46b488775d2/lphybeast/src/main/java/lphybeast/ValueToBEAST.java)
+and [GeneratorToBEAST](https://github.com/LinguaPhylo/LPhyBeast/blob/d564e09c9bd4e81d9236c9dd536bf46b488775d2/lphybeast/src/main/java/lphybeast/GeneratorToBEAST.java).
+The former maps a LPhy [Value](https://github.com/LinguaPhylo/linguaPhylo/blob/0e07fb16df152a5613ccb43ae4cf2952af4335f0/lphy/src/main/java/lphy/graphicalModel/Value.java) 
+object to a [BEASTInterface](https://github.com/CompEvol/beast2/blob/89defbbf4448854002caf25699c5566727822268/src/beast/core/BEASTInterface.java),
+the latter maps a LPhy [Generator](https://github.com/LinguaPhylo/linguaPhylo/blob/0e07fb16df152a5613ccb43ae4cf2952af4335f0/lphy/src/main/java/lphy/graphicalModel/Generator.java) 
+to a [BEASTInterface](https://github.com/CompEvol/beast2/blob/89defbbf4448854002caf25699c5566727822268/src/beast/core/BEASTInterface.java). 
 
 
 {% assign current_fig_num = current_fig_num | plus: 1 %}
