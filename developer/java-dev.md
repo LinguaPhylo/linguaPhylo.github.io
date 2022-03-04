@@ -45,6 +45,7 @@ The second step is to register your extended or implemented Java classes into th
 This will involve two files: 
 [module-info.java](https://github.com/bioDS/beast-phylonco/blob/eab627fec2ce278ddc81403e75936dee431ecd4b/phylonco-lphy/src/main/java/module-info.java) 
 and phylonco.lphy.spi.[Phylonco.java](https://github.com/bioDS/beast-phylonco/blob/eab627fec2ce278ddc81403e75936dee431ecd4b/phylonco-lphy/src/main/java/phylonco/lphy/spi/Phylonco.java).
+There is an extra provider configuration file located under the `resources` subfolder for Java 1.8 only.
 
 {% assign current_fig_num = 1 %}
 
@@ -55,38 +56,51 @@ and phylonco.lphy.spi.[Phylonco.java](https://github.com/bioDS/beast-phylonco/bl
   <figcaption>Figure {{ current_fig_num }}: The extension "phylonco-lphy".</figcaption>
 </figure>
 
-As you can see in Figure {{ current_fig_num }}, 
+As you can see in Figure {{ current_fig_num }}, `phylonco.lphy.spi.Phylonco` is a container class 
+to provide services defined in the service provider interface (SPI), 
+which lists all extended classes in the extension.
+It is also a service provider class, hence a public no-args constructor is required.
+Here we create a new concept, called as 
+[container provider class]({% link _posts/2021-07-19-lphy-extension.markdown %}), 
+to collect all extended classes in one class, 
+so that we can avoid to create a no-args constructor for every classes.
 
+When you create an extension, you need to remember to give a sensible name to 
+the container provider class in your extension.
+
+Then, the line pointed by a red arrow in `module-info.java`
+declares the service provider class `phylonco.lphy.spi.Phylonco` 
+implements SPI `lphy.spi.LPhyExtension`.
+Here SPI is the Java interface 
+[LPhyExtension](https://github.com/LinguaPhylo/linguaPhylo/blob/0e07fb16df152a5613ccb43ae4cf2952af4335f0/lphy/src/main/java/lphy/spi/LPhyExtension.java).
+
+
+### Java 1.8
+
+The 3rd file named as `lphy.spi.LPhyExtension` in the subfolder `src/main/resources/META-INF/services`
+is the provider configuration file used to register the 
+[service provider in Java 1.8](https://docs.oracle.com/javase/tutorial/ext/basics/spi.html).
+This allows the LPhy and its extensions to be able to integrate with the non-module system,
+such as BEAST 2 and its packages.  
+
+This file name is same as the SPI file name concatenated with its package, 
+which is required by the mechanism.
+
+But please __note__ the recommended LPhy extension mechanism is using the Java module system
+and configuring the SPI and providers in the `module-info.java` file.
+
+### Naming conventions
 
 Following Java package [naming conventions](https://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html)
 is critical. Though we are using the module system to avoid namespace collision,
 it'd better to always name your Java package by starting with your extension name, 
 but not the reserved core name, such as lphy, lphybeast, beast, etc. 
 For example, here we have the package `phylonco.lphy.evolution` to contain the extended LPhy data types and models.
-The package `phylonco.lphy.spi` includes the
-[Container Provider class](https://linguaphylo.github.io/programming/2021/07/19/lphy-extension.html).
-
-
-
-### SPI in Java 1.8
-
-The 3rd file
-
-The subfolder `src/main/resources/META-INF/services` has a provider configuration file,
-which is used to register the LPhy extension
-[service provider in Java 1.8](https://docs.oracle.com/javase/tutorial/ext/basics/spi.html).
-This allows the LPhy and its extensions to be able to integrate with the non-module system,
-such as BEAST 2 and its packages.  
-But please note for the newer version of Java, the LPhy extension mechanism still
-uses the `module-info` file to register the service provider.
-
+The package `phylonco.lphy.spi` includes the container provider class.
 
 
 ## The extension "phylonco-lphybeast"
 
-This subproject integrates all LPhy components and BEAST 2 components,
-so its dependencies must include LPhy and its extension, BEAST 2 and its extensions,
-LPhyBEAST core, and all of their dependencies.
 
 
 {% assign current_fig_num = current_fig_num | plus: 1 %}
@@ -100,8 +114,6 @@ LPhyBEAST core, and all of their dependencies.
 
 In Figure {{ current_fig_num }}, 
 
-## TODO
 
-a
 
 
