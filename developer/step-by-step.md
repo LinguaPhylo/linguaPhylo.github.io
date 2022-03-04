@@ -126,7 +126,9 @@ will demonstrate the usage of LPhy and LPhyBEAST extension mechanism.
 
 ## 6. Build the project
 
+- [Command line](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md)
 
+- [IntelliJ Gradle too window](https://www.jetbrains.com/idea/guide/tutorials/working-with-gradle/gradle-tool-window/)
 
 
 
