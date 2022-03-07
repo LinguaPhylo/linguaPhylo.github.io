@@ -2,7 +2,7 @@
 layout: page
 title:  "A step-by-step tutorial for 3 extensions in 1 project"
 author: Walter Xie
-permalink: /developer/step-by-step/
+permalink: /developer/three-ext-in-one/
 ---
 
 
