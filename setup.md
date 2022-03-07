@@ -4,7 +4,7 @@ title: User Manual
 permalink: /setup/
 ---
 
-This page includes the user manuals for two applications:
+This page includes user manuals for two applications:
 
 1. LPhy studio - the GUI for LPhy language
 
@@ -13,8 +13,9 @@ This page includes the user manuals for two applications:
 
 ## Java 17
 
-LPhy and LPhyBEAST are developed on Java 17. We recommend you install [OpenJDK 17](https://jdk.java.net/17/).
-Please use the command line below to check your Java version:
+LPhy and LPhyBEAST require Java 17. We recommend you install [OpenJDK 17](https://jdk.java.net/17/).
+
+To check your Java version, use the command line below:
 
 ```bash
 java -version
@@ -24,11 +25,14 @@ java -version
 
 {% assign lphy_version = "1.2.0" %}
 
-Go to [LPhy release page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
-and download the latest released version, such as `lphy-studio-{{ lphy_version }}.zip`. 
-Unzip the compressed file, then you will see files, e.g. README and LICENSE, 
-and several subfolders containing LPhy example scripts or libraries. 
-This folder will be your `$LPHY_PATH`, and its folder structure should look like:
+### LPhy studio installation
+
+Go to the [LPhy release page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
+and download the [latest release](https://github.com/LinguaPhylo/linguaPhylo/releases/latest), e.g., `lphy-studio-{{ lphy_version }}.zip`. 
+
+Unzip the compressed file, this will create a folder called `lphy-studio-{{ lphy_version }}`. 
+
+`lphy-studio-{{ lphy_version }}` will be your `$LPHY_PATH`. Its folder structure should look like:
 
 ```
 LPHY_PATH
@@ -48,34 +52,29 @@ LPHY_PATH
          ...
 ```
 
-We recommend you can copy or move the entire folder with everything under your BEAST 2.* folder,
+Example LPhy scripts are in the `examples` subdirectory, and libraries are in the `lib` subdirectory.
+
+We recommend you to copy or move the entire folder with everything under your BEAST 2.* folder,
 and rename it into `lphy`. So you can skip the step installing LPhy during the LPhyBEAST installation. 
 
 
 ### Launching LPhy studio
 
-The following command line will launch LPhy studio,
-where `-p` declares your module path the sub-folder "lib" 
-which contains all required libraries (jar files). 
-If necessary, you can replace the module path to your own library path, 
-or add extra paths separated by colon ':'. 
-The second option `-m` declares the module name and it should be always "lphystudio".
-
+To run LPhy studio use the commands below:
 ```bash
-LPHY_PATH=~/WorkSpace/linguaPhylo/
+LPHY_PATH=~/WorkSpace/lphy-studio-{{lphy_version}}/
 cd $LPHY_PATH
 java -p lib -m lphystudio
 ```
 
-If you are using any extensions, copy it into the "lib" folder, 
-and then run this command to launch LPhy studio.
+(Optional) To use LPhy extensions, copy these into the "lib" folder of your `$LPHY_PATH`.
 
-You can also provide a LPhy script file name with its path. 
-Here is an example that we use the relative script to load "RSV2.lphy":
-
+To launch LPhy Studio with a script file use
 ```bash
 java -p lib -m lphystudio tutorials/RSV2.lphy
 ```
+
+Note that you can replace `tutorials/RSV2.lphy` with the path to another LPhy script file.
 
 __Please note__: the LPhy studio will set the working directory (also property `user.dir`) 
 to the parent directory which the script sits inside.
@@ -94,47 +93,44 @@ before you continue on any tutorials.
 
 ## LPhyBEAST installation
 
-[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) depends on BEAST 2.6.6 or higher version, 
-and is distributed as a [BEAST 2 package](https://www.beast2.org/managing-packages/) named as `lphybeast`.
-You can install it using another application called `Package Manager` also distributed
-with BEAST 2 together.
-Open `BEAUti`, and click the menu `File` => `Manage Packages`. 
+[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) depends on BEAST 2.6.6 or higher, 
+and is installable as the `lphybeast` [BEAST 2 package](https://www.beast2.org/managing-packages/).
 
-However, `Package Manager` will not show `lphybeast` by default, so you need to
-add the extra repository link "https://raw.githubusercontent.com/CompEvol/CBAN/master/packages-extra.xml"
-to the `Package Manager`.
-To do so, click the button `Package repositories` to open the dialog 
-"BEAST 2 Package Repository Manager", and click the button `Add URL` to fill in
-that extra repository link and click `OK`.
-You will see the link is appeared in the dialog as shown in the screen shot below.
-Remember to click the button `Done` to complete.
+To install LPhyBEAST first start `Package Manager` by opening `BEAUti`, and from the menu select `File` => `Manage Packages`. 
 
+Click on `Package repositories` to open the "BEAST 2 Package Repository Manager".
+Click the `Add URL` button, add the URL "https://raw.githubusercontent.com/CompEvol/CBAN/master/packages-extra.xml", 
+then click `OK`.
+
+The packages-extra URL should now appear as shown below
 <figure class="image">
   <a href="/images/PackagesExtra.png">
     <img src="/images/PackagesExtra.png" alt="PackagesExtra">
   </a>
-  <figcaption>Figure 1: Adding the extra package repository link.</figcaption>
+  <figcaption>Figure 1: Adding packages-extra URL.</figcaption>
 </figure>
 
-Restart `Package Manager`. If you add the extra repository correctly, 
-the `lphybeast` will appear in the list of available packages,
-which are sorted by alphabetical orders. 
-Select it and click the `Install/Upgrade` button. 
-The installation may take few minutes, since it is going to install all dependent packages as well, 
-please wait until the dialog is popped up to confirm `lphybeast` installed successfully.
+Click the `Done` button.
+
+Restart `Package Manager`.
+
+The `lphybeast` package should now appear in the list of available packages.
+Select `lphybeast` from the package list, then use `Install/Upgrade` to install.
+
+Note: Installation may take few minutes to download and install. Please wait until a confirmation popup appears on the screen.
 
 <figure class="image">
   <img src="/images/Installed.png" alt="Installed">
-  <figcaption>Figure 2: The confirmation for lphybeast installed successfully.</figcaption>
+  <figcaption>Figure 2: Confirmation message for successful install of lphybeast.</figcaption>
 </figure>
  
-Restart the `Package Manager`, `lphybeast` should show its installed version
-as well as its dependent packages. 
+Restart `Package Manager`. Now `lphybeast` and dependent packages should appear as "installed". 
 
-Alternatively, you can install it using the command line below, 
-but please note the name of package is case-sensitive.
+---
 
 {% assign beastversion = "2.6.6" %}
+
+Alternatively, you can install it using command line (note the package name is case-sensitive).
 
 ```bash
 # BEAST_DIR="/Applications/BEAST{{ beastversion }}"
@@ -149,7 +145,7 @@ $BEAST_DIR/bin/packagemanager -list
 ```
 
 If you have installed lphybeast previously, we recommend you remove the old version first,
-using the command below, then install it.
+using the command below, before installing.
 
 ```bash
 $BEAST_DIR/bin/packagemanager -del lphybeast 
