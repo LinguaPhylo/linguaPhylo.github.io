@@ -22,28 +22,19 @@ java -version
 
 ## LPhy Studio
 
-From the version 1.0.0, an extension mechanism is implemented 
-using the latest technologies known as 
-the [Service Provider Interface (SPI)](https://www.baeldung.com/java-spi) and
-the [Java Platform Module System (JPMS)](https://openjdk.java.net/jeps/261). 
-It works differently to the Java ($\leq$1.8) non-modular mechanism. 
-
-If you are interested in our design, please look at this [post](https://linguaphylo.github.io/programming/2021/07/19/lphy-extension.html).
-
 {% assign lphy_version = "1.2.0" %}
 
 Go to [LPhy release page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
-and download the latest released version, for example, 
-`lphy-studio-{{ lphy_version }}.zip` at the time of writing. 
+and download the latest released version, such as `lphy-studio-{{ lphy_version }}.zip`. 
 Unzip the compressed file, then you will see files, e.g. README and LICENSE, 
 and several subfolders containing LPhy example scripts or libraries. 
-This folder will be your `$LPHY_PATH`. 
-You can copy or move the folder with everything to your working space.
-The folder structure looks like:
+This folder will be your `$LPHY_PATH`, and its folder structure should look like:
 
 ```
 LPHY_PATH
     ├── examples
+    │    ├── data
+    │    ...
     ├── lib
     │    ...
     │    ├── lphy-{{ lphy_version }}.jar
@@ -56,6 +47,12 @@ LPHY_PATH
          ├── data
          ...
 ```
+
+We recommend you can copy or move the entire folder with everything under your BEAST 2.* folder,
+and rename it into `lphy`. So you can skip the step installing LPhy during the LPhyBEAST installation. 
+
+
+### Launching LPhy studio
 
 The following command line will launch LPhy studio,
 where `-p` declares your module path the sub-folder "lib" 
@@ -80,21 +77,19 @@ Here is an example that we use the relative script to load "RSV2.lphy":
 java -p lib -m lphystudio tutorials/RSV2.lphy
 ```
 
+__Please note__: the LPhy studio will set the working directory (also property `user.dir`) 
+to the parent directory which the script sits inside.
+For example, in the above command line, the working directory will change to 
+the subfolder `tutorials` not the folder `$LPHY_PATH`.
+
+This is to cooperate with any relative paths inside the LPhy script, 
+such as `readNexus(file="data/RSV2.nex", ...);`, 
+It is comparatively easy to organise all the LPhy scripts in a folder (e.g. tutorials/) 
+and their required alignments (e.g. RSV2.nex) in the subfolder `data` under the folder.
+
 If you are new to LPhy, we recommend you to read this 
 [introduction](https://linguaphylo.github.io/about/),
 before you continue on any tutorials. 
-
-### Relative file path
-
-Please **note**: in above command line, the LPhy input file path is 
-the relative paths to your current folder `$LPHY_PATH`.
-In order to cooperate with any relative paths inside the LPhy script, 
-such as `readNexus(file="data/RSV2.nex", ...);`, the LPhy studio will 
-set the property `user.dir` to the path where the script is.
-It is comparatively easy to organise all the LPhy scripts in a folder (e.g. tutorials/) 
-and their required alignments (e.g. RSV2.nex) in the subfolder `data` under the folder.
-If you want to use a different setup,
-please make sure every relative paths are defined correctly. 
 
 
 ## LPhyBEAST installation
@@ -160,29 +155,14 @@ using the command below, then install it.
 $BEAST_DIR/bin/packagemanager -del lphybeast 
 ```
 
-### Install LPhy libraries and set LPHY_LIB path 
+### Install LPhy libraries and download launcher 
 
-Unfortunately, BEAST 2.6.x is not using the Java module system and SPI.
-To make SPI work, we need to manually install LPhy libraries and set LPHY_LIB path. 
-This includes 2 steps.
-
-First, download the LPhy studio [release](https://github.com/LinguaPhylo/linguaPhylo/releases), 
-such as `lphy-studio-{{ lphy_version }}.zip`, 
-and then unzip it under your `$BEAST_DIR` folder where you installed the BEAST 2.
+The package `lphybeast` does not include LPhy, so we need to install LPhy libraries.
+First, download the LPhy studio from the [release page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
+such as `lphy-studio-{{ lphy_version }}.zip`. 
+Then unzip it under your `$BEAST_DIR` folder where you installed the BEAST 2.
 The folder `lphy-studio-{{ lphy_version }}` should appear inside your `$BEAST_DIR`.
-Check the subfolder `lib` under the studio folder, you will see several jar files. 
-They are the LPhy libraries that LPhyBEAST is required. 
-
-Secondly, download the bash script `lphybeast` from 
-[LPhyBEAST's repo](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast),
-and put it into the `bin` folder under `$BEAST_DIR` with other scripts.
-It will launch LPhyBEAST through another BEAST 2 
-application called [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
-while adding the `$LPHY_LIB` folder into the classpath.
-
-Here, you need to set your `$LPHY_LIB` in the script same as the path of 
-the subfolder `lib` containing LPhy libraries. As we have declared `LPHY_LIB="$BEAST_DIR/lphy/lib"` 
-in the script, the folder `lphy-studio-{{ lphy_version }}` then shall be renamed to `lphy`.
+In the end, rename this folder into `lphy`. 
 
 <figure class="image">
   <a href="/images/LPhyLibFolder.png">
@@ -191,7 +171,16 @@ in the script, the folder `lphy-studio-{{ lphy_version }}` then shall be renamed
   <figcaption>Figure 3: Set LPHY_LIB path.</figcaption>
 </figure>  
 
-Alternatively, you can change `$LPHY_LIB` but keep the folder name unchanged.
+Secondly, we need to use the script `lphybeast` to launch LPhyBEAST.
+Download the bash script `lphybeast` from 
+[LPhyBEAST's repo](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast),
+and put it into the `bin` folder under `$BEAST_DIR` with other scripts.
+It will launch LPhyBEAST through another BEAST 2 
+application called [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
+while adding the `$LPHY_LIB` folder into the classpath.
+
+Here, you may double-check whether your `$LPHY_LIB` in the script is same as 
+the subfolder `lib` containing LPhy libraries, namely `LPHY_LIB="$BEAST_DIR/lphy/lib"`.
 
 The final folder structure looks like:
 
@@ -248,34 +237,31 @@ Create 5 XML for simulations:
 $BEAST_DIR/bin/lphybeast -wd $LPHY_PATH/tutorials/ -r 5 RSV2.lphy
 ```
 
-### Relative file path
+### Conventions
 
 1. If the input/output is a relative path, then concatenate `user.dir` to the front of the path.
 
 
-2. Use `-wd` to set `user.dir`. But if `-wd` is **not** given, 
-the `user.dir` will be set to the path where the LPhy script is.
-
-
-As it is explained in the previous section, this script uses the relative path to load data, 
-`D = readNexus(file="data/RSV2.nex", ...);`. 
-So the `data` subfolder has to be under the folder where "RSV2.lphy" is.
-
-Alternatively, you can use `-wd` to set the working directory, such as:
+2. Use `-wd` to set `user.dir`. But if `-wd` is not given, 
+then `user.dir` will be set to the parent folder where the LPhy script sits inside.
+For example:
 
 ```bash
 $BEAST_DIR/bin/lphybeast -wd $LPHY_PATH/tutorials/ -l 15000000 -o RSV2long.xml RSV2.lphy
 ```
 
-This contains two extra arguments: 
+This also contains two extra arguments: 
 - `-l` changes the MCMC chain length (default to 1 million) in the XML;
 - `-o` replaces the output file name (default to use the same file steam as the lphy input file).
 
-**Note:** please use `-wd` to simplify your paths according to 
-your local folder structure, not make them more complex.
-For example, if you use `-wd $LPHY_PATH  tutorials/RSV2.lphy` instead, 
-then you have to update the corresponding line in the script to 
-`readNexus(file="tutorials/data/RSV2.nex", ...);`.
+As this LPhy script uses the relative path to load data, 
+`D = readNexus(file="data/RSV2.nex", ...);`, 
+the `data` subfolder containing `RSV2.nex` has to be in the same folder where "RSV2.lphy" sits inside.
+
+**Note:** please use `-wd` to simplify your input and output paths. 
+Do not make them more complex, such as combining `-wd` with relative paths in either input or output.
+For example, do not try `-wd $LPHY_PATH  tutorials/RSV2.lphy`, 
+then you will mess up some relative paths inside the LPhy scripts, e.g. `readNexus`.
 
 
 ## If something goes wrong ...
