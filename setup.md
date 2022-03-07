@@ -77,7 +77,7 @@ java -p lib -m lphystudio tutorials/RSV2.lphy
 Note that you can replace `tutorials/RSV2.lphy` with the path to another LPhy script file.
 
 <!-- Move this to another tutorial or page? -->
-<!-- __Please note__: the LPhy studio will set the working directory (also property `user.dir`) 
+__Please note__: the LPhy studio will set the working directory (also property `user.dir`) 
 to the parent directory which the script sits inside.
 For example, in the above command line, the working directory will change to 
 the subfolder `tutorials` not the folder `$LPHY_PATH`.
@@ -85,7 +85,7 @@ the subfolder `tutorials` not the folder `$LPHY_PATH`.
 This is to cooperate with any relative paths inside the LPhy script, 
 such as `readNexus(file="data/RSV2.nex", ...);`, 
 It is comparatively easy to organise all the LPhy scripts in a folder (e.g. tutorials/) 
-and their required alignments (e.g. RSV2.nex) in the subfolder `data` under the folder. -->
+and their required alignments (e.g. RSV2.nex) in the subfolder `data` under the folder.
 
 If you are new to LPhy, we recommend reading this  
 [introduction](https://linguaphylo.github.io/about/),
