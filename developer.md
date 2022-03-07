@@ -72,7 +72,7 @@ if you are working on a LPhyBEAST extension.
 
 ## Step by step tutorial
 
-* [A step-by-step tutorial to implement an extension](/developer/step-by-step)
+* [A step-by-step tutorial for 3 extensions in 1 project](/developer/three-ext-in-one)
 
 ## Advanced tutorials
 
@@ -81,6 +81,15 @@ if you are working on a LPhyBEAST extension.
 * [Gradle project master - dependencies](/developer/dependencies/)
 
 * [Java extension mechanism of LPhy and LPhyBEAST](/developer/java-dev/)
+
+## Writing a user tutorial
+
+We strongly recommend the developers to create a corresponding user tutorial 
+to explain the model and demonstrate how to make an analysis.
+This [post]({% link _posts/2021-03-25-tips-to-write-tutorials.markdown %}) 
+gives you several tips how to write a LPhyBEAST tutorial.
+More details and examples are also available in the [Tutorials](/tutorials) page.   
+
 
 ## Useful links
 

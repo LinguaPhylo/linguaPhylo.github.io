@@ -87,7 +87,7 @@ such as BEAST 2 and its packages.
 This file name is same as the SPI file name concatenated with its package, 
 which is required by the mechanism.
 
-But please __note__ the recommended LPhy extension mechanism is using the Java module system
+__Please note__ the recommended LPhy extension mechanism is using the Java module system
 and configuring the SPI and providers in the `module-info.java` file,
 which is a different mechanism comparing with the provider configuration file under the resources subfolder.
 

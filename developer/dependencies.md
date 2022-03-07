@@ -145,7 +145,7 @@ You can find all these jars from the External Libraries in IntelliJ's project vi
 are introduced by the dependency management with Gradle.
 We strongly recommend you read the linked article to understand the roles.
 
-Please __note__ project dependencies across different repositories are absolutely discouraged by Gradle, 
+__Please note__ project dependencies across different repositories are absolutely discouraged by Gradle, 
 due to the encapsulation. 
 This also helps to distinguish the responsibilities of producers and consumers.
 The producer has the responsibility to provide the reliable version of the software,

@@ -25,7 +25,7 @@ you need to choose the "linguaPhylo" folder.
 
 We recommend you run the Gradle build from the terminal once, before opening a new Gradle project.
 
-Please __note__ IntelliJ will automatically import the modules and dependencies from
+__Please note__ IntelliJ will automatically import the modules and dependencies from
 Gradle's settings and build files. You are not supposed to change
 [project structure settings](https://www.jetbrains.com/help/idea/project-settings-and-structure.html)
 in IntelliJ, becasuse the changes might be lost after reimporting. 

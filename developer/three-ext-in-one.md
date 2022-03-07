@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  "A step-by-step tutorial to implement an extension"
+title:  "A step-by-step tutorial for 3 extensions in 1 project"
 author: Walter Xie
 permalink: /developer/step-by-step/
 ---
@@ -21,7 +21,7 @@ If you are not familiar with this step, please follow the tutorial to
 [setup development environment](/developer/setup-dev-env) and load your Gradle project into IntelliJ.
 
 IntelliJ will automatically import modules and dependencies from the Gradle settings.
-Please do __not__ try to change them through Project Structure in IntelliJ,
+__Please do not__ try to change them through Project Structure in IntelliJ,
 because these changes might be lost after reimporting. 
   
 
@@ -130,5 +130,9 @@ will demonstrate the usage of LPhy and LPhyBEAST extension mechanism.
 
 - [IntelliJ Gradle too window](https://www.jetbrains.com/idea/guide/tutorials/working-with-gradle/gradle-tool-window/)
 
+The output of basic tasks will be kept in a `build` folder created by each build.
+For example, the `libs` contains all jar files, the `distributions` contains the zip or tar files,
+and the `reports` and `test-results` contain unit test results. 
 
+ 
 
