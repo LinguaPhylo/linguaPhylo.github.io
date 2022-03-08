@@ -124,7 +124,8 @@ Note: Installation may take few minutes to download and install. Please wait unt
   <img src="/images/Installed.png" alt="Installed">
   <figcaption>Figure 2: Confirmation message for successful install of lphybeast.</figcaption>
 </figure>
- 
+
+{:start="7"}
 7. Restart `Package Manager` once more. Now `lphybeast` and dependent packages should appear as "installed". 
 
 ---
