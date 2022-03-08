@@ -110,6 +110,7 @@ The packages-extra URL should now appear as shown below
   <figcaption>Figure 1: Adding packages-extra URL.</figcaption>
 </figure>
 
+{:start="4"}
 4. Click the `Done` button.
 
 5. Restart `Package Manager`.
