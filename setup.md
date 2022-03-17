@@ -87,7 +87,7 @@ such as `readNexus(file="data/RSV2.nex", ...);`,
 It is comparatively easy to organise all the LPhy scripts in a folder (e.g. tutorials/) 
 and their required alignments (e.g. RSV2.nex) in the subfolder `data` under the folder.
 
-If you are new to LPhy, we recommend reading this  
+If you are new to LPhy, we recommend reading this
 [introduction](https://linguaphylo.github.io/about/),
 before you try the tutorials. 
 
@@ -165,7 +165,7 @@ First, download the LPhy studio from the [release page](https://github.com/Lingu
 such as `lphy-studio-{{ lphy_version }}.zip`. 
 Then unzip it under your `$BEAST_DIR` folder where you installed the BEAST 2.
 The folder `lphy-studio-{{ lphy_version }}` should appear inside your `$BEAST_DIR`.
-In the end, rename this folder into `lphy`. 
+In the end, __rename this folder__ into `lphy`. 
 
 <figure class="image">
   <a href="/images/LPhyLibFolder.png">
@@ -240,7 +240,7 @@ Create 5 XML for simulations:
 $BEAST_DIR/bin/lphybeast -wd $LPHY_PATH/tutorials/ -r 5 RSV2.lphy
 ```
 
-### Conventions
+## Some conventions
 
 1. If the input/output is a relative path, then concatenate `user.dir` to the front of the path.
 
