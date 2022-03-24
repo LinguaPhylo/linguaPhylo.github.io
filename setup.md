@@ -129,10 +129,6 @@ Note: Installation may take few minutes to download and install. Please wait unt
 {:start="7"}
 7. Restart `Package Manager` once more. Now `lphybeast` and dependent packages should appear as "installed". 
 
----
-
-{% assign beastversion = "2.6.6" %}
-
 Alternatively, you can install it using command line following the [instruction](https://www.beast2.org/managing-packages/).
 
 ### Install LPhy libraries and download starting script 
