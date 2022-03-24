@@ -54,8 +54,9 @@ LPHY_PATH
 
 Example LPhy scripts are in the `examples` subdirectory, and libraries are in the `lib` subdirectory.
 
-We recommend you to copy or move the entire folder with everything under your BEAST 2.* folder,
-and rename it into `lphy`. So you can skip the step installing LPhy during the LPhyBEAST installation. 
+If you are using LPhyBEAST, we recommend you to copy or move the entire folder 
+with everything under your BEAST 2.* folder, and rename it into `lphy`.
+So you can skip the step installing LPhy during the LPhyBEAST installation. 
 
 
 ### Launching LPhy studio
@@ -67,7 +68,7 @@ cd $LPHY_PATH
 java -p lib -m lphystudio
 ```
 
-(Optional) To use LPhy extensions, copy these into the "lib" folder of your `$LPHY_PATH`.
+(Optional) To use LPhy extensions, copy the extension jar file into the `lib` folder of your `$LPHY_PATH`.
 
 To launch LPhy Studio with a script file use
 ```bash
@@ -132,40 +133,16 @@ Note: Installation may take few minutes to download and install. Please wait unt
 
 {% assign beastversion = "2.6.6" %}
 
-Alternatively, you can install it using command line.
+Alternatively, you can install it using command line following the [instruction](https://www.beast2.org/managing-packages/).
 
-Add the packages-extra URL by following steps 1-4 above, then use the command below to install the package.
-
-```bash
-# BEAST_DIR="/Applications/BEAST{{ beastversion }}"
-$BEAST_DIR/bin/packagemanager -add lphybeast 
-```
-Note that the package name `lphybeast` is case-sensitive.
-
-To check the package was installed successfully use the command 
-
-```bash
-$BEAST_DIR/bin/packagemanager -list 
-```
-
-The column `Installed Version` should show a version number (e.g., 0.3.1).
-
-If you have installed lphybeast previously, we recommend you to remove the old version using
-
-```bash
-$BEAST_DIR/bin/packagemanager -del lphybeast 
-```
-
-Then install lphybeast as normal.
-
-### Install LPhy libraries and download launcher 
+### Install LPhy libraries and download starting script 
 
 The package `lphybeast` does not include LPhy, so we need to install LPhy libraries.
-First, download the LPhy studio from the [release page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
+
+1. Download the LPhy studio from the [release page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
 such as `lphy-studio-{{ lphy_version }}.zip`. 
-Then unzip it under your `$BEAST_DIR` folder where you installed the BEAST 2.
-The folder `lphy-studio-{{ lphy_version }}` should appear inside your `$BEAST_DIR`.
-In the end, __rename this folder__ into `lphy`. 
+
+2. Unzip it under your `$BEAST_DIR` folder where you installed the BEAST 2.
 
 <figure class="image">
   <a href="/images/LPhyLibFolder.png">
@@ -174,13 +151,12 @@ In the end, __rename this folder__ into `lphy`.
   <figcaption>Figure 3: Set LPHY_LIB path.</figcaption>
 </figure>  
 
-Secondly, we need to use the script `lphybeast` to launch LPhyBEAST.
-Download the bash script `lphybeast` from 
+3. __Rename the LPhy folder__, such as `lphy-studio-{{ lphy_version }}`, into `lphy`.
+This folder should sit inside your `$BEAST_DIR`.
+
+4. Download the bash script `lphybeast` from 
 [LPhyBEAST's repo](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast),
 and put it into the `bin` folder under `$BEAST_DIR` with other scripts.
-It will launch LPhyBEAST through another BEAST 2 
-application called [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
-while adding the `$LPHY_LIB` folder into the classpath.
 
 Here, you may double-check whether your `$LPHY_LIB` in the script is same as 
 the subfolder `lib` containing LPhy libraries, namely `LPHY_LIB="$BEAST_DIR/lphy/lib"`.
@@ -210,6 +186,9 @@ BEAST_DIR
 ```
 
 Eventually, we can start LPhyBEAST using the script `lphybeast`.
+It will launch LPhyBEAST through another BEAST 2 
+application called [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
+while adding the `$LPHY_LIB` folder into the classpath.
 
 
 ## LPhyBEAST usage
