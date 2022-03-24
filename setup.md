@@ -142,7 +142,7 @@ such as `lphy-studio-{{ lphy_version }}.zip`.
 
 <figure class="image">
   <a href="/images/LPhyLibFolder.png">
-    <img src="/images/LPhyLibFolder.png" alt="LPhyLibFolder" style="width:350px;">
+    <img src="/images/LPhyLibFolder.png" alt="LPhyLibFolder" style="width:700px;">
   </a>
   <figcaption>Figure 3: Set LPHY_LIB path.</figcaption>
 </figure>  
