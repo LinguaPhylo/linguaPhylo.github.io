@@ -147,6 +147,7 @@ such as `lphy-studio-{{ lphy_version }}.zip`.
   <figcaption>Figure 3: Set LPHY_LIB path.</figcaption>
 </figure>  
 
+{:start="3"}
 3. __Rename the LPhy folder__, such as `lphy-studio-{{ lphy_version }}`, into `lphy`.
 This folder should sit inside your `$BEAST_DIR`.
 
