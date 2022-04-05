@@ -13,8 +13,8 @@ to demonstrate the standard Gradle project structure and also to learn some Grad
 {% assign current_fig_num = 1 %}
 
 <figure class="image">
-<a href="/developer/step-by-step/IntelliJSetting.png">
-  <img src="/developer/step-by-step/IntelliJSetting.png" alt="IntelliJ Setting">
+<a href="/developer/three-ext-in-one/IntelliJSetting.png">
+  <img src="/developer/three-ext-in-one/IntelliJSetting.png" alt="IntelliJ Setting">
   </a>
   <figcaption>Figure {{ current_fig_num }}: Project structure and Gradle setting file.</figcaption>
 </figure>
