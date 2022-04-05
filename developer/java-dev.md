@@ -111,6 +111,11 @@ object to a [BEASTInterface](https://github.com/CompEvol/beast2/blob/89defbbf444
 the latter maps a LPhy [Generator](https://github.com/LinguaPhylo/linguaPhylo/blob/0e07fb16df152a5613ccb43ae4cf2952af4335f0/lphy/src/main/java/lphy/graphicalModel/Generator.java) 
 to a [BEASTInterface](https://github.com/CompEvol/beast2/blob/89defbbf4448854002caf25699c5566727822268/src/beast/core/BEASTInterface.java). 
 
+### Registering mapping classes
+
+Then these mapping classes will be registered in a register class which has to implement the interface
+[LPhyBEASTExt](https://github.com/LinguaPhylo/LPhyBeast/blob/b5a2af55acb9b23aaac9e99f517a28e65f32e7e8/lphybeast/src/main/java/lphybeast/spi/LPhyBEASTExt.java).
+This is similar to SPI, but is modified to use BEAST 2 class loader instead of `ServiceLoader`.
 
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 
@@ -121,7 +126,27 @@ to a [BEASTInterface](https://github.com/CompEvol/beast2/blob/89defbbf4448854002
   <figcaption>Figure {{ current_fig_num }}: The extension "phylonco-lphybeast".</figcaption>
 </figure>
 
-In Figure {{ current_fig_num }}, 
+The right side of Figure {{ current_fig_num }} shows the example of registering mapping classes
+in the extension "phylonco-lphybeast". On the bottom of the register class, there are two lists
+to exclude the Value and Generator existing in LPhy, but cannot or do not need to create the mapping class
+to map the BEASTInterface in BEAST 2. Otherwise, the validation process may throw `UnsupportedOperationException`.
+
+Because LPhy and BEAST 2 are not using the same classes for sequence types, 
+you need to link them in the register class as well. 
+
+### LPhyBEAST is also a BEAST 2 extension
+
+As well as it is an extension of LPhyBEAST, phylonco-lphybeast is an extension of BEAST 2.
+The `version.xml` has to be used to declare the BEAST 2 package dependencies.
+The example code is below:
+
+```xml
+<addon name='phylonco' version='0.0.6'>
+    <depends on='beast2' atleast='2.6.6'/>
+    <depends on='BEASTLabs' atleast='1.9.7'/>
+    <depends on='lphybeast' atleast='0.3.0'/>
+</addon>
+```
 
 
 
