@@ -65,7 +65,9 @@ and `/usr/libexec/java_home -V` to list all available Java versions in your oper
 They are also the Gradle projects. Please install [Gradle 7.x](https://gradle.org/install/) before you start.
 
 Please configure your IntelliJ Gradle JVM to {{ java_version }}. You can go to "Preferences", 
-and expand `Build, Execution, Deployment` => `Build Tools` => `Gradle`:  
+and expand `Build, Execution, Deployment` => `Build Tools` => `Gradle`.
+In addition, it is important to set `Build and run using` "IntelliJ IDEA".
+The breakpoints will not work using the default option "Gradle".
 
 <figure class="image">
   <img src="GradleJVM.png" alt="GradleJVM">
