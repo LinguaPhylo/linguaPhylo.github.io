@@ -66,8 +66,9 @@ They are also the Gradle projects. Please install [Gradle 7.x](https://gradle.or
 
 Please configure your IntelliJ Gradle JVM to {{ java_version }}. You can go to "Preferences", 
 and expand `Build, Execution, Deployment` => `Build Tools` => `Gradle`.
-In addition, it is important to set `Build and run using` "IntelliJ IDEA".
-The breakpoints will not work using the default option "Gradle".
+In addition, it is important to set `Build and run using` "IntelliJ IDEA",
+otherwise breakpoints will not work in Java class using the default option "Gradle".
+But if you want to debug the Gradle build file, you have to change this to "Gradle" option.
 
 <figure class="image">
   <img src="GradleJVM.png" alt="GradleJVM">
