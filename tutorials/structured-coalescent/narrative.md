@@ -2,13 +2,12 @@
 <div id="auto-generated" style="background-color: #DCDCDC; padding: 10px; border: 1px solid gray; margin: 0; ">
 <h2>Data</h2>
 
-Number of replicates, <i>L</i> is the number of characters of  alignment, <i>D</i>.
-The alignment, <i>D</i> is read from the Nexus file with a file name of "data/h3n2.nexus" and <i>options</i>.
-The <i>options</i> are ageDirection="forward" and ageRegex=".*\|.*\|(\d*\.\d+|\d+\.\d*)\|.*$".
-Number of replicates, <i>dim</i> comes from the S*(S-1).
+Number of replicates, <i>L</i> is the number of characters of  metadataalignment, <i>D</i>.
+The <i>options</i> are ageDirection="forward" and ageRegex=".&ast;\|.&ast;\|(\d&ast;\.\d+|\d+\.\d&ast;)\|.&ast;$".
+Number of replicates, <i>dim</i> comes from the S&ast;(S-1).
 The integer, <i>S</i> is the length of an object.
-The string, <i>demes<sub>0</sub></i> is assumed to come from the split with  str, <i>null<sub>0</sub></i> of "A/New_York/402/2001|CY003088|2001.986301|New_York", a regex of "\|" and an i of 3.
-The <i>taxa</i> is the list of taxa of  alignment, <i>D</i>.
+The string, <i>demes<sub>0</sub></i> is assumed to come from the split with a str of "A/New_York/402/2001|CY003088|2001.986301|New_York", a regex of "\|" and an i of 3.
+The <i>taxa</i> is the list of taxa of  metadataalignment, <i>D</i>.
 
 
 
@@ -21,7 +20,7 @@ The transition bias parameter, <i>κ</i> has a log-normal prior with a mean in l
 The molecular clock rate, <i>μ</i> has a log-normal prior with a mean in log space of -5.298 and a standard deviation in log space of 0.25.
 The double, <i>r<sub>i</sub></i> is assumed to come from a DiscretizeGamma with  shape, <i>γ</i> and a ncat of 4, for i in 0 to L - 1.
 The shape, <i>γ</i> has a log-normal prior with a mean in log space of 0.0 and a standard deviation in log space of 2.0.
-The phylogenetic time tree, <i>ψ</i> is assumed to come from a StructuredCoalescent with  <i>M</i>,  <i>taxa</i>, <i>demes</i> and a sort of true.
+The phylogenetic time tree, <i>ψ</i> is assumed to come from a StructuredCoalescent <a href="https://doi.org/10.1093/molbev/msx186">(Müller <i>et al</i>; 2017)</a> with  <i>M</i>,  <i>taxa</i>, <i>demes</i> and a sort of true.
 The <i>M</i> is assumed to come from the migrationMatrix with  theta, <i>Θ</i> and  <i>m</i>.
 The double, <i>m<sub>i</sub></i> has an exponential distribution prior with a mean of 1.0, for i in 0 to dim - 1.
 The object provides the unique of  arg, <i>demes</i>.
