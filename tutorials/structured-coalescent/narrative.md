@@ -3,8 +3,8 @@
 <h2>Data</h2>
 
 Number of replicates, <i>L</i> is the number of characters of  metadataalignment, <i>D</i>.
-The <i>options</i> are ageDirection="forward" and ageRegex=".&ast;\|.&ast;\|(\d&ast;\.\d+|\d+\.\d&ast;)\|.&ast;$".
-Number of replicates, <i>dim</i> comes from the S&ast;(S-1).
+The <i>options</i> are ageDirection="forward" and ageRegex=".*\|.*\|(\d*\.\d+|\d+\.\d*)\|.*$".
+Number of replicates, <i>dim</i> comes from the S*(S-1).
 The integer, <i>S</i> is the length of an object.
 The string, <i>demes<sub>0</sub></i> is assumed to come from the split with a str of "A/New_York/402/2001|CY003088|2001.986301|New_York", a regex of "\|" and an i of 3.
 The <i>taxa</i> is the list of taxa of  metadataalignment, <i>D</i>.
