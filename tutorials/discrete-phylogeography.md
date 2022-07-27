@@ -198,7 +198,7 @@ This means that we have the following distribution for the root location:
 |Hunan|0.031093836757357024|
 |Guangxi|0.1243753470294281|
 |Fujian|0.05441421432537479|
-|Fujian|0.015546918378678512|
+|?|0.015546918378678512|
 
 This distribution shows that the 95% HPD consists of all locations except Hunan, 
 with a strong indication that HongKong might be the root with over 58% probability. 
