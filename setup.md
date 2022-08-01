@@ -23,7 +23,7 @@ java -version
 
 ## LPhy Studio
 
-{% assign lphy_version = "1.2.0" %}
+{% assign lphy_version = "1.3.0" %}
 
 ### LPhy studio installation
 
@@ -95,7 +95,7 @@ before you try the tutorials.
 
 ## LPhyBEAST installation
 
-[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) requires BEAST 2.6.6 or higher, 
+[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) requires BEAST 2.6.7 or higher, 
 and is installable as a [BEAST 2 package](https://www.beast2.org/managing-packages/) called lphybeast.
 
 1. To install LPhyBEAST first start `Package Manager` by opening `BEAUti`, and from the menu select `File` => `Manage Packages`. 
