@@ -118,7 +118,7 @@ The following posts explain how the core and extensions work in a technical leve
 
 * [For LPhy extension developers]({% link _posts/2021-07-19-lphy-extension.markdown %})
 
-* [For LPhyBEAST developers]({% link _posts/2021-07-15-lphybeast-developer-note.markdown %})
+* [For LPhyBEAST developers]({% link _posts/2022-08-03-lphybeast-developer-note.markdown %})
 
 The advanced tutorial [Java extension mechanism of LPhy and LPhyBEAST](/developer/java-dev/)
 will demonstrate the usage of LPhy and LPhyBEAST extension mechanism. 
