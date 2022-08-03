@@ -80,7 +80,7 @@ $BEAST_DIR/bin/lphybeast -l 30000000 h5n1.lphy
 {% include_relative templates/run-beast.md xml="h5n1.xml" %}
 
 ```
-                         BEAST v2.6.6, 2002-2020
+                         BEAST v2.6.7, 2002-2020
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard

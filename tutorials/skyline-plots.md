@@ -167,7 +167,7 @@ $BEAST_DIR/bin/lphybeast -l 40000000 hcv_coal.lphy
 {% include_relative templates/run-beast.md xml="hcv_coal.xml" %}
 
 ```
-                         BEAST v2.6.6, 2002-2020
+                         BEAST v2.6.7, 2002-2020
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard

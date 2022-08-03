@@ -6,7 +6,7 @@ The following software will be used in this tutorial:
 * LPhy BEAST - this software will construct an input file for BEAST.
   The installation guide and usage can be found from [here](https://linguaphylo.github.io/setup/).
 * BEAST - this package contains the BEAST program, BEAUti, DensiTree, TreeAnnotator and other utility programs. 
-  This tutorial is written for BEAST v2.6.6 or higher version, which has support for multiple partitions. 
+  This tutorial is written for BEAST v2.6.7 or higher version, which has support for multiple partitions. 
   It is available for download from [http://www.beast2.org](http://www.beast2.org).
 * BEAST labs package - containing some generally useful stuff used by other packages.
 * BEAST [feast](https://github.com/tgvaughan/feast) package - this is a small BEAST 2 package 

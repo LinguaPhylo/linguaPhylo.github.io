@@ -153,7 +153,7 @@ $BEAST_DIR/bin/lphybeast -l 30000000 h3n2.lphy
 
 
 ```
-                         BEAST v2.6.6, 2002-2020
+                         BEAST v2.6.7, 2002-2020
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -353,6 +353,9 @@ This error can have different origins and a likely incomplete list is the follow
 
 {% include_relative templates/programs-used.md %}
 * MASCOT package - Marginal approximation of the structured coalescent.
+* LPhyBeastExt package - The BEAST 2 package extended from the core project LPhyBeast, 
+  which includes Mascot LPhyBeast extension.
+
 
 
 [//]: # (## Data, Model, Posterior)

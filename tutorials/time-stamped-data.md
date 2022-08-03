@@ -208,7 +208,7 @@ $BEAST_DIR/bin/lphybeast RSV2.lphy
 {% include_relative templates/run-beast.md xml="RSV2.xml" %}
 
 ```
-                         BEAST v2.6.6, 2002-2020
+                         BEAST v2.6.7, 2002-2020
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
