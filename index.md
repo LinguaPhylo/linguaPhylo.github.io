@@ -23,6 +23,9 @@ The second line creates a tree, ψ, with 16 taxa from the Yule process with a li
 The third line produces a multiple sequence alignment with a length of 200, by simulating a Jukes Cantor model of sequence evolution down the branchs of the tree ψ.
 As you can see, each of the random variables depends on the last, so this is a hierarchical model that ultimately defines a probability distribution of sequence alignments of size 16 x 200.
 
+LinguaPhylo is an open source project. 
+The source is hosted at [https://github.com/LinguaPhylo/linguaPhylo](https://github.com/LinguaPhylo/linguaPhylo).
+
 ### LinguaPhylo Studio
 
 Along with the language definition, we also provide software to specify and visualise models as well as simulate data from models defined in LPhy.
@@ -36,8 +39,10 @@ The first such software converter is LPhyBEAST described below.
 [LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast) is a command-line program that takes an LPhy model specification, and some data and produces a BEAST 2 XML input file.
 It is therefore an alternative way to succinctly express and communicate BEAST analyses.
 
-## Open Source
+## User Manual
 
-LinguaPhylo is an open source project. 
+The user manual of LPhy and LPhyBEAST is available [online](https://linguaphylo.github.io/setup/).
 
-The source is hosted at [https://github.com/LinguaPhylo/linguaPhylo](https://github.com/LinguaPhylo/linguaPhylo)
+## Tutorials
+
+Some tutorials to use LPhy and LPhyBEAST are available [online](https://linguaphylo.github.io/tutorials/).

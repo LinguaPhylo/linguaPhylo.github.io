@@ -16,7 +16,7 @@ as well as the unified development environment settings in IntelliJ.
 The dependency management in Gradle through the maven central repository makes
 this critical job much easier for developers. 
 All LPhy related projects are now published to the
-[Maven central repo](https://search.maven.org/search?q=g:io.github.linguaphylo).
+[Maven linguaphylo group](https://search.maven.org/search?q=g:io.github.linguaphylo).
 
 
 ## System integration 
@@ -68,7 +68,10 @@ separated from your previous BEAST 2 package.
 * [Writing a BEAST 2 Package](https://www.beast2.org/writing-a-beast-2-package/),
 if you are working on a LPhyBEAST extension.
 
-* [Build, release, publish a Gradle project](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md)
+* [LPhy developer note](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md)
+
+* [LPhyBEAST developer note](https://github.com/LinguaPhylo/LPhyBeast/blob/master/DEV_NOTE.md)
+
 
 ## Step by step tutorial
 
@@ -81,6 +84,10 @@ if you are working on a LPhyBEAST extension.
 * [Gradle project master - dependencies](/developer/dependencies/)
 
 * [Java extension mechanism of LPhy and LPhyBEAST](/developer/java-dev/)
+
+## Posts
+
+* [More technical details](https://linguaphylo.github.io/#tutorials)
 
 ## Writing a user tutorial
 
