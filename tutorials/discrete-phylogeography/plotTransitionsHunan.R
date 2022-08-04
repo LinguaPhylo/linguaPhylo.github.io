@@ -1,6 +1,7 @@
 #setwd(YOUR_WD)
-# assume run this script in tutorials/discrete-phylogeography/h5n1
-source("../PlotTransitions.R")
+WD="~/WorkSpace/linguaPhylo.github.io/tutorials/discrete-phylogeography"
+# it is in the same directory
+source(file.path(WD, "PlotTransitions.R"))
 
 stc <- parseTransCount(input="stc.out", pattern = "Histogram", target="Hunan")
 # only => Hunan
