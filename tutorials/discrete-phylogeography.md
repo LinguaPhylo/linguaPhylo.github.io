@@ -36,6 +36,13 @@ The LPhy scripts to define this analysis is listed below.
 [//]: # (## Code, Graphical Model)
 {% include_relative discrete-phylogeography/lphy.md fignum="Figure 1" %}
 
+The code `D_trait = extractTrait(taxa=taxa, sep=“_”, i=2);` in the data block uses the function 
+to extract the locations from the taxa names, and creates a trait alignment `D_trait`
+to contain these locations mapped to each taxon. 
+Then the next line `K = D_trait.canonicalStateCount();` count the number of unique locations
+in the trait alignment.
+Please note the method `canonicalStateCount()` returns the number of canonical states __excluding__ ambiguous states.
+
 
 ## Geographic Model
 
@@ -186,19 +193,18 @@ you can see the set of meta data for the root.
 Looking for the last entries of `location.set` and `location.set.prob`, 
 you might find something like this:
 ```
-location.set = {Guangdong,HongKong,Hunan,Guangxi,Fujian,?}
-location.set.prob = {0.18878400888395336,0.5857856746252083,0.031093836757357024,0.1243753470294281,0.05441421432537479,0.015546918378678512}
+location.set = {Guangdong,HongKong,Hunan,Guangxi,Fujian}
+location.set.prob = {0.18656302054414214,0.6129927817878956,0.03220433092726263,0.1121599111604664,0.0560799555802332}
 ```
 This means that we have the following distribution for the root location:
 
 | Location| Probability      |
 |---------|------------------|
-|Guangdong|0.18878400888395336|
-|HongKong|0.5857856746252083|
-|Hunan|0.031093836757357024|
-|Guangxi|0.1243753470294281|
-|Fujian|0.05441421432537479|
-|?|0.015546918378678512|
+|Guangdong|0.18656302054414214|
+|HongKong|0.6129927817878956|
+|Hunan|0.03220433092726263|
+|Guangxi|0.1121599111604664|
+|Fujian|0.0560799555802332|
 
 This distribution shows that the 95% HPD consists of all locations except Hunan, 
 with a strong indication that HongKong might be the root with over 58% probability. 
