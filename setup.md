@@ -23,7 +23,7 @@ java -version
 
 ## LPhy Studio
 
-{% assign lphy_version = "1.3.0" %}
+{% assign lphy_version = "1.3.1" %}
 
 ### LPhy studio installation
 
@@ -148,7 +148,7 @@ such as `lphy-studio-{{ lphy_version }}.zip`.
 </figure>  
 
 {:start="3"}
-3. Make sure there is only __one__ LPhy folder, such as `lphy-studio-{{ lphy_version }}`, inside your `$BEAST_DIR`.
+3. Make sure there is __only one__ LPhy folder, such as `lphy-studio-{{ lphy_version }}`, inside your `$BEAST_DIR`.
 
 4. Download the bash script `lphybeast` from 
 [LPhyBEAST's repo](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast),
