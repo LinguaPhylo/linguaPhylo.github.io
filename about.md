@@ -4,72 +4,35 @@ title: About
 permalink: /about/
 ---
 
-## Writing scripts
+## LinguaPhylo (LPhy for short - pronounced el-fee)
 
-You can either to write LPhy scripts in LPhyStudio, which is a Java GUI,
-or complete them using a text editor and save them into a file with the `.lphy` extension.   
+LinguaPhylo (LPhy for short - pronounced el-fee) is a probabilistic model specification language to concisely and precisely define phylogenetic models.
+The aim is to provide a language (work towards a _lingua franca_) for probabilistic models of phylogenetic evolution that is independent of the method to perform inference.
+This language is readable by both humans and computers. Here is a full example:
 
-### With or without keywords
+{::nomarkdown}
+{% include_relative yule.html %}
+{:/}
 
-If you are working in LPhyStudio, you do not need to add `data` and `model` keywords 
-and curly brackets to define the code blocks.
-We are supposed to add the lines without the `data {  }` and `model {  }` to the the command line console 
-at the bottom of the window, where the `data` and `model` tabs in the GUI are used to specify 
-which block we are working on.
+Each of the lines in this model block expresses how a random variable (to the left of the tilde) is generated from a generative distribution.
 
-But if you are writing scripts into a file, then these two keywords are necessary.
-You may see some example files containing no `data` block. 
-Because they are simulations, the data is simulated from the model.
+The first line creates a random variable, λ, that is log-normally distributed.
+The second line creates a tree, ψ, with 16 taxa from the Yule process with a lineage birth rate equal to λ.
+The third line produces a multiple sequence alignment with a length of 200, by simulating a Jukes Cantor model of sequence evolution down the branchs of the tree ψ.
+As you can see, each of the random variables depends on the last, so this is a hierarchical model that ultimately defines a probability distribution of sequence alignments of size 16 x 200.
 
+LinguaPhylo is an open source project. 
+The source is hosted at [https://github.com/LinguaPhylo/linguaPhylo](https://github.com/LinguaPhylo/linguaPhylo).
 
-### Greek letters
+### LinguaPhylo Studio
 
-In the LPhyStudio command line console, greek letters can be inputted by using latex style (e.g. typing `\alpha`), 
-and then it will get converted to the Unicode after the following space is typed.
-Copy-and-paste also does the tricks.
+Along with the language definition, we also provide software to specify and visualise models as well as simulate data from models defined in LPhy.
 
+This software will also provide the ability for models specified in the LPhy language to be applied to data using standard inference tools such as MrBayes, RevBayes, BEAST1 and BEAST2.
+This will require software that can convert an LPhy specification into an input file that these inference engines understand.
+The first such software converter is LPhyBEAST described below.
 
-## LPhy specification
+## LPhyBEAST (pronounced el-fee-beast)
 
-### Code blocks
-
-The LPhy scripts contains `data { ... }` and `model { ... }` blocks enclosed by the curly brackets.
-
-The LPhy data block is used to input and store the data, 
-which will be processed by the models defined later, 
-and which also allows you to reuse the another dataset 
-by simply replacing the current data. 
-
-In the data block, for instances, we normally include the constants for models, 
-the alignment loaded from a NEXUS file, 
-and the meta data regarding to the information of taxa that we have known.
-
-The model block is used to define and also describe your models and parameters
-in the Bayesian phylogenetic analysis.
-Therefore, your result could be easily reproduced by other researchers. 
-
-Please be aware that `data` and `model` have been reserved and cannot be used as the variable name.
-
-
-### Code conventions
-
-- The variables that are estimated in the model are called random variables in LPhy. 
-They should be assigned by `~`.
-- Constants or values resulting from deterministic functions are assigned using the equal sign `=`.
-- If the same variable name is used for data in the `data` block 
-also appears for a random variable in the `model` block, then the value in the data block will be used for inference (called 'data clamping').
-
-
-### Tree generative distributions
-
-More details on the available tree generative distributions can be found here: 
-
-* [Birth-death generative distributions](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/lphy/evolution/birthdeath.md)
-* [Coalescent generative distributions](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/lphy/evolution/coalescent.md)
-
-### Models of evolutionary rates and sequence evolution
-
-You can read more details about the PhyloCTMC generative distribution and how to specify substitution models, 
-site rates and branch rates here:
-
-* [PhyloCTMC generative distribution](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/lphy/evolution/likelihood.md)
+[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast) is a command-line program that takes an LPhy model specification, and some data and produces a BEAST 2 XML input file.
+It is therefore an alternative way to succinctly express and communicate BEAST analyses.

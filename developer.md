@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Developer Note
+title: Developers
 permalink: /developer/
 ---
 
@@ -72,10 +72,12 @@ if you are working on a LPhyBEAST extension.
 
 * [LPhyBEAST developer note](https://github.com/LinguaPhylo/LPhyBeast/blob/master/DEV_NOTE.md)
 
+## Starting to develop an extension 
 
-## Step by step tutorial
+* [Loading the existing project](/developer/setup-dev-env/)
 
-* [A step-by-step tutorial for 3 extensions in 1 project](/developer/three-ext-in-one)
+* [A step-by-step tutorial to implement LPhy and LPhyBEAST extensions](/developer/three-ext-in-one)
+
 
 ## Advanced tutorials
 
@@ -84,6 +86,7 @@ if you are working on a LPhyBEAST extension.
 * [Gradle project master - dependencies](/developer/dependencies/)
 
 * [Java extension mechanism of LPhy and LPhyBEAST](/developer/java-dev/)
+
 
 ## Posts
 
