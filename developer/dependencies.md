@@ -34,9 +34,15 @@ The string inside implementation defines GAV coordinate (Group, Artifact, Versio
 which will map to a unique corresponding version of a software from all releases.
 It also can be used as a keyword to search in the Maven central repo, for example,
 the group [io.github.linguaphylo](https://search.maven.org/search?q=g:io.github.linguaphylo).
-Here the "phylonco-lphy" extension depends on the version {{ lphy_version }} exactly.
+Here the "phylonco-lphy" extension [requires](https://docs.gradle.org/current/userguide/rich_versions.html#sec:strict-version) 
+the version {{ lphy_version }}. This implies that the selected version cannot be lower than it by default
+but could be higher through conflict resolution, when there are multiple versions in the local dependency repository.
 We do not recommend to use version range, unless you fully understand the development history
 and future plan of that project.
+
+__Tips:__ When the exact version is required, the "[strict version](https://docs.gradle.org/current/userguide/rich_versions.html#sec:strict-version)"
+declaration can be used.
+For example, if you require lphy 1.2.0 exactly, you can use "io.github.linguaphylo:lphy:1.2.0!!".
 
 The second dependency is lphy-studio module, because we want to run the studio from this project.
 But it certainly should not be required by the code, which has no GUI extension.
