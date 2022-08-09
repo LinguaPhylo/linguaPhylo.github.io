@@ -40,7 +40,7 @@ but could be higher through conflict resolution, when there are multiple version
 We do not recommend to use version range, unless you fully understand the development history
 and future plan of that project.
 
-__Tips:__ When the exact version is required, the "[strict version](https://docs.gradle.org/current/userguide/rich_versions.html#sec:strict-version)"
+__Tips:__ When the exact version is required, the "[strict version](https://docs.gradle.org/current/userguide/single_versions.html#simple_version_declaration_semantics)"
 declaration can be used.
 For example, if you require lphy 1.2.0 exactly, you can use "io.github.linguaphylo:lphy:1.2.0!!".
 
