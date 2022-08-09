@@ -148,15 +148,12 @@ such as `lphy-studio-{{ lphy_version }}.zip`.
 </figure>  
 
 {:start="3"}
-3. __Rename the LPhy folder__, such as `lphy-studio-{{ lphy_version }}`, into `lphy`.
-This folder should sit inside your `$BEAST_DIR`.
+3. Make sure there is only __one__ LPhy folder, such as `lphy-studio-{{ lphy_version }}`, inside your `$BEAST_DIR`.
 
 4. Download the bash script `lphybeast` from 
 [LPhyBEAST's repo](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast),
 and put it into the `bin` folder under `$BEAST_DIR` with other scripts.
 
-Here, you may double-check whether your `$LPHY_LIB` in the script is same as 
-the subfolder `lib` containing LPhy libraries, namely `LPHY_LIB="$BEAST_DIR/lphy/lib"`.
 
 The final folder structure looks like:
 
@@ -171,7 +168,7 @@ BEAST_DIR
     ├── lib
     │    ├── beast.jar
     │    ...    
-    ├── lphy
+    ├── lphy-studio-{{ lphy_version }}
     │    ├── examples
     │    ├── lib
     │    │    ...
@@ -183,8 +180,8 @@ BEAST_DIR
 ```
 
 Eventually, we can start LPhyBEAST using the script `lphybeast`.
-It will launch LPhyBEAST through another BEAST 2 
-application called [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
+It will launch LPhyBEAST through another BEAST 2 application
+called [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
 while adding the `$LPHY_LIB` folder into the classpath.
 
 
