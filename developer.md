@@ -53,7 +53,7 @@ Gradle is not only a build system (c.f. ANT), but also contains dependency manag
 structuring project, and other advanced features.
 When you are developing a project including extensions from these 3 groups,
 we recommend you use Gradle.
-An [model example](/developer/implement-ext) is available online. 
+An [model example](/developer/three-ext-in-one) is available online. 
 
 If you do not want migrate your existing BEAST 2 project to a Gradle project,
 the alternative solution is to create a Gradle project only containing
