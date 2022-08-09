@@ -5,7 +5,14 @@ author: Walter Xie
 permalink: /developer/setup-dev-env/
 ---
 
-This page will introduce how to setup the development environment for working on the LPhy or LPhyBEAST extensions. 
+This page will introduce how to setup the development environment for working on the LPhy or LPhyBEAST extensions.
+Before we start, please install the following softwares in your local machine:
+
+1. Java 17, such as [OpenJDK 17](https://jdk.java.net/17/);
+2. [Gradle 7.x](https://docs.gradle.org/current/userguide/installation.html);
+3. The latest version of [IntelliJ](https://www.jetbrains.com/idea/download/);
+4. The latest version of [Kotlin plugin](https://plugins.jetbrains.com/plugin/6954-kotlin).
+
 
 ## Loading the existing project
 
@@ -63,6 +70,7 @@ and `/usr/libexec/java_home -V` to list all available Java versions in your oper
 ### Gradle
 
 They are also the Gradle projects. Please install [Gradle 7.x](https://gradle.org/install/) before you start.
+Type `./gradlew -v` in the terminal to test if the Gradle is installed properly.
 
 Please configure your IntelliJ Gradle JVM to {{ java_version }}. You can go to "Preferences", 
 and expand `Build, Execution, Deployment` => `Build Tools` => `Gradle`.
@@ -79,7 +87,7 @@ Alternative, you can use the terminal to run the Gradle tasks.
 Please alos see [LPhy developer note](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md) 
 
 
-### IntelliJ
+### IntelliJ and Kotlin plugin
 
 In addition, you need to download the latest version of IntelliJ,
 and [Kotlin plugin](https://plugins.jetbrains.com/plugin/6954-kotlin).
