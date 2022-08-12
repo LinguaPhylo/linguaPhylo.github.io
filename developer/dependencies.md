@@ -22,7 +22,7 @@ and understand the difference between consumers and producers.
   <figcaption>Figure {{ current_fig_num }}: The subproject "phylonco-lphy".</figcaption>
 </figure>
 
-{% assign lphy_version = "1.2.0" %}
+{% assign lphy_version = "1.3.1" %}
 
 After the version and base name are defined, the second block declares the 
 [dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html).
@@ -34,15 +34,14 @@ The string inside implementation defines GAV coordinate (Group, Artifact, Versio
 which will map to a unique corresponding version of a software from all releases.
 It also can be used as a keyword to search in the Maven central repo, for example,
 the group [io.github.linguaphylo](https://search.maven.org/search?q=g:io.github.linguaphylo).
-Here the "phylonco-lphy" extension [requires](https://docs.gradle.org/current/userguide/rich_versions.html#sec:strict-version) 
-the version {{ lphy_version }}. This implies that the selected version cannot be lower than it by default
-but could be higher through conflict resolution, when there are multiple versions in the local dependency repository.
-We do not recommend to use version range, unless you fully understand the development history
-and future plan of that project.
 
-__Tips:__ When the exact version is required, the "[strict version](https://docs.gradle.org/current/userguide/single_versions.html#simple_version_declaration_semantics)"
-declaration can be used.
-For example, if you require lphy 1.2.0 exactly, you can use "io.github.linguaphylo:lphy:1.2.0!!".
+We use the default model ["require"](https://docs.gradle.org/current/userguide/rich_versions.html#sec:strict-version)
+declaring versions, such as `io.github.linguaphylo:lphy:{{ lphy_version }}`.
+This implies that the selected version of lphy cannot be lower than {{ lphy_version }}
+but could be higher through conflict resolution, when there are multiple versions in the local dependency repository.
+When the exact version is required, the ["strictly"](https://docs.gradle.org/current/userguide/single_versions.html#simple_version_declaration_semantics)
+declaring versions can be used.
+For example, if only lphy 1.2.0 is required, you can use `io.github.linguaphylo:lphy:1.2.0!!`.
 
 The second dependency is lphy-studio module, because we want to run the studio from this project.
 But it certainly should not be required by the code, which has no GUI extension.
