@@ -33,7 +33,7 @@ to resolve dependencies.
 The string inside implementation defines GAV coordinate (Group, Artifact, Version), 
 which will map to a unique corresponding version of a software from all releases.
 It also can be used as a keyword to search in the Maven central repo, for example,
-the group [io.github.linguaphylo](https://search.maven.org/search?q=g:io.github.linguaphylo).
+the group [io.github.linguaphylo](https://search.maven.org/search?q=io.github.linguaphylo).
 
 We use the default model ["require"](https://docs.gradle.org/current/userguide/rich_versions.html#sec:strict-version)
 declaring versions, such as `io.github.linguaphylo:lphy:{{ lphy_version }}`.
