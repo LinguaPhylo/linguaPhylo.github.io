@@ -41,8 +41,6 @@ It is therefore an alternative way to succinctly express and communicate BEAST a
 
 ## Citation
 
-Alexei J. Drummond, Kylie Chen, Fábio K. Mendes, and Dong Xie, 
+Alexei J. Drummond, Kylie Chen, Fábio K. Mendes, Dong Xie (2022),
 LinguaPhylo: a probabilistic model specification language for reproducible phylogenetic analyses,
-PLOS Computational Biology, submitted.
-
-Biorxiv version is available at [doi.org/10.1101/2022.08.08.503246](https://doi.org/10.1101/2022.08.08.503246).
+Biorxiv, [doi:10.1101/2022.08.08.503246](https://doi.org/10.1101/2022.08.08.503246).
