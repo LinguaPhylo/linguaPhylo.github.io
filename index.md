@@ -39,10 +39,10 @@ The first such software converter is LPhyBEAST described below.
 [LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast) is a command-line program that takes an LPhy model specification, and some data and produces a BEAST 2 XML input file.
 It is therefore an alternative way to succinctly express and communicate BEAST analyses.
 
-## User Manual
+## Citation
 
-The user manual of LPhy and LPhyBEAST is available [online](https://linguaphylo.github.io/setup/).
+Alexei J. Drummond, Kylie Chen, Fábio K. Mendes, and Dong Xie, 
+LinguaPhylo: a probabilistic model specification language for reproducible phylogenetic analyses,
+PLOS Computational Biology, submitted.
 
-## Tutorials
-
-Some tutorials to use LPhy and LPhyBEAST are available [online](https://linguaphylo.github.io/tutorials/).
+Biorxiv version is available at [doi.org/10.1101/2022.08.08.503246](https://doi.org/10.1101/2022.08.08.503246).
