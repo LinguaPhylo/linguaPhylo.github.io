@@ -23,7 +23,7 @@ java -version
 
 ## LPhy Studio
 
-{% assign lphy_version = "1.3.1" %}
+{% assign lphy_version = "1.3.*" %}
 
 ### LPhy studio installation
 
