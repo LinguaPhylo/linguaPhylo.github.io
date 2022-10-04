@@ -34,10 +34,17 @@ This software will also provide the ability for models specified in the LPhy lan
 This will require software that can convert an LPhy specification into an input file that these inference engines understand.
 The first such software converter is LPhyBEAST described below.
 
+### Download LPhy and Studio
+
+Download the [latest release](https://github.com/LinguaPhylo/linguaPhylo/releases/latest) of LPhy core and Studio, and previous releases are available from the [release page](https://github.com/LinguaPhylo/linguaPhylo/releases). 
+
 ## LPhyBEAST (pronounced el-fee-beast)
 
 [LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast) is a command-line program that takes an LPhy model specification, and some data and produces a BEAST 2 XML input file.
 It is therefore an alternative way to succinctly express and communicate BEAST analyses.
+
+LPhyBEAST is installable as a BEAST2 package. 
+The detail is available in the [user manual](https://linguaphylo.github.io/setup/#lphybeast-installation).
 
 ## Citation
 
