@@ -20,7 +20,7 @@ The right-hand side can be a constant value, deterministic function, stocastic f
 
 An `=` symbol is used for assigning determinisitic or constant values to variables, for example `a = 2;`.
 
-A `~` symbol is used for assigning stochastic random variables, for example `b ~ Normal();`. 
+A `~` symbol is used for assigning stochastic random variables, for example `b ~ Normal(mean = 0.0, sd = 1.0);`. 
 
 As a scripting language, the syntax is checked during execution. 
 
