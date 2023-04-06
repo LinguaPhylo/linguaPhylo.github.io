@@ -76,7 +76,13 @@ We will try to infer this increase from sequence data.
 
 ## Code
 
+{% capture lphy_html %}
 {% include_relative skyline-plots/lphy.html %}
+{% endcapture %}
+
+{::nomarkdown}
+  {{ lphy_html }}
+{:/}
 
 [//]: # (## Graphical Model)
 {% include_relative skyline-plots/lphy.md fignum=lphy_fig %}
