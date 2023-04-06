@@ -74,7 +74,13 @@ We will try to infer this increase from sequence data.
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 {% assign lphy_fig = "Figure " | append: current_fig_num  %}
 
-[//]: # (## Code, Graphical Model)
+## Code
+
+{% capture lphy_html %}
+{% include_relative skyline-plots/lphy.html %}
+{% endcapture %}
+
+[//]: # (## Graphical Model)
 {% include_relative skyline-plots/lphy.md fignum=lphy_fig %}
 
 

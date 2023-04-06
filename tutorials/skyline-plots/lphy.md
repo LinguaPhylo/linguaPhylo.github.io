@@ -1,9 +1,3 @@
-## Code
-
-{% capture lphy_html %}
-{% include_relative lphy.html %}
-{% endcapture %}
-
 
 ## Graphical Model
 
