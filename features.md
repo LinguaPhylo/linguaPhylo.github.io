@@ -10,8 +10,7 @@ lists all generative distributions, functions, and data types in the latest rele
 
 ## Language features
 
-LPhy scripts are text files with the file extension `.lphy`, and can be written using any text editor. 
-The LPhy language uses EBNF grammar (Extended Backus–Naur form) with an ANTLR-based parser internally to parse the language into Java Objects. 
+LPhy scripts are text files with the file extension `.lphy`, and can be written using any text editor. The LPhy language has an EBNF grammar (Extended Backus–Naur form). The reference implementation in Java uses an ANTLR-based parser internally to parse the LPhy language into Java Objects. 
 
 ### Syntax
 
@@ -21,29 +20,68 @@ The syntax for each line has a variable declaration on the left-hand side, a spe
 * The left-hand side declares the name of a variable or an array of variables (case sensitive). 
 * The right-hand side can be used to specify the generator of the random variable, or constant values. 
 This can be a constant value, array of constant values, or a generator (e.g., deterministic functions, generative distributions, or several nested functions). 
-* Parameters inside functions or generative distributions follow the convention `[argument name] = [value]`, for example, `b ~ Normal(mean = 0.0, sd = 1.0);`. 
+* Parameters inside functions or generative distributions follow the convention `[argument name] = [value]`.
+* Control flow structures are not allowed
+* No explicit definition of types
+* Syntax checking is done during execution
 
 ### Specification operators
 
-* An equal sign `=` is used for specifying deterministic or constant values to variables, such as `a = 2;`. 
-* A tilde sign `~` is used for specifying generators for stochastic random variables, such as `b ~ Normal(mean = 0.0, sd = 1.0);`. 
+An equal sign `=` is used to specify deterministic or constant values for variables.
 
 Example of a constant
 ```
 a = 2.0;
 ```
 
+A tilde sign `~` is used to specify generators for stochastic random variables. 
+
 Example of a random variable
 ```
 b ~ Normal(mean=0.0, sd=1.0);
 ```
 
+### Arrays
+
+Arrays can be defined using square brackets with elements delimited by comma separators. For sequences of consecutive integers, a colon ‘:’ is used to define a range.
+
+Example of an array
+```
+c = [1, 2, 3, 4, 5]; 
+```
+
+Example of an array using range notation
+```
+d = [1:5];
+```
+
 ### Generators
 
-A list of generators can be found in the [LPhy reference implementation manual](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/index.md).
+Generators include parametric distributions (e.g., normal, log-normal, uniform, dirichlet distributions), tree generative distributions (coalescent, birth-death models), and sequence generators (using Continuous-time Markov Chains, substitution models and clock models). 
+
+Example of a parametric distribution
+```
+Θ ~ LogNormal(meanlog=3.0, sdlog=1.0);
+```
+
+Example of a tree generative distribution
+```
+Θ ~ LogNormal(meanlog=3.0, sdlog=1.0);
+ψ ~ Coalescent(theta=Θ, taxa=taxa);
+```
+
+Example of a sequence generator (PhyloCTMC)
+```
+Θ ~ LogNormal(meanlog=3.0, sdlog=1.0);
+ψ ~ Coalescent(theta=Θ, taxa=taxa);
+D ~ PhyloCTMC(L=L, Q=jukesCantor(), tree=ψ);
+```
+
+A full list of generators can be found in the [LPhy reference implementation manual](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/index.md).
 
 ### Variable vectorization
-Any variable or generator can be vectorized to produce a vector of independent and identically distributed random variables. This can be done in two ways: by using the 'replicates' keyword, or by passing an array into the arguments of the generator. 
+
+Any variable or generator can be vectorized to produce a vector of independent and identically distributed random variables. This can be done in two ways: by using the "replicates" keyword, or by passing an array into the arguments of the generator. 
 
 Example using the replicates keyword
 ```
@@ -59,7 +97,20 @@ Q = hky(kappa=k, freq=pi);
 
 Code blocks enclosed by curly braces `{ ... }` are used to differentiate between parts of the script describing the data -- the data block `data{ ... }`, and parts describing the model -- the model block `model { ... }`. 
 
-* The data block is used to read in, store input data, and constants (e.g., number of taxa) used by the model. 
+```
+data {
+    L = 200;
+    taxa = taxa(names=1:10);
+}
+model {
+    Θ ~ LogNormal(meanlog=3.0, sdlog=1.0);
+    ψ ~ Coalescent(theta=Θ, taxa=taxa);
+    D ~ PhyloCTMC(L=L, Q=jukesCantor(), tree=ψ);
+}
+
+```
+
+* The data block is used to read in, store input data, and constants (e.g., number of sites) used by the model. 
 This allows one script to be easily reused on another dataset by modifying the name of the input data file in the data block. 
 Alignment data can be read in from a NEXUS or FASTA file. 
 
@@ -68,8 +119,10 @@ This purpose of this is to allow analyses to be more easily reproduced by other 
 
 * Note that the `data` and `model` are **reserved keywords** and cannot be used for variable names.
 
-An LPhy script needs to contain both a `data{ ... }` and a `model{ ... }` block. However, the data block can be left empty for some use cases (e.g., data simulation). 
-When the data block is empty, data will be simulated from the model. 
+* If the same variable name is used for data in the `data` block 
+and a random variable in the `model` block, then the value in the data block will be used for inference (i.e., 'data clamping').
+
+An LPhy script needs to contain both a `data{ ... }` and a `model{ ... }` block. However, the data block can be left empty for some use cases (e.g., data simulation). When the data block is empty, data will be simulated from the model. 
 
 ## Reference implementation in Java
 
@@ -83,6 +136,8 @@ Overloading of functions is supported (Java-style overloading). Optional argumen
 
 ## LPhy Studio
 
+Alongside the LPhy specification language, and reference implementation, we provide a Graphical User Interface for LPhy scripts called "LPhy Studio". 
+
 ### Code blocks in LPhyStudio
 
 When using the LPhyStudio console, the `data` and `model` code block keywords can be omitted. 
@@ -92,20 +147,13 @@ The code block keywords will be automatically added before executing scripts wri
 ### Greek letters
 
 LPhy supports both standard alphanumeric characters, greek letters, and Unicode. 
-We include additional support for greek characters in LPhyStudio. 
-In the LPhyStudio console, greek letters can be specified using latex conventions. 
+
+LPhyStudio includes additional support for greek characters. In the LPhyStudio console, greek letters can be specified using latex conventions. 
+
 For example, typing `\alpha` will convert it to the Unicode character alpha after a space is typed. 
 Alternatively, Unicode characters can be pasted into the console. 
 
-### Coding conventions
-
-* Stochastic random variables should be assigned using the tilde sign `~`.
-* Constants or results from deterministic functions are assigned using the equal sign `=`.
-* If the same variable name is used for data in the `data` block 
-and a random variable in the `model` block, then the value in the data block will be used for inference (i.e., 'data clamping').
-
-
-## Examples
+## More examples
 
 ### Tree generative distributions
 
