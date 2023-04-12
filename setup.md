@@ -90,7 +90,7 @@ and is installable as a [BEAST 2 package](https://www.beast2.org/managing-packag
 
 1. To install LPhyBEAST, start `BEAUti` and open `Package Manager` from the menu `File` => `Manage Packages`. 
 2. Click on `Package repositories` to open the "BEAST 2 Package Repository Manager".
-3. Select `lphybeast` from the package list, then use `Install/Upgrade` to install.
+3. Select `lphybeast` from the packages list, then use `Install/Upgrade` to install.
 
 Note: Installation may take few minutes to download and install. Please wait until a confirmation popup appears on the screen.
 
@@ -101,6 +101,7 @@ Note: Installation may take few minutes to download and install. Please wait unt
 
 {:start="4"}
 4. Restart `Package Manager`. Now `lphybeast` and dependent packages should appear as "installed". 
+5. Select `lphybeast ext` from the packages list, then use `Install/Upgrade` to install.
 
 Alternatively, you can install the `lphybeast` package using [command line](https://www.beast2.org/managing-packages/).
 
@@ -109,9 +110,12 @@ Alternatively, you can install the `lphybeast` package using [command line](http
 The package `lphybeast` does not include LPhy, so we need to install LPhy separately.
 
 1. Download the LPhy Studio installer from the [release page](https://github.com/LinguaPhylo/linguaPhylo/releases)
-- Windows `lphy-studio-{{ lphy_version }}-windows-x64-installer.exe`
-- Mac `lphy-studio-{{ lphy_version }}-osx-installer.dmg`
-- Linux `lphy-studio-{{ lphy_version }}.zip`
+
+- Mac [lphystudio-1.4.1-osx-installer.dmg](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphystudio-1.4.1-osx-installer.dmg)
+
+- Windows [lphystudio-1.4.1-windows-x64-installer.exe](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphystudio-1.4.1-windows-x64-installer.exe)
+
+- Linux [lphy-studio-1.4.1.zip](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphy-studio-1.4.1.zip)
 
 2. Install LPhy Studio inside the BEAST 2 installation folder `$BEAST_DIR`.
 
