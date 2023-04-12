@@ -45,7 +45,7 @@ Double click the installer and follow the install wizard to complete the install
   <figcaption>Figure 1: Installing LPhy Studio.</figcaption>
 </figure>
 
-Note: To use LPhy with LPhyBEAST, we recommend that you install LPhy Studio inside your BEAST 2.* folder, and rename it into `lphy`. 
+To use LPhy with LPhyBEAST, we recommend that you install LPhy Studio inside your BEAST 2.* folder, and name the install directory `lphy`. 
 
 Example LPhy scripts are in the `examples` subdirectory, and libraries are in the `lib` subdirectory of your LPhy install location.
 
@@ -54,35 +54,24 @@ Example LPhy scripts are in the `examples` subdirectory, and libraries are in th
 
 To run LPhy Studio click on `LPhyStudioLauncher` inside your LPhy install location.
 
-If you are new to LPhy, we recommend starting with the
-[introductory guide](https://linguaphylo.github.io/about/) before moving to the tutorial pages. 
+<figure class="image">
+  <a href="/images/LPhyStudioLauncher.png">
+    <img src="/images/LPhyStudioLauncher.png" alt="LPhy Studio install location">
+  </a>
+  <figcaption>Figure 2: Launching LPhy Studio.</figcaption>
+</figure>
+
+If you are new to LPhy, we recommend starting with the [introductory guide](https://linguaphylo.github.io/about/) before moving to the tutorial pages. 
 
 
 ## LPhyBEAST installation
 
-[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) requires BEAST 2.6.7 or higher, 
+[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) requires BEAST 2.7.4 or higher, 
 and is installable as a [BEAST 2 package](https://www.beast2.org/managing-packages/) called lphybeast.
 
-1. To install LPhyBEAST first start `Package Manager` by opening `BEAUti`, and from the menu select `File` => `Manage Packages`. 
+1. To install LPhyBEAST, start `BEAUti` and open `Package Manager` from the menu `File` => `Manage Packages`. 
 2. Click on `Package repositories` to open the "BEAST 2 Package Repository Manager".
-3. Click the `Add URL` button, add the URL "https://raw.githubusercontent.com/CompEvol/CBAN/master/packages-extra.xml", 
-and click `OK`.
-
-The packages-extra URL should now appear as shown below
-<figure class="image">
-  <a href="/images/PackagesExtra.png">
-    <img src="/images/PackagesExtra.png" alt="PackagesExtra">
-  </a>
-  <figcaption>Figure 2: Adding packages-extra URL.</figcaption>
-</figure>
-
-{:start="4"}
-4. Click the `Done` button.
-
-5. Restart `Package Manager`.
-
-6. The `lphybeast` package should now appear in the list of available packages.
-Select `lphybeast` from the package list, then use `Install/Upgrade` to install.
+3. Select `lphybeast` from the package list, then use `Install/Upgrade` to install.
 
 Note: Installation may take few minutes to download and install. Please wait until a confirmation popup appears on the screen.
 
@@ -91,19 +80,21 @@ Note: Installation may take few minutes to download and install. Please wait unt
   <figcaption>Figure 3: Confirmation message for successful install of lphybeast.</figcaption>
 </figure>
 
-{:start="7"}
-7. Restart `Package Manager` once more. Now `lphybeast` and dependent packages should appear as "installed". 
+{:start="4"}
+4. Restart `Package Manager`. Now `lphybeast` and dependent packages should appear as "installed". 
 
-Alternatively, you can install it using command line following the [instruction](https://www.beast2.org/managing-packages/).
+Alternatively, you can install the `lphybeast` package using [command line](https://www.beast2.org/managing-packages/).
 
 ### Install LPhy libraries and download starting script 
 
-The package `lphybeast` does not include LPhy, so we need to install LPhy libraries.
+The package `lphybeast` does not include LPhy, so we need to install LPhy separately.
 
-1. Download the LPhy studio from the [release page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
-such as `lphy-studio-{{ lphy_version }}.zip`. 
+1. Download the LPhy Studio installer from the [release page](https://github.com/LinguaPhylo/linguaPhylo/releases)
+- Windows `lphy-studio-{{ lphy_version }}-windows-x64-installer.exe`
+- Mac `lphy-studio-{{ lphy_version }}-osx-installer.dmg`
+- Linux `lphy-studio-{{ lphy_version }}.zip`
 
-2. Unzip it under your `$BEAST_DIR` folder where you installed the BEAST 2.
+2. Install LPhy Studio inside the BEAST 2 installation folder `$BEAST_DIR`.
 
 <figure class="image">
   <a href="/images/LPhyLibFolder.png">
@@ -119,93 +110,43 @@ such as `lphy-studio-{{ lphy_version }}.zip`.
 [LPhyBEAST's repo](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast),
 and put it into the `bin` folder under `$BEAST_DIR` with other scripts.
 
-
 The final folder structure looks like:
 
-```
-BEAST_DIR
-    ├── bin
-    │    ...
-    │    ├── lphybeast
-    │    ...
-    ├── examples
-    ...
-    ├── lib
-    │    ├── beast.jar
-    │    ...    
-    ├── lphy-studio-{{ lphy_version }}
-    │    ├── examples
-    │    ├── lib
-    │    │    ...
-    │    │    └── lphy-{{ lphy_version }}.jar
-    │    ...
-    ├── templates
-    ...
-    └── VERSION HISTORY.txt
-```
-
-Eventually, we can start LPhyBEAST using the script `lphybeast`.
-It will launch LPhyBEAST through another BEAST 2 application
-called [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
-while adding the `$LPHY_LIB` folder into the classpath.
+We can start LPhyBEAST using the `lphybeast` script.
+It will launch LPhyBEAST through the BEAST 2 [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
+and add the `$LPHY_LIB` folder into the classpath.
 
 
 ## LPhyBEAST usage
 
-Make sure you have the script `lphybeast` ready and set `LPHY_LIB` path properly. 
-Now, we can run the following command line to show the usage.
+Now, we can run LPhyBEAST using the command line
 
 ```bash
 $BEAST_DIR/bin/lphybeast -h
 ```
 
-Then, try to create "RSV2.xml" from the tutorial script "RSV2.lphy":
+To create "RSV2.xml" from the tutorial script "RSV2.lphy":
 
 ```bash
 cd $LPHY_PATH/tutorials/
 $BEAST_DIR/bin/lphybeast RSV2.lphy
 ```
 
-Or use the absolute path and work from a different folder:
+Or using the absolute path and from a different folder:
 
 ```bash
 cd $MY_PATH
 $BEAST_DIR/bin/lphybeast $LPHY_PATH/tutorials/RSV2.lphy
 ```
 
-Create 5 XML for simulations:
+To create 5 XMLs with simulated data:
+
 ```bash
 $BEAST_DIR/bin/lphybeast -wd $LPHY_PATH/tutorials/ -r 5 RSV2.lphy
 ```
 
-## Some conventions
 
-1. If the input/output is a relative path, then concatenate `user.dir` to the front of the path.
-
-
-2. Use `-wd` to set `user.dir`. But if `-wd` is not given, 
-then `user.dir` will be set to the parent folder where the LPhy script sits inside.
-For example:
-
-```bash
-$BEAST_DIR/bin/lphybeast -wd $LPHY_PATH/tutorials/ -l 15000000 -o RSV2long.xml RSV2.lphy
-```
-
-This also contains two extra arguments: 
-- `-l` changes the MCMC chain length (default to 1 million) in the XML;
-- `-o` replaces the output file name (default to use the same file steam as the lphy input file).
-
-As this LPhy script uses the relative path to load data, 
-`D = readNexus(file="data/RSV2.nex", ...);`, 
-the `data` subfolder containing `RSV2.nex` has to be in the same folder where "RSV2.lphy" sits inside.
-
-**Note:** please use `-wd` to simplify your input and output paths. 
-Do not make them more complex, such as combining `-wd` with relative paths in either input or output.
-For example, do not try `-wd $LPHY_PATH  tutorials/RSV2.lphy`, 
-then you will mess up some relative paths inside the LPhy scripts, e.g. `readNexus`.
-
-
-## If something goes wrong ...
+## Troubleshooting
 
 
 ### IOException
