@@ -23,74 +23,39 @@ java -version
 
 ## LPhy Studio
 
-{% assign lphy_version = "1.3.*" %}
+{% assign lphy_version = "1.4.*" %}
 
-### LPhy studio installation
+### LPhy Studio installation
 
-1. Go to the [LPhy release page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
-and download the [latest release](https://github.com/LinguaPhylo/linguaPhylo/releases/latest), e.g., `lphy-studio-{{ lphy_version }}.zip`. 
+Go to the [LPhy releases page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
+and download the [latest installer](https://github.com/LinguaPhylo/linguaPhylo/releases/latest) for your operating system. 
 
-2. Unzip the compressed file, this will create a folder called `lphy-studio-{{ lphy_version }}`. 
+- Mac [lphystudio-1.4.1-osx-installer.dmg](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphystudio-1.4.1-osx-installer.dmg)
 
-This is the location of your LPhyStudio install. The `lphy-studio-{{ lphy_version }}` path will be your `$LPHY_PATH`. Its folder structure should look like:
+- Windows [lphystudio-1.4.1-windows-x64-installer.exe](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphystudio-1.4.1-windows-x64-installer.exe)
 
-```
-LPHY_PATH
-    ├── examples
-    │    ├── data
-    │    ...
-    ├── lib
-    │    ...
-    │    ├── lphy-{{ lphy_version }}.jar
-    │    ├── lphy-studio-{{ lphy_version }}.jar
-    │    ...
-    ├── LICENSE    
-    ├── README.md
-    ├── src
-    └── tutorials
-         ├── data
-         ...
-```
+- Linux [lphy-studio-1.4.1.zip](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphy-studio-1.4.1.zip)
 
-Example LPhy scripts are in the `examples` subdirectory, and libraries are in the `lib` subdirectory.
+Double click the installer and follow the install wizard to complete the install.
 
-If you are using LPhyBEAST, we recommend you to copy or move the entire folder 
-with everything under your BEAST 2.* folder, and rename it into `lphy`.
-So you can skip the step installing LPhy during the LPhyBEAST installation. 
+<figure class="image">
+  <a href="/images/LPhyStudioInstaller.png">
+    <img src="/images/LPhyStudioInstaller.png" alt="LPhy Studio installation wizard">
+  </a>
+  <figcaption>Figure 1: Installing LPhy Studio.</figcaption>
+</figure>
+
+Note: To use LPhy with LPhyBEAST, we recommend that you install LPhy Studio inside your BEAST 2.* folder, and rename it into `lphy`. 
+
+Example LPhy scripts are in the `examples` subdirectory, and libraries are in the `lib` subdirectory of your LPhy install location.
 
 
-### Launching LPhy studio
+### Launching LPhy Studio
 
-To run LPhy studio use the commands below:
-```bash
-LPHY_PATH=~/WorkSpace/lphy-studio-{{lphy_version}}/
-cd $LPHY_PATH
-java -p lib -m lphystudio
-```
+To run LPhy Studio click on `LPhyStudioLauncher` inside your LPhy install location.
 
-(Optional) To use LPhy extensions, copy the extension jar file into the `lib` folder of your `$LPHY_PATH`.
-
-To launch LPhy Studio with a script file use
-```bash
-java -p lib -m lphystudio tutorials/RSV2.lphy
-```
-
-Note that you can replace `tutorials/RSV2.lphy` with the path to another LPhy script file.
-
-<!-- Move this to another tutorial or page? -->
-__Please note__: the LPhy studio will set the working directory (also property `user.dir`) 
-to the parent directory which the script sits inside.
-For example, in the above command line, the working directory will change to 
-the subfolder `tutorials` not the folder `$LPHY_PATH`.
-
-This is to cooperate with any relative paths inside the LPhy script, 
-such as `readNexus(file="data/RSV2.nex", ...);`, 
-It is comparatively easy to organise all the LPhy scripts in a folder (e.g. tutorials/) 
-and their required alignments (e.g. RSV2.nex) in the subfolder `data` under the folder.
-
-If you are new to LPhy, we recommend reading this
-[introduction](https://linguaphylo.github.io/about/),
-before you try the tutorials. 
+If you are new to LPhy, we recommend starting with the
+[introductory guide](https://linguaphylo.github.io/about/) before moving to the tutorial pages. 
 
 
 ## LPhyBEAST installation
@@ -108,7 +73,7 @@ The packages-extra URL should now appear as shown below
   <a href="/images/PackagesExtra.png">
     <img src="/images/PackagesExtra.png" alt="PackagesExtra">
   </a>
-  <figcaption>Figure 1: Adding packages-extra URL.</figcaption>
+  <figcaption>Figure 2: Adding packages-extra URL.</figcaption>
 </figure>
 
 {:start="4"}
@@ -123,7 +88,7 @@ Note: Installation may take few minutes to download and install. Please wait unt
 
 <figure class="image">
   <img src="/images/Installed.png" alt="Installed">
-  <figcaption>Figure 2: Confirmation message for successful install of lphybeast.</figcaption>
+  <figcaption>Figure 3: Confirmation message for successful install of lphybeast.</figcaption>
 </figure>
 
 {:start="7"}
@@ -144,7 +109,7 @@ such as `lphy-studio-{{ lphy_version }}.zip`.
   <a href="/images/LPhyLibFolder.png">
     <img src="/images/LPhyLibFolder.png" alt="LPhyLibFolder" style="width:700px;">
   </a>
-  <figcaption>Figure 3: Set LPHY_LIB path.</figcaption>
+  <figcaption>Figure 4: Set LPHY_LIB path.</figcaption>
 </figure>  
 
 {:start="3"}
