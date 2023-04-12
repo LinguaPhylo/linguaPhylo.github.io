@@ -21,11 +21,9 @@ To check your Java version, use the command line below:
 java -version
 ```
 
-## LPhy Studio
+## LPhy Studio installation
 
 {% assign lphy_version = "1.4.*" %}
-
-### LPhy Studio installation
 
 Go to the [LPhy releases page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
 and download the [latest installer](https://github.com/LinguaPhylo/linguaPhylo/releases/latest) for your operating system. 
@@ -35,6 +33,20 @@ and download the [latest installer](https://github.com/LinguaPhylo/linguaPhylo/r
 - Windows [lphystudio-1.4.1-windows-x64-installer.exe](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphystudio-1.4.1-windows-x64-installer.exe)
 
 - Linux [lphy-studio-1.4.1.zip](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphy-studio-1.4.1.zip)
+
+
+### Linux
+
+Unzip the `lphy-studio-*.zip` inside your BEAST 2.* directory `$BEAST_DIR`.
+
+To launch LPhyStudio from command line use:
+```bash
+LPHY_PATH=$BEAST_DIR/lphy-studio-{{lphy_version}}/
+cd $LPHY_PATH
+java -p lib -m lphystudio
+```
+
+### Mac and Windows
 
 Double click the installer and follow the install wizard to complete the install.
 
@@ -47,10 +59,15 @@ Double click the installer and follow the install wizard to complete the install
 
 To use LPhy with LPhyBEAST, we recommend that you install LPhy Studio inside your BEAST 2.* folder, and name the install directory `lphy`. 
 
-Example LPhy scripts are in the `examples` subdirectory, and libraries are in the `lib` subdirectory of your LPhy install location.
+<figure class="image">
+  <a href="/images/LPhyStudioInstallerLocation.png">
+    <img src="/images/LPhyStudioInstallerLocation.png" alt="LPhy Studio installation wizard">
+  </a>
+  <figcaption>Figure 2: Selecting the LPhy Studio install location.</figcaption>
+</figure>
 
 
-### Launching LPhy Studio
+#### Launching LPhy Studio
 
 To run LPhy Studio click on `LPhyStudioLauncher` inside your LPhy install location.
 
@@ -58,10 +75,12 @@ To run LPhy Studio click on `LPhyStudioLauncher` inside your LPhy install locati
   <a href="/images/LPhyStudioLauncher.png">
     <img src="/images/LPhyStudioLauncher.png" alt="LPhy Studio install location">
   </a>
-  <figcaption>Figure 2: Launching LPhy Studio.</figcaption>
+  <figcaption>Figure 3: Launching LPhy Studio.</figcaption>
 </figure>
 
-If you are new to LPhy, we recommend starting with the [introductory guide](https://linguaphylo.github.io/about/) before moving to the tutorial pages. 
+Example LPhy scripts are in the `examples` subdirectory, and libraries are in the `lib` subdirectory of your LPhy install location.
+
+If you are new to LPhy, we recommend starting with this [introductory guide](https://linguaphylo.github.io/about/) before moving to the tutorials. 
 
 
 ## LPhyBEAST installation
@@ -77,7 +96,7 @@ Note: Installation may take few minutes to download and install. Please wait unt
 
 <figure class="image">
   <img src="/images/Installed.png" alt="Installed">
-  <figcaption>Figure 3: Confirmation message for successful install of lphybeast.</figcaption>
+  <figcaption>Figure 4: Confirmation message for successful install of lphybeast.</figcaption>
 </figure>
 
 {:start="4"}
@@ -100,21 +119,27 @@ The package `lphybeast` does not include LPhy, so we need to install LPhy separa
   <a href="/images/LPhyLibFolder.png">
     <img src="/images/LPhyLibFolder.png" alt="LPhyLibFolder" style="width:700px;">
   </a>
-  <figcaption>Figure 4: Set LPHY_LIB path.</figcaption>
+  <figcaption>Figure 5: LPhy install directory.</figcaption>
 </figure>  
 
 {:start="3"}
-3. Make sure there is __only one__ LPhy folder, such as `lphy-studio-{{ lphy_version }}`, inside your `$BEAST_DIR`.
+3. Make sure there is __only one__ LPhy folder inside your `$BEAST_DIR`.
 
-4. Download the bash script `lphybeast` from 
-[LPhyBEAST's repo](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast),
-and put it into the `bin` folder under `$BEAST_DIR` with other scripts.
+4. Download the bash script [lphybeast](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast),
+and place it into the `bin` folder under `$BEAST_DIR` alongside other scripts.
 
 The final folder structure looks like:
+<figure class="image">
+  <a href="/images/LPhyLibFolder.png">
+    <img src="/images/BeastBinFolder.png" alt="Beast bin folder" style="width:700px;">
+  </a>
+  <figcaption>Figure 6: Add lphybeast script.</figcaption>
+</figure> 
 
 We can start LPhyBEAST using the `lphybeast` script.
-It will launch LPhyBEAST through the BEAST 2 [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
-and add the `$LPHY_LIB` folder into the classpath.
+
+The `lphybeast` script will launch LPhyBEAST using the BEAST 2 [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
+and add `$LPHY_LIB` into the classpath. 
 
 
 ## LPhyBEAST usage
