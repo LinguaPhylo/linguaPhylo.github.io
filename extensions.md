@@ -4,13 +4,11 @@ title: LPhy Extensions
 permalink: /extensions/
 ---
 
-## LPhy Extensions
-
-### Available extensions
+## Available extensions
 
 [Phylonco](https://github.com/bioDS/beast-phylonco) v1.0.0
 
-### Manual installation
+## Manual installation
 
 LPhy extensions can be installed manually by downloading the extension jar and placing it inside the `lib` subdirectory of your LPhy installation location.
 
@@ -24,7 +22,7 @@ For example, for the [Phylonco](https://github.com/bioDS/beast-phylonco) extensi
 
 Your directory structure should look like this:
 
-### Installing by extension manager
+## Installing by extension manager
 
 Extensions can also be installed using the "LPhy Extension Manager" from LPhy Studio. 
 
