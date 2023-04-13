@@ -7,8 +7,7 @@ permalink: /features/
 The [LPhy reference implementation manual](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/index.md)
 lists all generative distributions, functions, and data types in the latest release.
 
-
-## Language features
+## LPhy language features
 
 LPhy scripts are text files with the file extension `.lphy`, and can be written using any text editor. The LPhy language has an EBNF grammar (Extended Backus–Naur form). The reference implementation in Java uses an ANTLR-based parser internally to parse the LPhy language into Java Objects. 
 
