@@ -24,9 +24,17 @@ For example, to install the [Phylonco](https://github.com/bioDS/beast-phylonco) 
 
 Your directory structure should look like this:
 
+<figure class="image">
+  <a href="/images/LPhyLibPhylonco.png">
+    <img src="/images/LPhyLibPhylonco.png" alt="LPhy libraries">
+  </a>
+  <figcaption>Figure 1: Adding phylonco package to LPhy libraries.</figcaption>
+</figure>
+
+
 ### Installing by extension manager
 
-Extensions can also be installed using the "LPhy Extension Manager" from LPhy Studio. 
+Extensions can also be installed using the "LPhy Extension Manager" from the Menu in LPhy Studio. 
 
 This functionality will be added in future releases. 
 
