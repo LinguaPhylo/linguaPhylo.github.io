@@ -59,6 +59,8 @@ Double click the installer and follow the install wizard to complete the install
 
 To use LPhy with LPhyBEAST, we recommend that you install LPhy Studio inside your BEAST 2.* folder, and name the install directory `lphy`. 
 
+Here the LPhy installation location is `/Applications/Beast 2.7.3/lphy`
+
 <figure class="image">
   <a href="/images/LPhyStudioInstallerLocation.png">
     <img src="/images/LPhyStudioInstallerLocation.png" alt="LPhy Studio installation wizard">
@@ -84,20 +86,17 @@ If you are new to LPhy, we recommend starting with this [introductory guide](htt
 
 ### Running LPhy via command line
 
-LPhy can be run using command line inside the `bin` subdirectory of your LPhy installation location `$LPHY_PATH`.
+LPhy can be run using command line inside your LPhy installation location, this is your `lphy` folder (mac and windows) or `lphy-studio-{{lphy_version}}` directory (linux). 
 
-Linux or Mac:
-```bash
+```
 cd $LPHY_PATH
-cd bin
-./slphy
+java -Xms64m -Xmx5g -p lib -m lphystudio/lphystudio.app.simulator.SLPhy [YourLPhyScript]
 ```
 
-Windows:
-```bat
-cd $LPHY_PATH
-cd bin
-./slphy.bat
+Example usage:
+```bash
+cd $LPHY_PATH 
+java -Xms64m -Xmx5g -p lib -m lphystudio/lphystudio.app.simulator.SLPhy examples/coalescent/gtrCoalescent.lphy
 ```
 
 ### LPhy extensions
@@ -108,7 +107,7 @@ Current supported LPhy extensions are listed on the [homepage](https://linguaphy
 
 ## LPhyBEAST installation
 
-[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) and LPhyBeast extensions require BEAST 2.7.4 or higher. 
+[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) and LPhyBeast extensions require BEAST 2.7.3 or higher. 
 
 They are installable as [BEAST 2 packages](https://www.beast2.org/managing-packages/) called `lphybeast` and `LPhyBeastExt`.
 
