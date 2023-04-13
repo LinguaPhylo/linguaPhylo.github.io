@@ -86,17 +86,18 @@ If you are new to LPhy, we recommend starting with this [introductory guide](htt
 
 ## Running LPhy via command line
 
-LPhy can be run using command line inside your LPhy installation location, this is your `lphy` folder (mac and windows) or `lphy-studio-{{lphy_version}}` directory (linux). 
+LPhy can be used to simulate data via command line inside your LPhy installation location. 
+This location is your `lphy` folder (mac and windows) or `lphy-studio-{{lphy_version}}` directory (linux). 
 
 ```
 cd $LPHY_PATH
-java -Xms64m -Xmx5g -p lib -m lphystudio/lphystudio.app.simulator.SLPhy [YourLPhyScript]
+java -p lib -m lphystudio/lphystudio.app.simulator.SLPhy <LPhy script>
 ```
 
 Example usage:
 ```bash
 cd $LPHY_PATH 
-java -Xms64m -Xmx5g -p lib -m lphystudio/lphystudio.app.simulator.SLPhy examples/coalescent/gtrCoalescent.lphy
+java -p lib -m lphystudio/lphystudio.app.simulator.SLPhy examples/coalescent/gtrCoalescent.lphy
 ```
 
 ## LPhy extensions
