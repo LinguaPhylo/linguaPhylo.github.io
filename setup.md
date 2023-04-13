@@ -84,7 +84,7 @@ Example LPhy scripts are in the `examples` subdirectory, and libraries are in th
 
 If you are new to LPhy, we recommend starting with this [introductory guide](https://linguaphylo.github.io/about/) before moving to the tutorials. 
 
-### Running LPhy via command line
+## Running LPhy via command line
 
 LPhy can be run using command line inside your LPhy installation location, this is your `lphy` folder (mac and windows) or `lphy-studio-{{lphy_version}}` directory (linux). 
 
@@ -99,7 +99,7 @@ cd $LPHY_PATH
 java -Xms64m -Xmx5g -p lib -m lphystudio/lphystudio.app.simulator.SLPhy examples/coalescent/gtrCoalescent.lphy
 ```
 
-### LPhy extensions
+## LPhy extensions
 
 LPhy extensions can be installed following this guide here. 
 
