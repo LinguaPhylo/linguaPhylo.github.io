@@ -4,8 +4,6 @@ title: LPhy Extensions
 permalink: /extensions/
 ---
 
-## LPhy Extensions
-
 ### Available extensions
 
 [Phylonco](https://github.com/bioDS/beast-phylonco) v1.0.0
