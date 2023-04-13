@@ -26,7 +26,7 @@ java -version
 {% assign lphy_version = "1.4.*" %}
 
 Go to the [LPhy releases page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
-and download the [latest installer](https://github.com/LinguaPhylo/linguaPhylo/releases/latest) for your operating system. 
+and download the [latest installer](https://github.com/LinguaPhylo/linguaPhylo/releases/latest) for your operating system:  
 
 - Mac [lphystudio-1.4.1-osx-installer.dmg](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphystudio-1.4.1-osx-installer.dmg)
 
@@ -82,17 +82,41 @@ Example LPhy scripts are in the `examples` subdirectory, and libraries are in th
 
 If you are new to LPhy, we recommend starting with this [introductory guide](https://linguaphylo.github.io/about/) before moving to the tutorials. 
 
+### Running LPhy via command line
+
+LPhy can be run using command line inside the `bin` subdirectory of your LPhy installation location `$LPHY_PATH`.
+
+Linux or Mac:
+```bash
+cd $LPHY_PATH
+cd bin
+./slphy
+```
+
+Windows:
+```bat
+cd $LPHY_PATH
+cd bin
+./slphy.bat
+```
+
+### LPhy extensions
+
+LPhy extensions can be installed following this guide here. 
+
+Current supported LPhy extensions are listed on the [homepage](https://linguaphylo.github.io/).
 
 ## LPhyBEAST installation
 
-[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) requires BEAST 2.7.4 or higher, 
-and is installable as a [BEAST 2 package](https://www.beast2.org/managing-packages/) called lphybeast.
+[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) and LPhyBeast extensions require BEAST 2.7.4 or higher. 
 
-1. To install LPhyBEAST, start `BEAUti` and open `Package Manager` from the menu `File` => `Manage Packages`. 
+They are installable as [BEAST 2 packages](https://www.beast2.org/managing-packages/) called `lphybeast` and `LPhyBeastExt`.
+
+1. To install LPhyBEAST, start `BEAUti` and from the menu go to `File` => `Manage Packages` to launch `Package Manager`. 
 2. Click on `Package repositories` to open the "BEAST 2 Package Repository Manager".
 3. Select `lphybeast` from the packages list, then use `Install/Upgrade` to install.
 
-Note: Installation may take few minutes to download and install. Please wait until a confirmation popup appears on the screen.
+Installation may take few minutes to download and install. Please wait until a confirmation popup appears on the screen.
 
 <figure class="image">
   <img src="/images/Installed.png" alt="Installed">
@@ -101,15 +125,15 @@ Note: Installation may take few minutes to download and install. Please wait unt
 
 {:start="4"}
 4. Restart `Package Manager`. Now `lphybeast` and dependent packages should appear as "installed". 
-5. Select `lphybeast ext` from the packages list, then use `Install/Upgrade` to install.
+5. Select `LPhyBeastExt` from the packages list, then use `Install/Upgrade` to install.
 
-Alternatively, you can install the `lphybeast` package using [command line](https://www.beast2.org/managing-packages/).
+Alternatively, you can install the `lphybeast` and `LPhyBeastExt` packages using [command line](https://www.beast2.org/managing-packages/).
 
 ### Install LPhy libraries and download starting script 
 
 The package `lphybeast` does not include LPhy, so we need to install LPhy separately.
 
-1. Download the LPhy Studio installer from the [release page](https://github.com/LinguaPhylo/linguaPhylo/releases)
+1. Download the LPhy Studio installer from the [release page](https://github.com/LinguaPhylo/linguaPhylo/releases) for your operating system: 
 
 - Mac [lphystudio-1.4.1-osx-installer.dmg](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphystudio-1.4.1-osx-installer.dmg)
 
@@ -117,6 +141,9 @@ The package `lphybeast` does not include LPhy, so we need to install LPhy separa
 
 - Linux [lphy-studio-1.4.1.zip](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphy-studio-1.4.1.zip)
 
+Note: You may skip steps 1-2 if you have already installed LPhyStudio in your BEAST 2 directory. 
+
+{:start="2"}
 2. Install LPhy Studio inside the BEAST 2 installation folder `$BEAST_DIR`.
 
 <figure class="image">
