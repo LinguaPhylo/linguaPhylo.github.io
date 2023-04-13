@@ -23,7 +23,7 @@ java -version
 
 ## LPhy Studio installation
 
-{% assign lphy_version = "1.4.*" %}
+{% assign lphy_version = "1.4.1" %}
 
 Go to the [LPhy releases page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
 and download the [latest installer](https://github.com/LinguaPhylo/linguaPhylo/releases/latest) for your operating system:  
@@ -37,7 +37,7 @@ and download the [latest installer](https://github.com/LinguaPhylo/linguaPhylo/r
 
 ### Linux
 
-Unzip the `lphy-studio-*.zip` inside your BEAST 2.* directory `$BEAST_DIR`.
+Unzip the `lphy-studio-{{lphy_version}}.zip` inside your BEAST 2.* directory `$BEAST_DIR`.
 
 To launch LPhyStudio from command line use:
 ```bash
@@ -101,7 +101,7 @@ java -Xms64m -Xmx5g -p lib -m lphystudio/lphystudio.app.simulator.SLPhy examples
 
 ## LPhy extensions
 
-LPhy extensions can be installed following this guide here. 
+LPhy extensions can be installed following this guide [here](https://linguaphylo.github.io/extensions/). 
 
 Current supported LPhy extensions are listed on the [homepage](https://linguaphylo.github.io/).
 
