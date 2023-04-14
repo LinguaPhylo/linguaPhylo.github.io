@@ -6,10 +6,13 @@ permalink: /setup/
 
 This page includes user manuals for two applications:
 
-1. LPhy studio - the GUI for LPhy language
+1. LPhy Studio - the GUI for LPhy language
 
-2. LPhyBEAST - a BEAST 2 package that takes a LPhy script and produces a BEAST 2 XML file.
+2. LPhyBEAST - a BEAST 2 package that takes a LPhy script and produces a BEAST 2 XML file. 
 
+This page will run through the basic setup for LPhy Studio and LPhyBEAST. 
+
+For advanced options see the [Advanced User Guide](https://linguaphylo.github.io/advanced/) and [LPhy Extensions](https://linguaphylo.github.io/extensions/) pages.
 
 ## Java 17
 
