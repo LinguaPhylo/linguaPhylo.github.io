@@ -54,44 +54,6 @@ Example of an array using range notation
 d = [1:5];
 ```
 
-### Generators
-
-Generators include parametric distributions (e.g., normal, log-normal, uniform, dirichlet distributions), tree generative distributions (coalescent, birth-death models), and sequence generators (using Continuous-time Markov Chains, substitution models and clock models). 
-
-Example of a parametric distribution
-```
-Θ ~ LogNormal(meanlog=3.0, sdlog=1.0);
-```
-
-Example of a tree generative distribution
-```
-Θ ~ LogNormal(meanlog=3.0, sdlog=1.0);
-ψ ~ Coalescent(theta=Θ, taxa=taxa);
-```
-
-Example of a sequence generator (PhyloCTMC)
-```
-Θ ~ LogNormal(meanlog=3.0, sdlog=1.0);
-ψ ~ Coalescent(theta=Θ, taxa=taxa);
-D ~ PhyloCTMC(L=L, Q=jukesCantor(), tree=ψ);
-```
-
-A full list of generators can be found in the [LPhy reference implementation manual](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/index.md).
-
-### Variable vectorization
-
-Any variable or generator can be vectorized to produce a vector of independent and identically distributed random variables. This can be done in two ways: by using the "replicates" keyword, or by passing an array into the arguments of the generator. 
-
-Example using the replicates keyword
-```
-pi ~ Dirichlet(conc=[2, 2, 2, 2], replicates=3);
-```
-
-Example using array vectorization
-```
-Q = hky(kappa=k, freq=pi);
-```
-
 ### Code blocks
 
 Code blocks enclosed by curly braces `{ ... }` are used to differentiate between parts of the script describing the data -- the data block `data{ ... }`, and parts describing the model -- the model block `model { ... }`. 
@@ -116,12 +78,57 @@ Alignment data can be read in from a NEXUS or FASTA file.
 * The model block is used to define the models and parameters in a Bayesian phylogenetic analysis. 
 This purpose of this is to allow analyses to be more easily reproduced by other researchers. 
 
+* Generators can only be used inside the **model block**
+
 * Note that the `data` and `model` are **reserved keywords** and cannot be used for variable names.
 
 * If the same variable name is used for data in the `data` block 
 and a random variable in the `model` block, then the value in the data block will be used for inference (i.e., 'data clamping').
 
 An LPhy script needs to contain both a `data{ ... }` and a `model{ ... }` block. However, the data block can be left empty for some use cases (e.g., data simulation). When the data block is empty, data will be simulated from the model. 
+
+
+### Generators
+
+Generators include parametric distributions (e.g., normal, log-normal, uniform, dirichlet distributions), tree generative distributions (coalescent, birth-death models), and sequence generators (using Continuous-time Markov Chains, substitution models and clock models). 
+Note that generators can only be used inside the model block.
+
+Example of a parametric distribution
+```
+Θ ~ LogNormal(meanlog=3.0, sdlog=1.0);
+```
+
+Example of a tree generative distribution
+```
+Θ ~ LogNormal(meanlog=3.0, sdlog=1.0);
+ψ ~ Coalescent(theta=Θ, taxa=taxa);
+```
+
+Example of a sequence generator (PhyloCTMC)
+```
+taxa = taxa(names=1:10);
+Θ ~ LogNormal(meanlog=3.0, sdlog=1.0);
+ψ ~ Coalescent(theta=Θ, taxa=taxa);
+D ~ PhyloCTMC(L=200, Q=jukesCantor(), tree=ψ);
+```
+
+A full list of generators can be found in the [LPhy reference implementation manual](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/index.md).
+
+### Variable vectorization
+
+Any variable or generator can be vectorized to produce a vector of independent and identically distributed random variables. This can be done in two ways: by using the "replicates" keyword, or by passing an array into the arguments of the generator. 
+
+Example using the replicates keyword
+```
+pi ~ Dirichlet(conc=[2, 2, 2, 2], replicates=3);
+```
+
+Example using array vectorization
+```
+k ~ LogNormal(meanlog=0.5, sdlog=1.0, replicates=3);
+pi ~ Dirichlet(conc=[2.0, 2.0, 2.0, 2.0], replicates=3);
+Q = hky(kappa=k, freq=pi);
+```
 
 ## Reference implementation in Java
 
