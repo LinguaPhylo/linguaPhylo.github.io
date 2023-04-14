@@ -30,7 +30,7 @@ isolated from a variety of hosts 1996 - 2005 across sample locations.
 
 {% include_relative templates/lphy-studio-intro.md %}
 
-The LPhy scripts to define this analysis is listed below.
+The LPhy script `h5n1.lphy` for this analysis is shown below.
 
 
 [//]: # (## Code, Graphical Model)
