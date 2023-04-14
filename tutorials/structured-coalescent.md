@@ -59,7 +59,7 @@ We want to see if we can infer this source-sink dynamic from sequence data using
 
 {% include_relative templates/lphy-studio-intro.md %}
 
-The LPhy script `tutorials/h3n2.lphy` for this analysis is shown below.
+The LPhy script `h3n2.lphy` for this analysis is shown below.
 
 {% assign current_fig_num = 1 %}
 {% assign lphy_fig = "Figure " | append: current_fig_num  %}
