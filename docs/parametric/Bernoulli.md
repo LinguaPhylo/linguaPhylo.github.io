@@ -2,9 +2,7 @@ Bernoulli distribution
 ======================
 
 Bernoulli([Number](../types/Number.md) **p**)
-
 ---------------------------------------------
-
 The coin toss distribution. With true (heads) having probability p.
 
 ### Parameters
