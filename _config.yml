@@ -37,6 +37,7 @@ header_pages:
   - features.md
   - setup.md
   - tutorials.md
+  - docs.md
   - developer.md
 plugins:
   - jekyll-feed
