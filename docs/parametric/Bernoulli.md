@@ -1,3 +1,9 @@
+---
+layout: page
+kramdown:
+  input: GFM
+---
+
 Bernoulli distribution
 ======================
 Bernoulli([Number](../types/Number.md) **p**)
