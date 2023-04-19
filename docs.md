@@ -1,6 +1,6 @@
 ---
 layout: page
-title: LPhy Language Reference 
+title: Docs 
 permalink: /docs/
 ---
 
