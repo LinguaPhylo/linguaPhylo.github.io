@@ -1,8 +1,20 @@
 ---
-layout: page
 kramdown:
   input: GFM
   hard_wrap: true
+  footnote: true
+  strikethrough: true
+  tables: true
+  autolink: true
+  lax_html_blocks: true
+  space_after_headers: true
+  superscript: true
+  underline: true
+  highlight: true
+  quote: true
+  no_intra_emphasis: true
+  gh_blockcode: true
+  emoji: true
 ---
 
 Bernoulli distribution
