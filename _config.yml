@@ -41,6 +41,7 @@ header_pages:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-relative-links
 
 # Google services
 google_analytics: G-FV6H1Z0KBL
