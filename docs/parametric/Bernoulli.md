@@ -2,6 +2,7 @@
 layout: page
 kramdown:
   input: GFM
+  hard_wrap: true
 ---
 
 Bernoulli distribution
