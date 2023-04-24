@@ -4,7 +4,7 @@ title: Language Features
 permalink: /features/
 ---
 
-The [LPhy reference implementation manual](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/index.md)
+The [LPhy reference implementation manual](/docs)
 lists all generative distributions, functions, and data types in the latest release.
 
 ## LPhy language features
