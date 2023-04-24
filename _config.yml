@@ -56,7 +56,11 @@ defaults:
       path: "docs.md"
     values:
       strip_title: true
-
+  -
+    scope:
+      path: "docs"
+    values:
+      strip_title: true
 
 # Google services
 google_analytics: G-FV6H1Z0KBL
