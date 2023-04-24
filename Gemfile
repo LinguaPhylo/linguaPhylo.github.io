@@ -30,3 +30,6 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
 # Add relative links
 gem 'jekyll-relative-links'
+
+# Strip titles from markdown docs
+gem 'jekyll-titles-from-headings'
