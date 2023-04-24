@@ -112,7 +112,7 @@ taxa = taxa(names=1:10);
 D ~ PhyloCTMC(L=200, Q=jukesCantor(), tree=ψ);
 ```
 
-A full list of generators can be found in the [LPhy reference implementation manual](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/index.md).
+A full list of generators can be found in the [LPhy reference implementation manual](/docs).
 
 ### Variable vectorization
 
@@ -132,10 +132,10 @@ Q = hky(kappa=k, freq=pi);
 
 ## Reference implementation in Java
 
-In the Java reference implementation, generators are matched by method signatures of their corresponding Java class. See the [LPhy reference implementation manual](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/index.md) for a list of functions and generative distributions. 
+In the Java reference implementation, generators are matched by method signatures of their corresponding Java class. See the [LPhy reference implementation manual](/docs) for a list of functions and generative distributions. 
 
 The type of a variable is inferred from the return type of its generator and does not need to be declared. 
-For arguments of functions or generative distributions, the types are defined in the [LPhy reference implementation manual](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/index.md). 
+For arguments of functions or generative distributions, the types are defined in the [LPhy reference implementation manual](/docs). 
 Type checking and syntax checking is done during execution. 
 
 Overloading of functions is supported (Java-style overloading). Optional arguments in functions are allowed, with or without default values. 
