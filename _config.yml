@@ -52,7 +52,7 @@ titles_from_headings:
   
 defaults:
   - scope:
-      path: "docs"
+      path: "docs/*"
       type: "pages"
     values:
       strip_title: true
