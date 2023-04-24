@@ -43,6 +43,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-relative-links
+  - jekyll-titles-from-headings
 
 # Google services
 google_analytics: G-FV6H1Z0KBL
