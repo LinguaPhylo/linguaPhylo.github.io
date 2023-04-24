@@ -51,11 +51,12 @@ titles_from_headings:
   collections: false
   
 defaults:
-  - scope:
-      path: "docs/*"
-      type: "pages"
+  -
+    scope:
+      path: "docs/*/*.md"
     values:
       strip_title: true
+
 
 # Google services
 google_analytics: G-FV6H1Z0KBL
