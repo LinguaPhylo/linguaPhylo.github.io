@@ -51,7 +51,7 @@ c = [1, 2, 3, 4, 5];
 
 Example of an array using range notation
 ```
-d = [1:5];
+d = 1:5;
 ```
 
 ### Code blocks
