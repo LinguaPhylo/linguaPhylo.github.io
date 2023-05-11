@@ -9,7 +9,10 @@ lists all generative distributions, functions, and data types in the latest rele
 
 ## LPhy language features
 
-LPhy scripts are text files with the file extension `.lphy`, and can be written using any text editor. The LPhy language has an EBNF grammar (Extended Backus–Naur form). The reference implementation in Java uses an ANTLR-based parser internally to parse the LPhy language into Java Objects. 
+LPhy scripts are text files with the file extension `.lphy`, and can be written using any text editor. 
+The LPhy language has an EBNF grammar (Extended Backus–Naur form). 
+The reference implementation in Java uses an ANTLR-based parser internally to parse the LPhy language into Java Objects, 
+where syntax checking is performed during execution.
 
 ### Syntax
 
@@ -116,14 +119,22 @@ A full list of generators can be found in the [LPhy reference implementation man
 
 ### Variable vectorization
 
-Any variable or generator can be vectorized to produce a vector of independent and identically distributed random variables. This can be done in two ways: by using the "replicates" keyword, or by passing an array into the arguments of the generator. 
+Control flow structures are not allowed in order to promote simplicity and readability, 
+facilitating a lower barrier to entry and a gentler learning curve. 
 
-Example using the replicates keyword
+Any variable or generator can be vectorized to produce a vector of independent and identically distributed random variables. 
+This can be done in two ways: by using the "replicates" keyword, 
+or by passing an array into the arguments of the generator. 
+
+1. Example using the replicates keyword
+
 ```
 pi ~ Dirichlet(conc=[2, 2, 2, 2], replicates=3);
 ```
 
-Example using array vectorization
+2. Example allowing all arguments of the function `hky` to be vectorised, 
+which results in more compact and expressive model specifications. 
+
 ```
 k ~ LogNormal(meanlog=0.5, sdlog=1.0, replicates=3);
 pi ~ Dirichlet(conc=[2.0, 2.0, 2.0, 2.0], replicates=3);
@@ -139,6 +150,7 @@ For arguments of functions or generative distributions, the types are defined in
 Type checking and syntax checking is done during execution. 
 
 Overloading of functions is supported (Java-style overloading). Optional arguments in functions are allowed, with or without default values. 
+
 
 ## LPhy Studio
 
@@ -173,3 +185,5 @@ More details on available tree generative distributions can be found here:
 Sequence generation from Continuous-time Markov Chains, substitution models, site rates, and branch rates are described below:
 
 * [PhyloCTMC generative distribution](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/lphy/evolution/likelihood.md)
+
+
