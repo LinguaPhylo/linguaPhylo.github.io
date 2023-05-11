@@ -126,14 +126,13 @@ Any variable or generator can be vectorized to produce a vector of independent a
 This can be done in two ways: by using the "replicates" keyword, 
 or by passing an array into the arguments of the generator. 
 
-1. Example using the replicates keyword
+  1. Example using the replicates keyword
 
 ```
 pi ~ Dirichlet(conc=[2, 2, 2, 2], replicates=3);
 ```
 
-2. Example allowing all arguments of the function `hky` to be vectorised, 
-which results in more compact and expressive model specifications. 
+  2. Example allowing all arguments of the function `hky` to be vectorised, which results in more compact and expressive model specifications. 
 
 ```
 k ~ LogNormal(meanlog=0.5, sdlog=1.0, replicates=3);
