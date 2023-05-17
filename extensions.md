@@ -8,7 +8,7 @@ permalink: /extensions/
 
 | Extension | Beast package version | LPhy extension version | Homepage | Examples |
 | -------- | ------- | ------------ | ------- | ---|
-| Phylonco  | v1.0.0 | v0.0.3 | www.github.com/bioDS/beast-phylonco | [phylonco-lphy-examples.zip](https://github.com/bioDS/beast-phylonco/releases/download/v1.0.0/phylonco-lphy-examples.zip) |
+| Phylonco  | v1.0.0 | v0.0.3 | https://github.com/bioDS/beast-phylonco | [phylonco-lphy-examples.zip](https://github.com/bioDS/beast-phylonco/releases/download/v1.0.0/phylonco-lphy-examples.zip) |
 
 
 ### Manual installation
