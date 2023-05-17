@@ -30,7 +30,7 @@ Your directory structure should look like this:
   <a href="/images/LPhyLibPhylonco.png">
     <img src="/images/LPhyLibPhylonco.png" alt="LPhy libraries">
   </a>
-  <figcaption>Figure 1: Adding phylonco package to LPhy libraries.</figcaption>
+  <figcaption>Figure 1: Adding phylonco extension to LPhy libraries.</figcaption>
 </figure>
 
 #### Loading examples
@@ -41,9 +41,23 @@ To load the examples into LPhy Studio:
 
 2. Download the file with the suffix `*-lphy-examples.zip`, e.g., [phylonco-lphy-examples.zip](https://github.com/bioDS/beast-phylonco/releases/download/v1.0.0/phylonco-lphy-examples.zip)
 
-3. Unzip the `*-lphy-examples.zip` file inside the `examples` subdirectory of your LPhy installation
+3. Unzip the `*-lphy-examples.zip` file inside the `examples` subdirectory of your LPhy installation. Your directory structure should look like this: 
 
-4. Restart LPhy Studio, and these examples will be available through the Menu "File" -> "Example scripts" -> "extensionName". For the Phylonco extension, this will be available through "File" -> "Example scripts" -> "phylonco"
+<figure class="image">
+  <a href="/images/LPhyExamplesPhylonco.png">
+    <img src="/images/LPhyExamplesPhylonco.png" alt="LPhy examples">
+  </a>
+  <figcaption>Figure 2: Adding phylonco to LPhy examples.</figcaption>
+</figure>
+
+4. Restart LPhy Studio, and these examples will be available through the Menu "File" -> "Example scripts" -> "extensionName". For the Phylonco extension, this will be available through "File" -> "Example scripts" -> "phylonco". Loading in the example script `gt16CoalErrModel.lphy` will display: 
+
+<figure class="image">
+  <a href="/images/LPhyStudioPhylonco.png">
+    <img src="images/LPhyStudioPhylonco.png" alt="Phylonco script">
+  </a>
+  <figcaption>Figure 3: Loading an example Phylonco script.</figcaption>
+</figure>
 
 
 ### Installing by extension manager
