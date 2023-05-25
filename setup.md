@@ -26,16 +26,19 @@ java -version
 
 ## LPhy Studio installation
 
-{% assign lphy_version = "1.4.1" %}
+{% assign lphy_version = "1.4.x" %}
 
-Go to the [LPhy releases page](https://github.com/LinguaPhylo/linguaPhylo/releases), 
-and download the [latest installer](https://github.com/LinguaPhylo/linguaPhylo/releases/latest) for your operating system:  
+Please click on the link below to download the version that corresponds to your operating system:
 
 - Mac [lphystudio-1.4.1-osx-installer.dmg](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphystudio-1.4.1-osx-installer.dmg)
 
 - Windows [lphystudio-1.4.1-windows-x64-installer.exe](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphystudio-1.4.1-windows-x64-installer.exe)
 
 - Linux [lphy-studio-1.4.1.zip](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphy-studio-1.4.1.zip)
+
+Alternatively, you can visit the LinguaPhylo GitHub release page 
+to check the [latest version](https://github.com/LinguaPhylo/linguaPhylo/releases/latest).
+All release versions of the software are available on the [LPhy releases page](https://github.com/LinguaPhylo/linguaPhylo/releases).  
 
 
 ### Linux
@@ -60,9 +63,9 @@ Double click the installer and follow the install wizard to complete the install
   <figcaption>Figure 1: Installing LPhy Studio.</figcaption>
 </figure>
 
-To use LPhy with LPhyBEAST, we recommend that you install LPhy Studio inside your BEAST 2.* folder, and name the install directory `lphy`. 
+To use LPhy with LPhyBEAST, we recommend that you install LPhy Studio inside your BEAST 2.* folder. 
 
-Here the LPhy installation location is `/Applications/Beast 2.7.3/lphy`
+Here the LPhy installation location is `/Applications/Beast 2.7.x/lphy-studio-{{lphy_version}}`
 
 <figure class="image">
   <a href="/images/LPhyStudioInstallerLocation.png">
@@ -136,13 +139,7 @@ Alternatively, you can install the `lphybeast` and `LPhyBeastExt` packages using
 
 The package `lphybeast` does not include LPhy, so we need to install LPhy separately.
 
-1. Download the LPhy Studio installer from the [release page](https://github.com/LinguaPhylo/linguaPhylo/releases) for your operating system: 
-
-- Mac [lphystudio-1.4.1-osx-installer.dmg](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphystudio-1.4.1-osx-installer.dmg)
-
-- Windows [lphystudio-1.4.1-windows-x64-installer.exe](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphystudio-1.4.1-windows-x64-installer.exe)
-
-- Linux [lphy-studio-1.4.1.zip](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphy-studio-1.4.1.zip)
+1. Download the LPhy Studio installer. See the section of [LPhy Studio installation](#lphy-studio-installation).
 
 Note: You may skip steps 1-2 if you have already installed LPhyStudio in your BEAST 2 directory. 
 
