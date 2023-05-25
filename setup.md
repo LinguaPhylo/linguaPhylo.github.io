@@ -12,7 +12,9 @@ This page includes user manuals for two applications:
 
 This page will run through the basic setup for LPhy Studio and LPhyBEAST. 
 
-For advanced options see the [Advanced User Guide](https://linguaphylo.github.io/advanced/) and [LPhy Extensions](https://linguaphylo.github.io/extensions/) pages.
+For more advanced options, please refer to the [Advanced User Guide](https://linguaphylo.github.io/advanced/) 
+and [LPhy Extensions](https://linguaphylo.github.io/extensions/) pages. 
+Additionally, you can explore the features of the LPhy language [here](https://linguaphylo.github.io/features/).
 
 ## Java 17
 
@@ -63,15 +65,14 @@ Double click the installer and follow the install wizard to complete the install
   <figcaption>Figure 1: Installing LPhy Studio.</figcaption>
 </figure>
 
-To use LPhy with LPhyBEAST, we recommend that you install LPhy Studio inside your BEAST 2.* folder. 
-
-Here the LPhy installation location is `/Applications/Beast 2.7.x/lphy-studio-{{lphy_version}}`
+To use LPhy with LPhyBEAST, LPhy Studio is required to install inside the BEAST 2.* folder. 
+In macOS, the typical installation path for LPhy Studio is `/Applications/Beast 2.7.x/lphy-studio-{{lphy_version}}`
 
 <figure class="image">
   <a href="/images/LPhyStudioInstallerLocation.png">
     <img src="/images/LPhyStudioInstallerLocation.png" alt="LPhy Studio installation wizard">
   </a>
-  <figcaption>Figure 2: Selecting the LPhy Studio install location.</figcaption>
+  <figcaption>Figure 2: Choosing the installation directory for LPhy Studio.</figcaption>
 </figure>
 
 
@@ -86,7 +87,7 @@ To run LPhy Studio click on `LPhyStudioLauncher` inside your LPhy install locati
   <figcaption>Figure 3: Launching LPhy Studio.</figcaption>
 </figure>
 
-Example LPhy scripts are in the `examples` subdirectory, and libraries are in the `lib` subdirectory of your LPhy install location.
+LPhy example scripts are in the `examples` subdirectory, and libraries are in the `lib` subdirectory of your LPhy install location.
 
 If you are new to LPhy, we recommend starting with this [introductory guide](https://linguaphylo.github.io/about/) before moving to the tutorials. 
 
@@ -150,7 +151,7 @@ Note: You may skip steps 1-2 if you have already installed LPhyStudio in your BE
   <a href="/images/LPhyLibFolder.png">
     <img src="/images/LPhyLibFolder.png" alt="LPhyLibFolder" style="width:700px;">
   </a>
-  <figcaption>Figure 5: LPhy install directory.</figcaption>
+  <figcaption>Figure 5: The installation directory for LPhy and Studio.</figcaption>
 </figure>  
 
 {:start="3"}
