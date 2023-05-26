@@ -45,16 +45,21 @@ All release versions of the software are available on the [LPhy releases page](h
 
 ### Linux
 
-To install LPhy Studio, unzip the `lphy-studio-{{lphy_version}}.zip` file inside your BEAST 2.x.x directory, 
-which is normally defined in the environment variable "$BEAST_DIR".
+To install LPhy Studio, unzip the `lphy-studio-{{lphy_version}}.zip` file to the target directory.
+
+If you are also using LPhyBEAST, then it is required to be inside your BEAST 2.x.x directory. 
 To launch LPhyStudio from the command line, use the following command, 
 replacing "x" with the actual number of the minor version for the latest release:
 
 ```bash
-LPHY_PATH=$BEAST_DIR/lphy-studio-{{lphy_version}}/
+LPHY_PATH=/path_to_beast/lphy-studio-{{lphy_version}}/
 cd $LPHY_PATH
 java -p lib -m lphystudio
 ```
+
+Make sure to replace "path_to_beast" with the actual path of your BEAST 2.x.x directory.
+Alternatively, you can set your own "LPHY_PATH" environment variable if LPhy Studio is installed in a different location.
+
 
 ### Mac and Windows
 
