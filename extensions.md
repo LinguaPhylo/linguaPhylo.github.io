@@ -50,6 +50,7 @@ To load the examples into LPhy Studio:
   <figcaption>Figure 2: Adding phylonco to LPhy examples.</figcaption>
 </figure>
 
+{:start="4"}
 4. Restart LPhy Studio, and these examples will be available through the Menu "File" -> "Example scripts" -> "extensionName". For the Phylonco extension, this will be available through "File" -> "Example scripts" -> "phylonco". Loading in the example script `gt16CoalErrModel.lphy` will display: 
 
 <figure class="image">
