@@ -18,7 +18,7 @@ Additionally, you can explore the features of the LPhy language [here](https://l
 
 ## Java 17
 
-LPhy and LPhyBEAST require Java 17. We recommend you install [OpenJDK 17](https://jdk.java.net/17/).
+LPhy and LPhyBEAST require Java 17. We recommend you install [OpenJDK 17](https://jdk.java.net/java-se-ri/17).
 
 To check your Java version, use the command line below:
 
