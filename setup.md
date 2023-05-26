@@ -61,7 +61,7 @@ Double click the installer and follow the installation wizard to complete the in
 
 <figure class="image">
   <a href="/images/LPhyStudioInstaller.png">
-    <img src="/images/LPhyStudioInstaller.png" alt="LPhy Studio installation wizard">
+    <img src="/images/LPhyStudioInstaller.png" alt="LPhy Studio installation wizard" style="width:600px;">
   </a>
   <figcaption>Figure 1: Installing LPhy Studio.</figcaption>
 </figure>
@@ -71,7 +71,7 @@ In macOS, a typical installation path for LPhy Studio is `/Applications/BEAST 2.
 
 <figure class="image">
   <a href="/images/LPhyStudioInstallerLocation.png">
-    <img src="/images/LPhyStudioInstallerLocation.png" alt="LPhy Studio installation wizard">
+    <img src="/images/LPhyStudioInstallerLocation.png" alt="LPhy Studio installation location" style="width:600px;">
   </a>
   <figcaption>Figure 2: Choosing the installation directory for LPhy Studio.</figcaption>
 </figure>
@@ -83,7 +83,7 @@ To run LPhy Studio click on `LPhyStudioLauncher` inside your LPhy install locati
 
 <figure class="image">
   <a href="/images/LPhyStudioLauncher.png">
-    <img src="/images/LPhyStudioLauncher.png" alt="LPhy Studio install location">
+    <img src="/images/LPhyStudioLauncher.png" alt="LPhy Studio install location" style="width:700px;">
   </a>
   <figcaption>Figure 3: Launching LPhy Studio.</figcaption>
 </figure>
@@ -129,7 +129,7 @@ First, we need to install two [BEAST 2 packages](https://www.beast2.org/managing
 Installation may take few minutes to download and install. Please wait until a confirmation popup appears on the screen.
 
 <figure class="image">
-  <img src="/images/Installed.png" alt="Installed">
+  <img src="/images/Installed.png" alt="Installed" style="width:600px;">
   <figcaption>Figure 4: Confirmation message for successful install of lphybeast.</figcaption>
 </figure>
 
