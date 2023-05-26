@@ -117,7 +117,8 @@ Current supported LPhy extensions are listed on the [homepage](https://linguaphy
 
 ## LPhyBEAST installation
 
-[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) and LPhyBeast extensions require BEAST 2.7.3 or higher. 
+[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) and LPhyBeast extensions 
+require the latest version of [BEAST 2](https://www.beast2.org). 
 
 They are installable as [BEAST 2 packages](https://www.beast2.org/managing-packages/) called `lphybeast` and `LPhyBeastExt`.
 
