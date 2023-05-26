@@ -161,7 +161,8 @@ Note: You may skip steps 1-2 if you have already installed LPhyStudio in your BE
 3. Make sure there is __only one__ LPhy folder inside your BEAST 2 installation folder.
 
 4. Download the bash script [lphybeast](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast),
-and place it into the `bin` subfolder of your BEAST 2 installation.
+and place it into the `bin` subfolder of your BEAST 2 installation. 
+Note that you may need give the `lphybeast` file executable permissions using `chmod +x lphybeast`
 
 The final folder structure looks like:
 <figure class="image">
