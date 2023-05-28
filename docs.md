@@ -2,6 +2,6 @@
 layout: page
 title: Docs 
 permalink: /docs/
+url: https://linguaphylo.github.io/linguaPhylo/
 ---
 
-{% include_relative docs/index.md %}
