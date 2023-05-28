@@ -37,7 +37,6 @@ header_pages:
   - features.md
   - setup.md
   - tutorials.md
-  - docs.md
   - developer.md
 plugins:
   - jekyll-feed
@@ -50,17 +49,17 @@ titles_from_headings:
   strip_title: true
   collections: false
   
-defaults:
-  -
-    scope:
-      path: "docs.md"
-    values:
-      strip_title: true
-  -
-    scope:
-      path: "docs"
-    values:
-      strip_title: true
+# defaults:
+#   -
+#     scope:
+#       path: "docs.md"
+#     values:
+#       strip_title: true
+#   -
+#     scope:
+#       path: "docs"
+#     values:
+#       strip_title: true
 
 # Google services
 google_analytics: G-FV6H1Z0KBL
