@@ -16,7 +16,7 @@ as well as the unified development environment settings in IntelliJ.
 The dependency management in Gradle through the maven central repository makes
 this critical job much easier for developers. 
 All LPhy related projects are now published to the
-[Maven linguaphylo group](https://search.maven.org/search?q=g:io.github.linguaphylo).
+[Maven linguaphylo group](https://central.sonatype.com/namespace/io.github.linguaphylo).
 
 
 ## System integration 

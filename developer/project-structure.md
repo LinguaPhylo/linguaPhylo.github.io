@@ -48,7 +48,7 @@ The group is one of critical configurations when you are
 It is recommended to use your Github [organisation site name](https://pages.github.com) in a revised order.
 For example, the LPhy core is in the organisation "LinguaPhylo",
 and the organisation site name is "linguaphylo.github.io", so it is in the group
-[io.github.linguaphylo](https://search.maven.org/search?q=g:io.github.linguaphylo).
+[io.github.linguaphylo](https://central.sonatype.com/namespace/io.github.linguaphylo).
 But you can overwrite the group or version in a subproject's build, if they are different.
 
 
