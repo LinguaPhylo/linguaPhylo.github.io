@@ -35,6 +35,7 @@ theme: minima
 header_pages:
   - about.md
   - features.md
+  - docs.md
   - setup.md
   - tutorials.md
   - developer.md
