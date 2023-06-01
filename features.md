@@ -4,9 +4,6 @@ title: Language Features
 permalink: /features/
 ---
 
-The [LPhy reference implementation manual](https://linguaphylo.github.io/linguaPhylo/)
-lists all generative distributions, functions, and data types in the latest release.
-
 ## LPhy language features
 
 LPhy scripts are text files with the file extension `.lphy`, and can be written using any text editor. 
@@ -115,7 +112,7 @@ taxa = taxa(names=1:10);
 D ~ PhyloCTMC(L=200, Q=jukesCantor(), tree=ψ);
 ```
 
-A full list of generators can be found in the [LPhy reference implementation manual](/docs).
+A full list of generators can be found in the [LPhy reference implementation manual](https://linguaphylo.github.io/linguaPhylo/).
 
 ### Variable vectorization
 
@@ -143,13 +140,15 @@ Q = hky(kappa=k, freq=pi);
 
 ## Reference implementation in Java
 
-In the Java reference implementation, generators are matched by method signatures of their corresponding Java class. See the [LPhy reference implementation manual](/docs) for a list of functions and generative distributions. 
+In the Java reference implementation, generators are matched by method signatures of their corresponding Java class. 
+
+The [LPhy reference implementation manual](https://linguaphylo.github.io/linguaPhylo/) provides a list of all generative distributions, methods, functions and data types available in the latest release. 
 
 The type of a variable is inferred from the return type of its generator and does not need to be declared. 
-For arguments of functions or generative distributions, the types are defined in the [LPhy reference implementation manual](/docs). 
-Type checking and syntax checking is done during execution. 
 
-Overloading of functions is supported (Java-style overloading). Optional arguments in functions are allowed, with or without default values. 
+Overloading of functions is supported (Java-style overloading), and optional arguments are allowed with or without default values. 
+
+Finally, type and syntax checking is done during execution. 
 
 
 ## LPhy Studio
@@ -177,13 +176,13 @@ Alternatively, Unicode characters can be pasted into the console.
 
 More details on available tree generative distributions can be found here: 
 
-* [Birth-death generative distributions](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/lphy/evolution/birthdeath.md)
-* [Coalescent generative distributions](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/lphy/evolution/coalescent.md)
+* [Birth-death generative distributions](https://linguaphylo.github.io/linguaPhylo/lphy/evolution/birthdeath)
+* [Coalescent generative distributions](https://linguaphylo.github.io/linguaPhylo/lphy/evolution/coalescent)
 
 ### Models of evolutionary rates and sequence evolution
 
 Sequence generation from Continuous-time Markov Chains, substitution models, site rates, and branch rates are described below:
 
-* [PhyloCTMC generative distribution](https://github.com/LinguaPhylo/linguaPhylo/blob/master/lphy/doc/lphy/evolution/likelihood.md)
+* [PhyloCTMC generative distribution](https://linguaphylo.github.io/linguaPhylo/lphy/evolution/likelihood)
 
 
