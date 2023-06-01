@@ -78,7 +78,7 @@ Alignment data can be read in from a NEXUS or FASTA file.
 * The model block is used to define the models and parameters in a Bayesian phylogenetic analysis. 
 This purpose of this is to allow analyses to be more easily reproduced by other researchers. 
 
-* Generators can only be used inside the **model block**
+* Generators can only be used inside the model block.
 
 * Note that the `data` and `model` are **reserved keywords** and cannot be used for variable names.
 
@@ -120,17 +120,16 @@ Control flow structures are not allowed in order to promote simplicity and reada
 facilitating a lower barrier to entry and a gentler learning curve. 
 
 Any variable or generator can be vectorized to produce a vector of independent and identically distributed random variables. 
-This can be done in two ways: by using the "replicates" keyword, 
-or by passing an array into the arguments of the generator. 
+This can be done in two ways: (1) by using the "replicates" keyword, 
+or (2) by passing arrays into the arguments of the generator. 
 
-1. Example using the replicates keyword
+Example 1: Using the replicates keyword
 
 ```
 pi ~ Dirichlet(conc=[2, 2, 2, 2], replicates=3);
 ```
 
-{:start="2"}
-2. Example allowing all arguments of the function `hky` to be vectorised, which results in more compact and expressive model specifications. 
+Example 2: Vectorization using arguments. The `hky` function can be vectorised by passing in arrays as its arguments
 
 ```
 k ~ LogNormal(meanlog=0.5, sdlog=1.0, replicates=3);
@@ -145,10 +144,8 @@ In the Java reference implementation, generators are matched by method signature
 The [LPhy reference implementation manual](https://linguaphylo.github.io/linguaPhylo/) provides a list of all generative distributions, methods, functions and data types available in the latest release. 
 
 The type of a variable is inferred from the return type of its generator and does not need to be declared. 
-
-Overloading of functions is supported (Java-style overloading), and optional arguments are allowed with or without default values. 
-
-Finally, type and syntax checking is done during execution. 
+Overloading of methods or functions are supported (Java-style overloading), and optional arguments are allowed with or without default values. 
+In the reference implementation, type and syntax checking is performed during execution. 
 
 
 ## LPhy Studio
