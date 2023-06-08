@@ -32,11 +32,11 @@ java -version
 
 Download the LPhy Studio version for your operating system:
 
-- Mac [lphystudio-1.4.1-osx-installer.dmg](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphystudio-1.4.1-osx-installer.dmg)
+- Mac [lphystudio-1.4.2-osx-installer.dmg](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.2/lphystudio-1.4.2-osx-installer.dmg)
 
-- Windows [lphystudio-1.4.1-windows-x64-installer.exe](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphystudio-1.4.1-windows-x64-installer.exe)
+- Windows [lphystudio-1.4.2-windows-x64-installer.exe](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.2/lphystudio-1.4.2-windows-x64-installer.exe)
 
-- Linux [lphy-studio-1.4.1.zip](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.1/lphy-studio-1.4.1.zip)
+- Linux [lphy-studio-1.4.2.zip](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.2/lphy-studio-1.4.2.zip)
 
 Download links for LPhy Studio releases are also available on the LinguaPhylo GitHub release page, see [here](https://github.com/LinguaPhylo/linguaPhylo/releases/latest) for the latest version.
 All release versions of the software are available on the [LPhy releases page](https://github.com/LinguaPhylo/linguaPhylo/releases).  
@@ -52,7 +52,7 @@ To launch LPhyStudio from the command line, use the following command, replacing
 
 ```bash
 cd /BEAST_PATH/lphy-studio-{{lphy_version}}/
-java -p lib -m lphystudio
+./bin/lphystudio
 ```
 
 ### Mac and Windows
