@@ -20,7 +20,7 @@ Additionally, you can explore the features of the LPhy language [here](https://l
 
 LPhy and LPhyBEAST require Java 17. We recommend you install [OpenJDK 17](https://jdk.java.net/java-se-ri/17).
 
-To check your Java version, use the command line below:
+To check your Java version, use the command line in the terminal:
 
 ```bash
 java -version
@@ -38,17 +38,16 @@ Download the LPhy Studio version for your operating system:
 
 - Linux [lphy-studio-1.4.3.zip](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.3/lphy-studio-1.4.3.zip)
 
-Download links for LPhy Studio releases are also available on the LinguaPhylo GitHub release page, see [here](https://github.com/LinguaPhylo/linguaPhylo/releases/latest) for the latest version.
-All release versions of the software are available on the [LPhy releases page](https://github.com/LinguaPhylo/linguaPhylo/releases).  
+All release versions of LPhy Studio are available on the [LPhy releases page](https://github.com/LinguaPhylo/linguaPhylo/releases).
 
 
 ### Linux
 
 To install LPhy Studio, unzip the `lphy-studio-{{lphy_version}}.zip` file to the target directory.
-
 For compatibility with LPhyBeast, unzip `lphy-studio-{{lphy_version}}.zip` inside your BEAST 2.x.x directory. 
 
-To launch LPhyStudio from the command line, use the following command, replacing "BEAST_PATH" with the path to your BEAST 2.x.x directory, where "x" is the version number:
+To launch LPhyStudio from the command line, use the following command, 
+replacing "BEAST_PATH" with the path to your BEAST 2.x.x directory, where "x" is the version number:
 
 ```bash
 cd /BEAST_PATH/lphy-studio-{{lphy_version}}/
@@ -88,26 +87,36 @@ To run LPhy Studio click on `LPhyStudioLauncher` inside your LPhy install locati
   <figcaption>Figure 3: Launching LPhy Studio.</figcaption>
 </figure>
 
-LPhy example scripts are in the `examples` subdirectory, and libraries are in the `lib` subdirectory of your LPhy install location.
+Alternatively, you can launch LPhy Studio from the terminal. 
+The command line is introduced in the section [Linux](#linux)
+
+LPhy example scripts are in the `examples` and `tutorials` subdirectory, 
+and libraries are in the `lib` subdirectory of your LPhy install location.
 
 If you are new to LPhy, we recommend starting with this [introductory guide](https://linguaphylo.github.io/about/) before moving to the tutorials. 
 
-## Running LPhy via command line
+## SLPhy: simulate data via command line
 
-LPhy can be used to simulate data via command line inside your LPhy installation location. 
-This location is your `lphy-studio-{{lphy_version}}` directory. 
+SLPhy is an application to simulate data via command line given a file containing the LPhy script. 
+It can be found in the `bin` directory. 
 
-To simulate data, replace `LPHY_PATH` with your LPhy installation path. 
-```
-cd LPHY_PATH
-java -p lib -m lphystudio/lphystudio.app.simulator.SLPhy <LPhy script>
+To simulate data at 5 replicates, replace `$LPHY` variable with your LPhy installation path. 
+
+```bash
+cd $LPHY/examples/coalescent
+$LPHY/bin/slphy -r 5 <LPhy script>
 ```
 
 For example: 
 ```bash
-cd /Applications/BEAST 2.7.4/lphy-studio-{{lphy_version}}
-java -p lib -m lphystudio/lphystudio.app.simulator.SLPhy examples/coalescent/gtrCoalescent.lphy
+'/Applications/BEAST 2.7.5/lphy-studio-{{lphy_version}}/bin/slphy' -r 5 jcCoalescent.lphy
 ```
+
+Please note that the single quotation marks ensure that the whitespace in the path is treated as valid.
+
+The simulation will produce alignment(s) and saved them into one or many *.nexus files, 
+and tree(s) into the *.trees file and all random number values into the *.log file.  
+
 
 ## LPhy extensions
 
