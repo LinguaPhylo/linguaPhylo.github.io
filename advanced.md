@@ -40,6 +40,9 @@ and their required alignments (e.g. RSV2.nex) in the subfolder `data` under the 
 
 ## LPhyBEAST command line options
 
+The `lphybeast` script will launch LPhyBEAST using the BEAST 2 [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
+and add `$LPHY_LIB` into the classpath. 
+
 1. If the input/output is a relative path, then concatenate `user.dir` to the front of the path.
 
 2. Use `-wd` to set `user.dir`. But if `-wd` is not given, 
