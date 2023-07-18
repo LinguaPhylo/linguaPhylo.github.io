@@ -127,11 +127,12 @@ Current supported LPhy extensions are listed on the [homepage](https://linguaphy
 [LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) and LPhyBeast extensions 
 require the latest version of [BEAST 2](https://www.beast2.org). 
 
-First, we need to install two [BEAST 2 packages](https://www.beast2.org/managing-packages/) `lphybeast` and `LPhyBeastExt`.
+First, we need to install two [BEAST 2 packages](https://www.beast2.org/managing-packages/) 
+[lphybeast](https://github.com/LinguaPhylo/LPhyBeast/) and [LPhyBeastExt](https://github.com/LinguaPhylo/LPhyBeastExt/).
 
 1. To install LPhyBEAST, start `BEAUti` and from the menu go to `File` => `Manage Packages` to launch `Package Manager`. 
-2. Click on `Package repositories` to open the "BEAST 2 Package Repository Manager".
-3. Select `lphybeast` from the packages list, then use `Install/Upgrade` to install.
+2. Select `lphybeast` from the packages list, then click `Install/Upgrade` button to install.
+3. Select `LPhyBeastExt` from the list, then click `Install/Upgrade` to install.
 
 Installation may take few minutes to download and install. Please wait until a confirmation popup appears on the screen.
 
@@ -141,28 +142,25 @@ Installation may take few minutes to download and install. Please wait until a c
 </figure>
 
 {:start="4"}
-4. Restart `Package Manager`. Now `lphybeast` and dependent packages should appear as "installed". 
-5. To install `LPhyBeastExt`, from `Package Manager`, select `LPhyBeastExt` and click `Install/Upgrade` to install.
+4. Restart `Package Manager`. Now they and their dependent packages should appear as "installed". 
 
 Alternatively, the packages `lphybeast` and `LPhyBeastExt` can be installed using [command line](https://www.beast2.org/managing-packages/).
 
 ### Install LPhy libraries and download starting script 
 
 The package `lphybeast` does not include LPhy, so we need to install LPhy separately.
+You may skip steps 1-2 if you have already installed LPhyStudio in your BEAST 2 directory. 
 
 1. Download the LPhy Studio installer. See the section of [LPhy Studio installation](#lphy-studio-installation).
 
-Note: You may skip steps 1-2 if you have already installed LPhyStudio in your BEAST 2 directory. 
-
-{:start="2"}
 2. Install LPhy Studio inside your BEAST 2 installation folder - we will refer this BEAST 2 folder as your **BEAST_PATH**.
 
 The folder structure is shown in Figure 3. See the section [Launching LPhy Studio](#launching-lphy-studio)
 
-{:start="3"}
-3. Make sure there is __only one__ LPhy folder inside your BEAST 2 installation folder.
+Note: make sure there is __only one__ LPhy folder inside your BEAST 2 installation folder.
 
-4. Download the bash script [lphybeast](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast),
+{:start="3"}
+3. Download the bash script [lphybeast](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast),
 and place it into the `bin` subfolder of your BEAST 2 installation. For Windows, please download 
 [lphybeast.bat](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast.bat)
 Note that you may need give the `lphybeast` file executable permissions using `chmod +x lphybeast`
@@ -178,33 +176,33 @@ The final folder structure looks like:
 
 ## LPhyBEAST usage
 
-Now, we can run LPhyBEAST from the terminal, where `BEAST_PATH` is your BEAST 2 install path, 
-and `LPHY_PATH` is your LPhy install path.
+Now, we can run LPhyBEAST from the terminal. 
+The `$BEAST_PATH` represents the installation path of BEAST 2, and `$LPHY_PATH` represents the installation path of LPhy.
 For Windows, replace `lphybeast` as `lphybeast.bat`.
 
 ```bash
-cd BEAST_PATH
+cd $BEAST_PATH
 ./bin/lphybeast -h
 ```
 
 To create "RSV2.xml" from the tutorial script "RSV2.lphy":
 
 ```bash
-cd LPHY_PATH/tutorials/
+cd $LPHY_PATH/tutorials/
 BEAST_PATH/bin/lphybeast RSV2.lphy
 ```
 
 Or using the absolute path and from a different folder:
 
 ```bash
-cd MY_PATH
-BEAST_PATH/bin/lphybeast LPHY_PATH/tutorials/RSV2.lphy
+cd $MY_PATH
+$BEAST_PATH/bin/lphybeast $LPHY_PATH/tutorials/RSV2.lphy
 ```
 
 To create 5 XMLs with simulated data:
 
 ```bash
-BEAST_PATH/bin/lphybeast -wd LPHY_PATH/tutorials/ -r 5 RSV2.lphy
+$BEAST_PATH/bin/lphybeast -wd $LPHY_PATH/tutorials/ -r 5 RSV2.lphy
 ```
 
 
