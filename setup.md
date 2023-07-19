@@ -95,7 +95,8 @@ If you are new to LPhy, we recommend starting with this [introductory guide](htt
 ## SLPhy: simulate data via command line
 
 SLPhy is an application to simulate data via command line given a file containing the LPhy script. 
-It can be found in the `bin` directory. 
+The bash script [slphy](https://github.com/LinguaPhylo/linguaPhylo/blob/master/bin/slphy) 
+can be found in the `bin` directory. For Windows, please use `lphybeast.bat`.
 
 To simulate data at 5 replicates, replace `$LPHY` variable with your LPhy installation path. 
 
