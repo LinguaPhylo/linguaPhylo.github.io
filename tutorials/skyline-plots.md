@@ -327,8 +327,10 @@ Instead a structured model should then be used to account for these biases.
 ## Programs used in this tutorial
 
 {% include_relative templates/programs-used.md %}
-* BEAST SSM (standard substitution models) package - containing the following standard time-reversible substitution models: 
-  JC, F81, K80, HKY, TrNf, TrN, TPM1, TPM1f, TPM2, TPM2f, TPM3, TPM3f, TIM1, TIM1f, TIM2, TIM2f, TIM3 , TIM3f, TVMf, TVM, SYM, GTR.
+* BEAST SSM (standard substitution models) package - this BEAST 2 package contains 
+  the following standard time-reversible substitution models: 
+  JC, F81, K80, HKY, TrNf, TrN, TPM1, TPM1f, TPM2, TPM2f, TPM3, TPM3f, 
+  TIM1, TIM1f, TIM2, TIM2f, TIM3 , TIM3f, TVMf, TVM, SYM, GTR.
 
 
 [//]: # (## Data, Model, Posterior)
