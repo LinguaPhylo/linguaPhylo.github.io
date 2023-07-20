@@ -26,12 +26,9 @@ and it consists of 43 influenza A H5N1 hemagglutinin and neuraminidase gene sequ
 isolated from a variety of hosts 1996 - 2005 across sample locations.
 
 
-## Constructing the scripts in LPhy Studio
+## Constructing scripts with LPhy Studio
 
 {% include_relative templates/lphy-studio-intro.md %}
-
-The LPhy script `h5n1.lphy` for this analysis is shown below.
-
 
 [//]: # (## Code, Graphical Model)
 {% include_relative discrete-phylogeography/lphy.md fignum="Figure 1" %}
@@ -240,7 +237,8 @@ The final image look like Figure 5.
 ## The number of estimated transitions
 
 Sometime, we want to visualise how the location states are changed through the phylogeny. 
-`StateTransitionCounter` can count the number of branches in a tree or a set of trees that have a certain state at the parent and another at the node. 
+`StateTransitionCounter` can count the number of branches in a tree or a set of trees 
+that have a certain state at the parent and another at the node. 
 
 So, install the `Babel` package and run the `StateTransitionCounter` through BEAST application launcher. 
 The command line below will generate the output file `stc.out` 
@@ -324,14 +322,16 @@ regions of the locations of the internal nodes of the summary tree.
 ## Programs used in this tutorial
 
 {% include_relative templates/programs-used.md %}
-- BEAST classic package - Phylogeography is a part of the BEAST-CLASSIC package. 
-BEAST-CLASSIC requires the BEASTlabs package.
-You can install them from [BEAST 2 package manager](http://www.beast2.org/managing-packages/).
-- Babel - A BEAST package containing tools for post-analysis. We will use `StateTransitionCounter`.
-- Spread - summarising the geographic spread in a KML file (available
-from [http://www.kuleuven.ac.be/aidslab/phylogeography/SPREAD.html](http://www.kuleuven.ac.be/aidslab/phylogeography/SPREAD.html).
-- Google-earth - displaying the KML file (just Google for it, if you have
-not already have it installed).
+* BEAST classic package - a BEAST 2 package includes the discrete phylogeography model 
+  introduced in this tutorial. 
+
+* Babel - a BEAST 2 package contains tools for post-analysis. 
+  We will use `StateTransitionCounter` to estimate the number of transitions among locations.
+
+* Spread - it summarises the geographic spread and produces a KML file, which is available from
+  [https://rega.kuleuven.be/cev/ecv/software/spread](https://rega.kuleuven.be/cev/ecv/software/spread).
+
+* Google earth - it is used to display the KML file (just Google for it, if you have not already have it installed).
 
 
 [//]: # (## Data, Model, Posterior)
