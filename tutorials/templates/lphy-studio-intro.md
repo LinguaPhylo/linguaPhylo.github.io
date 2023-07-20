@@ -28,4 +28,20 @@ you do not need to write the `data` and `model` keywords enclosed by curly brace
 Now, simply type or copy and paste the provided LPhy script below into the console, 
 executing each line one at a time by pressing the "return" or "enter" key on your keyboard 
 after entering each line.
-Examining the probabilistic graphical model, let's describe the models used in this analysis. 
+
+__Please note:__ the file path in the 2nd line of the LPhy script below uses the relative path,
+which assumes its parent path is the working directory. 
+This will be not the correct path to access the data, when you just launch the studio.
+So, to avoid the error, we recommend you replace the relative path into the absolute path
+of that alignment file. For example,    
+
+```
+D = readNexus(file="/Applications/BEAST 2.7.5/lphystudio-1.4.3/tutorials/data/H5N1.nex", options=options);
+``` 
+
+The corresponding components of the probabilistic graphical model will be added into 
+the visualisation panel.
+By clicking on the graphical components, you can view their current values 
+displayed in the right-side panel titled `Current`.
+Analyze the model utilized in this analysis and provide your own description of 
+its components and parameters. 
