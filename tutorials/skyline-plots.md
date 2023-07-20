@@ -46,8 +46,8 @@ The resulting stepwise function has `m − 1` change points (`1 ≤ m ≤ n−1`
 
 ## The NEXUS alignment
 
-{% include_relative templates/download-data.md df='hcv' 
-                    df_link='https://github.com/taming-the-beast/Skyline-plots/raw/master/data/hcv.nexus' %}
+{% include_relative templates/locate-data.md df='hcv' 
+                    df_link='https://raw.githubusercontent.com/LinguaPhylo/linguaPhylo/master/tutorials/data/hcv.nexus' %}
 
 The dataset consists of an alignment of 63 Hepatitis C sequences sampled in 1993 in Egypt ([Ray, Arthur, Carella, Bukh, & Thomas, 2000](#references)). 
 This dataset has been used previously to test the performance of skyline methods ([Drummond, Rambaut, Shapiro, & Pybus, 2005, and Stadler, Kuhnert, Bonhoeffer, & Drummond, 2013](#references)).

@@ -50,8 +50,8 @@ analyses.
 
 ### The NEXUS alignment
 
-{% include_relative templates/download-data.md df='RSV2' 
-                    df_link='https://raw.githubusercontent.com/CompEvol/beast2/master/examples/nexus/RSV2.nex' %}
+{% include_relative templates/locate-data.md df='RSV2' 
+                    df_link='https://raw.githubusercontent.com/LinguaPhylo/linguaPhylo/master/tutorials/data/RSV2.nex' %}
 
 This .nex file can also be found in the ```examples/nexus``` folder,
 where BEAST 2 was installed.

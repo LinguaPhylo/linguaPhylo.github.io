@@ -45,8 +45,8 @@ The programs used in this tutorial are listed [below](#programs-used-in-this-tut
 
 ## The NEXUS alignment
 
-{% include_relative templates/download-data.md df='H3N2' 
-                    df_link='http://github.com/nicfel/Mascot-Tutorial/raw/master/data/H3N2.nexus' %}
+{% include_relative templates/locate-data.md df='H3N2' 
+                    df_link='https://raw.githubusercontent.com/LinguaPhylo/linguaPhylo/master/tutorials/data/H3N2.nexus' %}
 
 The dataset consists of 24 Influenza A/H3N2 sequences (between 2000 and 2001) subsampled from the original dataset, which are sampled in Hong Kong, New York and in New Zealand. 
 South-East Asia has been hypothesized to be a global source location of seasonal Influenza, 

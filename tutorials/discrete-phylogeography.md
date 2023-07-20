@@ -6,7 +6,7 @@ permalink: /tutorials/discrete-phylogeography/
 ---
 
 It guides you through a discrete phylogeography analysis of a H5N1 epidemic in South China. 
-This analysis will use the model developed by [Lemey et al., 2009](#references) 
+This analysis will use the model developed by [Lemey et al., 2009](https://doi.org/10.1371/journal.pcbi.1000520) 
 that implements ancestral reconstruction of discrete states (locations) in a Bayesian statistical framework, 
 and employs the Bayesian stochastic search variable selection (BSSVS) to identify the most parsimonious description of 
 the phylogeographic diffusion process.
@@ -18,10 +18,10 @@ The programs used in this tutorial are listed [below](#programs-used-in-this-tut
 
 ## The NEXUS alignment
 
-{% include_relative templates/download-data.md df='h5n1' 
-                    df_link='https://raw.githubusercontent.com/BEAST2-Dev/beast-classic/master/examples/nexus/H5N1.nex' %}
+{% include_relative templates/locate-data.md df='H5N1' 
+                    df_link='https://raw.githubusercontent.com/LinguaPhylo/linguaPhylo/master/tutorials/data/H5N1.nex' %}
 
-The data is a subset of original dataset [Wallace et al., 2007](#references), 
+This alignment is a subset of original dataset [Wallace et al., 2007](https://doi.org/10.1073/pnas.0700435104), 
 and it consists of 43 influenza A H5N1 hemagglutinin and neuraminidase gene sequences 
 isolated from a variety of hosts 1996 - 2005 across sample locations.
 
