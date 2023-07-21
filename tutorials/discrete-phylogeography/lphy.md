@@ -59,6 +59,3 @@
   <figcaption>{{ include.fignum }}: The graphical model</figcaption>
 </figure>
 
-
-
-For the details, please read the auto-generated [narrative](#auto-generated) from LPhyStudio.

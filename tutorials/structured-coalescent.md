@@ -57,7 +57,7 @@ We want to see if we can infer this source-sink dynamic from sequence data using
 
 ## Constructing scripts with LPhy Studio
 
-{% include_relative templates/lphy-studio-intro.md %}
+{% include_relative templates/lphy-studio-intro.md script='h3n2' %}
 
 The LPhy script `h3n2.lphy` for this analysis is shown below.
 

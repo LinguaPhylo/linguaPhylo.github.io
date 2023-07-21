@@ -26,19 +26,36 @@ and it consists of 43 influenza A H5N1 hemagglutinin and neuraminidase gene sequ
 isolated from a variety of hosts 1996 - 2005 across sample locations.
 
 
-## Constructing scripts with LPhy Studio
+## Loading script to LPhy Studio
 
-{% include_relative templates/lphy-studio-intro.md %}
+{% include_relative templates/lphy-studio-intro.md script='h5n1'%}
 
 [//]: # (## Code, Graphical Model)
 {% include_relative discrete-phylogeography/lphy.md fignum="Figure 1" %}
 
-The code `D_trait = extractTrait(taxa=taxa, sep=“_”, i=2);` in the data block uses the function 
+In the `data` block, we begin by defining an option to extract the sample times 
+from the taxa labels using a regular expression `_(\d+)$`, 
+and we treat those times as dates (i.e., moving `forward` in time). 
+For instance, the taxon `A_chicken_Fujian_1042_2005` will yield the year 2005, 
+making the age of this tip 0 since 2005 is the latest year among these samples.
+Clicking on the orange diamond labeled "taxa", you can see all taxa along with their ages, 
+which have been converted from the years extracted from their labels.
+
+Next, we read the file "H5N1.nex" and load it into an alignment `D`, 
+using the previously defined options. 
+Following that, we assign the constant `L` to represent the number of sites in alignment `D`, 
+and we retrieve the vector of `taxa` names from the alignment `D`.
+
+The line `D_trait = extractTrait(taxa=taxa, sep=“_”, i=2);` uses the function 
 to extract the locations from the taxa names, and creates a trait alignment `D_trait`
 to contain these locations mapped to each taxon. 
 Then the next line `K = D_trait.canonicalStateCount();` count the number of unique locations
 in the trait alignment.
-Please note the method `canonicalStateCount()` returns the number of canonical states __excluding__ ambiguous states.
+Please note the method `canonicalStateCount()` returns the number of canonical states 
+__excluding__ ambiguous states.
+
+
+For the details, please read the auto-generated [narrative](#auto-generated) from LPhy Studio.
 
 
 ## Geographic Model
