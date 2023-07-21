@@ -33,6 +33,8 @@ isolated from a variety of hosts 1996 - 2005 across sample locations.
 [//]: # (## Code, Graphical Model)
 {% include_relative discrete-phylogeography/lphy.md fignum="Figure 1" %}
 
+### Data block
+
 In the `data` block, we begin by defining an option to extract the sample times 
 from the taxa labels using a regular expression `_(\d+)$`, 
 and we treat those times as dates (i.e., moving `forward` in time). 
@@ -46,23 +48,38 @@ using the previously defined options.
 Following that, we assign the constant `L` to represent the number of sites in alignment `D`, 
 and we retrieve the vector of `taxa` names from the alignment `D`.
 
-The line `D_trait = extractTrait(taxa=taxa, sep=“_”, i=2);` uses the function 
-to extract the locations from the taxa names, and creates a trait alignment `D_trait`
-to contain these locations mapped to each taxon. 
-Then the next line `K = D_trait.canonicalStateCount();` count the number of unique locations
-in the trait alignment.
-Please note the method `canonicalStateCount()` returns the number of canonical states 
-__excluding__ ambiguous states.
+The line using the function `extractTrait` extracts the locations from the taxa names 
+by splitting the string by "_" and taking the __3rd__ element (where `i` starts at 0). 
+This code creates a trait alignment `D_trait` containing the locations mapped to each taxon. 
+Then the method `canonicalStateCount()` counts the number of unique canonical states (locations) 
+in the trait alignment `D_trait` and assigns this number to the constatnt `K`.
+This method excluds ambiguous states.
 
+### Model block
 
-For the details, please read the auto-generated [narrative](#auto-generated) from LPhy Studio.
+In the `model` block, we have mixed two parts. 
+The first part is modeling evolutionary history and demographic structure 
+based on a nucleotide alignment, 
+and the second part is defining how to sample the discrete states (locations) 
+from the phylogeny shared with the 1st part.
+
+We first specify priors for the first part of mdoel as the following parameters:
+
+1. Dirichlet prior on, `π`, the equilibrium nucleotide frequencies 
+   (with 4 dimensions, one for each nucleotide);
+2. LogNormal prior on, `κ`, the transition/transversion ratio;
+3. LogNormal prior on, `γ`, the shape parameter of discretize Gamma;
+4. Site heterogeneity model;
+5. LogNormal prior on, `Θ`, the effective population size 
+   (with as many dimensions as there are branches in the tree);
+6. Coalescent (constant-size) prior on, `ψ`, 
+   the time-scaled (i.e., in absolute time) phylogenetic tree.
+   
+
+For more details, please read the auto-generated [narrative](#auto-generated) from LPhy Studio.
 
 
 ## Geographic Model
-
-In this analysis, we have two parts mixed in the model section: 
-the first part is modeling evolutionary history and demographic structure based on a nucleotide alignment, 
-and the second part is defining how to sample the discrete states (locations) from the phylogeny $\psi$ shared with the 1st part.
 
 For the nucleotide alignment, We fix a strict molecular clock to 0.004, to make the analysis converge a bit quicker.
 
