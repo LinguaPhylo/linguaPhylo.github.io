@@ -56,6 +56,8 @@ This code creates a trait alignment `D_trait` containing the locations mapped to
 Then the method `canonicalStateCount()` counts the number of unique canonical states (locations) 
 in the trait alignment `D_trait` and assigns this number to the constatnt `K`.
 This method excluds ambiguous states.
+The constant `dim` used as the dimension for sampling discrete traits is computed from `K`.
+
 
 ### Model block
 
