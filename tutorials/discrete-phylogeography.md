@@ -26,7 +26,7 @@ and it consists of 43 influenza A H5N1 hemagglutinin and neuraminidase gene sequ
 isolated from a variety of hosts 1996 - 2005 across sample locations.
 
 
-## Loading script to LPhy Studio
+## Loading script "h5n1" to LPhy Studio
 
 {% include_relative templates/lphy-studio-intro.md script='h5n1'%}
 
@@ -42,6 +42,8 @@ For instance, the taxon `A_chicken_Fujian_1042_2005` will yield the year 2005,
 making the age of this tip 0 since 2005 is the latest year among these samples.
 Clicking on the orange diamond labeled "taxa", you can see all taxa along with their ages, 
 which have been converted from the years extracted from their labels.
+If it is not in the probabilistic graphical model, please select the checkbox "Show constants" 
+to display the full model. 
 
 Next, we read the file "H5N1.nex" and load it into an alignment `D`, 
 using the previously defined options. 
