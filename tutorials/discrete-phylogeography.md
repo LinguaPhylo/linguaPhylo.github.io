@@ -114,10 +114,11 @@ So, assuming migration to be symmetric in this analysis:
    a Dirichlet distribution. 
 8. A boolean vector `I` with the same length determines which infinitesimal rates are zero, 
    and it is sampled from the vectorized function `Bernoulli` using the keyword `replicates`. 
-   This implements the Bayesian stochastic search variable selection (BSSVS). 
+   This along with the deteminstic function `select` implements 
+   the Bayesian stochastic search variable selection (BSSVS). 
 9. The base frequencies `π_trait` are sampled from a Dirichlet distribution. 
-10. The deteminstic function `generalTimeReversible` takes relative rates filtered by another
-    deteminstic function `select`, which selects a value if the indicator is true or returns 0 otherwise,
+10. The deteminstic function `generalTimeReversible` takes relative rates filtered by `select`, 
+    which selects a value if the indicator is true or returns 0 otherwise,
     along with base frequencies to produce the general time reversible rate matrix `Q_trait`.
 11. The migration rate, `μ_trait`, is sampled from a LogNormal distribution.
 
@@ -136,10 +137,34 @@ or LPhy [language features](https://linguaphylo.github.io/features/#data-clampin
 
 {% include_relative templates/lphy-beast.md lphy="h5n1" %}
 
+For Mac and Linux, we assume your BEAST2 is installed to `$BEAST_DIR`, 
+such as "/Applications/BEAST 2.7.x/", and your LPhy studio is installed to `$LPHY_DIR`,
+such as "/Applications/BEAST 2.7.x/lphystudio-1.x.x/". 
+
+After replacing all “x” into the correct version number, 
+you run `lphybeast` like:
+
+```bash
+# go to the folder containing lphy script
+cd '/Applications/BEAST 2.7.x/lphystudio-1.x.x/tutorials'
+# run lphybeast
+'/Applications/BEAST 2.7.x/bin/lphybeast' -l 3000000 h5n1.lphy
 ```
-# BEAST_DIR="/Applications/BEAST2/"
-$BEAST_DIR/bin/lphybeast -l 3000000 h5n1.lphy
+
+Please note that the single quotation marks ensure that the whitespace in the path is treated as valid.
+
+For Windows, you run `lphybeast` like:
+
+```dos
+cd %LPHY_DIR%/tutorials
+%BEAST_DIR%/bin/lphybeast -l 3000000 h5n1.lphy
 ```
+
+__Tips:__ if you are not familiar with inputting valid paths in the command line, 
+you can use the "Finder" (Mac) or "File Explorer" (Windows) to select the folder 
+containing the required files. Then, simply drag and drop the folder into the terminal. 
+The full path will automatically appear in the command line, 
+making it easier to continue.
 
 
 ## Running BEAST
@@ -147,7 +172,7 @@ $BEAST_DIR/bin/lphybeast -l 3000000 h5n1.lphy
 {% include_relative templates/run-beast.md xml="h5n1.xml" %}
 
 ```
-                         BEAST v2.6.7, 2002-2020
+                        BEAST v2.7.5, 2002-2023
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -180,31 +205,31 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1659590653904
+Random number seed: 1690144368524
 
     ...
 
     ...
-        2850000     -5960.6708     -5834.2398      -126.4309         0.3211         0.1966         0.2226         0.2595         9.0333         0.3238         8.6857         0.1296         0.3150         0.1804         0.1649         0.2098              1              1              1              1              1              1              1              1              1              1         0.1884         0.0747         0.0422         0.1702         0.0805         0.0174         0.2373         0.0457         0.0291         0.1139         0.6191 1m16s/Msamples
-        3000000     -5957.8699     -5834.9067      -122.9631         0.3277         0.1965         0.2239         0.2517         7.6506         0.4290         5.9862         0.1501         0.3367         0.1051         0.2549         0.1529              1              1              1              1              1              1              1              1              1              1         0.1650         0.0716         0.0709         0.1302         0.3421         0.0130         0.0994         0.0303         0.0485         0.0286         0.2453 1m16s/Msamples
+        2850000     -5948.3636     -5828.3061      -120.0575         0.3462         0.1935         0.2107         0.2494         8.5222         0.4026         7.3155         0.1285         0.1858         0.3281         0.2090         0.1483              1              0              0              1              1              0              1              1              1              1         0.2497         0.0028         0.0442         0.0361         0.2116         0.1654         0.0968         0.0853         0.0954         0.0121         0.9876 58s/Msamples
+        3000000     -5943.2773     -5824.1062      -119.1710         0.3390         0.1887         0.2230         0.2492         7.4086         0.3509         8.6087         0.2398         0.2185         0.1255         0.2641         0.1518              1              0              1              1              1              1              0              1              1              0         0.1512         0.0134         0.0604         0.2013         0.2678         0.0532         0.0540         0.1006         0.0975 4.341722237E-5         0.3844 58s/Msamples
 
-Operator                                          Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-BitFlipOperator(I.bitFlip)                             -      39782      90355    0.04340    0.30569 
-DeltaExchangeOperator(R_trait.deltaExchange)     0.57921      15922     104777    0.04031    0.13191 
-ScaleOperator(Theta.scale)                       0.46729       7620      18512    0.00866    0.29160 
-ScaleOperator(gamma.scale)                       0.40531       7005      18916    0.00866    0.27024 
-ScaleOperator(kappa.scale)                       0.52022       6840      19112    0.00866    0.26356 
-ScaleOperator(mu_trait.scale)                    0.27589       7746      18166    0.00866    0.29893 
-UpDownOperator(mu_traitUppsiDownOperator)        0.91311      40003     321915    0.12047    0.11053 
-DeltaExchangeOperator(pi.deltaExchange)          0.06532       9549      46452    0.01868    0.17051 
-DeltaExchangeOperator(pi_trait.deltaExchange)    0.54124      10870      57988    0.02285    0.15786 
-Exchange(psi.narrowExchange)                           -      60429     295287    0.11850    0.16988 
-ScaleOperator(psi.rootAgeScale)                  0.77165       3697      22375    0.00866    0.14180 
-ScaleOperator(psi.scale)                         0.90511      35312     319993    0.11850    0.09939 Try setting scaleFactor to about 0.951
-SubtreeSlide(psi.subtreeSlide)                   0.88122      70929     284431    0.11850    0.19960 
-Uniform(psi.uniform)                                   -     149335     206383    0.11850    0.41981 
-Exchange(psi.wideExchange)                             -       1575     353485    0.11850    0.00444 
-WilsonBalding(psi.wilsonBalding)                       -       2051     353189    0.11850    0.00577 
+Operator                                                                        Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+beast.base.inference.operator.BitFlipOperator(I.bitFlip)                             -      41315      88745    0.04340    0.31766 
+beast.base.inference.operator.DeltaExchangeOperator(R_trait.deltaExchange)     0.59941      15523     105271    0.04031    0.12851 
+ScaleOperator(Theta.scale)                                                     0.45689       7406      18797    0.00866    0.28264 
+ScaleOperator(gamma.scale)                                                     0.40909       6810      19143    0.00866    0.26240 
+ScaleOperator(kappa.scale)                                                     0.54422       7482      18572    0.00866    0.28717 
+ScaleOperator(mu_trait.scale)                                                  0.28543       8107      17702    0.00866    0.31412 
+beast.base.inference.operator.UpDownOperator(mu_traitUppsiDownOperator)        0.90177      35457     326061    0.12047    0.09808 Try setting scaleFactor to about 0.95
+beast.base.inference.operator.DeltaExchangeOperator(pi.deltaExchange)          0.06476       9663      46498    0.01868    0.17206 
+beast.base.inference.operator.DeltaExchangeOperator(pi_trait.deltaExchange)    0.68115       8541      59870    0.02285    0.12485 
+Exchange(psi.narrowExchange)                                                         -      60639     294971    0.11850    0.17052 
+ScaleOperator(psi.rootAgeScale)                                                0.75330       3290      22690    0.00866    0.12664 
+ScaleOperator(psi.scale)                                                       0.90540      35602     320167    0.11850    0.10007 
+SubtreeSlide(psi.subtreeSlide)                                                 0.92349      67477     287672    0.11850    0.19000 
+Uniform(psi.uniform)                                                                 -     148469     206550    0.11850    0.41820 
+Exchange(psi.wideExchange)                                                           -       1643     354433    0.11850    0.00461 
+WilsonBalding(psi.wilsonBalding)                                                     -       2047     353388    0.11850    0.00576 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -213,7 +238,10 @@ WilsonBalding(psi.wilsonBalding)                       -       2051     353189  
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 232.693 seconds
+Total calculation time: 176.085 seconds
+End likelihood: -5943.277342794984
+Done!
+
 ```
 
 ## Analysing the BEAST output
