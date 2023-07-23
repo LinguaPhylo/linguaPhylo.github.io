@@ -137,6 +137,25 @@ pi ~ Dirichlet(conc=[2.0, 2.0, 2.0, 2.0], replicates=3);
 Q = hky(kappa=k, freq=pi);
 ```
 
+### Data clamping
+
+To set up an inferential analysis with LPhy `data clamping` is performed similar to the 
+[Rev language](https://revbayes.github.io/tutorials/intro/getting_started.html). 
+Data clamping involves associating an observed value with a random variable in the model, 
+which is represented as a stochastic node in the probabilistic graphical model (PGM). 
+By clamping data to a node, the user is informing the inference engine 
+that the value of that particular variable is known and will be conditioned on 
+for the purpose of inference.
+
+In LPhy, data clamping can be accomplished using the `data` block. 
+This block allows the user to specify the observed values of certain variables in the model, 
+effectively clamping these variables to their observed values during inference. 
+This is useful when working with real data, as it allows the user to incorporate 
+the observed data into the analysis and improve the accuracy of the results.
+
+The examples are available in [LPhy tutorials](https://linguaphylo.github.io/tutorials/).
+
+
 ## Reference implementation in Java
 
 In the Java reference implementation, generators are matched by method signatures of their corresponding Java class. 

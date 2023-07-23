@@ -33,7 +33,7 @@ isolated from a variety of hosts 1996 - 2005 across sample locations.
 [//]: # (## Code, Graphical Model)
 {% include_relative discrete-phylogeography/lphy.md fignum="Figure 1" %}
 
-### Data block
+## Data block
 
 In the `data` block, we begin by defining an option to extract the sample times 
 from the taxa labels using a regular expression `_(\d+)$`, 
@@ -59,7 +59,7 @@ This method excluds ambiguous states.
 The constant `dim` used as the dimension for sampling discrete traits is computed from `K`.
 
 
-### Model block
+## Model block
 
 In the `model` block, we have mixed two parts. 
 The first part is modeling evolutionary history and demographic structure 
@@ -67,28 +67,32 @@ based on a nucleotide alignment,
 and the second part is defining how to sample the discrete states (locations) 
 from the phylogeny shared with the 1st part.
 
+### Modeling based on a nucleotide alignment
+
 We first specify priors for the first part of mdoel as the following parameters:
 
 1. Dirichlet prior on, `π`, the equilibrium nucleotide frequencies 
    (with 4 dimensions, one for each nucleotide);
 2. LogNormal prior on, `κ`, the transition/transversion ratio;
 3. LogNormal prior on, `γ`, the shape parameter of discretize Gamma;
-4. Site heterogeneity model;
+4. Discretized gamma prior on, `r`, the vector of site rates where a rate for each site in the alignment;
 5. LogNormal prior on, `Θ`, the effective population size 
    (with as many dimensions as there are branches in the tree);
 6. Coalescent (constant-size) prior on, `ψ`, 
    the time-scaled (i.e., in absolute time) phylogenetic tree.
-   
+
+Finially, the phylogenetic continuous-time Markov chain distribution, `PhyloCTMC`, 
+utilizes the instantaneous rate matrix `Q` retured from a deteminstic function `hky`,
+the site rates `r`, and the simulated Coalescent tree `ψ` as inputs, 
+along with a fixed value of `0.004` for the mutation rate, to generate the alignment `D`.   
 
 For more details, please read the auto-generated [narrative](#auto-generated) from LPhy Studio.
 
 
-## Geographic Model
+### Geographic Model
 
-For the nucleotide alignment, We fix a strict molecular clock to 0.004, to make the analysis converge a bit quicker.
-
-The next is the geographic model. 
-In the discrete phylogeography, the probability of transitioning to a new location through the time is computed by 
+The next part is the geographic model. In the discrete phylogeography, 
+the probability of transitioning to a new location through the time is computed by 
 
 $$ P(t) = e^{\Lambda t} $$ 
 
@@ -102,9 +106,30 @@ and $\Pi = diag(\pi)$ where $\pi$ is the equilibrium trait frequencies.
 After the normalization, $\mu$ measures the number of migration events per unit time $t$.
 The detail is explained in [Lemey et al., 2009](#references).
 
-So, assuming migration to be symmetric in this analysis, we define a vector variable `R_trait` with the length of $ \frac{K \times (K-1)}{2} $ to store the off-diagonal entries of the unnormalised $S$. Another boolean vector `I` with the same length determines which infinitesimal rates are zero, 
-which is performed by the function `select`. 
-This implements the Bayesian stochastic search variable selection (BSSVS).  
+So, assuming migration to be symmetric in this analysis:
+
+{:start="7"}
+7. We define a vector variable `R_trait` with the length of $ \frac{K \times (K-1)}{2} $ 
+   to store the off-diagonal entries of the unnormalised $S$, which is sampled from 
+   a Dirichlet distribution. 
+8. A boolean vector `I` with the same length determines which infinitesimal rates are zero, 
+   and it is sampled from the vectorized function `Bernoulli` using the keyword `replicates`. 
+   This implements the Bayesian stochastic search variable selection (BSSVS). 
+9. The base frequencies `π_trait` are sampled from a Dirichlet distribution. 
+10. The deteminstic function `generalTimeReversible` takes relative rates filtered by another
+    deteminstic function `select`, which selects a value if the indicator is true or returns 0 otherwise,
+    along with base frequencies to produce the general time reversible rate matrix `Q_trait`.
+11. The migration rate, `μ_trait`, is sampled from a LogNormal distribution.
+
+In the end, the 2nd `PhyloCTMC` takes the instantaneous rate matrix `Q_trait`, 
+the data type from the clamped alignment `D_trait` imported in the `data` block,
+the migration rate `μ_trait`, the same tree `ψ` sampled from the 1st part of this model as inputs,
+to simulate the location alignment `D_trait` whose supposes to have only one site.  
+
+As you have noticed, there are two `D_trait` in this script, one is in the `data` block,
+the other is in the `model` block. This is called data clamping. 
+The detail can be refered to either the section "2.1.11 Inference and data clamping" 
+or LPhy [language features](https://linguaphylo.github.io/features/#data-clamping). 
 
 
 ## Producing BEAST XML using LPhyBEAST
