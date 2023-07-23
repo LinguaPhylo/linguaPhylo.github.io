@@ -83,9 +83,12 @@ This purpose of this is to allow analyses to be more easily reproduced by other 
 * Note that the `data` and `model` are **reserved keywords** and cannot be used for variable names.
 
 * If the same variable name is used for data in the `data` block 
-and a random variable in the `model` block, then the value in the data block will be used for inference (i.e., 'data clamping').
+and a random variable in the `model` block, then the value in the data block will 
+be used for inference (i.e., [data clamping](#data-clamping)).
 
-An LPhy script needs to contain both a `data{ ... }` and a `model{ ... }` block. However, the data block can be left empty for some use cases (e.g., data simulation). When the data block is empty, data will be simulated from the model. 
+An LPhy script needs to contain both a `data{ ... }` and a `model{ ... }` block. 
+However, the data block can be left empty for some use cases (e.g., data simulation). 
+When the data block is empty, data will be simulated from the model. 
 
 
 ### Generators
