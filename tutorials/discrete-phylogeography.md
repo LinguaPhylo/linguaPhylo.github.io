@@ -175,7 +175,7 @@ making it easier to continue.
 {% include_relative templates/run-beast.md xml="h5n1.xml" %}
 
 The [h5n1.xml](h5n1/h5n1.xml) 
-is alos provided as an additional resource, in case you need to use it for your analysis. 
+is also provided as an additional resource, in case you need to use it for your analysis. 
 
 ```
                         BEAST v2.7.5, 2002-2023
@@ -272,15 +272,15 @@ compact interval on the selected parameter that contains 95% of the posterior
 probability. It can be thought of as a Bayesian analog to a confidence interval.
 
 The [h5n1.log](h5n1/h5n1.log) 
-is alos provided as an additional resource, in case you need to use it for your analysis. 
+is also provided as an additional resource, in case you need to use it for your analysis. 
 
 ## Summarizing posterior trees
 
 {% include_relative templates/tree-annotator.md fig="TreeAnnotator.png" 
                     fignum=3 trees="h5n1_with_trait.trees" mcctree="h5n1_with_trait.tree"%}
 
-The [h5n1_with_trait.tree](h5n1/h5n1_with_trait.tree) 
-is alos provided as an additional resource, in case you need to use it for your analysis. 
+Both [h5n1_with_trait.trees](h5n1/h5n1_with_trait.trees) and [h5n1_with_trait.tree](h5n1/h5n1_with_trait.tree) 
+are provided as an additional resource, in case you need to use it for your analysis. 
 
 
 ## Distribution of root location
