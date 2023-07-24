@@ -67,19 +67,19 @@ based on a nucleotide alignment,
 and the second part is defining how to sample the discrete states (locations) 
 from the phylogeny shared with the 1st part.
 
-### Modeling based on a nucleotide alignment
+### Coalescent based phylogenetic model
 
-We first specify priors for the first part of mdoel as the following parameters:
+The canonical model in the first part of this analysis includes the following parameter distributions:
 
 1. Dirichlet prior on, `π`, the equilibrium nucleotide frequencies 
    (with 4 dimensions, one for each nucleotide);
 2. LogNormal prior on, `κ`, the transition/transversion ratio;
 3. LogNormal prior on, `γ`, the shape parameter of discretize Gamma;
-4. Discretized gamma prior on, `r`, the vector of site rates where a rate for each site in the alignment;
-5. LogNormal prior on, `Θ`, the effective population size 
-   (with as many dimensions as there are branches in the tree);
+4. Discretized gamma prior on, `r`, the vector of site rates with a rate for each site in the alignment;
+5. LogNormal prior on, `Θ`, the effective population size;
 6. Coalescent (constant-size) prior on, `ψ`, 
-   the time-scaled (i.e., in absolute time) phylogenetic tree.
+   the time-scaled phylogenetic tree which is scaled according to the unit of sampling time 
+   associated with taxa. The time unit in this data is years.
 
 Finially, the phylogenetic continuous-time Markov chain distribution, `PhyloCTMC`, 
 utilizes the instantaneous rate matrix `Q` retured from a deteminstic function `hky`,
@@ -312,10 +312,21 @@ It is quite typical that a lot of locations are part of the 95% HPD in discrete 
 ## Viewing the Location Tree
 
 We can visualise the tree in a program called _FigTree_. 
-Run this program, and open the summary tree file `h5n1_with_trait.tree` by using the `Open` command in the `File` menu. 
-The tree should appear. You can now try selecting some of the options in the control panel on the left. 
-Try selecting `Appearance` to set the branch `Colour by` `location`. 
-In addition, you can set the branch `Width by` `location.prob` according to the posterior support of estimated locations. Increasing the `Line Weight` can make the branch width more different regarding to its posterior support. Finally, tick `Legend` and select `location` in the drop list of `Attribute`. 
+There is a bug to launch the Mac version of FigTree v1.4.4, 
+but you follow the [instruction](https://linguaphylo.github.io/tutorials/figtree) 
+to start it from the terminal.  
+Lauch the program, and follow the steps below:
+
+1. Open the summary tree file `h5n1_with_trait.tree` by using the `Open...` option in the `File` menu;
+2. After the tree appears, expend `Appearance` and choose `Colour` by `location`;
+3. Additionally, you can adjust the branch width based on the posterior support of 
+   estimated locations by selecting `Width by` `location.prob`. 
+4. Gradually increasing the `Line Weight` can make the branch widths vary more significantly 
+   based on their posterior supports.
+5. To add a legend, tick `Legend` and choose `location` from the drop-down list of `Attribute`;
+6. If you want to see the x-axis scale, you can tick `Scale Axis`, 
+   expend it and uncheck the option `Show grid`. 
+
 You should end up with something like Figure 4.
 
 <figure class="image">
