@@ -12,7 +12,7 @@ and employs the Bayesian stochastic search variable selection (BSSVS) to identif
 the phylogeographic diffusion process.
 
 The additional benefit using this model is that we can summarise the phylogeographic inferences from an analysis,
-and use a virtual globe software to visualize the spatial and temporal information.
+and use a virtual globe software to visualise the spatial and temporal information.
 
 The programs used in this tutorial are listed [below](#programs-used-in-this-tutorial).
 
@@ -113,8 +113,8 @@ So, assuming migration to be symmetric in this analysis:
    to store the off-diagonal entries of the unnormalised $S$, which is sampled from 
    a Dirichlet distribution. 
 8. A boolean vector `I` with the same length determines which infinitesimal rates are zero, 
-   and it is sampled from the vectorized function `Bernoulli` using the keyword `replicates`. 
-   This along with the deteminstic function `select` implements 
+   and it is sampled from the vectorised function `Bernoulli` using the keyword `replicates`. 
+   This along with the deterministic function `select` implements 
    the Bayesian stochastic search variable selection (BSSVS). 
 9. The base frequencies `π_trait` are sampled from a Dirichlet distribution. 
 10. The deteminstic function `generalTimeReversible` takes relative rates filtered by `select`, 
@@ -346,7 +346,7 @@ and set it up as follows:
    and tick `Reverse` to show the correct time scale; 
    You also can reduce the `Digits` to 0 which will rounding years in the x-axis 
    (i.g. 2005, instead of 2005.22);
-4. Go to `Line Color`, you can colour branches by `location` and tick `Show ledgend`.
+4. Go to `Line Color`, you can colour branches by `location` and tick `Show legend`.
 
 The final image look like Figure 5.
 
