@@ -174,6 +174,9 @@ making it easier to continue.
 
 {% include_relative templates/run-beast.md xml="h5n1.xml" %}
 
+The [h5n1.xml](https://linguaphylo.github.io/tutorials/discrete-phylogeography/h5n1/h5n1.xml) 
+is alos provided as an additional resource, in case you need to use it for your analysis. 
+
 ```
                         BEAST v2.7.5, 2002-2023
              Bayesian Evolutionary Analysis Sampling Trees
@@ -268,11 +271,16 @@ or __upper__ stands for the _highest posterior density interval_ and represents 
 compact interval on the selected parameter that contains 95% of the posterior
 probability. It can be thought of as a Bayesian analog to a confidence interval.
 
+The [h5n1.log](https://linguaphylo.github.io/tutorials/discrete-phylogeography/h5n1/h5n1.log) 
+is alos provided as an additional resource, in case you need to use it for your analysis. 
 
 ## Summarizing posterior trees
 
 {% include_relative templates/tree-annotator.md fig="TreeAnnotator.png" 
                     fignum=3 trees="h5n1_with_trait.trees" mcctree="h5n1_with_trait.tree"%}
+
+The [h5n1_with_trait.tree](https://linguaphylo.github.io/tutorials/discrete-phylogeography/h5n1/h5n1_with_trait.tree) 
+is alos provided as an additional resource, in case you need to use it for your analysis. 
 
 
 ## Distribution of root location
@@ -284,17 +292,17 @@ Looking for the last entries of `location.set` and `location.set.prob`,
 you might find something like this:
 ```
 location.set = {Guangdong,HongKong,Hunan,Guangxi,Fujian}
-location.set.prob = {0.18656302054414214,0.6129927817878956,0.03220433092726263,0.1121599111604664,0.0560799555802332}
+location.set.prob = {0.1793448084397557,0.5985563575791227,0.03997779011660189,0.1265963353692393,0.0555247084952804}
 ```
 This means that we have the following distribution for the root location:
 
 | Location| Probability      |
 |---------|------------------|
-|Guangdong|0.18656302054414214|
-|HongKong|0.6129927817878956|
-|Hunan|0.03220433092726263|
-|Guangxi|0.1121599111604664|
-|Fujian|0.0560799555802332|
+|Guangdong|0.1793448084397557|
+|HongKong|0.5985563575791227|
+|Hunan|0.03997779011660189|
+|Guangxi|0.1265963353692393|
+|Fujian|0.0555247084952804|
 
 This distribution shows that the 95% HPD consists of all locations except Hunan, 
 with a strong indication that HongKong might be the root with over 58% probability. 
@@ -311,7 +319,8 @@ In addition, you can set the branch `Width by` `location.prob` according to the 
 You should end up with something like Figure 4.
 
 <figure class="image">
-  <a href="../discrete-phylogeography/h5n1_with_trait.tree.png" target="_blank"><img src="../discrete-phylogeography/h5n1_with_trait.tree.png" alt="MCC tree"></a>
+  <a href="../discrete-phylogeography/h5n1_with_trait.tree.svg" target="_blank">
+  <img src="../discrete-phylogeography/h5n1_with_trait.tree.svg" alt="MCC tree"></a>
   <figcaption>Figure 4: Figtree representation of the summary tree. 
   Branch colours represent location and branch widths posterior support for the branch.</figcaption>
 </figure>
