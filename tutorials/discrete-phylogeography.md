@@ -174,7 +174,7 @@ making it easier to continue.
 
 {% include_relative templates/run-beast.md xml="h5n1.xml" %}
 
-The [h5n1.xml](https://linguaphylo.github.io/tutorials/discrete-phylogeography/h5n1/h5n1.xml) 
+The [h5n1.xml](h5n1/h5n1.xml) 
 is alos provided as an additional resource, in case you need to use it for your analysis. 
 
 ```
@@ -271,7 +271,7 @@ or __upper__ stands for the _highest posterior density interval_ and represents 
 compact interval on the selected parameter that contains 95% of the posterior
 probability. It can be thought of as a Bayesian analog to a confidence interval.
 
-The [h5n1.log](discrete-phylogeography/h5n1//h5n1.log) 
+The [h5n1.log](h5n1/h5n1.log) 
 is alos provided as an additional resource, in case you need to use it for your analysis. 
 
 ## Summarizing posterior trees
@@ -279,7 +279,7 @@ is alos provided as an additional resource, in case you need to use it for your 
 {% include_relative templates/tree-annotator.md fig="TreeAnnotator.png" 
                     fignum=3 trees="h5n1_with_trait.trees" mcctree="h5n1_with_trait.tree"%}
 
-The [h5n1_with_trait.tree](discrete-phylogeography/h5n1//h5n1_with_trait.tree) 
+The [h5n1_with_trait.tree](h5n1/h5n1_with_trait.tree) 
 is alos provided as an additional resource, in case you need to use it for your analysis. 
 
 
@@ -330,8 +330,8 @@ Lauch the program, and follow the steps below:
 You should end up with something like Figure 4.
 
 <figure class="image">
-  <a href="discrete-phylogeography/h5n1/h5n1_with_trait.tree.svg" target="_blank">
-  <img src="discrete-phylogeography/h5n1/h5n1_with_trait.tree.svg" alt="MCC tree"></a>
+  <a href="h5n1/h5n1_with_trait.tree.svg" target="_blank">
+  <img src="h5n1/h5n1_with_trait.tree.svg" alt="MCC tree"></a>
   <figcaption>Figure 4: Figtree representation of the summary tree. 
   Branch colours represent location and branch widths posterior support for the branch.</figcaption>
 </figure>
@@ -378,7 +378,7 @@ to ensure smooth execution.
 
 Next, we will use R to plot the histogram based on the summary in `stc.out`. 
 If you encounter any issues generating it, you can download a prepared file 
-[stc.out](discrete-phylogeography/h5n1//stc.out). 
+[stc.out](h5n1/stc.out). 
 Additionally, download the script [PlotTransitions.R](discrete-phylogeography/PlotTransitions.R), 
 which contains functions to parse the file and plot the histograms. 
 Before running the script, make sure you have installed the R packages `ggplot2` and `tidyverse`.
@@ -437,7 +437,7 @@ We recommend to download the .jar file from the
 4. Change the `State attribute name` to the name of the trait, which is `location` in this analysis.
 5. Click the `Setup` button to edit altitude and longitude for the locations. 
    You can also load this information from a tab-delimited file, and a prepared file 
-   [locationCoordinates_H5N1.txt](discrete-phylogeography/h5n1/locationCoordinates_H5N1.txt) 
+   [locationCoordinates_H5N1.txt](h5n1/locationCoordinates_H5N1.txt) 
    is also available. Remeber to click `Done` button to save the information into spread.
 6. Change the `Most recent sampling date` to `2005`.
 7. Open the `Output` tab in the left-hand side panel, 
@@ -447,7 +447,7 @@ We recommend to download the .jar file from the
 The world map with the tree superimposed onto the area where the rabies epidemic occurred 
 will be displayed.
 If you encounter any issues generating the KML file, you can download a prepared 
-[output.kml](discrete-phylogeography/h5n1//output.kml).
+[output.kml](h5n1/output.kml).
 
 The KML file can be imported into Google Earth, 
 allowing you to animate the spread of the epidemic through time. 
