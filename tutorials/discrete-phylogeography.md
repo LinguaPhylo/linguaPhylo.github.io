@@ -351,8 +351,8 @@ and set it up as follows:
 The final image look like Figure 5.
 
 <figure class="image">
-  <a href="discrete-phylogeography/h5n1/DensiTree.png" target="_blank">
-  <img src="discrete-phylogeography/h5n1/DensiTree.png" alt="DensiTree"></a>
+  <a href="h5n1/DensiTree.png" target="_blank">
+  <img src="h5n1/DensiTree.png" alt="DensiTree"></a>
   <figcaption>Figure 5: The posterior tree set visualised in DensiTree.</figcaption>
 </figure>
 
@@ -404,8 +404,8 @@ To plot a simple graph, we will pick up the transitions to Hunan in the next com
 and then save the graph as a PNG file. The counts will be normalized into probabilities.
 
 <figure class="image">
-  <a href="discrete-phylogeography/h5n1/transition-distribution-hunan.png" target="_blank">
-  <img src="discrete-phylogeography/h5n1/transition-distribution-hunan.png" alt="DensiTree">
+  <a href="h5n1/transition-distribution-hunan.png" target="_blank">
+  <img src="h5n1/transition-distribution-hunan.png" alt="DensiTree">
   </a>
   <figcaption>Figure 6: The probability distribution of estimated transitions into Hunan from other places.</figcaption>
 </figure>
@@ -423,20 +423,26 @@ For more details and visualizations, you can refer to the work of [Douglas et. a
 
 To analyze and visualize phylogeographic reconstructions resulting from Bayesian inference of 
 spatio-temporal diffusion based on the [Bielejec et al., 2011](#references) method, 
-we can use a software called `spread`. Download it from the 
-[Spread website](https://rega.kuleuven.be/cev/ecv/software/spread),
- and follow the steps below:
+we can use a software called `spread`. 
 
-1. Start the `spread` application.
+__Please note__ it requires Java 1.8. If you have multiple versions of Java installed on your system,
+you can use the command `export JAVA_HOME=`/usr/libexec/java_home -v 1.8` to switch the version. 
+
+We recommend to download the .jar file from the 
+[Spread website](https://rega.kuleuven.be/cev/ecv/software/spread), and follow the steps below:
+
+1. Start the `spread` application by using the command `java -jar SPREADv1.0.7.jar`.
 2. Select the `Open` button in the panel under `Load tree file`.
-3. Choose the summary tree file `h5n1_with_trait`.tree.
+3. Choose the summary tree file `h5n1_with_trait.tree``.
 4. Change the `State attribute name` to the name of the trait, which is `location` in this analysis.
 5. Click the `Setup` button to edit altitude and longitude for the locations. 
    You can also load this information from a tab-delimited file, and a prepared file 
-   [locationCoordinates_H5N1.txt](discrete-phylogeography/h5n1/locationCoordinates_H5N1.txt) is also available.
-6. Open the `Output` tab in the left-hand side panel, 
+   [locationCoordinates_H5N1.txt](discrete-phylogeography/h5n1/locationCoordinates_H5N1.txt) 
+   is also available. Remeber to click `Done` button to save the information into spread.
+6. Change the `Most recent sampling date` to `2005`.
+7. Open the `Output` tab in the left-hand side panel, 
    and then choose where to save the KML file (default is `output.kml`).
-8. Click the `generate` button to create the KML file.
+8. Click the `Generate` button to create the KML file.
 
 The world map with the tree superimposed onto the area where the rabies epidemic occurred 
 will be displayed.
@@ -447,6 +453,14 @@ The KML file can be imported into Google Earth,
 allowing you to animate the spread of the epidemic through time. 
 The colored areas on the map represent the 95% Highest Posterior Density (HPD) regions of 
 the locations of the internal nodes of the summary tree.
+
+<figure class="image">
+  <a href="h5n1/GoogleEarth.jpg" target="_blank">
+  <img src="h5n1/GoogleEarth.jpg" alt="GoogleEarth">
+  </a>
+  <figcaption>Figure 7: The screen shot from Google Earth.</figcaption>
+</figure>
+
 
 ## Programs used in this tutorial
 
@@ -472,7 +486,7 @@ the locations of the internal nodes of the summary tree.
 {% include_relative templates/links.md %}
 
 
-[//]: # (## References)
+## References
 
 {% include_relative discrete-phylogeography/references.md %}
 * Lemey, P., Rambaut, A., Drummond, A. J. and Suchard,
