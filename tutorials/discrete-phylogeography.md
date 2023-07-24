@@ -330,8 +330,8 @@ Lauch the program, and follow the steps below:
 You should end up with something like Figure 4.
 
 <figure class="image">
-  <a href="h5n1/h5n1_with_trait.tree.svg" target="_blank">
-  <img src="h5n1/h5n1_with_trait.tree.svg" alt="MCC tree"></a>
+  <a href="h5n1_with_trait.tree.svg" target="_blank">
+  <img src="h5n1_with_trait.tree.svg" alt="MCC tree"></a>
   <figcaption>Figure 4: Figtree representation of the summary tree. 
   Branch colours represent location and branch widths posterior support for the branch.</figcaption>
 </figure>
@@ -351,8 +351,8 @@ and set it up as follows:
 The final image look like Figure 5.
 
 <figure class="image">
-  <a href="h5n1/DensiTree.png" target="_blank">
-  <img src="h5n1/DensiTree.png" alt="DensiTree"></a>
+  <a href="DensiTree.png" target="_blank">
+  <img src="DensiTree.png" alt="DensiTree"></a>
   <figcaption>Figure 5: The posterior tree set visualised in DensiTree.</figcaption>
 </figure>
 
@@ -379,7 +379,7 @@ to ensure smooth execution.
 Next, we will use R to plot the histogram based on the summary in `stc.out`. 
 If you encounter any issues generating it, you can download a prepared file 
 [stc.out](h5n1/stc.out). 
-Additionally, download the script [PlotTransitions.R](discrete-phylogeography/PlotTransitions.R), 
+Additionally, download the script [PlotTransitions.R](PlotTransitions.R), 
 which contains functions to parse the file and plot the histograms. 
 Before running the script, make sure you have installed the R packages `ggplot2` and `tidyverse`.
 
@@ -404,8 +404,8 @@ To plot a simple graph, we will pick up the transitions to Hunan in the next com
 and then save the graph as a PNG file. The counts will be normalized into probabilities.
 
 <figure class="image">
-  <a href="h5n1/transition-distribution-hunan.png" target="_blank">
-  <img src="h5n1/transition-distribution-hunan.png" alt="DensiTree">
+  <a href="transition-distribution-hunan.png" target="_blank">
+  <img src="transition-distribution-hunan.png" alt="DensiTree">
   </a>
   <figcaption>Figure 6: The probability distribution of estimated transitions into Hunan from other places.</figcaption>
 </figure>
@@ -437,7 +437,7 @@ We recommend to download the .jar file from the
 4. Change the `State attribute name` to the name of the trait, which is `location` in this analysis.
 5. Click the `Setup` button to edit altitude and longitude for the locations. 
    You can also load this information from a tab-delimited file, and a prepared file 
-   [locationCoordinates_H5N1.txt](h5n1/locationCoordinates_H5N1.txt) 
+   [locationCoordinates_H5N1.txt](locationCoordinates_H5N1.txt) 
    is also available. Remeber to click `Done` button to save the information into spread.
 6. Change the `Most recent sampling date` to `2005`.
 7. Open the `Output` tab in the left-hand side panel, 
@@ -455,8 +455,8 @@ The colored areas on the map represent the 95% Highest Posterior Density (HPD) r
 the locations of the internal nodes of the summary tree.
 
 <figure class="image">
-  <a href="h5n1/GoogleEarth.jpg" target="_blank">
-  <img src="h5n1/GoogleEarth.jpg" alt="GoogleEarth">
+  <a href="GoogleEarth.jpg" target="_blank">
+  <img src="GoogleEarth.jpg" alt="GoogleEarth">
   </a>
   <figcaption>Figure 7: The screen shot from Google Earth.</figcaption>
 </figure>
