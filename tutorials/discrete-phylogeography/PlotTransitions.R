@@ -34,9 +34,12 @@ parseTransCount <- function(input="stc.out", pattern = "Histogram", target="Huna
   stats.target <- stats.tb[grepl("=>", stats.tb) & grepl(target, stats.tb)]
   # rm target=>target
   stats.target <- stats.target[str_count(stats.target, target) == 1] 
+  
+  ### read_delim is changed, not take text
+  # stats.target is a list of tab-delimited strings,
+  stats <- as_tibble(do.call(rbind, strsplit(stats.target, "\t")))
   # add colnames
-  stats.target <- c(stats.tb[1], stats.target)
-  stats <- read_delim(stats.target, "\t", comment = "#", col_names = T)
+  names(stats) <- unlist(strsplit(stats.tb[1], "\t"))
   
   hist.tb <- counts[flag.ln:length(counts)]
   hist.tb <- hist.tb[grepl("=>", hist.tb) & grepl(target, hist.tb)]

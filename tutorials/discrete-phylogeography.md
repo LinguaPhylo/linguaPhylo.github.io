@@ -271,7 +271,7 @@ or __upper__ stands for the _highest posterior density interval_ and represents 
 compact interval on the selected parameter that contains 95% of the posterior
 probability. It can be thought of as a Bayesian analog to a confidence interval.
 
-The [h5n1.log](https://linguaphylo.github.io/tutorials/discrete-phylogeography/h5n1/h5n1.log) 
+The [h5n1.log](discrete-phylogeography/h5n1//h5n1.log) 
 is alos provided as an additional resource, in case you need to use it for your analysis. 
 
 ## Summarizing posterior trees
@@ -279,7 +279,7 @@ is alos provided as an additional resource, in case you need to use it for your 
 {% include_relative templates/tree-annotator.md fig="TreeAnnotator.png" 
                     fignum=3 trees="h5n1_with_trait.trees" mcctree="h5n1_with_trait.tree"%}
 
-The [h5n1_with_trait.tree](https://linguaphylo.github.io/tutorials/discrete-phylogeography/h5n1/h5n1_with_trait.tree) 
+The [h5n1_with_trait.tree](discrete-phylogeography/h5n1//h5n1_with_trait.tree) 
 is alos provided as an additional resource, in case you need to use it for your analysis. 
 
 
@@ -305,7 +305,7 @@ This means that we have the following distribution for the root location:
 |Fujian|0.0555247084952804|
 
 This distribution shows that the 95% HPD consists of all locations except Hunan, 
-with a strong indication that HongKong might be the root with over 58% probability. 
+with a strong indication that HongKong might be the root with over 59% probability. 
 It is quite typical that a lot of locations are part of the 95% HPD in discrete phylogeography.
 
 
@@ -330,108 +330,123 @@ Lauch the program, and follow the steps below:
 You should end up with something like Figure 4.
 
 <figure class="image">
-  <a href="../discrete-phylogeography/h5n1_with_trait.tree.svg" target="_blank">
-  <img src="../discrete-phylogeography/h5n1_with_trait.tree.svg" alt="MCC tree"></a>
+  <a href="discrete-phylogeography/h5n1/h5n1_with_trait.tree.svg" target="_blank">
+  <img src="discrete-phylogeography/h5n1/h5n1_with_trait.tree.svg" alt="MCC tree"></a>
   <figcaption>Figure 4: Figtree representation of the summary tree. 
   Branch colours represent location and branch widths posterior support for the branch.</figcaption>
 </figure>
 
-Alternatively, you can load the posterior tree set `h5n1_with_trait.trees` (note this is NOT the summary tree, but the complete set) into _DensiTree_ and set it up as follows.
-- Click `Show` to choose `Root Canal` tree to guide the eye.
-- Click `Grid` to choose `Full grid` option, type year 2005 in the `Origin` text field and tick `Reverse` to show the correct time scale. You also can reduce the `Digits` to 0 which will rounding years in the x-axis (i.g. 2005, instead of 2005.22).
-- Go to `Line Color`, you can colour branches by `location`.
+Alternatively, you can use _DensiTree_ to visulize the set of posterior trees  
+and set it up as follows:
+
+1. Use the `Load` option in the `File` menu to load the trees from `h5n1_with_trait.trees` 
+   (note this is NOT the summary tree, but the complete set);
+2. Click `Show` to choose `Root Canal` tree to guide the eye;
+3. Click `Grid` to choose `Full grid` option, type "2005" in the `Origin` text field which is the year,
+   and tick `Reverse` to show the correct time scale; 
+   You also can reduce the `Digits` to 0 which will rounding years in the x-axis 
+   (i.g. 2005, instead of 2005.22);
+4. Go to `Line Color`, you can colour branches by `location` and tick `Show ledgend`.
+
 The final image look like Figure 5.
 
 <figure class="image">
-  <a href="../discrete-phylogeography/DensiTree.png" target="_blank"><img src="../discrete-phylogeography/DensiTree.png" alt="DensiTree"></a>
+  <a href="discrete-phylogeography/h5n1/DensiTree.png" target="_blank">
+  <img src="discrete-phylogeography/h5n1/DensiTree.png" alt="DensiTree"></a>
   <figcaption>Figure 5: The posterior tree set visualised in DensiTree.</figcaption>
 </figure>
 
+## Bonus sections
 
-## The number of estimated transitions
+### The number of estimated transitions
 
-Sometime, we want to visualise how the location states are changed through the phylogeny. 
-`StateTransitionCounter` can count the number of branches in a tree or a set of trees 
-that have a certain state at the parent and another at the node. 
+To visualize how the location states change through the phylogeny, 
+you can use the `StateTransitionCounter` tool, which counts the number of branches 
+in a tree or a set of trees that have a certain state at the parent and another state at the node.
 
-So, install the `Babel` package and run the `StateTransitionCounter` through BEAST application launcher. 
-The command line below will generate the output file `stc.out` 
-containing all counts from the logged posterior trees `h5n1_with_trait.trees`,
-after removing 10% burn-in. 
-Please make sure you install the latest version (Babel >= v0.3.2, BEASTLabs >= v1.9.6).
+To use StateTransitionCounter, first, install the `Babel` package and then 
+run the tool through the BEAST application launcher. 
+The command below will generate the output file `stc.out` containing all counts 
+from the logged posterior trees `h5n1_with_trait.trees`, after removing 10% burn-in.
 
-```
+```bash
 $BEAST2_PATH/bin/applauncher StateTransitionCounter -burnin 10 -in h5n1_with_trait.trees -tag location -out stc.out
 ```
 
-Next, we need to use R to plot the histogram given the summary in `stc.out`. 
-If you have a problem to generate it, you can download a prepared file [stc.out](h5n1Bernoulli/stc.out). 
-You also need to download a script [PlotTransitions.R](discrete-phylogeography/PlotTransitions.R),
-which contains the functions to parse the file and plot the histograms.
-The script requires to install R package `ggplot2` and `tidyverse`.
+Make sure you have installed the latest versions of Babel (>= v0.4.x) and BEASTLabs (>= v2.0.x) 
+to ensure smooth execution.
 
-Run the following scripts in R:
+Next, we will use R to plot the histogram based on the summary in `stc.out`. 
+If you encounter any issues generating it, you can download a prepared file 
+[stc.out](discrete-phylogeography/h5n1//stc.out). 
+Additionally, download the script [PlotTransitions.R](discrete-phylogeography/PlotTransitions.R), 
+which contains functions to parse the file and plot the histograms. 
+Before running the script, make sure you have installed the R packages `ggplot2` and `tidyverse`.
+
+Run the following scripts in R, where `R_SRC_PATH` is the folder containing R code, 
+and `YOUR_WD` is the folder containing the `stc.out` file:
 
 ```R
-#setwd(YOUR_WD)
+setwd(R_SRC_PATH)
 source("PlotTransitions.R")
+setwd(YOUR_WD)
 
+# stc.out must be in YOUR_WD
 stc <- parseTransCount(input="stc.out", pattern = "Histogram", target="Hunan")
 # only => Hunan
 p <- plotTransCount(stc$hist[grepl("=>Hunan", stc$hist[["Transition"]]),])
 ggsave( paste0("transition-distribution-hunan.png"), p, width = 6, height = 4) 
 ```
 
-The `stc` contains a statistical summary of the estimated transition counts related to the target location, 
-here is `Hunan`, and a table of the actual counts. 
-To plot a simple graph, we only pick up the transitions to Hunan in the next command,
-and then save the graph a PNG file. The counts are normalised into probabilities. 
+The `stc` file contains a statistical summary of the estimated transition counts 
+related to the target location, which is `Hunan`, and a table of the actual counts. 
+To plot a simple graph, we will pick up the transitions to Hunan in the next command 
+and then save the graph as a PNG file. The counts will be normalized into probabilities.
 
 <figure class="image">
-  <a href="../discrete-phylogeography/transition-distribution-hunan.png" target="_blank"><img src="../discrete-phylogeography/transition-distribution-hunan.png" alt="DensiTree"></a>
+  <a href="discrete-phylogeography/h5n1/transition-distribution-hunan.png" target="_blank">
+  <img src="discrete-phylogeography/h5n1/transition-distribution-hunan.png" alt="DensiTree">
+  </a>
   <figcaption>Figure 6: The probability distribution of estimated transitions into Hunan from other places.</figcaption>
 </figure>
 
-The x-axis presents the number of estimated transitions in all migration events from one particular location to another which is separated by "=>",
-and y-axis is the probability which is normalised from the total counts.
-As you can see, "Guangxi=>Hunan" (blue) has higher probability than other migration events. 
-This type of visualisation will help you to quantify the uncertainty how the disease (H5N1) spread from/to the location(s) of interest, which is simulated from your model and given the data.    
+The x-axis represents the number of estimated transitions in all migration events 
+from one particular location to another, separated by "=>", 
+and the y-axis represents the probability, which is normalized from the total counts. 
+From the graph, we can observe that "Guangxi => Hunan" (in blue) has a higher probability 
+than other migration events. 
+This type of visualization quantifies the uncertainty in how the disease (H5N1) spreads 
+between locations of interest, as simulated from your model and given the data.
+For more details and visualizations, you can refer to the work of [Douglas et. al. 2020](#references).
 
-Because the posterior trees in this analysis are scaled to time, also known as "time tree", 
-we can convert this graph into daily transitions. More details and visualisations can be seen from [Douglas et. al. 2020](#references).
+### Visualizing Bayesian phylogeographic reconstructions
 
-## Post processing geography
+To analyze and visualize phylogeographic reconstructions resulting from Bayesian inference of 
+spatio-temporal diffusion based on the [Bielejec et al., 2011](#references) method, 
+we can use a software called `spread`. Download it from the 
+[Spread website](https://rega.kuleuven.be/cev/ecv/software/spread),
+ and follow the steps below:
 
-Start the application `spread`, which can be used to analyze and visualize phylogeographic reconstructions resulting from Bayesian inference of spatio-temporal diffusion [Bielejec et al., 2011](#references).  
+1. Start the `spread` application.
+2. Select the `Open` button in the panel under `Load tree file`.
+3. Choose the summary tree file `h5n1_with_trait`.tree.
+4. Change the `State attribute name` to the name of the trait, which is `location` in this analysis.
+5. Click the `Setup` button to edit altitude and longitude for the locations. 
+   You can also load this information from a tab-delimited file, and a prepared file 
+   [locationCoordinates_H5N1.txt](discrete-phylogeography/h5n1/locationCoordinates_H5N1.txt) is also available.
+6. Open the `Output` tab in the left-hand side panel, 
+   and then choose where to save the KML file (default is `output.kml`).
+8. Click the `generate` button to create the KML file.
 
-Select the `Open` button in the panel under `Load tree file`, 
-and select the summary tree file `h5n1_with_trait.tree`.
-Change the `State attribute name` to the name of the trait,   
-which is `location` in this analysis.
-Click the `Setup` button. A dialog pops up where you can edit altitude and
-longitude for the locations. Alternatively, you can load it from a tab-delimited
-file. A file `locationCoordinates_H5N1.txt` is prepared in [Spread website](https://www.kuleuven.be/aidslab/phylogeography/SPREAD.html).
+The world map with the tree superimposed onto the area where the rabies epidemic occurred 
+will be displayed.
+If you encounter any issues generating the KML file, you can download a prepared 
+[output.kml](discrete-phylogeography/h5n1//output.kml).
 
-Tip: to find latitude and longitude of locations, you can use Google maps,
-switch on photo's and select a photo at the location of the map. Click the
-photo, then click `Show in Panoramio` and a new page opens that contains the
-locations where the photo was taken. An alternative is to use `Google Earth`, and
-point the mouse to the location. Google-Earth shows latitude and longitude of
-the mouse location at the bottom of the screen.
-
-Now, open the `Output` tab in the panel on the left hand side. Here, you
-can choose where to save the KML file (default `output.kml`).
-Select the `generate` button to generate the KML file, and a world map
-appears with the tree superimposed onto the area where the rabies epidemic
-occurred.
-
-If you have a problem to generate KML file, 
-you can download a prepared [output.kml](h5n1Bernoulli/output.kml).
-
-The KML file can be read into `Google Earth`. Then, the spread of the epidemic
-can be animated through time. The coloured areas represent the 95% HPD
-regions of the locations of the internal nodes of the summary tree.
-
+The KML file can be imported into Google Earth, 
+allowing you to animate the spread of the epidemic through time. 
+The colored areas on the map represent the 95% Highest Posterior Density (HPD) regions of 
+the locations of the internal nodes of the summary tree.
 
 ## Programs used in this tutorial
 
