@@ -264,12 +264,12 @@ selected trace.
 
 Tracer will plot a (marginal posterior) distribution for the selected parameter
 and also give you statistics such as the mean and median. The __95% HPD lower__
-or __upper__ stands for _highest posterior density interval_ and represents the most
+or __upper__ stands for the _highest posterior density interval_ and represents the most
 compact interval on the selected parameter that contains 95% of the posterior
 probability. It can be thought of as a Bayesian analog to a confidence interval.
 
 
-## Obtaining an estimate of the phylogenetic tree
+## Summarizing posterior trees
 
 {% include_relative templates/tree-annotator.md fig="TreeAnnotator.png" 
                     fignum=3 trees="h5n1_with_trait.trees" mcctree="h5n1_with_trait.tree"%}
