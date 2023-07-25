@@ -442,7 +442,7 @@ spatio-temporal diffusion based on the [Bielejec et al., 2011](#references) meth
 we can use a software called `spread`. 
 
 __Please note__ it requires Java 1.8. If you run into any issues or need support, 
-don't hesitate to check out our [Tech Rescue](tech-rescue/#switch-the-java-version) page. 
+don't hesitate to check out our [Tech Rescue](tech-rescue.md/#switch-the-java-version) page. 
 
 We recommend to download the .jar file from the 
 [Spread website](https://rega.kuleuven.be/cev/ecv/software/spread), and follow the steps below:
