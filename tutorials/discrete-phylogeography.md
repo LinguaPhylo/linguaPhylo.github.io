@@ -172,6 +172,12 @@ here is our [Tech Rescue](tech-rescue.md/#obtaining-the-valid-file-paths-in-the-
 
 {% include_relative templates/run-beast.md xml="h5n1.xml" %}
 
+<figure class="image">
+  <a href="BEAST.png" target="_blank">
+  <img src="BEAST.png" alt="BEAST"></a>
+  <figcaption>Figure 2: Provide the XML to BEAST 2.</figcaption>
+</figure>
+
 The [h5n1.xml](h5n1/h5n1.xml) 
 is also provided as an additional resource, in case you need to use it for your analysis. 
 
@@ -250,7 +256,7 @@ Done!
 
 ## Analysing the BEAST output
 
-{% include_relative templates/tracer.md logfile="h5n1" fignum="Figure 2" %}
+{% include_relative templates/tracer.md logfile="h5n1" fignum="Figure 3" %}
 
 Remember that MCMC is a stochastic algorithm so the actual numbers will
 not be exactly the same.
@@ -273,12 +279,12 @@ In the implemented phylogeographic model, the rate matrix is symmetric,
 meaning that a relative migration rate between two locations solely represents 
 a numerical value without implying any direction. 
 Consequently, for 5 locations, there are only 10 relative migration rates, 
-as illustrated in Figure 3.
+as illustrated in Figure 4.
 
 <figure class="image">
   <a href="migRateMatrix.png" target="_blank">
   <img src="migRateMatrix.png" alt="DensiTree"></a>
-  <figcaption>Figure 3: The posterior of relative migration rates between two locations.</figcaption>
+  <figcaption>Figure 4: The posterior of relative migration rates between two locations.</figcaption>
 </figure>
 
 The [h5n1.log](h5n1/h5n1.log) 
@@ -287,7 +293,7 @@ is also provided as an additional resource, in case you need to use it for your 
 ## Summarizing posterior trees
 
 {% include_relative templates/tree-annotator.md fig="TreeAnnotator.png" 
-                    fignum=4 trees="h5n1_with_trait.trees" mcctree="h5n1_with_trait.tree"%}
+                    fignum=5 trees="h5n1_with_trait.trees" mcctree="h5n1_with_trait.tree"%}
 
 Both [h5n1_with_trait.trees](h5n1/h5n1_with_trait.trees) and [h5n1_with_trait.tree](h5n1/h5n1_with_trait.tree) 
 are provided as an additional resource, in case you need to use it for your analysis. 
@@ -338,12 +344,11 @@ Lauch the program, and follow the steps below:
 6. If you want to see the x-axis scale, you can tick `Scale Axis`, 
    expend it and uncheck the option `Show grid`. 
 
-You should end up with something like Figure 5.
-
+You should end up with something like Figure 6
 <figure class="image">
   <a href="h5n1_with_trait.tree.svg" target="_blank">
   <img src="h5n1_with_trait.tree.svg" alt="MCC tree"></a>
-  <figcaption>Figure 5: Figtree representation of the summary tree. 
+  <figcaption>Figure 6: Figtree representation of the summary tree. 
   Branch colours represent location and branch widths posterior support for the branch.</figcaption>
 </figure>
 
@@ -359,12 +364,12 @@ and set it up as follows:
    (i.g. 2005, instead of 2005.22);
 4. Go to `Line Color`, you can colour branches by `location` and tick `Show legend`.
 
-The final image look like Figure 6.
+The final image look like Figure 7.
 
 <figure class="image">
   <a href="DensiTree.png" target="_blank">
   <img src="DensiTree.png" alt="DensiTree"></a>
-  <figcaption>Figure 6: The posterior tree set visualised in DensiTree.</figcaption>
+  <figcaption>Figure 7: The posterior tree set visualised in DensiTree.</figcaption>
 </figure>
 
 ## Bonus sections
@@ -420,7 +425,7 @@ and then save the graph as a PNG file. The counts will be normalized into probab
   <a href="transition-distribution-hunan.png" target="_blank">
   <img src="transition-distribution-hunan.png" alt="DensiTree">
   </a>
-  <figcaption>Figure 7: The probability distribution of estimated transitions into Hunan from other places.</figcaption>
+  <figcaption>Figure 8: The probability distribution of estimated transitions into Hunan from other places.</figcaption>
 </figure>
 
 The x-axis represents the number of estimated transitions in all migration events 
@@ -471,7 +476,7 @@ the locations of the internal nodes of the summary tree.
   <a href="GoogleEarth.jpg" target="_blank">
   <img src="GoogleEarth.jpg" alt="GoogleEarth">
   </a>
-  <figcaption>Figure 8: The screen shot from Google Earth.</figcaption>
+  <figcaption>Figure 9: The screen shot from Google Earth.</figcaption>
 </figure>
 
 
