@@ -60,6 +60,20 @@ For Windows, the links below are helpful:
 - [How do I enable the latest Java version (java.com)](https://www.java.com/en/download/help/update_runtime_settings.html)
 
 
+## Obtaining the valid file paths in the terminal
 
+If you're not familiar with inputting valid paths in the command line, 
+you can use the “Finder” (Mac) or “File Explorer” (Windows) to navigate to the folder 
+containing the required files. 
+Then, simply drag and drop the file or folder into the terminal. 
+The full path will automatically appear in the command line, 
+making it easier to proceed with your commands. 
+This method ensures you obtain the correct file paths effortlessly without the need to manually type them.
+
+In the Mac, Linux, or Windows command prompt, you can use auto-complete to assist 
+with file and folder names or command names.
+As you type a file or folder or command name, pressing the `Tab` key will automatically complete 
+the name if there's a match. 
+If there are multiple matches, pressing `Tab` twice will show all the options.
 
 

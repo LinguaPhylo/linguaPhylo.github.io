@@ -77,9 +77,11 @@ In macOS, a typical installation path for LPhy Studio is `/Applications/BEAST 2.
 
 ### Windows
 
-The process is same to the Mac installation, but we suggest you install BEAST 2 under 
-either your home folder or the "Documents" folder, and then install LPhy Studio under 
-the BEAST 2 folder.
+The process is same to the Mac installation. 
+We recommend installing BEAST 2 either in your home folder or the "Documents" folder, 
+to ensure that you have the necessary write permissions for the software to create log files 
+and save any outputs. 
+After installing BEAST 2, you can proceed to install LPhy Studio under the BEAST 2 folder.
 
 
 #### Launching LPhy Studio

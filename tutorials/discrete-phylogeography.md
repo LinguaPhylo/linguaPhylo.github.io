@@ -165,10 +165,7 @@ cd "C:\Users\Username\Documents\BEAST 2.7.x\lphystudio-1.x.x\tutorials"
 ```
 
 __Tips:__ if you are not familiar with inputting valid paths in the command line, 
-you can use the "Finder" (Mac) or "File Explorer" (Windows) to select the folder 
-containing the required files. Then, simply drag and drop the folder into the terminal. 
-The full path will automatically appear in the command line, 
-making it easier to continue.
+here is our [Tech Rescue](tech-rescue.md/#obtaining-the-valid-file-paths-in-the-terminal) that may help you.
 
 
 ## Running BEAST
