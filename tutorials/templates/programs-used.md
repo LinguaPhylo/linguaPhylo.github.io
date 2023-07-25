@@ -6,6 +6,8 @@ The following software will be used in this tutorial:
 {% assign tracer_version = "1.7.2" %}
 {% assign figtree_version = "1.4.3" %}
 
+* LPhy Studio and LPhy BEAST require Java 17 or a later version.
+
 * LPhy Studio - This software will specify, visualize, and simulate data from models 
   defined in LPhy scripts.
   At the time of writing, the current version is v{{lphy_version}}. 

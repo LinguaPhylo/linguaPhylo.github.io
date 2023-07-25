@@ -490,6 +490,8 @@ the locations of the internal nodes of the summary tree.
 * Spread - it summarises the geographic spread and produces a KML file, which is available from
   [https://rega.kuleuven.be/cev/ecv/software/spread](https://rega.kuleuven.be/cev/ecv/software/spread).
 
+* Spread requires Java 1.8.
+
 * Google earth - it is used to display the KML file (just Google for it, if you have not already have it installed).
 
 
