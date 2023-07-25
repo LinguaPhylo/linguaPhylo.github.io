@@ -439,7 +439,7 @@ spatio-temporal diffusion based on the [Bielejec et al., 2011](#references) meth
 we can use a software called `spread`. 
 
 __Please note__ it requires Java 1.8. If you have multiple versions of Java installed on your system,
-you can use the command `export JAVA_HOME=`/usr/libexec/java_home -v 1.8` 
+you can use the command "export JAVA_HOME=`/usr/libexec/java_home -v 1.8`"
 to switch the version in Linux or Mac. 
 
 We recommend to download the .jar file from the 
