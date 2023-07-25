@@ -40,14 +40,31 @@ and their required alignments (e.g. RSV2.nex) in the subfolder `data` under the 
 
 ## LPhyBEAST command line options
 
-The `lphybeast` script will launch LPhyBEAST using the BEAST 2 [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
+The `lphybeast` script will launch LPhyBEAST using the 
+BEAST 2 [applauncher](https://www.beast2.org/2019/09/26/command-line-tricks.html),
 and add `$LPHY_LIB` into the classpath. 
 
-1. If the input/output is a relative path, then concatenate `user.dir` to the front of the path.
+1. When working with files located in different folders, 
+   it is recommended to use the absolute path, 
+   which provides the complete file or directory path on the file system:
 
-2. Use `-wd` to set `user.dir`. But if `-wd` is not given, 
-then `user.dir` will be set to the parent folder where the LPhy script sits inside.
-For example:
+```bash
+cd $MY_PATH
+$BEAST_PATH/bin/lphybeast $LPHY_PATH/tutorials/RSV2.lphy
+```
+
+__Please note__: the path should not contain any whitespaces. 
+The LPhyBEAST launcher, which utilizes [picocli](https://picocli.info), 
+automatically parses string arguments with whitespaces into arrays, 
+even if the string is enclosed in single or double quotes. 
+To avoid any parsing issues, ensure that your file paths do not include whitespaces. 
+
+{:start="2"}
+2. When dealing with relative paths for input/output, LPhyBEAST will concatenate `user.dir` 
+   to the beginning of the path. 
+   In case you want to explicitly set the `user.dir`, you can use the `-wd` option as follows.
+   However, if you don't provide the `-wd` option, 
+   the `user.dir` will be automatically set to the parent folder where the LPhy script is located.
 
 ```bash
 $BEAST_DIR/bin/lphybeast -wd $LPHY_PATH/tutorials/ -l 15000000 -o RSV2long.xml RSV2.lphy
@@ -57,8 +74,8 @@ This also contains two extra arguments:
 - `-l` changes the MCMC chain length (default to 1 million) in the XML;
 - `-o` replaces the output file name (default to use the same file steam as the lphy input file).
 
-As this LPhy script uses the relative path to load data, 
-`D = readNexus(file="data/RSV2.nex", ...);`, 
+If a LPhy script uses the relative path to load data, 
+e.g., `D = readNexus(file="data/RSV2.nex", ...);`, 
 the `data` subfolder containing `RSV2.nex` has to be in the same folder where "RSV2.lphy" sits inside.
 
 **Note:** please use `-wd` to simplify your input and output paths. 

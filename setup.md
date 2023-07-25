@@ -192,24 +192,17 @@ cd $BEAST_PATH
 ./bin/lphybeast -h
 ```
 
-To create "RSV2.xml" from the tutorial script "RSV2.lphy":
+Create "RSV2.xml" from the tutorial script "RSV2.lphy":
 
 ```bash
 cd $LPHY_PATH/tutorials/
-BEAST_PATH/bin/lphybeast RSV2.lphy
+$BEAST_PATH/bin/lphybeast RSV2.lphy
 ```
 
-Or using the absolute path and from a different folder:
+Or, create 5 XMLs at 5 replicates:
 
 ```bash
-cd $MY_PATH
-$BEAST_PATH/bin/lphybeast $LPHY_PATH/tutorials/RSV2.lphy
-```
-
-To create 5 XMLs with simulated data:
-
-```bash
-$BEAST_PATH/bin/lphybeast -wd $LPHY_PATH/tutorials/ -r 5 RSV2.lphy
+$BEAST_PATH/bin/lphybeast -r 5 RSV2.lphy
 ```
 
 
