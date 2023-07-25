@@ -38,12 +38,12 @@ isolated from a variety of hosts 1996 - 2005 across sample locations.
 In the `data` block, we begin by defining an option to extract the sample times 
 from the taxa labels using a regular expression `_(\d+)$`, 
 and we treat those times as dates (i.e., moving `forward` in time). 
-For instance, the taxon `A_chicken_Fujian_1042_2005` will yield the year 2005, 
+For instance, the taxon "A_chicken_Fujian_1042_2005" will yield the year 2005, 
 making the age of this tip 0 since 2005 is the latest year among these samples.
 Clicking on the orange diamond labeled "taxa", you can see all taxa along with their ages, 
 which have been converted from the years extracted from their labels.
-If it is not in the probabilistic graphical model, please select the checkbox "Show constants" 
-to display the full model. 
+If it is not in the probabilistic graphical model, please select the checkbox `Show constants` 
+to display the [full model](FullModel.png). 
 
 Next, we read the file "H5N1.nex" and load it into an alignment `D`, 
 using the previously defined options. 
@@ -113,7 +113,7 @@ So, assuming migration to be symmetric in this analysis:
    to store the off-diagonal entries of the unnormalised $S$, which is sampled from 
    a Dirichlet distribution. 
 8. A boolean vector `I` with the same length determines which infinitesimal rates are zero, 
-   and it is sampled from the vectorised function `Bernoulli` using the keyword `replicates`. 
+   and it is sampled from the vectorized function `Bernoulli` using the keyword `replicates`. 
    This along with the deterministic function `select` implements 
    the Bayesian stochastic search variable selection (BSSVS). 
 9. The base frequencies `π_trait` are sampled from a Dirichlet distribution. 
@@ -130,7 +130,8 @@ to simulate the location alignment `D_trait` whose supposes to have only one sit
 As you have noticed, there are two `D_trait` in this script, one is in the `data` block,
 the other is in the `model` block. This is called data clamping. 
 The detail can be refered to either the section "2.1.11 Inference and data clamping" 
-or LPhy [language features](https://linguaphylo.github.io/features/#data-clamping). 
+in the [LPhy paper](https://doi.org/10.1371/journal.pcbi.1011226) 
+or visit the [LPhy language features](https://linguaphylo.github.io/features/#data-clamping) page. 
 
 
 ## Producing BEAST XML using LPhyBEAST
@@ -271,13 +272,25 @@ or __upper__ stands for the _highest posterior density interval_ and represents 
 compact interval on the selected parameter that contains 95% of the posterior
 probability. It can be thought of as a Bayesian analog to a confidence interval.
 
+In the implemented model, the rate matrix is symmetric, 
+meaning that a relative migration rate between two locations solely represents 
+a numerical value without implying any direction. 
+Consequently, for 5 locations, there are only 10 relative migration rates, 
+as illustrated in Figure 3.
+
+<figure class="image">
+  <a href="migRateMatrix.png" target="_blank">
+  <img src="migRateMatrix.png" alt="DensiTree"></a>
+  <figcaption>Figure 3: The posterior of relative migration rates between two locations.</figcaption>
+</figure>
+
 The [h5n1.log](h5n1/h5n1.log) 
 is also provided as an additional resource, in case you need to use it for your analysis. 
 
 ## Summarizing posterior trees
 
 {% include_relative templates/tree-annotator.md fig="TreeAnnotator.png" 
-                    fignum=3 trees="h5n1_with_trait.trees" mcctree="h5n1_with_trait.tree"%}
+                    fignum=4 trees="h5n1_with_trait.trees" mcctree="h5n1_with_trait.tree"%}
 
 Both [h5n1_with_trait.trees](h5n1/h5n1_with_trait.trees) and [h5n1_with_trait.tree](h5n1/h5n1_with_trait.tree) 
 are provided as an additional resource, in case you need to use it for your analysis. 
@@ -327,12 +340,12 @@ Lauch the program, and follow the steps below:
 6. If you want to see the x-axis scale, you can tick `Scale Axis`, 
    expend it and uncheck the option `Show grid`. 
 
-You should end up with something like Figure 4.
+You should end up with something like Figure 5.
 
 <figure class="image">
   <a href="h5n1_with_trait.tree.svg" target="_blank">
   <img src="h5n1_with_trait.tree.svg" alt="MCC tree"></a>
-  <figcaption>Figure 4: Figtree representation of the summary tree. 
+  <figcaption>Figure 5: Figtree representation of the summary tree. 
   Branch colours represent location and branch widths posterior support for the branch.</figcaption>
 </figure>
 
@@ -348,12 +361,12 @@ and set it up as follows:
    (i.g. 2005, instead of 2005.22);
 4. Go to `Line Color`, you can colour branches by `location` and tick `Show legend`.
 
-The final image look like Figure 5.
+The final image look like Figure 6.
 
 <figure class="image">
   <a href="DensiTree.png" target="_blank">
   <img src="DensiTree.png" alt="DensiTree"></a>
-  <figcaption>Figure 5: The posterior tree set visualised in DensiTree.</figcaption>
+  <figcaption>Figure 6: The posterior tree set visualised in DensiTree.</figcaption>
 </figure>
 
 ## Bonus sections
@@ -407,7 +420,7 @@ and then save the graph as a PNG file. The counts will be normalized into probab
   <a href="transition-distribution-hunan.png" target="_blank">
   <img src="transition-distribution-hunan.png" alt="DensiTree">
   </a>
-  <figcaption>Figure 6: The probability distribution of estimated transitions into Hunan from other places.</figcaption>
+  <figcaption>Figure 7: The probability distribution of estimated transitions into Hunan from other places.</figcaption>
 </figure>
 
 The x-axis represents the number of estimated transitions in all migration events 
@@ -419,14 +432,15 @@ This type of visualization quantifies the uncertainty in how the disease (H5N1) 
 between locations of interest, as simulated from your model and given the data.
 For more details and visualizations, you can refer to the work of [Douglas et. al. 2020](#references).
 
-### Visualizing Bayesian phylogeographic reconstructions
+### Visualizing phylogeographic diffusion
 
 To analyze and visualize phylogeographic reconstructions resulting from Bayesian inference of 
 spatio-temporal diffusion based on the [Bielejec et al., 2011](#references) method, 
 we can use a software called `spread`. 
 
 __Please note__ it requires Java 1.8. If you have multiple versions of Java installed on your system,
-you can use the command `export JAVA_HOME=`/usr/libexec/java_home -v 1.8` to switch the version. 
+you can use the command `export JAVA_HOME=`/usr/libexec/java_home -v 1.8` 
+to switch the version in Linux or Mac. 
 
 We recommend to download the .jar file from the 
 [Spread website](https://rega.kuleuven.be/cev/ecv/software/spread), and follow the steps below:
@@ -458,7 +472,7 @@ the locations of the internal nodes of the summary tree.
   <a href="GoogleEarth.jpg" target="_blank">
   <img src="GoogleEarth.jpg" alt="GoogleEarth">
   </a>
-  <figcaption>Figure 7: The screen shot from Google Earth.</figcaption>
+  <figcaption>Figure 8: The screen shot from Google Earth.</figcaption>
 </figure>
 
 

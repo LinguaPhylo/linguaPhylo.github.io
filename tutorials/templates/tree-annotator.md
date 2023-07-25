@@ -1,6 +1,4 @@
 
-To summarize the trees from the BEAST 2 analysis, follow these steps:
-
 To summarize the trees logged during MCMC and create a maximum clade credibility (MCC) tree, 
 launch the program TreeAnnotator and follow these steps:
 

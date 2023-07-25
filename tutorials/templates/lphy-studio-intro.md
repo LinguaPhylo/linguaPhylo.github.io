@@ -1,6 +1,7 @@
 To get started, [launch LPhy Studio](https://linguaphylo.github.io/setup/#launching-lphy-studio). 
-To load the script into LPhy Studio, click on the `File` menu and hover your mouse over `Tutorial scripts`. 
-A child menu will appear on the left side, and then select the script {{include.script}}.
+To load the script into LPhy Studio, click on the `File` menu 
+and hover your mouse over `Tutorial scripts`. 
+A child menu will appear, and then select the script {{include.script}}.
 
 The probabilistic graphical model will be visualised on the left panel.
 By clicking on the graphical components, you can view their current values 
