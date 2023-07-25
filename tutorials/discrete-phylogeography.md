@@ -325,9 +325,10 @@ It is quite typical that a lot of locations are part of the 95% HPD in discrete 
 ## Viewing the Location Tree
 
 We can visualise the tree in a program called _FigTree_. 
-There is a bug to launch the Mac version of FigTree v1.4.4, 
-but you follow the [instruction](https://linguaphylo.github.io/tutorials/figtree) 
-to start it from the terminal.  
+There is a bug to launch the Mac version of FigTree v1.4.4. 
+Feel free to visit our [Tech Rescue](tech-rescue.md) page 
+if you encounter any difficulties or need assistance.
+  
 Lauch the program, and follow the steps below:
 
 1. Open the summary tree file `h5n1_with_trait.tree` by using the `Open...` option in the `File` menu;
@@ -438,9 +439,8 @@ To analyze and visualize phylogeographic reconstructions resulting from Bayesian
 spatio-temporal diffusion based on the [Bielejec et al., 2011](#references) method, 
 we can use a software called `spread`. 
 
-__Please note__ it requires Java 1.8. If you have multiple versions of Java installed on your system,
-you can use the command "export JAVA_HOME=`/usr/libexec/java_home -v 1.8`"
-to switch the version in Linux or Mac. 
+__Please note__ it requires Java 1.8. If you run into any issues or need support, 
+don't hesitate to check out our [Tech Rescue](tech-rescue.md) page. 
 
 We recommend to download the .jar file from the 
 [Spread website](https://rega.kuleuven.be/cev/ecv/software/spread), and follow the steps below:
