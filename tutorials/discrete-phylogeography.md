@@ -408,7 +408,9 @@ setwd(YOUR_WD)
 # stc.out must be in YOUR_WD
 stc <- parseTransCount(input="stc.out", pattern = "Histogram", target="Hunan")
 # only => Hunan
-p <- plotTransCount(stc$hist[grepl("=>Hunan", stc$hist[["Transition"]]),])
+p <- plotTransCount(stc$hist[grepl("=>Hunan", stc$hist[["Transition"]]),], 
+        colours = c("Fujian=>Hunan" = "#D62728", "Guangdong=>Hunan" = "#C4C223", 
+                    "Guangxi=>Hunan" = "#60BD68", "HongKong=>Hunan" = "#1F78B4"))
 ggsave( paste0("transition-distribution-hunan.png"), p, width = 6, height = 4) 
 ```
 

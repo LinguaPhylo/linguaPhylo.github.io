@@ -1,6 +1,8 @@
 
 # stc <- parseTransCount(input="stc.out", pattern = "Histogram", target="Hunan")
-plotTransCount <- function(stc) {
+# colours = c("Fujian=>Hunan" = "#D62728", "Guangdong=>Hunan" = "#C4C223", 
+#             "Guangxi=>Hunan" = "#60BD68", "HongKong=>Hunan" = "#1F78B4")
+plotTransCount <- function(stc, colours = c()) {
   require(ggplot2)
   require(tidyverse)
   z <- gather(as_tibble(stc), 2:ncol(stc), key = "n_transitions", value = "count") %>% 
@@ -11,6 +13,14 @@ plotTransCount <- function(stc) {
     geom_bar(stat="identity", position=position_dodge()) +
     xlab("estimated transitions") + ylab("probability") +
     theme_minimal() 
+  
+  if (length(colours) > 1) {
+    # colours should match nrow(stc)
+    stopifnot(nrow(stc) == length(colours))
+    p <- p + scale_fill_manual("legend", values = colours)
+  }
+  
+  return(p)
 }
 
 # 2 tables in file, split by "Histogram"
