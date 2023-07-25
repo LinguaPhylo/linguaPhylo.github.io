@@ -21,15 +21,15 @@ but you can follow the instruction below to start it from the terminal:
 1. Download FigTree v1.4.4, and install it by copying and paste all folders and files 
    inside the .dmg into a new folder (e.g., FigTree1.4.4) in your `Applications` directory;
 2. Create a new subfolder named `bin` inside the `FigTree1.4.4` folder;
-3. Download the [figtree](https://linguaphylo.github.io/tutorials/figtree/figtree) script 
+3. Download the [figtree](https://linguaphylo.github.io/tutorials/tech-rescue/figtree) script 
    and save it into the `bin` subfolder;
 4. Give the `figtree` script executable permission using the command `chmod u+x figtree` in the terminal.
 
 After completing these steps, your folder structure should look like this:
 
 <figure class="image">
-  <a href="../figtree/figtree.png" target="_blank">
-  <img src="../figtree/figtree.png" alt="FigTree"></a>
+  <a href="figtree.png" target="_blank">
+  <img src="figtree.png" alt="FigTree"></a>
   <figcaption>Figure 1: the folder structure.</figcaption>
 </figure>
 
