@@ -272,7 +272,7 @@ or __upper__ stands for the _highest posterior density interval_ and represents 
 compact interval on the selected parameter that contains 95% of the posterior
 probability. It can be thought of as a Bayesian analog to a confidence interval.
 
-In the implemented model, the rate matrix is symmetric, 
+In the implemented phylogeographic model, the rate matrix is symmetric, 
 meaning that a relative migration rate between two locations solely represents 
 a numerical value without implying any direction. 
 Consequently, for 5 locations, there are only 10 relative migration rates, 
