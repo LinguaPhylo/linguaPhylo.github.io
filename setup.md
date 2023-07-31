@@ -142,16 +142,20 @@ Current supported LPhy extensions are listed on the [homepage](https://linguaphy
 ## LPhyBEAST installation
 
 [LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) and LPhyBeast extensions 
-require the latest version of [BEAST 2](https://www.beast2.org). 
+require the latest version of [BEAST 2](https://www.beast2.org) and [LPhy](#lphy-studio-installation). 
 
 First, we need to install two [BEAST 2 packages](https://www.beast2.org/managing-packages/): 
 [lphybeast](https://github.com/LinguaPhylo/LPhyBeast/) and [LPhyBeastExt](https://github.com/LinguaPhylo/LPhyBeastExt/).
 
-1. To install LPhyBEAST, start `BEAUti` and from the menu go to `File` => `Manage Packages` to launch `Package Manager`. 
+1. To install LPhyBEAST, start `BEAUti` and from the menu go to `File` => `Manage Packages` 
+to launch `Package Manager`. 
+
 2. Select `lphybeast` from the packages list, then click `Install/Upgrade` button to install.
+
 3. Select `LPhyBeastExt` from the list, then click `Install/Upgrade` to install.
 
-Installation may take few minutes to download and install. Please wait until a confirmation popup appears on the screen.
+Installation may take few minutes to download and install. 
+Please wait until a confirmation popup appears on the screen.
 
 <figure class="image">
   <img src="/images/Installed.png" alt="Installed" style="width:600px;">
@@ -161,18 +165,21 @@ Installation may take few minutes to download and install. Please wait until a c
 {:start="4"}
 4. Restart `Package Manager`. Now they and their dependent packages should appear as "installed". 
 
-Alternatively, the packages `lphybeast` and `LPhyBeastExt` can be installed using [command line](https://www.beast2.org/managing-packages/).
+Alternatively, the packages `lphybeast` and `LPhyBeastExt` can be installed 
+using [command line](https://www.beast2.org/managing-packages/).
 
-### Install LPhy libraries and download starting script 
+### Install required LPhy libraries and download launcher script 
 
 The package `lphybeast` does not include LPhy, so we need to install LPhy separately.
-You may skip steps 1-2 if you have already installed LPhyStudio in your BEAST 2 directory. 
+You may skip steps 5-6 if you have already installed LPhyStudio in your BEAST 2 directory. 
 
-1. Download the LPhy Studio installer. See the section of [LPhy Studio installation](#lphy-studio-installation).
+{:start="5"}
+5. Download the LPhy Studio installer. 
+See the section of [LPhy Studio installation](#lphy-studio-installation).
 
-2. Install LPhy Studio to the [default path](#the-default-installation-path).
+6. Install LPhy Studio to the [default path](#the-default-installation-path).
 
-3. Download the latest version of the script to launch LPhyBEAST. 
+7. Download the latest version of the script to launch LPhyBEAST. 
 Right-click one of the following link, and select "Download Linked File" from the context menu. 
 Then, move it into the `bin` subfolder of your BEAST 2 installation. 
    - [lphybeast](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast), for Linux and Mac.
