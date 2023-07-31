@@ -40,6 +40,12 @@ Download the LPhy Studio version for your operating system:
 
 All release versions of LPhy Studio are available on the [LPhy releases page](https://github.com/LinguaPhylo/linguaPhylo/releases).
 
+### The default installation path
+
+- Linux: `/usr/local/`
+- Mac: `/Applications/`
+- Windows: `C:\Program Files\`
+
 
 ### Linux
 
@@ -86,12 +92,6 @@ The process is same to the Mac installation.
 Please **keep the default** installation path. But if it shows "C:\Program Files (x86)", 
 we recommend to change to "C:\Program Files".
 
-### The the default installation path
-
-- Linux: `/usr/local/`
-- Mac: `/Applications/`
-- Windows: `C:\Program Files`
-
 
 ### Click and Launch LPhy Studio
 
@@ -115,7 +115,7 @@ SLPhy is an application to simulate data via command line given a file containin
 The bash script [slphy](https://github.com/LinguaPhylo/linguaPhylo/blob/master/bin/slphy) 
 can be found in the `bin` directory. For Windows, please use `lphybeast.bat`.
 
-To simulate data at 5 replicates, replace `$LPHY` variable with your LPhy installation path. 
+To simulate data at 5 replicates, after replacing `$LPHY` variable with your LPhy installation path. 
 
 ```bash
 cd $LPHY/examples/coalescent
@@ -144,7 +144,7 @@ Current supported LPhy extensions are listed on the [homepage](https://linguaphy
 [LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) and LPhyBeast extensions 
 require the latest version of [BEAST 2](https://www.beast2.org). 
 
-First, we need to install two [BEAST 2 packages](https://www.beast2.org/managing-packages/) 
+First, we need to install two [BEAST 2 packages](https://www.beast2.org/managing-packages/): 
 [lphybeast](https://github.com/LinguaPhylo/LPhyBeast/) and [LPhyBeastExt](https://github.com/LinguaPhylo/LPhyBeastExt/).
 
 1. To install LPhyBEAST, start `BEAUti` and from the menu go to `File` => `Manage Packages` to launch `Package Manager`. 
@@ -170,13 +170,8 @@ You may skip steps 1-2 if you have already installed LPhyStudio in your BEAST 2 
 
 1. Download the LPhy Studio installer. See the section of [LPhy Studio installation](#lphy-studio-installation).
 
-2. Install LPhy Studio inside your BEAST 2 installation folder - we will refer this BEAST 2 folder as your **BEAST_PATH**.
+2. Install LPhy Studio to the [default path](#the-default-installation-path).
 
-The folder structure is shown in Figure 3. See the section [Launching LPhy Studio](#launching-lphy-studio)
-
-Note: make sure there is __only one__ LPhy folder inside your BEAST 2 installation folder.
-
-{:start="3"}
 3. Download the bash script [lphybeast](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast),
 and place it into the `bin` subfolder of your BEAST 2 installation. For Windows, please download 
 [lphybeast.bat](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast.bat)
@@ -194,12 +189,12 @@ The final folder structure looks like:
 ## LPhyBEAST usage
 
 Now, we can run LPhyBEAST from the terminal. 
-The `$BEAST_PATH` represents the installation path of BEAST 2, and `$LPHY_PATH` represents the installation path of LPhy.
+The `$BEAST_PATH` represents the installation path of BEAST 2, 
+and `$LPHY_PATH` represents the installation path of LPhy.
 For Windows, replace `lphybeast` as `lphybeast.bat`.
 
 ```bash
-cd $BEAST_PATH
-./bin/lphybeast -h
+$BEAST_PATH/bin/lphybeast -h
 ```
 
 Create "RSV2.xml" from the tutorial script "RSV2.lphy":
@@ -232,6 +227,30 @@ SEVERE: java.io.IOException: Cannot find Nexus file ! .../data/RSV2.nex, user.di
 	at lphy.core.functions.ReadNexus.apply(ReadNexus.java:66)
 	at lphy.graphicalModel.DeterministicFunction.generate(DeterministicFunction.java:8)
 	at lphy.parser.SimulatorListenerImpl$SimulatorASTVisitor.visitMethodCall(SimulatorListenerImpl.java:856)
+```
+
+### LPhyBEAST failed with LPhyBEAST extensions not installed
+
+If you are using Mascot (e.g. structured coalescent), you need to install the 
+[LPhyBeastExt](https://github.com/LinguaPhylo/LPhyBeastExt/) package.
+ 
+```
+Cannot find the mapping for given LPhy code to BEAST2 classes! 
+Input file = h3n2.lphy
+Please ensure you have installed the required LPhyBEAST extensions and BEAST2 packages : 
+
+Unhandled generator in generatorToBEAST(): class lphy.evolution.coalescent.StructuredCoalescent
+	at lphybeast.LPhyBeastCMD.call(LPhyBeastCMD.java:135)
+	at lphybeast.LPhyBeastCMD.call(LPhyBeastCMD.java:13)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2041)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2453)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2415)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2273)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2417)
+	at picocli.CommandLine.execute(CommandLine.java:2170)
+	at lphybeast.LPhyBeastCMD.main(LPhyBeastCMD.java:89)
 ```
 
 
