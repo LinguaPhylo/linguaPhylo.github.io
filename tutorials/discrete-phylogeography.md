@@ -138,30 +138,25 @@ or visit the [LPhy language features](https://linguaphylo.github.io/features/#da
 
 {% include_relative templates/lphy-beast.md lphy="h5n1" %}
 
-For Mac and Linux, we assume your BEAST2 is installed to `$BEAST_DIR`, 
-such as "/Applications/BEAST 2.7.x/", and your LPhy studio is installed to `$LPHY_DIR`,
-such as "/Applications/BEAST 2.7.x/lphystudio-1.x.x/". 
-
-After replacing all "x" into the correct version number, 
-you run `lphybeast` like:
+For example, on a Mac, after replacing all "x" with the correct version number, 
+you can run the `lphybeast` command in the terminal to launch LPhyBEAST. Here's the command:
 
 ```bash
 # go to the folder containing lphy script
-cd '/Applications/BEAST 2.7.x/lphystudio-1.x.x/tutorials'
+cd /Applications/lphystudio-1.x.x/tutorials
 # run lphybeast
 '/Applications/BEAST 2.7.x/bin/lphybeast' -l 3000000 h5n1.lphy
 ```
 
 Please note that the single quotation marks ensure that the whitespace in the path is treated as valid.
 
-For Windows, additionally, replace "Username" to your username 
-(usually the "Documents" folder is within the user's profile), run `lphybeast` like:
+For Windows, run `lphybeast` like:
 
 ```dos
 # go to the folder containing lphy script
-cd "C:\Users\Username\Documents\BEAST 2.7.x\lphystudio-1.x.x\tutorials"
+cd "C:\Program Files\lphystudio-1.x.x\tutorials"
 # run lphybeast
-"C:\Users\Username\Documents\BEAST 2.7.x\bin\lphybeast" -l 3000000 h5n1.lphy
+"C:\Program Files\BEAST 2.7.x\bin\lphybeast" -l 3000000 h5n1.lphy
 ```
 
 __Tips:__ if you are not familiar with inputting valid paths in the command line, 
