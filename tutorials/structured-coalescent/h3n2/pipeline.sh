@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BEAST="/Applications/BEAST2.6.5/bin/"
+BEAST="/Applications/BEAST 2.7.5/bin/"
 
 # cd hcv
 # run BEAST

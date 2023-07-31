@@ -165,7 +165,7 @@ cd "C:\Users\Username\Documents\BEAST 2.7.x\lphystudio-1.x.x\tutorials"
 ```
 
 __Tips:__ if you are not familiar with inputting valid paths in the command line, 
-here is our [Tech Rescue](tech-rescue.md/#obtaining-the-valid-file-paths-in-the-terminal) that may help you.
+here is our [Tech Help](tech-help.md/#obtaining-the-valid-file-paths-in-the-terminal) that may help you.
 
 
 ## Running BEAST
@@ -329,7 +329,7 @@ It is quite typical that a lot of locations are part of the 95% HPD in discrete 
 
 We can visualise the tree in a program called _FigTree_. 
 There is a bug to launch the Mac version of FigTree v1.4.4. 
-Feel free to visit our [Tech Rescue](tech-rescue.md) page 
+Feel free to visit our [Tech Help](tech-help.md) page 
 if you encounter any difficulties or need assistance.
   
 Lauch the program, and follow the steps below:
@@ -444,7 +444,7 @@ spatio-temporal diffusion based on the [Bielejec et al., 2011](#references) meth
 we can use a software called `spread`. 
 
 __Please note__ it requires Java 1.8. If you run into any issues or need support, 
-don't hesitate to check out our [Tech Rescue](tech-rescue.md/#switch-the-java-version) page. 
+don't hesitate to check out our [Tech Help](tech-help.md/#switch-the-java-version) page. 
 
 We recommend to download the .jar file from the 
 [Spread website](https://rega.kuleuven.be/cev/ecv/software/spread), and follow the steps below:

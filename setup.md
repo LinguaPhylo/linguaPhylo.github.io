@@ -43,20 +43,24 @@ All release versions of LPhy Studio are available on the [LPhy releases page](ht
 
 ### Linux
 
-To install LPhy Studio, unzip the `lphy-studio-{{lphy_version}}.zip` file to the target directory.
-For compatibility with LPhyBeast, unzip `lphy-studio-{{lphy_version}}.zip` inside your BEAST 2.x.x directory. 
+For Linux, we recommend unzipping the `lphy-studio-{{lphy_version}}.zip` 
+file to the `/usr/local` directory. 
+By doing so, the launch script for LPhyBeast will automatically detect the library path `$LPHY_LIB`. 
+Alternatively, you have the option to manually assign the environment variable `$LPHY_LIB` 
+to the location where LPhy Studio is installed if you choose to install it in a different directory.
 
 To launch LPhyStudio from the command line, use the following command, 
-replacing "BEAST_PATH" with the path to your BEAST 2.x.x directory, where "x" is the version number:
+replacing "x" to the version number:
 
 ```bash
-cd /BEAST_PATH/lphy-studio-{{lphy_version}}/
+cd /usr/local/lphy-studio-{{lphy_version}}/
 ./bin/lphystudio
 ```
 
 ### Mac
 
-Double click the installer and follow the installation wizard to complete the install.
+For Mac, an installer is available when you open the .dmg file.
+Double click it and follow the installation wizard to complete the install.
 
 <figure class="image">
   <a href="/images/LPhyStudioInstaller.png">
@@ -65,28 +69,33 @@ Double click the installer and follow the installation wizard to complete the in
   <figcaption>Figure 1: Installing LPhy Studio.</figcaption>
 </figure>
 
-To use LPhy with LPhyBEAST, LPhy Studio needs to be installed inside the BEAST 2.x.x folder. 
-In macOS, a typical installation path for LPhy Studio is `/Applications/BEAST 2.x.x/lphy-studio-{{lphy_version}}`
+Please **keep the default** installation path, 
+such as `/Applications/lphy-studio-{{lphy_version}}`, 
+so that the launch script for LPhyBeast will automatically detect the library path `$LPHY_LIB`.
 
 <figure class="image">
   <a href="/images/LPhyStudioInstallerLocation.png">
     <img src="/images/LPhyStudioInstallerLocation.png" alt="LPhy Studio installation location" style="width:600px;">
   </a>
-  <figcaption>Figure 2: Choosing the installation directory for LPhy Studio.</figcaption>
+  <figcaption>Figure 2: The installation directory for LPhy Studio.</figcaption>
 </figure>
 
 ### Windows
 
 The process is same to the Mac installation. 
-We recommend installing BEAST 2 either in your home folder or the "Documents" folder, 
-to ensure that you have the necessary write permissions for the software to create log files 
-and save any outputs. 
-After installing BEAST 2, you can proceed to install LPhy Studio under the BEAST 2 folder.
+Please **keep the default** installation path. But if it shows "C:\Program Files (x86)", 
+we recommend to change to "C:\Program Files".
+
+### The the default installation path
+
+- Linux: `/usr/local/`
+- Mac: `/Applications/`
+- Windows: `C:\Program Files`
 
 
-#### Launching LPhy Studio
+### Click and Launch LPhy Studio
 
-To run LPhy Studio click on `LPhyStudioLauncher` inside your LPhy install location.
+For Mac and Windows, to launch LPhy Studio, click on `LPhyStudioLauncher` inside your LPhy install location.
 
 <figure class="image">
   <a href="/images/LPhyStudioLauncher.png">
@@ -115,10 +124,9 @@ $LPHY/bin/slphy -r 5 <LPhy script>
 
 For example: 
 ```bash
-'/Applications/BEAST 2.7.x/lphy-studio-{{lphy_version}}/bin/slphy' -r 5 jcCoalescent.lphy
+/Applications/lphy-studio-{{lphy_version}}/bin/slphy -r 5 jcCoalescent.lphy
 ```
 The "x" is the version number.
-Please note that the single quotation marks ensure that the whitespace in the path is treated as valid.
 
 The simulation will produce alignment(s) and saved them into one or many "*.nexus" files, 
 and tree(s) into the "*.trees" file and all random number values into the "*.log" file.  
