@@ -54,6 +54,6 @@ Biorxiv, [doi:10.1101/2022.08.08.503246](https://doi.org/10.1101/2022.08.08.5032
 
 ## Extensions
 
-- A LPhy and LPhyBEAST extension in [Phylonco](https://github.com/bioDS/beast-phylonco) project
-
+- A LPhy and LPhyBEAST extension in [Phylonco](https://github.com/bioDS/beast-phylonco) project.
+- The BEAST 2 package extended from the LPhyBEAST package [LPhyBeastExt](https://github.com/LinguaPhylo/LPhyBeastExt/).
 
