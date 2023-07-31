@@ -48,9 +48,9 @@ The detail is available in the [user manual](https://linguaphylo.github.io/setup
 
 ## Citation
 
-Alexei J. Drummond, Kylie Chen, Fábio K. Mendes, Dong Xie (2022),
-LinguaPhylo: a probabilistic model specification language for reproducible phylogenetic analyses,
-Biorxiv, [doi:10.1101/2022.08.08.503246](https://doi.org/10.1101/2022.08.08.503246).
+Alexei J. Drummond, Kylie Chen, Fábio K. Mendes, Dong Xie (2023),
+LinguaPhylo: A probabilistic model specification language for reproducible phylogenetic analyses,
+PLOS Computational Biology, [doi:10.1371/journal.pcbi.1011226](https://doi.org/10.1371/journal.pcbi.1011226).
 
 ## Extensions
 
