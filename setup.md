@@ -172,10 +172,12 @@ You may skip steps 1-2 if you have already installed LPhyStudio in your BEAST 2 
 
 2. Install LPhy Studio to the [default path](#the-default-installation-path).
 
-3. Download the script to launch lphybeast and place it into the `bin` subfolder of your BEAST 2 installation. 
+3. Download the latest version of the script to launch LPhyBEAST, 
+and place it into the `bin` subfolder of your BEAST 2 installation. 
    - [lphybeast](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast), for Linux and Mac.
    - [lphybeast.bat](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast.bat), for Windows.
 
+More versions are available in the [release page](https://github.com/LinguaPhylo/LPhyBeast/releases).
 Note that you may need give the `lphybeast` file executable permissions using `chmod +x lphybeast`
 
 The final folder structure looks like:
