@@ -213,7 +213,7 @@ The final folder structure looks like:
 Now, we can run LPhyBEAST from the terminal. 
 The `$BEAST_PATH` represents the installation path of BEAST 2, 
 and `$LPHY_PATH` represents the installation path of LPhy.
-For Windows, replace `lphybeast` as `lphybeast.bat`.
+For Windows, replace `$BEAST_PATH/bin/lphybeast` as `$BEAST_PATH\bat\lphybeast.bat`.
 
 ```bash
 $BEAST_PATH/bin/lphybeast -h

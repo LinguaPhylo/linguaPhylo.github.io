@@ -153,7 +153,7 @@ which is set to the default of 1 million.
 Please note that the single or double **quotation marks** ensure that the whitespace in the path 
 is treated as valid.
 
-Then, run `lphybeast.bat` on a Windows terminal like this:
+Alternatively, run `lphybeast.bat` on a Windows terminal like this:
 
 ```dos
 # go to the subfolder containing lphy script

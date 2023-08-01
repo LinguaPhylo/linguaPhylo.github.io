@@ -204,7 +204,7 @@ cd /Applications/lphystudio-1.x.x/tutorials
 '/Applications/BEAST 2.7.x/bin/lphybeast' RSV2.lphy
 ```
 
-Then, run `lphybeast.bat` on a Windows terminal like this:
+Alternatively, run `lphybeast.bat` on a Windows terminal like this:
 
 ```dos
 # go to the subfolder containing lphy script
