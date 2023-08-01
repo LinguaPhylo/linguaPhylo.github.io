@@ -371,7 +371,7 @@ Two extra arguments:
 
 Now run BEAST 2 with the new XML again. 
 It may take about half an hour to complete using modern computers.  
-If you do not want to wait, you can download the completed [log and tree files](#xML-and-log-files) 
+If you do not want to wait, you can download the completed [log and tree files](#xml-and-log-files) 
 by running the longer MCMC chain.
 
 Load the new log file into Tracer after it is finished (you can leave the old one loaded for comparison).
@@ -516,7 +516,7 @@ In what year did the common ancestor of all RSVA viruses sampled live? What is t
 - [RSV2long.xml](RSV2/RSV2long.xml)
 - [RSV2long.log](RSV2/RSV2long.log)
 - [RSV2long.trees](RSV2/RSV2long.trees)
-
+- MCC tree [RSV2long.tree](RSV2/RSV2long.tree)
 
 ## Useful links
 
