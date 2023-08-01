@@ -113,7 +113,16 @@ If you are new to LPhy, we recommend starting with this [introductory guide](htt
 
 SLPhy is an application to simulate data via command line given a file containing the LPhy script. 
 The bash script [slphy](https://github.com/LinguaPhylo/linguaPhylo/blob/master/bin/slphy) 
-can be found in the `bin` directory. For Windows, please use `lphybeast.bat`.
+can be found in the `bin` directory. 
+For Windows, please use `slphy.bat`.
+
+To run SLPhy, navigate to the folder containing the LPhy scripts and 
+execute the following commands. 
+Please ensure that you have the necessary write permissions in the working directory.
+
+For Windows, note that "C:\Program Files" is usually a protected directory. 
+However, you can copy the "examples" or "tutorials" folder into your "Documents" folder 
+and work in that location to avoid any permission issues.
 
 To simulate data at 5 replicates, after replacing `$LPHY` variable with your LPhy installation path. 
 
@@ -180,8 +189,9 @@ See the section of [LPhy Studio installation](#lphy-studio-installation).
 6. Install LPhy Studio to the [default path](#the-default-installation-path).
 
 7. Download the latest version of the script to launch LPhyBEAST. 
-Right-click one of the following link, and select "Download Linked File" from the context menu. 
-Then, move it into the `bin` subfolder of your BEAST 2 installation. 
+Right-click the corresponding link, and select "Download Linked File" from the context menu. 
+Then, move `lphybeast` into the `bin` subfolder of your BEAST 2 installation on macOS and Linux. 
+For Windows, move `lphybeast.bat` into the `bat` subfolder instead.
    - [lphybeast](https://raw.githubusercontent.com/LinguaPhylo/LPhyBeast/master/lphybeast/bin/lphybeast), for Linux and Mac.
    - [lphybeast.bat](https://raw.githubusercontent.com/LinguaPhylo/LPhyBeast/master/lphybeast/bin/lphybeast.bat), for Windows.
 
