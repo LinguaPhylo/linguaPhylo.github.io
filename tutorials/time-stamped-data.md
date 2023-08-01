@@ -53,9 +53,6 @@ analyses.
 {% include_relative templates/locate-data.md df='RSV2' 
                     df_link='https://raw.githubusercontent.com/LinguaPhylo/linguaPhylo/master/tutorials/data/RSV2.nex' %}
 
-This .nex file can also be found in the ```examples/nexus``` folder,
-where BEAST 2 was installed.
-
 #### Multiple partitions
 
 Our molecular alignment corresponds to a 629-bp coding sequence of
@@ -71,7 +68,7 @@ corresponding to the first, second and third codon positions.
 					
 {% include_relative templates/age-direction.md %}
 
-## Constructing the scripts in LPhy Studio
+## Inputting a script into LPhy Studio
 
 {% include_relative templates/lphy-scripts.md %}
 
@@ -154,9 +151,8 @@ for each nucleotide);
 3. `r`, the relative substitution rates (with 3 dimensions, one for
    each partition);  
 4. `μ`, the global (mean) clock rate;  
-5. `Θ`, the effective population size (with as many dimensions as
-   there are branches in the tree);  
-6. `ψ`, the time-scaled (i.e., in absolute time) phylogenetic tree.
+5. `Θ`, the effective population size;  
+6. `ψ`, the time-scaled phylogenetic tree, where the time unit is years.
 
 {::nomarkdown}
   {{ lphy_model | append: "<br>" }}
@@ -198,17 +194,35 @@ Let us look at the whole thing:
 
 {% include_relative templates/lphy-beast.md lphy="RSV2" %}
 
+For example, on a Mac, after replacing all "x" with the correct version number, 
+you can execute the following `lphybeast` command in the terminal to launch LPhyBEAST:
+
+```bash
+# go to the folder containing lphy script
+cd /Applications/lphystudio-1.x.x/tutorials
+# run lphybeast
+'/Applications/BEAST 2.7.x/bin/lphybeast' RSV2.lphy
 ```
-# BEAST_DIR="/Applications/BEAST2"
-$BEAST_DIR/bin/lphybeast RSV2.lphy 
+
+Then, run `lphybeast.bat` on a Windows terminal like this:
+
+```dos
+# go to the subfolder containing lphy script
+cd "C:\Users\<YourUserName>\Documents\tutorials"
+# run lphybeast
+"C:\Program Files\BEAST2.7.x\bat\lphybeast.bat" RSV2.lphy
 ```
+
+__Tips:__ if you are not familiar with inputting valid paths in the command line, 
+here is our [Tech Help](tech-help.md/#obtaining-the-valid-file-paths-in-the-terminal) that may help you.
+
 
 ### Running BEAST 2
 
 {% include_relative templates/run-beast.md xml="RSV2.xml" %}
 
 ```
-                         BEAST v2.6.7, 2002-2020
+                        BEAST v2.7.5, 2002-2023
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -241,29 +255,29 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1630288622480
+Random number seed: 1690761638808
     ...
 
     ...
-         950000     -6090.8619     -5484.6314      -606.2305         0.4475         0.2692         0.1000         0.1831         0.3183         0.4213         0.0826         0.1776         0.3530         0.3155         0.0702         0.2611         8.2537         8.5243        10.1785         0.7057         0.9198         1.3729         0.0020        38.8407 2m34s/Msamples
-        1000000     -6084.2226     -5480.6365      -603.5861         0.5015         0.2429         0.0847         0.1706         0.2456         0.4702         0.1013         0.1828         0.3366         0.3591         0.0873         0.2168         6.4508        10.1371         9.5392         0.6864         1.0965         1.2155         0.0022        35.9676 2m34s/Msamples
+         950000     -6087.2825     -5472.3274      -614.9550         0.4757         0.2427         0.0811         0.2003         0.3013         0.4030         0.1153         0.1802         0.3066         0.4051         0.0690         0.2192         6.3611         8.3711        11.8388         0.7467         0.9401         1.3119         0.0020        43.5413 1m10s/Msamples
+        1000000     -6086.6790     -5492.1138      -594.5652         0.5164         0.2214         0.0844         0.1776         0.2826         0.4603         0.0982         0.1587         0.3159         0.3883         0.0789         0.2167         6.2125         9.8228        12.0430         0.7304         0.8693         1.3989         0.0022        36.3590 1m10s/Msamples
 
-Operator                                      Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                   0.61008       1298       3181    0.00450    0.28980 
-ScaleOperator(kappa.scale)                   0.47919       2976       6630    0.00970    0.30981 
-ScaleOperator(mu.scale)                      0.77528       1071       3560    0.00450    0.23127 
-UpDownOperator(muUppsiDownOperator)          0.94041       5481     130154    0.13497    0.04041 Try setting scaleFactor to about 0.97
-DeltaExchangeOperator(pi_0.deltaExchange)    0.12380       1763       7805    0.00970    0.18426 
-DeltaExchangeOperator(pi_1.deltaExchange)    0.14501       1362       8290    0.00970    0.14111 
-DeltaExchangeOperator(pi_2.deltaExchange)    0.10881       1757       8020    0.00970    0.17971 
-Exchange(psi.narrowExchange)                       -      33869     100180    0.13424    0.25266 
-ScaleOperator(psi.rootAgeScale)              0.76570        567       3843    0.00450    0.12857 
-ScaleOperator(psi.scale)                     0.90191       3141     131241    0.13424    0.02337 Try setting scaleFactor to about 0.95
-SubtreeSlide(psi.subtreeSlide)               4.50313      18248     116199    0.13424    0.13573 
-Uniform(psi.uniform)                               -      72184      61788    0.13424    0.53880 
-Exchange(psi.wideExchange)                         -        318     133559    0.13424    0.00238 
-WilsonBalding(psi.wilsonBalding)                   -        764     133396    0.13424    0.00569 
-DeltaExchangeOperator(r.deltaExchange)       0.30317       1619       5737    0.00730    0.22009 
+Operator                                                                    Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+ScaleOperator(Theta.scale)                                                 0.60746       1349       3173    0.00450    0.29832 
+ScaleOperator(kappa.scale)                                                 0.46834       2790       6812    0.00970    0.29056 
+ScaleOperator(mu.scale)                                                    0.78815       1139       3342    0.00450    0.25418 
+beast.base.inference.operator.UpDownOperator(muUppsiDownOperator)          0.91110       5756     129034    0.13497    0.04270 Try setting scaleFactor to about 0.955
+beast.base.inference.operator.DeltaExchangeOperator(pi_0.deltaExchange)    0.12309       1769       7818    0.00970    0.18452 
+beast.base.inference.operator.DeltaExchangeOperator(pi_1.deltaExchange)    0.13164       1562       8115    0.00970    0.16141 
+beast.base.inference.operator.DeltaExchangeOperator(pi_2.deltaExchange)    0.16248       1059       8446    0.00970    0.11142 
+Exchange(psi.narrowExchange)                                                     -      34229     100430    0.13424    0.25419 
+ScaleOperator(psi.rootAgeScale)                                            0.70177        598       3984    0.00450    0.13051 
+ScaleOperator(psi.scale)                                                   0.87726       3442     130335    0.13424    0.02573 Try setting scaleFactor to about 0.937
+SubtreeSlide(psi.subtreeSlide)                                            26.63974       4626     130081    0.13424    0.03434 Try decreasing size to about 13.32
+Uniform(psi.uniform)                                                             -      72553      61985    0.13424    0.53928 
+Exchange(psi.wideExchange)                                                       -        357     133871    0.13424    0.00266 
+WilsonBalding(psi.wilsonBalding)                                                 -        795     133107    0.13424    0.00594 
+beast.base.inference.operator.DeltaExchangeOperator(r.deltaExchange)       0.31697       1511       5933    0.00730    0.20298 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -272,8 +286,9 @@ DeltaExchangeOperator(r.deltaExchange)       0.30317       1619       5737    0.
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 154.759 seconds
-End likelihood: -6084.222697270579
+Total calculation time: 72.275 seconds
+End likelihood: -6086.679077440407
+Done!
 ```
 
 ### Analysing BEAST 2's output
@@ -344,18 +359,20 @@ estimates of ESS unreliable.
 Let us try to fix this low ESS issue by running the MCMC chain for longer.
 We will set the chain length to 20,000,000, but still log the same
 number of samples (2,000).
-You can now run _LPhyBEAST_ again, this time with the `-l` argument
-to create a new .xml file:
+You can now run _LPhyBEAST_ again create a new .xml file:
 
 ```
-# MY_SCRIPT_PATH=~/WorkSpace/linguaPhylo/tutorials/
-$BEAST_DIR/bin/lphybeast -wd $MY_SCRIPT_PATH -l 20000000 -o RSV2long.xml RSV2.lphy
+$BEAST_DIR/bin/lphybeast -l 20000000 -o RSV2long.xml RSV2.lphy
 ```
 
-Now run BEAST 2 again. It may take about half an hour to complete using modern computers.  
-If you do not want to wait, you can download the 
-[RSV2long.log and RSV2long.trees](https://github.com/LinguaPhylo/linguaPhylo.github.io/tree/master/tutorials/time-stamped-data/RSV2)
-completed by running the longer MCMC chain.
+Two extra arguments: 
+- `-l` changes the MCMC chain length (default to 1 million) in the XML;
+- `-o` replaces the output file name (default to use the same file steam as the lphy input file).
+
+Now run BEAST 2 with the new XML again. 
+It may take about half an hour to complete using modern computers.  
+If you do not want to wait, you can download the completed [log and tree files](#xML-and-log-files) 
+by running the longer MCMC chain.
 
 Load the new log file into Tracer after it is finished (you can leave the old one loaded for comparison).
 Click on the "Trace" tab and look at the raw trace plot.
@@ -490,7 +507,18 @@ In what year did the common ancestor of all RSVA viruses sampled live? What is t
 
 {% include_relative templates/programs-used.md %}
 
-## Useful Links
+
+## XML and log files
+
+- [RSV2.xml](RSV2short/RSV2.xml)
+- [RSV2.log](RSV2short/RSV2.log)
+- [RSV2.trees](RSV2short/RSV2.trees)
+- [RSV2long.xml](RSV2/RSV2long.xml)
+- [RSV2long.log](RSV2/RSV2long.log)
+- [RSV2long.trees](RSV2/RSV2long.trees)
+
+
+## Useful links
 
 {% include_relative templates/links.md %}
 
