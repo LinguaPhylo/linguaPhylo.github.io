@@ -192,30 +192,7 @@ Let us look at the whole thing:
 
 ### Producing a BEAST 2 .xml using LPhyBEAST
 
-{% include_relative templates/lphy-beast.md lphy="RSV2" %}
-
-For example, on a Mac, after replacing all "x" with the correct version number, 
-you can execute the following `lphybeast` command in the terminal to launch LPhyBEAST:
-
-```bash
-# go to the folder containing lphy script
-cd /Applications/lphystudio-1.x.x/tutorials
-# run lphybeast
-'/Applications/BEAST 2.7.x/bin/lphybeast' RSV2.lphy
-```
-
-Alternatively, run `lphybeast.bat` on a Windows terminal like this:
-
-```dos
-# go to the subfolder containing lphy script
-cd "C:\Users\<YourUserName>\Documents\tutorials"
-# run lphybeast
-"C:\Program Files\BEAST2.7.x\bat\lphybeast.bat" RSV2.lphy
-```
-
-__Tips:__ if you are not familiar with inputting valid paths in the command line, 
-here is our [Tech Help](tech-help.md/#obtaining-the-valid-file-paths-in-the-terminal) that may help you.
-
+{% include_relative templates/lphy-beast.md args="" lphy="RSV2" %}
 
 ### Running BEAST 2
 

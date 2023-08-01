@@ -164,14 +164,10 @@ Tips: by default all group sizes in SkylineCoalescent function are 1 which is eq
 
 ## Producing BEAST XML using LPhyBEAST
 
-{% include_relative templates/lphy-beast.md lphy="hcv_coal" %}
+{% include_relative templates/lphy-beast.md args="-l 40000000 " lphy="hcv_coal" %}
 
-```bash
-# BEAST_DIR="/Applications/BEAST2"
-cd ~/WorkSpace/linguaPhylo/tutorials/
-$BEAST_DIR/bin/lphybeast -l 40000000 hcv_coal.lphy
-```
-
+The `-l` option allows you to modify the MCMC chain length in the XML, 
+which is set to the default of 1 million.
 
 ## Running BEAST
 

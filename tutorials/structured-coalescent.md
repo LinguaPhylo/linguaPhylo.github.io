@@ -139,13 +139,10 @@ then the dimension of migration rates backwards in time should equal to
 
 ## Producing BEAST XML using LPhyBEAST
 
-{% include_relative templates/lphy-beast.md lphy="h3n2" %}
+{% include_relative templates/lphy-beast.md args="-l 3000000 " lphy="h3n2" %}
 
-```
-# BEAST_DIR="/Applications/BEAST2"
-$BEAST_DIR/bin/lphybeast -l 30000000 h3n2.lphy
-```
-
+The `-l` option allows you to modify the MCMC chain length in the XML, 
+which is set to the default of 1 million.
 
 ## Running BEAST
 
