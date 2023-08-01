@@ -15,3 +15,7 @@ under the subfolder `tutorials/data/`.
 To generate the XML, navigate to the `tutorials` folder where LPhy is installed, 
 and run the following command in your terminal. 
 After it completes, check the message in the end to find the location of the generated XML file. 
+
+For Windows, note that "C:\Program Files" is usually a protected directory. 
+However, you can copy the "examples" and "tutorials" folders with "data"  
+into your "Documents" folder and work in that location to avoid any permission issues.

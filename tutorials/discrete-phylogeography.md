@@ -139,7 +139,7 @@ or visit the [LPhy language features](https://linguaphylo.github.io/features/#da
 {% include_relative templates/lphy-beast.md lphy="h5n1" %}
 
 For example, on a Mac, after replacing all "x" with the correct version number, 
-you can run the `lphybeast` command in the terminal to launch LPhyBEAST. Here's the command:
+you can execute the following `lphybeast` command in the terminal to launch LPhyBEAST:
 
 ```bash
 # go to the folder containing lphy script
@@ -148,15 +148,18 @@ cd /Applications/lphystudio-1.x.x/tutorials
 '/Applications/BEAST 2.7.x/bin/lphybeast' -l 3000000 h5n1.lphy
 ```
 
-Please note that the single quotation marks ensure that the whitespace in the path is treated as valid.
+The `-l` option allows you to modify the MCMC chain length in the XML, 
+which is set to the default of 1 million.
+Please note that the single or double **quotation marks** ensure that the whitespace in the path 
+is treated as valid.
 
-For Windows, run `lphybeast` like:
+Then, run `lphybeast.bat` on a Windows terminal like this:
 
 ```dos
-# go to the folder containing lphy script
-cd "C:\Program Files\lphystudio-1.x.x\tutorials"
+# go to the subfolder containing lphy script
+cd "C:\Users\<YourUserName>\Documents\tutorials"
 # run lphybeast
-"C:\Program Files\BEAST 2.7.x\bin\lphybeast" -l 3000000 h5n1.lphy
+"C:\Program Files\BEAST2.7.x\bat\lphybeast.bat" -l 3000000 h5n1.lphy
 ```
 
 __Tips:__ if you are not familiar with inputting valid paths in the command line, 

@@ -121,7 +121,7 @@ execute the following commands.
 Please ensure that you have the necessary write permissions in the working directory.
 
 For Windows, note that "C:\Program Files" is usually a protected directory. 
-However, you can copy the "examples" or "tutorials" folder into your "Documents" folder 
+However, you can copy the "examples" and "tutorials" folders with "data" into your "Documents" folder 
 and work in that location to avoid any permission issues.
 
 To simulate data at 5 replicates, after replacing `$LPHY` variable with your LPhy installation path. 
@@ -150,7 +150,7 @@ Current supported LPhy extensions are listed on the [homepage](https://linguaphy
 
 ## LPhyBEAST installation
 
-[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) and LPhyBeast extensions 
+[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) and its extensions 
 require the latest version of [BEAST 2](https://www.beast2.org) and [LPhy](#lphy-studio-installation). 
 
 First, we need to install two [BEAST 2 packages](https://www.beast2.org/managing-packages/): 
@@ -253,11 +253,14 @@ SEVERE: java.io.IOException: Cannot find Nexus file ! .../data/RSV2.nex, user.di
 	at lphy.parser.SimulatorListenerImpl$SimulatorASTVisitor.visitMethodCall(SimulatorListenerImpl.java:856)
 ```
 
-### LPhyBEAST failed with LPhyBEAST extensions not installed
+### LPhyBEAST failed with LPhyBeastExt not installed
 
 If you are using Mascot (e.g. structured coalescent), you need to install the 
 [LPhyBeastExt](https://github.com/LinguaPhylo/LPhyBeastExt/) package.
- 
+
+The error message "Please ensure you have installed the required ..." indicates 
+missing BEAST2 packages necessary for the analysis. 
+
 ```
 Cannot find the mapping for given LPhy code to BEAST2 classes! 
 Input file = h3n2.lphy
