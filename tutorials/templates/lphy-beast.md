@@ -1,8 +1,9 @@
 
-BEAST 2 the data and model specifications from a XML file.
-Our goal with LPhy is to make the preparation of the XML as painless, clear and precise as possible.
-In order to achieve that, we will use a companion application,
-LPhyBEAST, as a bridge between the LPhy script and the BEAST 2 xml.
+BEAST 2 retrieves the data and model specifications from a XML file.
+One of our goals with LPhy is to make configuring Bayesian phylogenetic analysis 
+as painless, clear and precise as possible.
+In order to achieve that, we will utilize an additional companion application called LPhyBEAST, 
+which acts as a bridge between the LPhy script and the BEAST 2 xml.
 It is distributed as a [BEAST 2 package](https://www.beast2.org/managing-packages/),
 please follow the [instruction](https://linguaphylo.github.io/setup/#lphybeast-installation) 
 to install it.
@@ -17,5 +18,5 @@ and run the following command in your terminal.
 After it completes, check the message in the end to find the location of the generated XML file. 
 
 For Windows, note that "C:\Program Files" is usually a protected directory. 
-However, you can copy the "examples" and "tutorials" folders with "data"  
+However, you can copy the "examples" and "tutorials" folders with "data" 
 into your "Documents" folder and work in that location to avoid any permission issues.

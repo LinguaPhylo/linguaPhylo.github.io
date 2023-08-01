@@ -1,5 +1,7 @@
 
-The following software will be used in this tutorial:
+The following software will be used in this tutorial. 
+We also offer a [Tech Help](../tech-help.md) page to assist you 
+in case you encounter any unexpected issues with certain third-party software tools.
 
 {% assign lphy_version = "1.4.3" %}
 {% assign beast_version = "2.7.5" %}
