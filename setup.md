@@ -12,9 +12,11 @@ This page includes user manuals for two applications:
 
 This page will run through the basic setup for LPhy Studio and LPhyBEAST. 
 
-For more advanced options, please refer to the [Advanced User Guide](https://linguaphylo.github.io/advanced/) 
-and [LPhy Extensions](https://linguaphylo.github.io/extensions/) pages. 
-Additionally, you can explore the features of the LPhy language [here](https://linguaphylo.github.io/features/).
+For more advanced options, please refer to the [Advanced User Guide](advanced) 
+and [LPhy Extensions](extensions) pages. 
+You can also visit our [Tech Help](tech-help) page and [FAQ](#troubleshooting-guide) section, 
+where you can find helpful assistance and solutions to common issues. 
+Additionally, you can learn more about the [features](features) of the LPhy language.
 
 ## Java 17
 
@@ -233,7 +235,7 @@ $BEAST_PATH/bin/lphybeast -r 5 RSV2.lphy
 ```
 
 
-## Troubleshooting
+## Troubleshooting guide
 
 
 ### IOException
