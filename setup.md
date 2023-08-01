@@ -238,9 +238,11 @@ $BEAST_PATH/bin/lphybeast -r 5 RSV2.lphy
 
 ### IOException
 
-The most cases are caused by the inconsistent relative path between the input file 
-and the data inside the LPhy script. Please see the subsection "Relative file path".
+In most cases, the issues arise from inconsistent relative paths between 
+the input file and the data inside the LPhy script. 
+For guidance on resolving this, please refer to https://linguaphylo.github.io/advanced/.
 
+Alternatively, check if you copy the data with the script file together to the target location. 
 
 ```
 SEVERE: java.io.IOException: Cannot find Nexus file ! .../data/RSV2.nex, user.dir = ...

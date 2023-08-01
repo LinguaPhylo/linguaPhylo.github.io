@@ -4,6 +4,17 @@ title: Advanced User Guide
 permalink: /advanced/
 ---
 
+### Relative paths
+
+The LPhy studio will set the working directory (also property `user.dir`) 
+to the parent directory which the script sits inside.
+
+This should cooperate with any relative paths inside the LPhy script, 
+such as `readNexus(file="data/RSV2.nex", ...);`, 
+It is comparatively easy to organise all the LPhy scripts in a folder (e.g. tutorials/) 
+and their required alignments (e.g. RSV2.nex) in the subfolder `data` under the folder.
+
+We recommend you to use absolute path if you can.
 
 ### Using LPhy extensions
 
@@ -21,16 +32,6 @@ Here is the folder structure after the LPhy extension, Phylonco, is installed.
 </figure>
 
 Also see this page on [LPhy extensions](https://linguaphylo.github.io/extensions/).
-
-__Please note__: the LPhy studio will set the working directory (also property `user.dir`) 
-to the parent directory which the script sits inside.
-For example, in the above command line, the working directory will change to 
-the subfolder `tutorials` not the folder `$LPHY_PATH`.
-
-This is to cooperate with any relative paths inside the LPhy script, 
-such as `readNexus(file="data/RSV2.nex", ...);`, 
-It is comparatively easy to organise all the LPhy scripts in a folder (e.g. tutorials/) 
-and their required alignments (e.g. RSV2.nex) in the subfolder `data` under the folder.
 
 
 ## LPhyBEAST command line options
