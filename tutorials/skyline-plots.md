@@ -5,7 +5,8 @@ author: 'LinguaPhylo core team'
 permalink: /tutorials/skyline-plots/
 ---
 
-This tutorial is modified from Taming the BEAST tutorial [Skyline plots](https://taming-the-beast.org/tutorials/Skyline-plots/).
+This tutorial is modified from Taming the BEAST tutorial 
+[Skyline plots](https://taming-the-beast.org/tutorials/Skyline-plots/).
 
 Population dynamics influence the shape of the tree and consequently, 
 the shape of the tree contains some information about past population dynamics. 
@@ -20,8 +21,8 @@ The programs used in this tutorial are listed [below](#programs-used-in-this-tut
 
 ## Background: Classic and Generalized Plots
 
-[(Drummond, Rambaut, Shapiro, & Pybus, 2005)](https://academic.oup.com/mbe/article/22/5/1185/1066885) explained 
-these concepts in the figure below:
+[(Drummond, Rambaut, Shapiro, & Pybus, 2005)](https://academic.oup.com/mbe/article/22/5/1185/1066885) 
+explained these concepts in the figure below:
 
 [//]: # (Figure 1)
 {% assign current_fig_num = 1 %} 
@@ -177,7 +178,7 @@ $BEAST_DIR/bin/lphybeast -l 40000000 hcv_coal.lphy
 {% include_relative templates/run-beast.md xml="hcv_coal.xml" %}
 
 ```
-                         BEAST v2.6.7, 2002-2020
+                        BEAST v2.7.5, 2002-2023
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -210,28 +211,27 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-
-File: hcv_coal.xml seed: 1630290833514 threads: 1
-
-    ...
+Random number seed: 1690761608289
 
     ...
-       38000000     -6632.7087     -6161.6478      -471.0609         0.2063         0.3178         0.2259         0.2499         0.0461         0.3619         0.0614         0.0340         0.4518         0.0445         0.3966              1             10              2             49      1847.5418      8278.3538       788.9602       243.4601 1m19s/Msamples
-       40000000     -6635.1459     -6184.2080      -450.9379         0.1935         0.3251         0.2391         0.2421         0.0541         0.3255         0.0663         0.0406         0.4662         0.0471         0.3508             13             32             10              7      7759.0760        88.4127       139.5266       295.8700 1m19s/Msamples
 
-Operator                                       Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-DeltaExchangeOperator(A.deltaExchange)        3.18924     177760     541485    0.01800    0.24715 
-ScaleOperator(Theta.scale)                    0.28842     229995     650541    0.02201    0.26120 
-ScaleOperator(gamma.scale)                    0.63167      81407     252858    0.00834    0.24354 
-DeltaExchangeOperator(pi.deltaExchange)       0.07328     144605     576445    0.01800    0.20055 
-Exchange(psi.narrowExchange)                        -    2453146    3545681    0.14993    0.40894 
-ScaleOperator(psi.rootAgeScale)               0.63607      56804     276244    0.00834    0.17056 
-ScaleOperator(psi.scale)                      0.71569    1416928    4579768    0.14993    0.23628 
-SubtreeSlide(psi.subtreeSlide)               60.10339     575882    5421860    0.14993    0.09602 Try decreasing size to about 30.052
-Uniform(psi.uniform)                                -    2410120    3584371    0.14993    0.40206 
-Exchange(psi.wideExchange)                          -      51775    5949658    0.14993    0.00863 
-WilsonBalding(psi.wilsonBalding)                    -      86216    5907884    0.14993    0.01438 
-DeltaExchangeOperator(rates.deltaExchange)    0.08060     129011     899557    0.02573    0.12543 
+    ...
+       38000000     -6609.1327     -6159.5232      -449.6095         0.1791         0.3413         0.2157         0.2636         0.0458         0.4241         0.0571         0.0300         0.4001         0.0426         0.2983              9              2             23             28      5539.7995      6684.9238       173.6382       151.4691 1m5s/Msamples
+       40000000     -6624.4088     -6156.3717      -468.0371         0.1870         0.3369         0.2339         0.2420         0.0648         0.3862         0.0484         0.0230         0.4345         0.0427         0.3654              2             13              1             46      4522.4370      5631.0212      3075.0464       188.9362 1m5s/Msamples
+
+Operator                                                                     Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+beast.base.inference.operator.DeltaExchangeOperator(A.deltaExchange)        4.48220     153115     566939    0.01800    0.21264 
+ScaleOperator(Theta.scale)                                                  0.29312     235194     645144    0.02201    0.26716 
+ScaleOperator(gamma.scale)                                                  0.63350      80732     252603    0.00834    0.24219 
+beast.base.inference.operator.DeltaExchangeOperator(pi.deltaExchange)       0.07521     139144     581902    0.01800    0.19298 
+Exchange(psi.narrowExchange)                                                      -    2451323    3544217    0.14993    0.40886 
+ScaleOperator(psi.rootAgeScale)                                             0.63518      55906     278428    0.00834    0.16722 
+ScaleOperator(psi.scale)                                                    0.71061    1376242    4620974    0.14993    0.22948 
+SubtreeSlide(psi.subtreeSlide)                                            244.31284     144567    5849927    0.14993    0.02412 Try decreasing size to about 122.156
+Uniform(psi.uniform)                                                              -    2398509    3600677    0.14993    0.39981 
+Exchange(psi.wideExchange)                                                        -      51661    5946171    0.14993    0.00861 
+WilsonBalding(psi.wilsonBalding)                                                  -      84109    5912614    0.14993    0.01403 
+beast.base.inference.operator.DeltaExchangeOperator(rates.deltaExchange)    0.07677     135952     893951    0.02573    0.13200 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -240,8 +240,9 @@ DeltaExchangeOperator(rates.deltaExchange)    0.08060     129011     899557    0
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 3160.808 seconds
-End likelihood: -6635.145974434814
+Total calculation time: 2600.112 seconds
+Done!
+
 ```
 
 ## Analysing the BEAST output
@@ -336,6 +337,12 @@ Instead a structured model should then be used to account for these biases.
 [//]: # (## Data, Model, Posterior)
 {% include_relative skyline-plots/narrative.md %}
 
+## XML and log files
+
+- [hcv_coal.xml](hcv/hcv_coal.xml)
+- [hcv_coal.log](hcv/hcv_coal.log)
+- [hcv_coal.trees](hcv/hcv_coal.trees)
+- MCC tree [hcv_coal.tree](hcv/hcv_coal.tree)
 
 ## Useful Links
 
