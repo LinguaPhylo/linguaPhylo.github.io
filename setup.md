@@ -182,8 +182,8 @@ See the section of [LPhy Studio installation](#lphy-studio-installation).
 7. Download the latest version of the script to launch LPhyBEAST. 
 Right-click one of the following link, and select "Download Linked File" from the context menu. 
 Then, move it into the `bin` subfolder of your BEAST 2 installation. 
-   - [lphybeast](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast), for Linux and Mac.
-   - [lphybeast.bat](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast/bin/lphybeast.bat), for Windows.
+   - [lphybeast](https://raw.githubusercontent.com/LinguaPhylo/LPhyBeast/master/lphybeast/bin/lphybeast), for Linux and Mac.
+   - [lphybeast.bat](https://raw.githubusercontent.com/LinguaPhylo/LPhyBeast/master/lphybeast/bin/lphybeast.bat), for Windows.
 
 More versions are available in the [release page](https://github.com/LinguaPhylo/LPhyBeast/releases).
 Note that on macOS and Linux, you may need to give the `lphybeast` file executable permissions 
