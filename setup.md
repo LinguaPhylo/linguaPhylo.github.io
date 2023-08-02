@@ -14,7 +14,7 @@ This page will run through the basic setup for LPhy Studio and LPhyBEAST.
 
 For more advanced options, please refer to the [Advanced User Guide](/advanced) 
 and [LPhy Extensions](/extensions) pages. 
-You can also visit our [Tech Help](tutorials/tech-help) page and [FAQ](#troubleshooting-guide) section, 
+You can also visit our [Tech Help](/tutorials/tech-help) page and [FAQ](#troubleshooting-guide) section, 
 where you can find helpful assistance and solutions to common issues. 
 Additionally, you can learn more about the [features](/features) of the LPhy language.
 

@@ -10,7 +10,7 @@ to install it.
 
 To run LPhyBEAST and produce a BEAST 2 xml, you need to use the terminal 
 and execute the script `lphybeast`. 
-The [LPhyBEAST usage](https://linguaphylo.github.io/setup/#lphybeast-usage) can help you get started. 
+The [LPhyBEAST usage](/setup/#lphybeast-usage) can help you get started. 
 In our {{ include.lphy }}.lphy script, the alignment file is assumed to be located 
 under the subfolder `tutorials/data/`. 
 To generate the XML, navigate to the `tutorials` folder where LPhy is installed, 
@@ -28,7 +28,7 @@ cd /Applications/lphystudio-1.x.x/tutorials
 ```
 
 If you are not familiar with inputting valid paths in the command line, 
-here is our [Tech Help](https://linguaphylo.github.io/tech-help/#obtaining-the-valid-file-paths-in-the-terminal) that may help you.
+here is our [Tech Help](/tutorials/tech-help/#obtaining-the-valid-file-paths-in-the-terminal) that may help you.
 
 For Windows users, please note that "C:\Program Files" is usually a protected directory. 
 However, you can copy the "examples" and "tutorials" folders with "data" 
