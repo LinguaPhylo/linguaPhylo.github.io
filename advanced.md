@@ -18,7 +18,8 @@ This also make it convenient for batch processing purposes.
 
 However, when using the LPhy Studio console, 
 it is more likely to encounter issues with accurate file referencing.
-So, we recommend you to use the absolute path if you can.
+So, we recommend you to use the absolute path if you can, 
+such as `file="/Applications/lphystudio-1.4.3/tutorials/data/RSV2.nex"`.
 It provides a more reliable way to reference files and 
 avoids any confusion caused by changing working directories.
 
