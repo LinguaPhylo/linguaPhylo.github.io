@@ -94,6 +94,10 @@ The process is same to the Mac installation.
 Please **keep the default** installation path. But if it shows "C:\Program Files (x86)", 
 we recommend to change to "C:\Program Files".
 
+**Please note** that "C:\Program Files" is usually a protected directory. 
+However, you can copy the "examples" and "tutorials" folders with "data" into your "Documents" folder 
+and work in that location to avoid any permission issues.
+
 
 ### Launching LPhy Studio
 
@@ -118,15 +122,11 @@ If you are new to LPhy, we recommend starting with this [introductory guide](htt
 SLPhy is an application to simulate data via command line given a file containing the LPhy script. 
 The bash script [slphy](https://github.com/LinguaPhylo/linguaPhylo/blob/master/bin/slphy) 
 can be found in the `bin` directory. 
-For Windows, please use `slphy.bat`.
+For Windows, please use `slphy.bat` and copy the LPhy script with "data" to the "Documents" folder.
 
 To run SLPhy, navigate to the folder containing the LPhy scripts and 
 execute the following commands. 
 Please ensure that you have the necessary write permissions in the working directory.
-
-For Windows, note that "C:\Program Files" is usually a protected directory. 
-However, you can copy the "examples" and "tutorials" folders with "data" into your "Documents" folder 
-and work in that location to avoid any permission issues.
 
 To simulate data at 5 replicates, after replacing `$LPHY` variable with your LPhy installation path. 
 
@@ -214,16 +214,19 @@ The final folder structure looks like:
 
 ## LPhyBEAST usage
 
-Now, we can run LPhyBEAST from the terminal. 
+Now, we can use `lphybeast` to run LPhyBEAST from the terminal. 
 The `$BEAST_PATH` represents the installation path of BEAST 2, 
 and `$LPHY_PATH` represents the installation path of LPhy.
-For Windows, replace `$BEAST_PATH/bin/lphybeast` as `$BEAST_PATH\bat\lphybeast.bat`.
+For Windows, please use `$BEAST_PATH/bin/lphybeast.bat` instead of `$BEAST_PATH\bat\lphybeast`,
+and also copy the LPhy script with "data" to the "Documents" folder.
 
 ```bash
 $BEAST_PATH/bin/lphybeast -h
 ```
 
-Create "RSV2.xml" from the tutorial script "RSV2.lphy":
+We recommend to navigate to the folder containing the LPhy scripts and run LPhyBEAST.
+The following commands will create "RSV2.xml" from the tutorial script "RSV2.lphy". 
+Please ensure that you have the necessary write permissions in the working directory.
 
 ```bash
 cd $LPHY_PATH/tutorials/
@@ -309,6 +312,32 @@ Caused by: java.lang.ClassNotFoundException: lphy.core.LPhyParser
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:586)
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:519)
 	... 13 more
+```
+
+### SLPhy or LPhyBEAST failed by "Access is denied"
+
+On Windows system, "C:\Program Files" is usually a protected directory. 
+
+```bash
+cd "C:\Program Files\lphystudio-1.4.3\tutorials"
+"C:\Program Files\lphystudio-1.4.3\bin\slphy" h5n1.lphy
+```
+
+If you are working within a directory without write permissions, 
+the program may encounter an error message like this:
+
+```java
+java.io.FileNotFoundException: h5n1_D_0.nexus (Access is denied)
+        at java.base/java.io.FileOutputStream.open0(Native Method)
+        at java.base/java.io.FileOutputStream.open(FileOutputStream.java:293)
+        at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:235)
+        at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:184)
+        at java.base/java.io.PrintStream.<init>(PrintStream.java:332)
+        at lphy@1.4.3/lphy.graphicalModel.logger.AlignmentFileLogger.logAlignment(AlignmentFileLogger.java:83)
+        at lphy@1.4.3/lphy.graphicalModel.logger.AlignmentFileLogger.log(AlignmentFileLogger.java:38)
+        at lphy@1.4.3/lphy.core.Sampler.sample(Sampler.java:51)
+        at lphystudio@1.4.3/lphystudio.app.simulator.SLPhy.call(SLPhy.java:113)
+        at lphystudio@1.4.3/lphystudio.app.simulator.SLPhy.call(SLPhy.java:32)
 ```
 
 
