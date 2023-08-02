@@ -68,7 +68,7 @@ corresponding to the first, second and third codon positions.
 					
 {% include_relative templates/age-direction.md %}
 
-## Inputting a script into LPhy Studio
+## Inputting the script into LPhy Studio
 
 {% include_relative templates/lphy-scripts.md %}
 

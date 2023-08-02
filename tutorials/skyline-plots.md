@@ -68,7 +68,7 @@ We will try to infer this increase from sequence data.
 </figure>
 
 
-## Constructing scripts with LPhy Studio
+## Inputting the script into LPhy Studio
 
 {% include_relative templates/lphy-scripts.md %}
 

@@ -26,7 +26,7 @@ and it consists of 43 influenza A H5N1 hemagglutinin and neuraminidase gene sequ
 isolated from a variety of hosts 1996 - 2005 across sample locations.
 
 
-## Loading script "h5n1" to LPhy Studio
+## Loading the script "h5n1" to LPhy Studio
 
 {% include_relative templates/lphy-studio-intro.md script='h5n1'%}
 
