@@ -316,7 +316,7 @@ Caused by: java.lang.ClassNotFoundException: lphy.core.LPhyParser
 
 ### SLPhy or LPhyBEAST failed by "Access is denied"
 
-On Windows system, "C:\Program Files" is usually a protected directory. 
+On Windows system, "C:\Program Files" is usually a protected directory. For example, 
 
 ```bash
 cd "C:\Program Files\lphystudio-1.4.3\tutorials"
@@ -339,6 +339,9 @@ java.io.FileNotFoundException: h5n1_D_0.nexus (Access is denied)
         at lphystudio@1.4.3/lphystudio.app.simulator.SLPhy.call(SLPhy.java:113)
         at lphystudio@1.4.3/lphystudio.app.simulator.SLPhy.call(SLPhy.java:32)
 ```
+
+The simple solution is to copy the "examples" and "tutorials" folders with "data" 
+into your "Documents" folder, and work in that location to avoid any permission issues.
 
 
 ### LPhyBEAST failed by Java version
