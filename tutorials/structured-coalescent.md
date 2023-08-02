@@ -55,7 +55,7 @@ meaning that Influenza strains are more likely to migrate from the tropic to the
 We want to see if we can infer this source-sink dynamic from sequence data using the structured coalescent.
 
 
-## Constructing scripts with LPhy Studio
+## Loading the script "h3n2" to LPhy Studio
 
 {% include_relative templates/lphy-studio-intro.md script='h3n2' %}
 
