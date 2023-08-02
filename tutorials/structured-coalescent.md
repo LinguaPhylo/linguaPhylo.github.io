@@ -150,7 +150,7 @@ which is set to the default of 1 million.
 
 
 ```
-                         BEAST v2.6.7, 2002-2020
+                        BEAST v2.7.5, 2002-2023
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -183,29 +183,29 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-File: h3n2.xml seed: 1630296535307 threads: 1
+Random number seed: 1690932416084
 
     ...
 
     ...
-       28500000     -1953.9985     -1903.1770       -50.8214         0.3498         0.2198         0.1937         0.2365         5.4560         0.0046         0.5595         3.7798         0.4518         0.6711         2.5347         0.1795         2.1426         2.4587         3.7122         0.1873 1m13s/Msamples
-       30000000     -1948.5394     -1906.5726       -41.9668         0.3486         0.2210         0.2017         0.2285         7.4471         0.0047         1.6167         0.4554         0.9991         1.1398         0.5408         1.4781         1.0904         0.5761         2.9541         0.2147 1m14s/Msamples
+       28500000     -1946.4357     -1906.4363       -39.9993         0.3376         0.2286         0.2003         0.2333         3.7473         0.0042         0.4552         0.3231         0.4012         1.8612         0.0113         0.8998         0.2283         0.7402         1.5078         1.8011 50s/Msamples
+       30000000     -1946.7403     -1901.9474       -44.7929         0.3505         0.2235         0.2021         0.2237         5.7619         0.0043         0.2648         3.4546         0.7509         0.4917         0.1204         0.8566         0.0782         4.7174         0.8943         0.5094 50s/Msamples
 
-Operator                                    Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                 0.19848     237417     626849    0.02879    0.27470 
-ScaleOperator(gamma.scale)                 0.15667     111703     288282    0.01334    0.27927 
-ScaleOperator(kappa.scale)                 0.29863     104221     295014    0.01334    0.26105 
-ScaleOperator(m.scale)                     0.15125     372893    1027107    0.04677    0.26635 
-ScaleOperator(mu.scale)                    0.52516     102708     297837    0.01334    0.25642 
-UpDownOperator(muUppsiDownOperator)        0.87133     355238    3345290    0.12343    0.09600 Try setting scaleFactor to about 0.933
-DeltaExchangeOperator(pi.deltaExchange)    0.07892     182142     681135    0.02879    0.21099 
-Exchange(psi.narrowExchange)                     -    1647945    1947578    0.11981    0.45833 
-ScaleOperator(psi.rootAgeScale)            0.57049      78998     321178    0.01334    0.19741 
-ScaleOperator(psi.scale)                   0.85243     280423    3313199    0.11981    0.07803 Try setting scaleFactor to about 0.923
-SubtreeSlide(psi.subtreeSlide)             1.01886     513876    3082581    0.11981    0.14288 
-Uniform(psi.uniform)                             -    2218465    1377464    0.11981    0.61694 
-Exchange(psi.wideExchange)                       -      91547    3505021    0.11981    0.02545 
-WilsonBalding(psi.wilsonBalding)                 -     159258    3434632    0.11981    0.04431 
+Operator                                                                  Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+ScaleOperator(Theta.scale)                                               0.19597     233548     630013    0.02879    0.27045 
+ScaleOperator(gamma.scale)                                               0.16159     115908     283810    0.01334    0.28997 
+ScaleOperator(kappa.scale)                                               0.30351     106626     293099    0.01334    0.26675 
+ScaleOperator(m.scale)                                                   0.15631     387027    1014635    0.04677    0.27612 
+ScaleOperator(mu.scale)                                                  0.51995      99865     300853    0.01334    0.24922 
+beast.base.inference.operator.UpDownOperator(muUppsiDownOperator)        0.85804     319081    3382795    0.12343    0.08619 Try setting scaleFactor to about 0.926
+beast.base.inference.operator.DeltaExchangeOperator(pi.deltaExchange)    0.07867     183781     680682    0.02879    0.21260 
+Exchange(psi.narrowExchange)                                                   -    1651694    1942594    0.11981    0.45953 
+ScaleOperator(psi.rootAgeScale)                                          0.53344      67693     333303    0.01334    0.16881 
+ScaleOperator(psi.scale)                                                 0.84705     270186    3325308    0.11981    0.07515 Try setting scaleFactor to about 0.92
+SubtreeSlide(psi.subtreeSlide)                                           1.29737     399548    3193177    0.11981    0.11121 
+Uniform(psi.uniform)                                                           -    2215989    1378030    0.11981    0.61658 
+Exchange(psi.wideExchange)                                                     -      91717    3503880    0.11981    0.02551 
+WilsonBalding(psi.wilsonBalding)                                               -     159578    3435581    0.11981    0.04439 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -214,8 +214,8 @@ WilsonBalding(psi.wilsonBalding)                 -     159258    3434632    0.11
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 2239.001 seconds
-End likelihood: -1948.5394379603993
+Total calculation time: 1524.787 seconds
+Done!
 ```
 
 ## Analysing the BEAST output
@@ -358,6 +358,12 @@ This error can have different origins and a likely incomplete list is the follow
 [//]: # (## Data, Model, Posterior)
 {% include_relative structured-coalescent/narrative.md %}
 
+## XML and log files
+
+- [h3n2.xml](h3n2/h3n2.xml)
+- [h3n2.log](h3n2/h3n2.log)
+- [h3n2.mascot.trees](h3n2/h3n2.mascot.trees)
+- MCC tree [h3n2.mascot.tree](h3n2/h3n2.mascot.tree)
 
 ## Useful Links
 

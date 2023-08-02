@@ -95,9 +95,11 @@ Please **keep the default** installation path. But if it shows "C:\Program Files
 we recommend to change to "C:\Program Files".
 
 
-### Click and Launch LPhy Studio
+### Launching LPhy Studio
 
-For Mac and Windows, to launch LPhy Studio, click on `LPhyStudioLauncher` inside your LPhy install location.
+For Linux users, please refer to the [Linux](#linux) section.
+For Mac and Windows users, to launch LPhy Studio, 
+click on `LPhyStudioLauncher` inside your LPhy install location.
 
 <figure class="image">
   <a href="/images/LPhyStudioLauncher.png">
