@@ -78,12 +78,14 @@ The LPhy script `h3n2.lphy` for this analysis is shown below.
 
 ### Tip dates
 
-Since the sequences were sampled through time, we have to specify the sampling dates. 
-These are included in the sequence names split by `\|`. 
-To set the sampling dates, We will use the regular expression `".*\|.*\|(\d*\.\d+|\d+\.\d*)\|.*$"` 
-to extract these decimal numbers and turn to ages. 
+As the sequences were sampled through time, it's necessary to specify their sampling dates, 
+which are included in the sequence names separated by `|`. 
+To extract and set the sampling dates, we utilize the regular expression
+ `".*\|.*\|(\d*\.\d+|\d+\.\d*)\|.*$"` 
+to extract the decimal numbers representing the dates and convert them into ages for further analysis.
 
-How to set the age direction in LPhy is available in the [Time-stamped data](/tutorials/time-stamped-data/#tip-dates) tutorial.
+How to set the age direction in LPhy is available in the tutorial 
+[Time-stamped data](/tutorials/time-stamped-data/#tip-dates).
 
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 
