@@ -12,11 +12,11 @@ This page includes user manuals for two applications:
 
 This page will run through the basic setup for LPhy Studio and LPhyBEAST. 
 
-For more advanced options, please refer to the [Advanced User Guide](advanced) 
-and [LPhy Extensions](extensions) pages. 
-You can also visit our [Tech Help](tech-help) page and [FAQ](#troubleshooting-guide) section, 
+For more advanced options, please refer to the [Advanced User Guide](/advanced) 
+and [LPhy Extensions](/extensions) pages. 
+You can also visit our [Tech Help](tutorials/tech-help) page and [FAQ](#troubleshooting-guide) section, 
 where you can find helpful assistance and solutions to common issues. 
-Additionally, you can learn more about the [features](features) of the LPhy language.
+Additionally, you can learn more about the [features](/features) of the LPhy language.
 
 ## Java 17
 
@@ -147,7 +147,7 @@ and tree(s) into the "*.trees" file and all random number values into the "*.log
 
 ## LPhy extensions
 
-LPhy extensions can be installed following this guide [here](https://linguaphylo.github.io/extensions/). 
+LPhy extensions can be installed following this guide [here](/extensions/). 
 
 Current supported LPhy extensions are listed on the [homepage](https://linguaphylo.github.io/#extensions).
 
@@ -247,7 +247,7 @@ the input file and the data inside the LPhy script, such as `D = readNexus(file=
 It lead to an incorrect location for the Nexus file, 
 when the working directory is not the parent directory of the subfolder "data".
 One simple solution to address this issue is to use the absolute path.
-For more details, please refer to https://linguaphylo.github.io/advanced/.
+For more details, please refer to the [Advanced User Guide](/advanced).
 
 Alternatively, check if you copy the data with the script file together to the target location. 
 
