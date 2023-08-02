@@ -140,8 +140,6 @@ or visit the [LPhy language features](https://linguaphylo.github.io/features/#da
 
 The `-l` option allows you to modify the MCMC chain length in the XML, 
 which is set to the default of 1 million.
-Please note that the single or double **quotation marks** ensure that the whitespace in the path 
-is treated as valid.
 
 
 ## Running BEAST
