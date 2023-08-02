@@ -1,0 +1,27 @@
+<itsabeastystatewerein version='2.0' sample='30000000'>
+<statenode id='pi'>pi[4 1] (0.0,1.0): 0.35054329846000404 0.22357663367644026 0.20211438126394823 0.22376568659960755 </statenode>
+<statenode id='kappa'>kappa[1 1] (0.0,Infinity): 5.761970992136596 </statenode>
+<statenode id='mu'>mu[1 1] (0.0,Infinity): 0.004368498665326472 </statenode>
+<statenode id='gamma'>gamma[1 1] (0.001,1000.0): 0.2648552826746538 </statenode>
+<statenode id='m'>m[6 1] (-Infinity,Infinity): 3.4546560725155104 0.7509881425168649 0.49178360889619677 0.12047927660811421 0.8566382244989843 0.07821274785936563 </statenode>
+<statenode id='Theta'>Theta[3 1] (-Infinity,Infinity): 4.717413663830626 0.8943626671918286 0.5094000616058185 </statenode>
+<statenode id='psi'>(((((0[&amp;deme=New_Zealand]:0.2503824815227187,22[&amp;deme=New_Zealand]:0.18754048152267266)24:0.1196934954756177,(6[&amp;deme=New_Zealand]:0.01594889222881357,(14[&amp;deme=New_Zealand]:0.031677914136117646,18[&amp;deme=New_Zealand]:0.023480914136235764)40:0.02252197809264156)45:0.33226908476945716)27:0.6597727860722595,((1[&amp;deme=Hong_Kong]:0.2529632726303752,16[&amp;deme=Hong_Kong]:1.6627552726303)29:0.14669218382745441,(8[&amp;deme=Hong_Kong]:0.24381470245102665,(9[&amp;deme=Hong_Kong]:0.19093943794373636,(10[&amp;deme=Hong_Kong]:1.1230958068630967,19[&amp;deme=Hong_Kong]:1.2463828068629879)39:0.009194631080580162)30:0.09932326450734519)31:0.12851875400689017)37:0.479919306612685)41:0.1904727641434314,(7[&amp;deme=New_York]:0.5953936220055922,20[&amp;deme=New_York]:0.6008736220056263)28:1.8871849052082983)25:1.039986263750094,((((((2[&amp;deme=New_Zealand]:1.0121151267479171,(12[&amp;deme=Hong_Kong]:0.2545265263984331,21[&amp;deme=Hong_Kong]:0.10971852639842128)32:0.21114060034942916)33:0.046617229246320946,(4[&amp;deme=New_York]:0.32785974655555883,5[&amp;deme=New_York]:0.3114667465554515)43:0.05600960943871991)42:0.03642734945273185,13[&amp;deme=Hong_Kong]:0.4011707054468685)38:0.252949136077981,3[&amp;deme=New_York]:0.6513878415249259)35:0.1513541974173367,(11[&amp;deme=New_York]:0.24977766393465473,17[&amp;deme=Hong_Kong]:0.26070666393468755)36:0.5338383750076932)44:0.32952222672840925,(15[&amp;deme=New_Zealand]:0.3183128727332247,23[&amp;deme=New_Zealand]:0.5648888727332293)34:2.1564843929374504)26:0.4285895252933898)46:0.0</statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"Theta.scale","p":0.1959651694256733,"accept":233548,"reject":630013,"acceptFC":233078,"rejectFC":629913,"rejectIv":0,"rejectOp":0},
+{"id":"gamma.scale","p":0.1615888190445652,"accept":115908,"reject":283810,"acceptFC":115674,"rejectFC":283764,"rejectIv":246,"rejectOp":246},
+{"id":"kappa.scale","p":0.3035133653624794,"accept":106626,"reject":293099,"acceptFC":106409,"rejectFC":293049,"rejectIv":0,"rejectOp":0},
+{"id":"m.scale","p":0.1563062872358774,"accept":387027,"reject":1014635,"acceptFC":386289,"rejectFC":1014465,"rejectIv":0,"rejectOp":0},
+{"id":"mu.scale","p":0.5199471609814478,"accept":99865,"reject":300853,"acceptFC":99747,"rejectFC":300746,"rejectIv":0,"rejectOp":0},
+{"id":"muUppsiDownOperator","p":0.8580423674738545,"accept":319081,"reject":3382795,"acceptFC":318823,"rejectFC":3380690,"rejectIv":1818824,"rejectOp":1818824},
+{"id":"pi.deltaExchange","p":0.07867275325174342,"accept":183781,"reject":680682,"acceptFC":183741,"rejectFC":680150,"rejectIv":52,"rejectOp":52},
+{"id":"psi.narrowExchange","p":"NaN","accept":1651694,"reject":1942594,"acceptFC":1650698,"rejectFC":1941342,"rejectIv":192232,"rejectOp":192232},
+{"id":"psi.rootAgeScale","p":0.5334413971625561,"accept":67693,"reject":333303,"acceptFC":67618,"rejectFC":333155,"rejectIv":95923,"rejectOp":95923},
+{"id":"psi.scale","p":0.8470538479774644,"accept":270186,"reject":3325308,"acceptFC":270088,"rejectFC":3323120,"rejectIv":1496944,"rejectOp":1496944},
+{"id":"psi.subtreeSlide","p":1.297366705126815,"accept":399548,"reject":3193177,"acceptFC":399058,"rejectFC":3191361,"rejectIv":1446029,"rejectOp":1446029},
+{"id":"psi.uniform","p":"NaN","accept":2215989,"reject":1378030,"acceptFC":2214557,"rejectFC":1377083,"rejectIv":0,"rejectOp":0},
+{"id":"psi.wideExchange","p":"NaN","accept":91717,"reject":3503880,"acceptFC":91653,"rejectFC":3501720,"rejectIv":2636171,"rejectOp":2636171},
+{"id":"psi.wilsonBalding","p":"NaN","accept":159578,"reject":3435581,"acceptFC":159484,"rejectFC":3433392,"rejectIv":593182,"rejectOp":593182}
+]}
+-->
