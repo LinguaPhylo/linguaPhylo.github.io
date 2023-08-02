@@ -4,17 +4,23 @@ title: Advanced User Guide
 permalink: /advanced/
 ---
 
-### Relative paths
+### Relative path in file="..."
 
-The LPhy studio will set the working directory (also property `user.dir`) 
-to the parent directory which the script sits inside.
+The LPhy studio will set the working directory (also known as the property `user.dir`) 
+to the parent directory where the script is located. 
 
-This should cooperate with any relative paths inside the LPhy script, 
+This will cooperate with any relative paths inside the LPhy script, 
 such as `readNexus(file="data/RSV2.nex", ...);`, 
-It is comparatively easy to organise all the LPhy scripts in a folder (e.g. tutorials/) 
-and their required alignments (e.g. RSV2.nex) in the subfolder `data` under the folder.
+which is intended to conceal personal information in the path names.
+It is relatively easy to organise all the LPhy scripts in a folder (e.g. tutorials/) 
+and their required alignments (e.g. RSV2.nex) in the subfolder `data` under that folder.
+This also make it convenient for batch processing purposes.
 
-We recommend you to use absolute path if you can.
+However, when using the LPhy Studio console, 
+it is more likely to encounter issues with accurate file referencing.
+So, we recommend you to use the absolute path if you can.
+It provides a more reliable way to reference files and 
+avoids any confusion caused by changing working directories.
 
 ### Using LPhy extensions
 

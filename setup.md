@@ -240,15 +240,20 @@ $BEAST_PATH/bin/lphybeast -r 5 RSV2.lphy
 ## Troubleshooting guide
 
 
-### IOException
+### IOException: Cannot find Nexus file !
 
 In most cases, the issues arise from inconsistent relative paths between 
-the input file and the data inside the LPhy script. 
-For guidance on resolving this, please refer to https://linguaphylo.github.io/advanced/.
+the input file and the data inside the LPhy script, such as `D = readNexus(file="data/RSV2.nex");`.
+It lead to an incorrect location for the Nexus file, 
+when the working directory is not the parent directory of the subfolder "data".
+One simple solution to address this issue is to use the absolute path.
+For more details, please refer to https://linguaphylo.github.io/advanced/.
 
 Alternatively, check if you copy the data with the script file together to the target location. 
 
-```
+The error message look like this:
+
+```java
 SEVERE: java.io.IOException: Cannot find Nexus file ! .../data/RSV2.nex, user.dir = ...
 	at lphy.evolution.io.NexusParser.getReader(NexusParser.java:85)
 	at lphy.evolution.io.NexusParser.<init>(NexusParser.java:64)
@@ -265,7 +270,7 @@ If you are using Mascot (e.g. structured coalescent), you need to install the
 The error message "Please ensure you have installed the required ..." indicates 
 missing BEAST2 packages necessary for the analysis. 
 
-```
+```java
 Cannot find the mapping for given LPhy code to BEAST2 classes! 
 Input file = h3n2.lphy
 Please ensure you have installed the required LPhyBEAST extensions and BEAST2 packages : 
@@ -289,7 +294,7 @@ Unhandled generator in generatorToBEAST(): class lphy.evolution.coalescent.Struc
 
 If the LPhy library folder is not in a correct path, you will see the following exceptions:
 
-```
+```java
 java.lang.NoClassDefFoundError: lphy/core/LPhyParser
 	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
 	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3334)
@@ -311,7 +316,7 @@ Caused by: java.lang.ClassNotFoundException: lphy.core.LPhyParser
 
 If the `lphybeast -h` failed with the following error message about Java version:
 
-```
+```java
 java.lang.UnsupportedClassVersionError: 
 lphybeast/LPhyBEAST has been compiled by a more recent version 
 of the Java Runtime (class file version 61.0), this version of 

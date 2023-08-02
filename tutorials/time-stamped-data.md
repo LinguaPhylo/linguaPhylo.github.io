@@ -123,6 +123,15 @@ should have an age of 0.0, while all other tips should be > 0.0.
 This is because, as mentioned above, LPhy __always__ treats sample
 times as __ages__.
 
+The alignment `D` is imported from a Nexus file "RSV2.nex". 
+The argument `file="data/RSV2.nex"` is used to look for this file under the relative path "data", 
+with its parent directory being the current working directory.
+However, this could lead to the [issue](/setup/#troubleshooting-guide) 
+if the working directory is not the parent directory of "data", 
+especially when using the LPhy Studio console. 
+To avoid potential issues with relative paths, 
+a simple solution is to use the absolute path in the argument `file="..."`.
+
 Then we must parse the molecular alignments, which we do when
 initializing variable `D`.
 Note that our open reading frame (ORF) starts in position 3, which
