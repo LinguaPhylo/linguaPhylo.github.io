@@ -4,8 +4,8 @@ probabilistic graphical models, as well as for simulating data
 under those models.
 These tasks are executed according to an LPhy script the user types
 (or loads) on LPhy Studio's interactive terminal.
-If you are new to LPhy, we recommend you to read this [introduction](https://linguaphylo.github.io/about/) first, 
-before you continue on this tutorial. 
+If you are not familiar with LPhy language, we recommend reading the 
+[language features](https://linguaphylo.github.io/features/) before getting started.
 
 You can input a script into LPhy Studio either by using the `File` menu 
 or by directly typing or pasting the script code into the console in LPhy Studio.
