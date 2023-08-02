@@ -95,8 +95,11 @@ Please **keep the default** installation path. But if it shows "C:\Program Files
 we recommend to change to "C:\Program Files".
 
 **Please note** that "C:\Program Files" is usually a protected directory. 
-However, you can copy the "examples" and "tutorials" folders with "data" into your "Documents" folder 
-and work in that location to avoid any permission issues.
+To avoid any permission issues while using programs that produce output files, 
+we recommend copying the "examples" and "tutorials" folders, along with the "data" folder, 
+into your "Documents" directory and working from there. 
+This will ensure that the programs (e.g., `slphy` and `lphybeast`) have the necessary write permissions 
+to create and overwrite files as needed.
 
 
 ### Launching LPhy Studio
