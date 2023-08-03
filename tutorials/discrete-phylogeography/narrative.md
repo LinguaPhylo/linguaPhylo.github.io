@@ -9,7 +9,7 @@ The <i>taxa</i> is the list of taxa of  alignment, <i>D</i>.
 The int, <i>K</i> is the number of states of  alignment, <i>D<sub>trait</sub></i>.
 The alignment, <i>D<sub>trait</sub></i> extracts the trait from  <i>taxa</i>, with a sep of "_" and an i of 2.
 The object, <i>dim</i> comes from the K*(K-1)/2.
-
+The data type used for simulations, <i>dataType</i> is the data type of alignment, <i>D<sub>trait</sub></i>.
 
 
 <h2>Model</h2>
