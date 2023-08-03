@@ -7,10 +7,10 @@ permalink: /tutorials/discrete-phylogeography/
 
 ```html
 If you haven't installed LPhy Studio and LPhyBEAST yet, please refer to the 
-<a href="https://linguaphylo.github.io/setup/">User Manual</a> for their installation. 
+<!-- [User Manual](/setup) --> for their installation. 
 Additionally, this tutorial requires other third-party programs, 
 which are listed below under the section 
-<a href="https://linguaphylo.github.io/tutorials/discrete-phylogeography/#programs-used-in-this-tutorial">Programs Used in this Tutorial</a>.  
+<!-- [Programs Used in this Tutorial](#programs-used-in-this-tutorial) -->.  
 ```
 
 This tutorial guides you through a discrete phylogeography analysis of a H5N1 epidemic in South China. 
