@@ -10,7 +10,7 @@ permalink: /tutorials/discrete-phylogeography/
 [User Manual](/setup) for their installation. 
 Additionally, this tutorial requires other third-party programs, 
 which are listed below under the section 
-[Programs Used in this tutorial](#programs-used-in-this-tutorial).  
+[Programs used in this tutorial](#programs-used-in-this-tutorial).  
 
 This tutorial guides you through a discrete phylogeography analysis of a H5N1 epidemic in South China. 
 The analysis will use the model developed by [Lemey et al., 2009](https://doi.org/10.1371/journal.pcbi.1000520) 

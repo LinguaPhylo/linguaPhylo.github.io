@@ -12,7 +12,7 @@ If you haven't installed LPhy Studio and LPhyBEAST yet, please refer to the
 [User Manual](/setup) for their installation. 
 Additionally, this tutorial requires other third-party programs, 
 which are listed below under the section 
-[Programs Used in this tutorial](#programs-used-in-this-tutorial). 
+[Programs used in this tutorial](#programs-used-in-this-tutorial). 
 
 Population dynamics influence the shape of the tree and consequently, 
 the shape of the tree contains some information about past population dynamics. 
