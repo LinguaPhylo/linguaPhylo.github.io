@@ -34,11 +34,11 @@ java -version
 
 Download the LPhy Studio version for your operating system:
 
-- Mac [lphystudio-1.4.3-osx-installer.dmg](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.3/lphystudio-1.4.3-osx-installer.dmg)
+- Mac [lphystudio-1.4.4-osx-installer.dmg](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.4/lphystudio-1.4.4-osx-installer.dmg)
 
-- Windows [lphystudio-1.4.3-windows-x64-installer.exe](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.3/lphystudio-1.4.3-windows-x64-installer.exe)
+- Windows [lphystudio-1.4.4-windows-x64-installer.exe](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.4/lphystudio-1.4.4-windows-x64-installer.exe)
 
-- Linux [lphy-studio-1.4.3.zip](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.3/lphy-studio-1.4.3.zip)
+- Linux [lphy-studio-1.4.4.zip](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.4.4/lphy-studio-1.4.4.zip)
 
 All release versions of LPhy Studio are available on the [LPhy releases page](https://github.com/LinguaPhylo/linguaPhylo/releases).
 
