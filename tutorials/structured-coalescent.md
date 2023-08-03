@@ -8,6 +8,12 @@ permalink: /tutorials/structured-coalescent/
 
 This tutorial is modified from Taming the BEAST [MASCOT Tutorial](https://taming-the-beast.org/tutorials/Mascot-Tutorial/).
 
+If you haven't installed LPhy Studio and LPhyBEAST yet, please refer to the 
+[User Manual](/setup) for their installation. 
+Additionally, this tutorial requires other third-party programs, 
+which are listed below under the section 
+[Programs Used in this tutorial](#programs-used-in-this-tutorial). 
+
 # Background
 
 Phylogeographic methods can help reveal the movement of genes between populations of organisms. 
@@ -41,7 +47,6 @@ The aim is to:
 - Get to know how to choose the set-up of such an analysis
 - Learn how to read the output of a MASCOT analysis
 
-The programs used in this tutorial are listed [below](#programs-used-in-this-tutorial).
 
 ## The NEXUS alignment
 

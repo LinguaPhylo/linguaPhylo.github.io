@@ -8,6 +8,12 @@ permalink: /tutorials/skyline-plots/
 This tutorial is modified from Taming the BEAST tutorial 
 [Skyline plots](https://taming-the-beast.org/tutorials/Skyline-plots/).
 
+If you haven't installed LPhy Studio and LPhyBEAST yet, please refer to the 
+[User Manual](/setup) for their installation. 
+Additionally, this tutorial requires other third-party programs, 
+which are listed below under the section 
+[Programs Used in this tutorial](#programs-used-in-this-tutorial). 
+
 Population dynamics influence the shape of the tree and consequently, 
 the shape of the tree contains some information about past population dynamics. 
 The so-called Skyline methods allow to extract this information from phylogenetic trees in a non-parametric manner. 
@@ -15,9 +21,6 @@ It is non-parametric since there is no underlying system of differential equatio
 
 In this tutorial we will look at a popular coalescent method, 
 the Coalescent Bayesian Skyline plot ([Drummond, Rambaut, Shapiro, & Pybus, 2005](https://academic.oup.com/mbe/article/22/5/1185/1066885)), to infer these dynamics from sequence data. 
-
-The programs used in this tutorial are listed [below](#programs-used-in-this-tutorial).
-
 
 ## Background: Classic and Generalized Plots
 
