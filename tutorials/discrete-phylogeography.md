@@ -5,16 +5,21 @@ author: 'Walter Xie, Remco Bouckaert, and Alexei Drummond'
 permalink: /tutorials/discrete-phylogeography/
 ---
 
-It guides you through a discrete phylogeography analysis of a H5N1 epidemic in South China. 
-This analysis will use the model developed by [Lemey et al., 2009](https://doi.org/10.1371/journal.pcbi.1000520) 
+```
+If you haven't installed LPhy Studio and LPhyBEAST yet, please refer to the 
+[User Manual](/setup) for their installation. 
+Additionally, this tutorial requires other third-party programs, 
+which are listed below under the section [Programs Used in this Tutorial](#programs-used-in-this-tutorial).  
+```
+
+This tutorial guides you through a discrete phylogeography analysis of a H5N1 epidemic in South China. 
+The analysis will use the model developed by [Lemey et al., 2009](https://doi.org/10.1371/journal.pcbi.1000520) 
 that implements ancestral reconstruction of discrete states (locations) in a Bayesian statistical framework, 
 and employs the Bayesian stochastic search variable selection (BSSVS) to identify the most parsimonious description of 
 the phylogeographic diffusion process.
 
 The additional benefit using this model is that we can summarise the phylogeographic inferences from an analysis,
 and use a virtual globe software to visualise the spatial and temporal information.
-
-The programs used in this tutorial are listed [below](#programs-used-in-this-tutorial).
 
 ## The NEXUS alignment
 
