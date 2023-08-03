@@ -156,6 +156,20 @@ effectively clamping these variables to their observed values during inference.
 This is useful when working with real data, as it allows the user to incorporate 
 the observed data into the analysis and improve the accuracy of the results.
 
+**Please note** that you cannot make a method call or function call to itself when data clamping.
+For example, the line below in the `model` block can be parsed when data clamping,
+but `D_trait.dataType()` will cause issues:
+
+```
+D_trait ~ PhyloCTMC(L=1, Q=Q_trait, mu=μ_trait, tree=ψ, dataType=D_trait.dataType());
+``` 
+
+The solution is to declare `dataType=D_trait.dataType()` in the `data` block, and change it to:
+
+```
+D_trait ~ PhyloCTMC(L=1, Q=Q_trait, mu=μ_trait, tree=ψ, dataType=dataType);
+```
+
 The examples are available in [LPhy tutorials](https://linguaphylo.github.io/tutorials/).
 
 
