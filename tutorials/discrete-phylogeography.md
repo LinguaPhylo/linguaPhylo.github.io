@@ -15,7 +15,7 @@ which are listed below under the section
 This tutorial guides you through a discrete phylogeography analysis of a H5N1 epidemic in South China. 
 The analysis will use the model developed by [Lemey et al., 2009](https://doi.org/10.1371/journal.pcbi.1000520) 
 that implements ancestral reconstruction of discrete states (locations) in a Bayesian statistical framework, 
-and employs the Bayesian stochastic search variable selection (BSSVS) to identify the most parsimonious description of 
+and employs the Bayesian stochastic search variable selection (BSSVS) to identify the most plausible description of 
 the phylogeographic diffusion process.
 
 The additional benefit using this model is that we can summarise the phylogeographic inferences from an analysis,
