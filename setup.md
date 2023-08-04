@@ -236,12 +236,18 @@ cd $LPHY_PATH/tutorials/
 $BEAST_PATH/bin/lphybeast RSV2.lphy
 ```
 
-Or, create 5 XMLs at 5 replicates:
+The `lphybeast` script will generate the "RSV2.xml" file based on the model and parameters 
+specified in the "RSV2.lphy" script.
+
+LPhyBEAST can be used to simulate alignments from the given model. 
+The following command will create 5 XMLs, 
+and each XML will contain a different simulated alignment at each replicate, 
+where the `-r` option specifies the number of replicates.
 
 ```bash
-$BEAST_PATH/bin/lphybeast -r 5 RSV2.lphy
+cd $LPHY_PATH/examples/coalescent/
+$BEAST_PATH/bin/lphybeast -r 5 jcCoalescent.lphy
 ```
-
 
 ## Troubleshooting guide
 
