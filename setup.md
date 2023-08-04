@@ -228,7 +228,8 @@ $BEAST_PATH/bin/lphybeast -h
 ```
 
 We recommend to navigate to the folder containing the LPhy scripts and run LPhyBEAST.
-The following commands will create "RSV2.xml" from the tutorial script "RSV2.lphy". 
+The following commands will create "RSV2.xml" from the tutorial script 
+[RSV2.lphy](https://linguaphylo.github.io/tutorials/time-stamped-data/). 
 Please ensure that you have the necessary write permissions in the working directory.
 
 ```bash
@@ -237,7 +238,9 @@ $BEAST_PATH/bin/lphybeast RSV2.lphy
 ```
 
 The `lphybeast` script will generate the "RSV2.xml" file based on the model and parameters 
-specified in the "RSV2.lphy" script.
+specified in the "RSV2.lphy" script. 
+Additionally, the alignment is imported from a Nexus file "RSV2.nex" 
+located in the "data" subfolder.
 
 LPhyBEAST can be used to simulate alignments from the given model. 
 The following command will create 5 XMLs, 
