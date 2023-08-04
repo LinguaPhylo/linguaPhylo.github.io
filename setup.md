@@ -44,7 +44,7 @@ All release versions of LPhy Studio are available on the [LPhy releases page](ht
 
 ### The default installation path
 
-- Linux: `/usr/local/`
+- Linux: `~/` which is your home folder
 - Mac: `/Applications/`
 - Windows: `C:\Program Files\`
 
@@ -52,7 +52,7 @@ All release versions of LPhy Studio are available on the [LPhy releases page](ht
 ### Linux
 
 For Linux, we recommend unzipping the `lphy-studio-{{lphy_version}}.zip` 
-file to the `/usr/local` directory. 
+file to your home directory. 
 By doing so, the launch script for LPhyBeast will automatically detect the library path `$LPHY_LIB`. 
 Alternatively, you have the option to manually assign the environment variable `$LPHY_LIB` 
 to the location where LPhy Studio is installed if you choose to install it in a different directory.
@@ -61,7 +61,7 @@ To launch LPhyStudio from the command line, use the following command,
 replacing "x" to the version number:
 
 ```bash
-cd /usr/local/lphy-studio-{{lphy_version}}/
+cd ~/lphy-studio-{{lphy_version}}/
 ./bin/lphystudio
 ```
 
