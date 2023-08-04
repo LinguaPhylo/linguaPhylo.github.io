@@ -158,9 +158,10 @@ Current supported LPhy extensions are listed on the [homepage](https://linguaphy
 ## LPhyBEAST installation
 
 [LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) and its extensions 
-require the latest version of [BEAST 2](https://www.beast2.org) and [LPhy](#lphy-studio-installation). 
+require the latest version of [BEAST 2](https://www.beast2.org) and [LPhy](#lphy-studio-installation).
+Please install them before you continue. 
 
-First, we need to install two [BEAST 2 packages](https://www.beast2.org/managing-packages/): 
+Then, we need to install two [BEAST 2 packages](https://www.beast2.org/managing-packages/): 
 [lphybeast](https://github.com/LinguaPhylo/LPhyBeast/) and [LPhyBeastExt](https://github.com/LinguaPhylo/LPhyBeastExt/).
 
 1. To install LPhyBEAST, start `BEAUti` and from the menu go to `File` => `Manage Packages` 
@@ -170,7 +171,7 @@ to launch `Package Manager`.
 
 3. Select `LPhyBeastExt` from the list, then click `Install/Upgrade` to install.
 
-Installation may take few minutes to download and install. 
+Installation may take few minutes to download and install, including all dependent packages. 
 Please wait until a confirmation popup appears on the screen.
 
 <figure class="image">
