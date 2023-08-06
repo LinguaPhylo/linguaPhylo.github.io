@@ -372,9 +372,6 @@ the Java Runtime only recognizes class file versions up to 52.0
 	at java.net.URLClassLoader.defineClass(URLClassLoader.java:468)
 ```
 
-First, check if your local Java is 17 using `java -version`. 
-If yes, you need to download and use BEAST 2 without JRE, because with JRE, 
-`applauncher` will be forced to use the provided JRE in BEAST 2 which currently is 1.8.
-
-
-
+The script lphybeast utilizes the BEAST 2 applauncher to run the LPhyBEAST application, 
+which requires Zulu 17 with JavaFX bundled in BEAST 2.7.x.
+More details are available in [beast2.org](https://www.beast2.org).
