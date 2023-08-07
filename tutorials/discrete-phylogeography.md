@@ -18,7 +18,7 @@ that implements ancestral reconstruction of discrete states (locations) in a Bay
 and employs the Bayesian stochastic search variable selection (BSSVS) to identify the most plausible description of 
 the phylogeographic diffusion process.
 
-The additional benefit using this model is that we can summarise the phylogeographic inferences from an analysis,
+The additional benefit in using this model is that we can summarise the phylogeographic inferences from an analysis,
 and use a virtual globe software to visualise the spatial and temporal information.
 
 ## The NEXUS alignment
@@ -27,8 +27,9 @@ and use a virtual globe software to visualise the spatial and temporal informati
                     df_link='https://raw.githubusercontent.com/LinguaPhylo/linguaPhylo/master/tutorials/data/H5N1.nex' %}
 
 This alignment is a subset of original dataset [Wallace et al., 2007](https://doi.org/10.1073/pnas.0700435104), 
-and it consists of 43 influenza A H5N1 hemagglutinin and neuraminidase gene sequences 
-isolated from a variety of hosts 1996 - 2005 across sample locations.
+and it consists of 43 influenza A H5N1 hemagglutinin and neuraminidase gene sequences. 
+These sequences were isolated from a diverse range of hosts over the period from 1996 to 2005 
+across various sampling locations.
 
 
 ## Loading the script "h5n1" to LPhy Studio

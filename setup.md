@@ -196,7 +196,7 @@ See the section of [LPhy Studio installation](#lphy-studio-installation).
 
 6. Install LPhy Studio to the [default path](#the-default-installation-path).
 
-7. Download the latest version of the script to launch LPhyBEAST. 
+7. Download the latest version of the script below to launch LPhyBEAST. 
 Right-click the corresponding link, and select "Download Linked File" from the context menu. 
 Then, move `lphybeast` into the `bin` subfolder of your BEAST 2 installation on macOS and Linux. 
 For Windows, move `lphybeast.bat` into the `bat` subfolder instead.
