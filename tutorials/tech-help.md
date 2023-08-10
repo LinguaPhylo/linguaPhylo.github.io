@@ -53,6 +53,10 @@ you can use the following commands in the terminal:
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 ```
 
+See also: 
+
+- [Set JAVA_HOME on Windows 7, 8, 10, Mac OS X, Linux](https://www.baeldung.com/java-home-on-windows-7-8-10-mac-os-x-linux)
+
 For Windows, the links below are helpful:
 
 - [How to Change Java Versions in Windows (Sven Woltmann)](https://www.happycoders.eu/java/how-to-switch-multiple-java-versions-windows/)

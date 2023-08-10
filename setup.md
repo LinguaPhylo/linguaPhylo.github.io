@@ -20,7 +20,7 @@ Additionally, you can learn more about the [features](/features) of the LPhy lan
 
 ## Java 17
 
-LPhy and LPhyBEAST require Java 17. We recommend you install [OpenJDK 17](https://jdk.java.net/java-se-ri/17).
+LPhy requires Java 17. We recommend you install [OpenJDK 17](https://jdk.java.net/java-se-ri/17).
 
 To check your Java version, use the command line in the terminal:
 
