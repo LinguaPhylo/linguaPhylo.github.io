@@ -185,8 +185,6 @@ Please wait until a confirmation popup appears on the screen.
 Alternatively, the packages `lphybeast` and `LPhyBeastExt` can be installed 
 using [command line](https://www.beast2.org/managing-packages/).
 
-### Install required LPhy libraries and download launcher script 
-
 The package `lphybeast` does not include LPhy, so we need to install LPhy separately.
 You may skip steps 5-6 if you have already installed LPhyStudio in your BEAST 2 directory. 
 
