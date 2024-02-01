@@ -158,8 +158,8 @@ YOUR_PATH/slphy -D 'n=5;L=50' MacroLanguage.lphy
 In the MacroLanguage.lphy, the L has a default value 100, and n has 10.
 
 ```lphy
-  L = {{L = 100}};
-  taxa = taxa(names=1:{{n = 10}});
+L = \{\{L = 100\}\};
+taxa = taxa(names=1:\{\{n = 10\}\});
 ```
 
 Given the command line argument `-D 'n=5;L=50'`, 
