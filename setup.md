@@ -147,6 +147,24 @@ The "x" is the version number.
 The simulation will produce alignment(s) and saved them into one or many "*.nexus" files, 
 and tree(s) into the "*.trees" file and all random number values into the "*.log" file.  
 
+SLPhy supports Macro language to replace values in a lphy script by command line, 
+and then the simulation is done using those new values:
+
+```bash
+cd $LPHY/examples/macro
+YOUR_PATH/slphy -D 'n=5;L=50' MacroLanguage.lphy
+```
+
+In the MacroLanguage.lphy, the L has a default value 100, and n has 10.
+
+```lphy
+  L = {{L = 100}};
+  taxa = taxa(names=1:{{n = 10}});
+```
+
+Given the command line argument `-D 'n=5;L=50'`, 
+the simulation will be done using 50 as the new value of L and 5 to the value of n.
+
 
 ## LPhy extensions
 
