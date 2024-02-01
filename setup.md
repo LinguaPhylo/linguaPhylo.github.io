@@ -157,10 +157,12 @@ YOUR_PATH/slphy -D 'n=5;L=50' MacroLanguage.lphy
 
 In the MacroLanguage.lphy, the L has a default value 100, and n has 10.
 
+{% raw %}
 ```lphy
-L = \{\{L = 100\}\};
-taxa = taxa(names=1:\{\{n = 10\}\});
+L = {{L = 100}};
+taxa = taxa(names=1:{{n = 10}});
 ```
+{% endraw %}
 
 Given the command line argument `-D 'n=5;L=50'`, 
 the simulation will be done using 50 as the new value of L and 5 to the value of n.
