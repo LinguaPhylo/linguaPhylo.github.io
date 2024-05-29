@@ -1,12 +1,5 @@
 
 To summarize the trees logged during MCMC, we will use the [CCD methods](https://doi.org/10.1101/2024.02.20.581316) 
-implemented in the program TreeAnnotator to create one maximum a posteriori (MAP) tree.
-The implementation of the conditional clade distribution (CCD) has different parametrisations,
-such as CCD1 based on clade split frequencies, and CCD0 based on clade frequencies.
-The MAP tree topology is the tree topology that has the greatest posterior probability, 
-averaged over all branch lengths and substitution parameter values.  
-
-To summarize the trees logged during MCMC, we will use the [CCD methods](https://doi.org/10.1101/2024.02.20.581316) 
 implemented in the program TreeAnnotator to create a single maximum a posteriori (MAP) tree. 
 The implementation of the conditional clade distribution (CCD) offers different parameterizations, 
 such as CCD1, which is based on clade split frequencies, and CCD0, which is based on clade frequencies. 
