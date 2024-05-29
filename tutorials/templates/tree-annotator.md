@@ -1,6 +1,6 @@
 
 To summarize the trees logged during MCMC, we will use the [CCD methods](https://doi.org/10.1101/2024.02.20.581316) 
-implemented in the program TreeAnnotator to create a single maximum a posteriori (MAP) tree. 
+implemented in the program TreeAnnotator to create the maximum a posteriori (MAP) tree. 
 The implementation of the conditional clade distribution (CCD) offers different parameterizations, 
 such as CCD1, which is based on clade split frequencies, and CCD0, which is based on clade frequencies. 
 The MAP tree topology represents the tree topology with the highest posterior probability, 
@@ -20,7 +20,7 @@ Please follow these steps after launching TreeAnnotator:
    "YOUR_PATH" in the screen shot will be that parent path.
 5. Finally, for "Output File", copy and paste the input file path but replace 
    the {{ include.trees }} with {{ include.mcctree }}. 
-   This will create the file containing the resulting maximum clade credibility tree.
+   This will create the file containing the resulting MAP tree.
 
 The image below shows a screenshot of TreeAnnotator with the necessary settings to 
 create the summary tree. "YOUR_PATH" will be replaced to the corresponding path.
