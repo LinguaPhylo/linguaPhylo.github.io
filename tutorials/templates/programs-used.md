@@ -4,7 +4,7 @@ We also offer a [Tech Help](../tech-help) page to assist you
 in case you encounter any unexpected issues with certain third-party software tools.
 
 {% assign lphy_version = "1.4.4" %}
-{% assign beast_version = "2.7.5" %}
+{% assign beast_version = "2.7.6" %}
 {% assign tracer_version = "1.7.2" %}
 {% assign figtree_version = "1.4.3" %}
 
@@ -28,6 +28,11 @@ in case you encounter any unexpected issues with certain third-party software to
 
 * BEAST [feast](https://github.com/tgvaughan/feast) package - this is a small BEAST 2 package 
   which contains additions to the core functionality. 
+  
+* BEAST [CCD](https://github.com/CompEvol/CCD) package - Implementation of the conditional clade distribution (CCD), 
+  such as, based on clade split frequencies (CCD1) and clade frequencies (CCD0). 
+  Furthermore, point estimators based on the CCDs are implemented, 
+  which allows TreeAnnotator to produce better summary trees than via MCC trees (which is restricted to the sample).
 
 * Tracer - this program is used to explore the output of BEAST (and other Bayesian MCMC programs). 
   It graphically and quantitatively summarises the distributions of continuous parameters 
