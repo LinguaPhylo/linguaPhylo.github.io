@@ -12,7 +12,7 @@ available in TreeAnnotator.
 Please follow these steps after launching TreeAnnotator:
 
 1. Set 10% as the burn-in percentage;
-2. Select "MAP(CCD, AIC selected)" as the "Target tree type";
+2. Select "MAP (CCD, AIC selected)" as the "Target tree type";
 3. For "Node heights", choose "Mean heights";
 4. Load the tree log file that BEAST 2 generated (it will end in ".trees" by default) 
    as "Input Tree File". For this tutorial, the tree log file is called {{ include.trees }}.
