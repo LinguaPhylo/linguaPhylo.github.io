@@ -458,7 +458,7 @@ tree in the posterior individually).
 
 {% assign figtree_fig_num = current_fig_num %}
 
-After loading the MCC tree in FigTree, click on the "Trees" tab on the
+After loading the summarised tree in FigTree, click on the "Trees" tab on the
 left-hand side, then select "Order nodes" while keeping the default
 ordering ("increasing").
 In addition, check "Node Bars", choosing "height_95%_HPD" for
@@ -469,19 +469,19 @@ You should end up with a tree like the one in Figure {{
 figtree_fig_num }}.
 
 <figure class="image">
-  <a href="RSV2.tree.png" target="_blank"><img src="RSV2.tree.png" alt="MCC tree"></a>
-  <figcaption>Figure {{ figtree_fig_num }}: The maximum clade credibility (MCC) tree for
+  <a href="RSV2.tree.png" target="_blank"><img src="RSV2.tree.png" alt="summarised tree"></a>
+  <figcaption>Figure {{ figtree_fig_num }}: The summarised tree for
   the G gene of 129 RSVA-2 viral samples.</figcaption>
 </figure>
 
 In DensiTree, load the tree log file as the input.
-Here, the tree in blue is the MCC tree, where the green "fuzzy" trees
+Here, the tree in blue is the summarised tree, where the green "fuzzy" trees
 are all the other trees in the posterior set.
 
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 
 <figure class="image">
-  <img src="DensiTree.png" alt="MCC tree">
+  <img src="DensiTree.png" alt="Densi tree">
   <figcaption>Figure {{ current_fig_num }}: The posterior tree set visualised in DensiTree.</figcaption>
 </figure>
 
@@ -502,7 +502,7 @@ In what year did the common ancestor of all RSVA viruses sampled live? What is t
 - [RSV2long.xml](RSV2/RSV2long.xml)
 - [RSV2long.log](RSV2/RSV2long.log)
 - [RSV2long.trees](RSV2/RSV2long.trees)
-- MCC tree [RSV2long.tree](RSV2/RSV2long.tree)
+- summarised tree [RSV2long.tree](RSV2/RSV2long.tree)
 
 ## Useful links
 

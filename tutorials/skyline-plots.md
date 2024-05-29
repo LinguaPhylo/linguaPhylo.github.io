@@ -341,7 +341,7 @@ Instead a structured model should then be used to account for these biases.
 - [hcv_coal.xml](hcv/hcv_coal.xml)
 - [hcv_coal.log](hcv/hcv_coal.log)
 - [hcv_coal.trees](hcv/hcv_coal.trees)
-- MCC tree [hcv_coal.tree](hcv/hcv_coal.tree)
+- summarised tree [hcv_coal.tree](hcv/hcv_coal.tree)
 
 ## Useful Links
 

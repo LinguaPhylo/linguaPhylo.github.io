@@ -333,7 +333,7 @@ Lauch the program, and follow the steps below:
 You should end up with something like Figure 6
 <figure class="image">
   <a href="h5n1_with_trait.tree.svg" target="_blank">
-  <img src="h5n1_with_trait.tree.svg" alt="MCC tree"></a>
+  <img src="h5n1_with_trait.tree.svg" alt="Summarised tree"></a>
   <figcaption>Figure 6: Figtree representation of the summary tree. 
   Branch colours represent location and branch widths posterior support for the branch.</figcaption>
 </figure>

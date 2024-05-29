@@ -274,14 +274,14 @@ are inferred to be from Hong Kong backwards.
 </figure>
 
 
-### Make the MCC tree using TreeAnnotator
+### Summarising the trees
 
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 {% include_relative templates/tree-annotator.md fig="TreeAnnotator.png" 
                     fignum=current_fig_num trees="h3n2.mascot.trees" mcctree="h3n2.mascot.tree" %}
 
 
-### Check the MCC tree using FigTree
+### Visualizing the trees
 
 In each logging step of the tree during the MCMC, MASCOT logs several different things. 
 It logs the inferred probability of each node being in any possible location. 
@@ -370,7 +370,7 @@ This error can have different origins and a likely incomplete list is the follow
 - [h3n2.xml](h3n2/h3n2.xml)
 - [h3n2.log](h3n2/h3n2.log)
 - [h3n2.mascot.trees](h3n2/h3n2.mascot.trees)
-- MCC tree [h3n2.mascot.tree](h3n2/h3n2.mascot.tree)
+- summarised tree [h3n2.mascot.tree](h3n2/h3n2.mascot.tree)
 
 ## Useful Links
 
