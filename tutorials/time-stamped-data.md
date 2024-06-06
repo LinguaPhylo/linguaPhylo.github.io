@@ -469,7 +469,7 @@ You should end up with a tree like the one in Figure {{
 figtree_fig_num }}.
 
 <figure class="image">
-  <a href="RSV2.tree.png" target="_blank"><img src="RSV2.tree.png" alt="summarised tree"></a>
+  <a href="RSV2.ccd0.tree.png" target="_blank"><img src="RSV2.ccd0.tree.png" alt="summarised tree"></a>
   <figcaption>Figure {{ figtree_fig_num }}: The summarised tree for
   the G gene of 129 RSVA-2 viral samples.</figcaption>
 </figure>
@@ -502,7 +502,7 @@ In what year did the common ancestor of all RSVA viruses sampled live? What is t
 - [RSV2long.xml](RSV2/RSV2long.xml)
 - [RSV2long.log](RSV2/RSV2long.log)
 - [RSV2long.trees](RSV2/RSV2long.trees)
-- summarised tree [RSV2long.tree](RSV2/RSV2long.tree)
+- summarised tree [RSV2long.ccd0.tree](RSV2/RSV2long.ccd0.tree)
 
 ## Useful links
 
