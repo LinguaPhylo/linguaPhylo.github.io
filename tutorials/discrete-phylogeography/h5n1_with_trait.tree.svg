@@ -62,265 +62,268 @@
       /><text x="685.3137" y="628" style="stroke-linecap:round; font-size:8; stroke-linejoin:round; stroke:none;" xml:space="preserve"
       >12.5</text
     ></g
-    ><g style="fill:rgb(82,204,131); text-rendering:optimizeLegibility; stroke-width:4.537; stroke:rgb(82,204,131);" transform="translate(6,6)"
-    ><path style="fill:none;" d="M553.9036 29.2083 L532.4365 29.2083 L532.4365 44.7708"
-      /><path d="M527.4298 171 L418.1772 171 L418.1772 146.0892" style="fill:none; stroke-width:5; stroke:rgb(82,131,204);"
-      /><path d="M606.7602 132.9583 L501.9755 132.9583 L501.9755 117.3958" style="fill:none; stroke-width:4.898; stroke:rgb(180,82,204);"
-      /><path d="M575.2149 267.8333 L536.5949 267.8333 L536.5949 280.8021" style="fill:none; stroke-width:5;"
-      /><path d="M532.4365 44.7708 L527.77 44.7708 L527.77 24.8854" style="fill:none; stroke-width:4.2765;"
-      /><path d="M586.1107 202.125 L420.1989 202.125 L420.1989 214.2292" style="fill:none; stroke-width:1.4613; stroke:rgb(204,82,82);"
-      /><path d="M575.2149 309.3333 L561.1672 309.3333 L561.1672 316.25" style="fill:none; stroke-width:5;"
-      /><path d="M181.6034 534.125 L160.8205 534.125 L160.8205 554.875" style="fill:none; stroke-width:4.9575; stroke:rgb(82,131,204);"
-      /><path d="M527.4298 254 L378.4747 254 L378.4747 220.3218" style="fill:none; stroke-width:5; stroke:rgb(180,204,82);"
-      /><path d="M617.2703 122.5833 L606.7602 122.5833 L606.7602 132.9583" style="fill:none; stroke-width:4.9914; stroke:rgb(180,82,204);"
-      /><path d="M431.8596 240.1667 L403.9778 240.1667 L403.9778 227.1979" style="fill:none; stroke-width:5;"
-      /><path d="M623 5 L527.77 5 L527.77 24.8854" style="fill:none; stroke-width:5; stroke:rgb(180,204,82);"
-      /><path d="M160.8205 554.875 L138.6495 554.875 L138.6495 521.5886" style="fill:none; stroke-width:4.9235; stroke:rgb(82,131,204);"
-      /><path d="M240.7192 558.3333 L209.8281 558.3333 L209.8281 565.25" style="fill:none; stroke-width:5; stroke:rgb(82,131,204);"
-      /><path d="M209.8281 565.25 L175.3431 565.25 L175.3431 575.625" style="fill:none; stroke-width:4.966; stroke:rgb(82,131,204);"
-      /><path d="M569.4711 39.5833 L553.9036 39.5833 L553.9036 29.2083" style="fill:none; stroke-width:4.0991;"
-      /><path d="M623 198.6667 L605.0313 198.6667 L605.0313 191.75" style="fill:none; stroke-width:5; stroke:rgb(204,82,82);"
-      /><path d="M501.9755 117.3958 L487.7195 117.3958 L487.7195 85.1901" style="fill:none; stroke-width:1.0706;"
-      /><path d="M575.2149 350.8333 L557.8881 350.8333 L557.8881 343.9167" style="fill:none; stroke-width:5;"
-      /><path d="M557.8881 343.9167 L504.1188 343.9167 L504.1188 312.3594" style="fill:none; stroke-width:4.9235;"
-      /><path d="M332.7923 385.4167 L319.8096 385.4167 L319.8096 332.4171" style="fill:none; stroke-width:0.5876;"
-      /><path d="M240.7192 475.3333 L234.5457 475.3333 L234.5457 468.4167" style="fill:none; stroke-width:5; stroke:rgb(82,131,204);"
-      /><path d="M431.8596 378.5 L332.7923 378.5 L332.7923 385.4167" style="fill:none; stroke-width:5; stroke:rgb(180,204,82);"
-      /><path d="M623 129.5 L617.2703 129.5 L617.2703 122.5833" style="fill:none; stroke-width:5; stroke:rgb(180,82,204);"
-      /><path d="M288.5043 489.1667 L219.9725 489.1667 L219.9725 473.6042" style="fill:none; stroke-width:5; stroke:rgb(82,131,204);"
-      /><path d="M138.6495 521.5886 L102.2079 521.5886 L102.2079 467.9141" style="fill:none; stroke-width:4.736; stroke:rgb(82,131,204);"
-      /><path d="M623 143.3333 L606.7602 143.3333 L606.7602 132.9583" style="fill:none; stroke-width:5; stroke:rgb(180,82,204);"
-      /><path d="M623 60.3333 L532.4365 60.3333 L532.4365 44.7708" style="fill:none; stroke-width:5;"
-      /><path d="M575.2149 88 L530.68 88 L530.68 81.0833" style="fill:none; stroke-width:5; stroke:rgb(82,131,204);"
-      /><path d="M240.7192 516.8333 L202.2598 516.8333 L202.2598 523.75" style="fill:none; stroke-width:5; stroke:rgb(82,131,204);"
-      /><path d="M575.2149 323.1667 L561.1672 323.1667 L561.1672 316.25" style="fill:none; stroke-width:5;"
-      /><path d="M431.8596 364.6667 L387.5732 364.6667 L387.5732 338.513" style="fill:none; stroke-width:5; stroke:rgb(204,82,82);"
-      /><path d="M623 115.6667 L617.2703 115.6667 L617.2703 122.5833" style="fill:none; stroke-width:5; stroke:rgb(180,82,204);"
-      /><path d="M240.7192 461.5 L234.5457 461.5 L234.5457 468.4167" style="fill:none; stroke-width:5; stroke:rgb(82,131,204);"
-      /><path d="M349.7989 279.4174 L319.8096 279.4174 L319.8096 332.4171" style="fill:none; stroke-width:0.8666;"
-      /><path d="M240.7192 544.5 L181.6034 544.5 L181.6034 534.125" style="fill:none; stroke-width:5; stroke:rgb(82,131,204);"
-      /><path d="M479.6447 226.3333 L420.1989 226.3333 L420.1989 214.2292" style="fill:none; stroke-width:5; stroke:rgb(82,131,204);"
-      /><path d="M158.6236 414.2397 L102.2079 414.2397 L102.2079 467.9141" style="fill:none; stroke-width:2.3959; stroke:rgb(180,204,82);"
-      /><path d="M575.2149 18.8333 L553.9036 18.8333 L553.9036 29.2083" style="fill:none; stroke-width:5;"
-      /><path d="M487.7195 85.1901 L445.0342 85.1901 L445.0342 121.1784" style="fill:none; stroke-width:1.9584;"
-      /><path d="M623 46.5 L569.4711 46.5 L569.4711 39.5833" style="fill:none; stroke-width:5;"
-      /><path d="M403.9778 227.1979 L396.527 227.1979 L396.527 186.6436" style="fill:none; stroke-width:2.6883;"
-      /><path d="M530.68 81.0833 L519.2509 81.0833 L519.2509 52.9844" style="fill:none; stroke-width:3.7809;"
-      /><path d="M431.8596 392.3333 L332.7923 392.3333 L332.7923 385.4167" style="fill:none; stroke-width:5;"
-      /><path d="M234.5457 468.4167 L228.6173 468.4167 L228.6173 458.0417" style="fill:none; stroke-width:4.9928; stroke:rgb(82,131,204);"
-      /><path d="M418.1772 146.0892 L396.527 146.0892 L396.527 186.6436" style="fill:none; stroke-width:1.8851;"
-      /><path d="M228.6173 458.0417 L219.9725 458.0417 L219.9725 473.6042" style="fill:none; stroke-width:4.9953; stroke:rgb(82,131,204);"
-      /><path d="M240.7192 572.1666 L209.8281 572.1666 L209.8281 565.25" style="fill:none; stroke-width:5; stroke:rgb(82,131,204);"
-      /><path d="M181.7919 394.6459 L158.6236 394.6459 L158.6236 414.2397" style="fill:none; stroke-width:2.0833; stroke:rgb(180,204,82);"
-      /><path d="M445.0342 121.1784 L418.1772 121.1784 L418.1772 146.0892" style="fill:none; stroke-width:1.6058;"
-      /><path d="M158.8906 488.3021 L138.6495 488.3021 L138.6495 521.5886" style="fill:none; stroke-width:4.8553; stroke:rgb(82,131,204);"
-      /><path d="M387.5732 338.513 L349.7989 338.513 L349.7989 279.4174" style="fill:none; stroke-width:0;"
-      /><path d="M536.5949 280.8021 L504.1188 280.8021 L504.1188 312.3594" style="fill:none; stroke-width:4.8641;"
-      /><path d="M175.3431 575.625 L160.8205 575.625 L160.8205 554.875" style="fill:none; stroke-width:4.9352; stroke:rgb(82,131,204);"
-      /><path d="M384.0745 420 L181.7919 420 L181.7919 394.6459" style="fill:none; stroke-width:5; stroke:rgb(180,204,82);"
-      /><path d="M240.7192 530.6667 L202.2598 530.6667 L202.2598 523.75" style="fill:none; stroke-width:5; stroke:rgb(82,131,204);"
-      /><path d="M623 32.6667 L569.4711 32.6667 L569.4711 39.5833" style="fill:none; stroke-width:5; stroke:rgb(180,82,204);"
-      /><path d="M273.7866 369.2918 L181.7919 369.2918 L181.7919 394.6459" style="fill:none; stroke-width:0.7647; stroke:rgb(180,204,82);"
-      /><path d="M575.2149 157.1667 L445.0342 157.1667 L445.0342 121.1784" style="fill:none; stroke-width:5; stroke:rgb(180,204,82);"
-      /><path d="M575.2149 337 L557.8881 337 L557.8881 343.9167" style="fill:none; stroke-width:5;"
-      /><path d="M504.1188 312.3594 L387.5732 312.3594 L387.5732 338.513" style="fill:none; stroke-width:4.2651;"
-      /><path d="M420.1989 214.2292 L403.9778 214.2292 L403.9778 227.1979" style="fill:none; stroke-width:1.2954;"
-      /><path d="M396.527 186.6436 L378.4747 186.6436 L378.4747 220.3218" style="fill:none; stroke-width:2.3492;"
-      /><path d="M575.2149 295.5 L557.6146 295.5 L557.6146 305.875" style="fill:none; stroke-width:5;"
-      /><path d="M575.2149 281.6667 L552.6051 281.6667 L552.6051 293.7708" style="fill:none; stroke-width:5;"
-      /><path d="M240.7192 447.6667 L228.6173 447.6667 L228.6173 458.0417" style="fill:none; stroke-width:5; stroke:rgb(82,131,204);"
-      /><path d="M240.7192 586 L175.3431 586 L175.3431 575.625" style="fill:none; stroke-width:5; stroke:rgb(82,131,204);"
-      /><path d="M519.2509 52.9844 L487.7195 52.9844 L487.7195 85.1901" style="fill:none; stroke-width:3.5514;"
-      /><path d="M557.6146 305.875 L552.6051 305.875 L552.6051 293.7708" style="fill:none; stroke-width:4.9854;"
-      /><path d="M623 184.8333 L605.0313 184.8333 L605.0313 191.75" style="fill:none; stroke-width:5; stroke:rgb(204,82,82);"
-      /><path d="M575.2149 101.8333 L501.9755 101.8333 L501.9755 117.3958" style="fill:none; stroke-width:5; stroke:rgb(180,204,82);"
-      /><path d="M605.0313 191.75 L586.1107 191.75 L586.1107 202.125" style="fill:none; stroke-width:4.617; stroke:rgb(204,82,82);"
-      /><path d="M561.1672 316.25 L557.6146 316.25 L557.6146 305.875" style="fill:none; stroke-width:4.989;"
-      /><path d="M192.9341 433.8333 L158.6236 433.8333 L158.6236 414.2397" style="fill:none; stroke-width:5; stroke:rgb(180,204,82);"
-      /><path d="M527.77 24.8854 L519.2509 24.8854 L519.2509 52.9844" style="fill:none; stroke-width:3.9763;"
-      /><path d="M623 212.5 L586.1107 212.5 L586.1107 202.125" style="fill:none; stroke-width:5; stroke:rgb(180,204,82);"
-      /><path d="M479.6447 406.1667 L273.7866 406.1667 L273.7866 369.2918" style="fill:none; stroke-width:5; stroke:rgb(204,82,82);"
-      /><path d="M97 467.9141 L102.2079 467.9141" style="fill:none; stroke-width:1.9286; stroke:rgb(82,131,204);"
-      /><path d="M378.4747 220.3218 L349.7989 220.3218 L349.7989 279.4174" style="fill:none; stroke-width:1.5718;"
-      /><path d="M240.7192 503 L158.8906 503 L158.8906 488.3021" style="fill:none; stroke-width:5; stroke:rgb(82,131,204);"
-      /><path d="M575.2149 74.1667 L530.68 74.1667 L530.68 81.0833" style="fill:none; stroke-width:5;"
-      /><path d="M552.6051 293.7708 L536.5949 293.7708 L536.5949 280.8021" style="fill:none; stroke-width:4.9745;"
-      /><path d="M202.2598 523.75 L181.6034 523.75 L181.6034 534.125" style="fill:none; stroke-width:4.9533; stroke:rgb(82,131,204);"
-      /><path d="M319.8096 332.4171 L273.7866 332.4171 L273.7866 369.2918" style="fill:none; stroke-width:0.4715;"
-      /><path d="M219.9725 473.6042 L158.8906 473.6042 L158.8906 488.3021" style="fill:none; stroke-width:4.9873; stroke:rgb(82,131,204);"
+    ><g style="fill:rgb(82,131,204); text-rendering:optimizeLegibility; stroke-width:4; stroke:rgb(82,131,204);" transform="translate(6,6)"
+    ><path style="fill:none;" d="M575.2149 88 L530.68 88 L530.68 81.0833"
+      /><path d="M175.3431 506.4583 L160.8205 506.4583 L160.8205 485.7083" style="fill:none; stroke-width:3.9481;"
+      /><path d="M527.77 47.3646 L519.2509 47.3646 L519.2509 64.224" style="fill:none; stroke-width:3.181; stroke:rgb(82,204,131);"
+      /><path d="M219.9725 560.0625 L158.8906 560.0625 L158.8906 573.0312" style="fill:none; stroke-width:3.9898;"
+      /><path d="M234.5457 537.5834 L228.6173 537.5834 L228.6173 547.9583" style="fill:none; stroke-width:3.9943;"
+      /><path d="M553.9036 22.2917 L532.4365 22.2917 L532.4365 34.3958" style="fill:none; stroke-width:3.6296; stroke:rgb(82,204,131);"
+      /><path style="fill:none;" d="M240.7192 516.8333 L175.3431 516.8333 L175.3431 506.4583"
+      /><path d="M536.5949 310.1979 L504.1188 310.1979 L504.1188 327.0573" style="fill:none; stroke-width:3.8912; stroke:rgb(82,204,131);"
+      /><path d="M97 471.9318 L102.2079 471.9318" style="fill:none; stroke-width:1.5429;"
+      /><path d="M623 18.8333 L569.4711 18.8333 L569.4711 11.9167" style="fill:none; stroke:rgb(82,204,131);"
+      /><path style="fill:none;" d="M240.7192 586 L158.8906 586 L158.8906 573.0312"
+      /><path d="M623 5 L569.4711 5 L569.4711 11.9167" style="fill:none; stroke:rgb(180,82,204);"
+      /><path d="M181.7919 395.1542 L158.6236 395.1542 L158.6236 414.4937" style="fill:none; stroke-width:1.6667; stroke:rgb(180,204,82);"
+      /><path d="M527.4298 254 L378.4747 254 L378.4747 221.1053" style="fill:none; stroke:rgb(180,204,82);"
+      /><path d="M181.6034 464.9583 L160.8205 464.9583 L160.8205 485.7083" style="fill:none; stroke-width:3.966;"
+      /><path d="M575.2149 295.5 L557.6146 295.5 L557.6146 285.125" style="fill:none; stroke:rgb(82,204,131);"
+      /><path d="M575.2149 350.8333 L557.8881 350.8333 L557.8881 343.9167" style="fill:none; stroke:rgb(82,204,131);"
+      /><path d="M418.1772 149.2233 L396.527 149.2233 L396.527 188.2106" style="fill:none; stroke-width:1.508; stroke:rgb(82,204,131);"
+      /><path d="M557.6146 285.125 L552.6051 285.125 L552.6051 297.2292" style="fill:none; stroke-width:3.9883; stroke:rgb(82,204,131);"
+      /><path d="M384.0745 420 L181.7919 420 L181.7919 395.1542" style="fill:none; stroke:rgb(180,204,82);"
+      /><path d="M552.6051 297.2292 L536.5949 297.2292 L536.5949 310.1979" style="fill:none; stroke-width:3.9796; stroke:rgb(82,204,131);"
+      /><path d="M273.7866 370.3084 L181.7919 370.3084 L181.7919 395.1542" style="fill:none; stroke-width:0.6117; stroke:rgb(180,204,82);"
+      /><path d="M431.8596 378.5 L332.7923 378.5 L332.7923 385.4167" style="fill:none; stroke:rgb(180,204,82);"
+      /><path style="fill:none;" d="M240.7192 447.6667 L202.2598 447.6667 L202.2598 454.5833"
+      /><path d="M530.68 81.0833 L519.2509 81.0833 L519.2509 64.224" style="fill:none; stroke-width:3.0247; stroke:rgb(82,204,131);"
+      /><path d="M431.8596 240.1667 L403.9778 240.1667 L403.9778 227.1979" style="fill:none; stroke:rgb(82,204,131);"
+      /><path style="fill:none;" d="M288.5043 572.1666 L219.9725 572.1666 L219.9725 560.0625"
+      /><path d="M332.7923 385.4167 L319.8096 385.4167 L319.8096 334.4502" style="fill:none; stroke-width:0.4701; stroke:rgb(82,204,131);"
+      /><path d="M623 129.5 L606.7602 129.5 L606.7602 119.125" style="fill:none; stroke:rgb(180,82,204);"
+      /><path style="fill:none;" d="M240.7192 530.6667 L234.5457 530.6667 L234.5457 537.5834"
+      /><path d="M349.7989 283.4836 L319.8096 283.4836 L319.8096 334.4502" style="fill:none; stroke-width:0.6933; stroke:rgb(82,204,131);"
+      /><path style="fill:none;" d="M240.7192 558.3333 L228.6173 558.3333 L228.6173 547.9583"
+      /><path d="M605.0313 191.75 L586.1107 191.75 L586.1107 202.125" style="fill:none; stroke-width:3.6936; stroke:rgb(204,82,82);"
+      /><path d="M617.2703 108.75 L606.7602 108.75 L606.7602 119.125" style="fill:none; stroke-width:3.9931; stroke:rgb(180,82,204);"
+      /><path style="fill:none;" d="M240.7192 475.3333 L181.6034 475.3333 L181.6034 464.9583"
+      /><path d="M575.2149 281.6667 L561.1672 281.6667 L561.1672 274.75" style="fill:none; stroke:rgb(82,204,131);"
+      /><path d="M623 60.3333 L527.77 60.3333 L527.77 47.3646" style="fill:none; stroke:rgb(180,204,82);"
+      /><path d="M561.1672 274.75 L557.6146 274.75 L557.6146 285.125" style="fill:none; stroke-width:3.9912; stroke:rgb(82,204,131);"
+      /><path d="M575.2149 309.3333 L552.6051 309.3333 L552.6051 297.2292" style="fill:none; stroke:rgb(82,204,131);"
+      /><path d="M623 198.6667 L605.0313 198.6667 L605.0313 191.75" style="fill:none; stroke:rgb(204,82,82);"
+      /><path d="M623 212.5 L586.1107 212.5 L586.1107 202.125" style="fill:none; stroke:rgb(180,204,82);"
+      /><path style="fill:none;" d="M240.7192 489.1667 L209.8281 489.1667 L209.8281 496.0833"
+      /><path d="M575.2149 32.6667 L553.9036 32.6667 L553.9036 22.2917" style="fill:none; stroke:rgb(82,204,131);"
+      /><path style="fill:none;" d="M240.7192 544.5 L234.5457 544.5 L234.5457 537.5834"
+      /><path d="M387.5732 345.862 L349.7989 345.862 L349.7989 283.4836" style="fill:none; stroke-width:0; stroke:rgb(82,204,131);"
+      /><path style="fill:none;" d="M240.7192 503 L209.8281 503 L209.8281 496.0833"
+      /><path d="M623 115.6667 L617.2703 115.6667 L617.2703 108.75" style="fill:none; stroke:rgb(180,82,204);"
+      /><path d="M575.2149 323.1667 L536.5949 323.1667 L536.5949 310.1979" style="fill:none; stroke:rgb(82,204,131);"
+      /><path d="M420.1989 214.2292 L403.9778 214.2292 L403.9778 227.1979" style="fill:none; stroke-width:1.0363; stroke:rgb(82,204,131);"
+      /><path d="M575.2149 337 L557.8881 337 L557.8881 343.9167" style="fill:none; stroke:rgb(82,204,131);"
+      /><path d="M623 46.5 L532.4365 46.5 L532.4365 34.3958" style="fill:none; stroke:rgb(82,204,131);"
+      /><path d="M319.8096 334.4502 L273.7866 334.4502 L273.7866 370.3084" style="fill:none; stroke-width:0.3772; stroke:rgb(82,204,131);"
+      /><path d="M532.4365 34.3958 L527.77 34.3958 L527.77 47.3646" style="fill:none; stroke-width:3.4212; stroke:rgb(82,204,131);"
+      /><path d="M487.7195 97.7266 L445.0342 97.7266 L445.0342 127.4466" style="fill:none; stroke-width:1.5667; stroke:rgb(82,204,131);"
+      /><path d="M396.527 188.2106 L378.4747 188.2106 L378.4747 221.1053" style="fill:none; stroke-width:1.8794; stroke:rgb(82,204,131);"
+      /><path d="M403.9778 227.1979 L396.527 227.1979 L396.527 188.2106" style="fill:none; stroke-width:2.1507; stroke:rgb(82,204,131);"
+      /><path d="M575.2149 267.8333 L561.1672 267.8333 L561.1672 274.75" style="fill:none; stroke:rgb(82,204,131);"
+      /><path d="M575.2149 143.3333 L501.9755 143.3333 L501.9755 131.2292" style="fill:none; stroke:rgb(180,204,82);"
+      /><path d="M202.2598 454.5833 L181.6034 454.5833 L181.6034 464.9583" style="fill:none; stroke-width:3.9626;"
+      /><path d="M623 184.8333 L605.0313 184.8333 L605.0313 191.75" style="fill:none; stroke:rgb(204,82,82);"
+      /><path d="M431.8596 392.3333 L332.7923 392.3333 L332.7923 385.4167" style="fill:none; stroke:rgb(82,204,131);"
+      /><path d="M586.1107 202.125 L420.1989 202.125 L420.1989 214.2292" style="fill:none; stroke-width:1.1691; stroke:rgb(204,82,82);"
+      /><path style="fill:none;" d="M527.4298 171 L418.1772 171 L418.1772 149.2233"
+      /><path d="M501.9755 131.2292 L487.7195 131.2292 L487.7195 97.7266" style="fill:none; stroke-width:0.8565; stroke:rgb(82,204,131);"
+      /><path d="M445.0342 127.4466 L418.1772 127.4466 L418.1772 149.2233" style="fill:none; stroke-width:1.2846; stroke:rgb(82,204,131);"
+      /><path d="M158.6236 414.4937 L102.2079 414.4937 L102.2079 471.9318" style="fill:none; stroke-width:1.9167; stroke:rgb(180,204,82);"
+      /><path d="M623 101.8333 L617.2703 101.8333 L617.2703 108.75" style="fill:none; stroke:rgb(180,82,204);"
+      /><path d="M575.2149 157.1667 L445.0342 157.1667 L445.0342 127.4466" style="fill:none; stroke:rgb(180,204,82);"
+      /><path style="fill:none;" d="M479.6447 226.3333 L420.1989 226.3333 L420.1989 214.2292"
+      /><path d="M378.4747 221.1053 L349.7989 221.1053 L349.7989 283.4836" style="fill:none; stroke-width:1.2574; stroke:rgb(82,204,131);"
+      /><path d="M557.8881 343.9167 L504.1188 343.9167 L504.1188 327.0573" style="fill:none; stroke-width:3.9388; stroke:rgb(82,204,131);"
+      /><path d="M504.1188 327.0573 L387.5732 327.0573 L387.5732 345.862" style="fill:none; stroke-width:3.4121; stroke:rgb(82,204,131);"
+      /><path d="M209.8281 496.0833 L175.3431 496.0833 L175.3431 506.4583" style="fill:none; stroke-width:3.9728;"
+      /><path d="M519.2509 64.224 L487.7195 64.224 L487.7195 97.7266" style="fill:none; stroke-width:2.8411; stroke:rgb(82,204,131);"
+      /><path d="M138.6495 529.3698 L102.2079 529.3698 L102.2079 471.9318" style="fill:none; stroke-width:3.7888;"
+      /><path d="M160.8205 485.7083 L138.6495 485.7083 L138.6495 529.3698" style="fill:none; stroke-width:3.9388;"
+      /><path d="M228.6173 547.9583 L219.9725 547.9583 L219.9725 560.0625" style="fill:none; stroke-width:3.9963;"
+      /><path d="M192.9341 433.8333 L158.6236 433.8333 L158.6236 414.4937" style="fill:none; stroke:rgb(180,204,82);"
+      /><path style="fill:none;" d="M240.7192 461.5 L202.2598 461.5 L202.2598 454.5833"
+      /><path d="M158.8906 573.0312 L138.6495 573.0312 L138.6495 529.3698" style="fill:none; stroke-width:3.8843;"
+      /><path d="M431.8596 364.6667 L387.5732 364.6667 L387.5732 345.862" style="fill:none; stroke:rgb(204,82,82);"
+      /><path d="M569.4711 11.9167 L553.9036 11.9167 L553.9036 22.2917" style="fill:none; stroke-width:3.2793; stroke:rgb(82,204,131);"
+      /><path d="M575.2149 74.1667 L530.68 74.1667 L530.68 81.0833" style="fill:none; stroke:rgb(82,204,131);"
+      /><path d="M606.7602 119.125 L501.9755 119.125 L501.9755 131.2292" style="fill:none; stroke-width:3.9184; stroke:rgb(180,82,204);"
+      /><path d="M479.6447 406.1667 L273.7866 406.1667 L273.7866 370.3084" style="fill:none; stroke:rgb(204,82,82);"
     /></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="translate(6,6) matrix(1,0,0,1,633,41.5)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_goose_Guangxi_345_2005</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,543.4298,172)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_bird_HongKong_213_2003</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,447.8596,393.3333)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Guangxi_22_2001</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,268.8333)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_chicken_Guangxi_2439_2004</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,573.1667)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_bird_HongKong_542_1997</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,310.3333)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_goose_Guangxi_1097_2004</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,543.4298,255)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Guangdong_4610_2003</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,447.8596,241.1667)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Guangxi_50_2001</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,6)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_Chicken_Guangdong_810_2005</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,400.0745,421)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Guangdong_12_2000</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,531.6667)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_bird_HongKong_514_1997</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,33.6667)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Hunan_1265_2005</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,158.1667)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_chicken_Guangdong_174_2004</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,559.3333)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_bird_HongKong_503_1997</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,338)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Guangxi_1378_2004</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,199.6667)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Fujian_897_2005</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,351.8333)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_goose_Guangxi_914_2004</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,296.5)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Guangxi_2291_2004</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,476.3333)"
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="translate(6,6) matrix(1,0,0,1,250.7192,539.5)"
     ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
       >A_chicken_HongKong_915_1997</text
     ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,282.6667)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Guangxi_1681_2004</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,447.8596,379.5)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Guangdong_01_2001</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,448.6667)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_Goose_HongKong_w355_1997</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,587)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_bird_HongKong_532_1997</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,130.5)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Hunan_182_2005</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,304.5043,490.1667)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_bird_HongKong_97_1998</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,144.3333)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Hunan_157_2005</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,61.3333)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Guangxi_793_2005</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,185.8333)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_chicken_Fujian_1042_2005</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,89)"
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,89)"
     ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
       >A_greyheron_HongKong_837_2004</text
     ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,102.8333)"
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,504)"
     ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_chicken_Guangdong_191_2004</text
+      >A_bird_HongKong_542_1997</text
     ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,517.8333)"
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,116.6667)"
     ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_bird_HongKong_485_1997</text
+      >A_duck_Hunan_182_2005</text
     ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,324.1667)"
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,324.1667)"
     ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_goose_Guangxi_2112_2004</text
+      >A_chicken_Guangxi_2439_2004</text
     ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,447.8596,365.6667)"
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,338)"
     ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_swine_Fujian_F1_2001</text
+      >A_duck_Guangxi_1378_2004</text
     ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,208.9341,434.8333)"
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,47.5)"
     ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_Goose_Guangdong_1_1996</text
+      >A_duck_Guangxi_793_2005</text
     ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,213.5)"
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,517.8333)"
     ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_goose_Guangdong_2216_2005</text
+      >A_bird_HongKong_532_1997</text
     ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,495.6447,407.1667)"
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,19.8333)"
     ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Fujian_13_2002</text
+      >A_goose_Guangxi_345_2005</text
     ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,116.6667)"
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,268.8333)"
     ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Hunan_139_2005</text
+      >A_goose_Guangxi_1097_2004</text
     ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,462.5)"
-    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_bird_HongKong_488_1997</text
-    ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,504)"
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,587)"
     ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
       >A_bird_HongKong_481_1997</text
     ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,75.1667)"
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,144.3333)"
     ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_duck_Guangxi_351_2004</text
+      >A_chicken_Guangdong_191_2004</text
     ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,545.5)"
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,6)"
     ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
-      >A_chicken_HongKong_258_1997</text
+      >A_duck_Hunan_1265_2005</text
     ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,495.6447,227.3333)"
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,185.8333)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_chicken_Fujian_1042_2005</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,447.8596,393.3333)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_duck_Guangxi_22_2001</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,543.4298,255)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_duck_Guangdong_4610_2003</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,296.5)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_duck_Guangxi_2291_2004</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,351.8333)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_goose_Guangxi_914_2004</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,543.4298,172)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_bird_HongKong_213_2003</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,400.0745,421)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_duck_Guangdong_12_2000</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,102.8333)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_duck_Hunan_139_2005</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,158.1667)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_chicken_Guangdong_174_2004</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,495.6447,227.3333)"
     ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
       >A_chicken_HongKong_863_2002</text
     ></g
-    ><g style="text-rendering:optimizeLegibility; stroke-width:4.9873; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,19.8333)"
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,447.8596,379.5)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_duck_Guangdong_01_2001</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,448.6667)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_bird_HongKong_485_1997</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,447.8596,241.1667)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_duck_Guangxi_50_2001</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,304.5043,573.1667)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_bird_HongKong_97_1998</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,130.5)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_duck_Hunan_157_2005</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,531.6667)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_bird_HongKong_488_1997</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,559.3333)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_Goose_HongKong_w355_1997</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,208.9341,434.8333)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_Goose_Guangdong_1_1996</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,462.5)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_bird_HongKong_514_1997</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,476.3333)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_chicken_HongKong_258_1997</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,282.6667)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_goose_Guangxi_2112_2004</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,447.8596,365.6667)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_swine_Fujian_F1_2001</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,61.3333)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_Chicken_Guangdong_810_2005</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,310.3333)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_duck_Guangxi_1681_2004</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,199.6667)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_duck_Fujian_897_2005</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,75.1667)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_duck_Guangxi_351_2004</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,639,213.5)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_goose_Guangdong_2216_2005</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,256.7192,490.1667)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_bird_HongKong_503_1997</text
+    ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,591.2149,33.6667)"
     ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
       >A_chicken_Guangxi_2461_2004</text
     ></g
+    ><g style="text-rendering:optimizeLegibility; stroke-width:4; font-size:8; font-family:sans-serif;" transform="matrix(1,0,0,1,495.6447,407.1667)"
+    ><text x="0" xml:space="preserve" y="8" style="stroke:none;"
+      >A_duck_Fujian_13_2002</text
+    ></g
+    ><g transform="matrix(1,0,0,1,6,6)" style="fill:rgb(128,128,128); text-rendering:optimizeLegibility; fill-opacity:0.502; stroke-opacity:0.502; stroke:rgb(128,128,128);"
+    ><line y2="107" style="stroke:none;" x1="373" x2="374" y1="107"
+    /></g
   ></g
 ></svg
 >
