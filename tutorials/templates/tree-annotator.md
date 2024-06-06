@@ -40,9 +40,9 @@ TreeAnnotator will also display the posterior clade credibility of each node in 
 More details on summarizing trees can be found in
 [beast2.org/summarizing-posterior-trees/](https://www.beast2.org/summarizing-posterior-trees/).
 
-If you see any [negative branch lengths](https://www.beast2.org/summarizing-posterior-trees/) 
-in the summarised tree, 
-you can change the "Node heights" option to use "Common Ancestor heights".
+If you notice any [negative branch lengths](https://www.beast2.org/summarizing-posterior-trees/)
+in the summarized tree, likely due to low clade support,
+you can adjust the "Node heights" option to use "Common Ancestor heights" instead.
 If you're concerned about the differences between these two options, 
 you can run both and compare the resulting trees.
 
