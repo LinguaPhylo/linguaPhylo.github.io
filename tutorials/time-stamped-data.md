@@ -446,6 +446,17 @@ We will use a special tool for that, TreeAnnotator.
 {% include_relative templates/tree-annotator.md fig="TreeAnnotator.png" 
                     fignum=current_fig_num trees="RSV2long.trees" mcctree="RSV2long.tree" %}
 
+
+In TreeAnnotator, mean heights are calculated as the mean MRCA time for those trees in the set 
+where the clade is monophyletic. 
+This approach can result in negative branch lengths in the summarized tree, 
+if there is very low posterior support for a clade.
+Common ancestor heights for a clade are calculated as the average MRCA time for that clade over all trees in the set, 
+and are not necessarily based on monophyletic clades.
+If you're concerned about the differences between these two options, 
+you can run both and compare the resulting trees.
+
+
 ### Visualizing the trees
 
 Summary trees can be viewed using FigTree and DensiTree, the latter
