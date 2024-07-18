@@ -11,13 +11,8 @@ which is the latest long-term support (LTS) version.
 The LPhy extension mechanism is implemented using
 the Service Provider Interface (SPI) and the Java Platform Module System (JPMS).
 
-They are the Gradle projects, which benefit from Gradle's human-readable and fast build,
-as well as the unified development environment settings in IntelliJ.
-The dependency management in Gradle through the maven central repository makes
-this critical job much easier for developers. 
-All LPhy related projects are now published to the
-[Maven linguaphylo group](https://central.sonatype.com/namespace/io.github.linguaphylo).
-
+They are the Maven projects, where the Maven "pom.xml" is used to automatically 
+configure the modules and their dependencies in the IntelliJ project.
 
 ## System integration 
 
@@ -47,19 +42,6 @@ and LPhyBEAST and its extensions are released as BEAST 2 packages.
 Therefore, they can be installed and managed by BEAST 2 _Package Manager_.
 However, to be able to trigger SPI, the corresponding LPhy libraries have to be loaded into Java classpath.
 
-### Gradle project
-
-Gradle is not only a build system (c.f. ANT), but also contains dependency management,
-structuring project, and other advanced features.
-When you are developing a project including extensions from these 3 groups,
-we recommend you use Gradle.
-An [model example](/developer/three-ext-in-one) is available online. 
-
-If you do not want migrate your existing BEAST 2 project to a Gradle project,
-the alternative solution is to create a Gradle project only containing
-LPhy and LPhyBEAST parts, and release your LPhyBEAST code as the 2nd BEAST 2 package
-separated from your previous BEAST 2 package.  
-
 
 ## What should an extension developer know
 
@@ -68,29 +50,13 @@ separated from your previous BEAST 2 package.
 * [Writing a BEAST 2 Package](https://www.beast2.org/writing-a-beast-2-package/),
 if you are working on a LPhyBEAST extension.
 
-* [LPhy developer note](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md)
+* LPhy developer guides:
+    * [Guide 101 (Development Environment)](https://github.com/LinguaPhylo/linguaPhylo/blob/master/DEV_NOTE.md)
+    * Guide 102 (LPhy in Java)    coming soon ...
+    * Guide 103 (Maven project)   coming soon ...
 
-* [LPhyBEAST developer note](https://github.com/LinguaPhylo/LPhyBeast/blob/master/DEV_NOTE.md)
+* [LPhyBEAST developer note]()  coming soon ...
 
-## Starting to develop an extension 
-
-* [Loading the existing project](/developer/setup-dev-env/)
-
-* [A step-by-step tutorial to implement LPhy and LPhyBEAST extensions](/developer/three-ext-in-one)
-
-
-## Advanced tutorials
-
-* [Gradle project master - project structure](/developer/project-structure/)
-
-* [Gradle project master - dependencies](/developer/dependencies/)
-
-* [Java extension mechanism of LPhy and LPhyBEAST](/developer/java-dev/)
-
-
-## Posts
-
-* [More technical details](https://linguaphylo.github.io/#tutorials)
 
 ## Writing a user tutorial
 
@@ -103,6 +69,8 @@ More details and examples are also available in the [Tutorials](/tutorials) page
 
 ## Useful links
 
+* [Why do we need dependencies?](/developer/why-modules/)
+
 [//]: # (https://www.infoq.com/articles/java11-aware-service-module/)
 * [SPI (Service Provider Interface)](https://www.baeldung.com/java-spi)
 
@@ -110,5 +78,3 @@ More details and examples are also available in the [Tutorials](/tutorials) page
 * [A Guide to Java 9 Modularity](https://www.baeldung.com/java-9-modularity)
 
 * [Project Jigsaw: Module System Quick-Start Guide](https://openjdk.java.net/projects/jigsaw/quick-start)
-
-* [Why Should I Use Dependency Management in Project Management Software?](https://www.wrike.com/project-management-guide/faq/why-should-i-use-dependency-management-in-project-management-software/)
