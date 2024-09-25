@@ -54,6 +54,4 @@ PLOS Computational Biology, [doi:10.1371/journal.pcbi.1011226](https://doi.org/1
 
 ## Extensions
 
-- A LPhy and LPhyBEAST extension in [Phylonco](https://github.com/bioDS/beast-phylonco) project.
-- The BEAST 2 package extended from the LPhyBEAST package [LPhyBeastExt](https://github.com/LinguaPhylo/LPhyBeastExt/).
-
+LPhy and LPhyBEAST extensions are listed [here](extensions).

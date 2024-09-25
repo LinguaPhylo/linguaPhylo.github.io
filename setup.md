@@ -30,15 +30,15 @@ java -version
 
 ## LPhy Studio installation
 
-{% assign lphy_version = "1.5.x" %}
+{% assign lphy_version = "1.6.x" %}
 
 Download the LPhy Studio version for your operating system:
 
-- Mac [lphystudio-1.5.0-osx-installer.dmg](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.5.0/lphystudio-1.5.0-osx-installer.dmg)
+- Mac [lphystudio-1.6.0-osx-installer.dmg](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.6.0/lphystudio-1.6.0-osx-installer.dmg)
 
-- Windows [lphystudio-1.5.0-windows-x64-installer.exe](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.5.0/lphystudio-1.5.0-windows-x64-installer.exe)
+- Windows [lphystudio-1.6.0-windows-x64-installer.exe](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.6.0/lphystudio-1.6.0-windows-x64-installer.exe)
 
-- Linux [lphy-studio-1.5.0.zip](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.5.0/lphy-studio-1.5.0.zip)
+- Linux [lphy-studio-1.6.0.zip](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.6.0/lphy-studio-1.6.0.zip)
 
 All release versions of LPhy Studio are available on the [LPhy releases page](https://github.com/LinguaPhylo/linguaPhylo/releases).
 
@@ -152,7 +152,7 @@ and then the simulation is done using those new values:
 
 ```bash
 cd $LPHY/examples/macro
-YOUR_PATH/slphy -D 'n=5;L=50' MacroLanguage.lphy
+YOUR_PATH/slphy -D "n=5;L=50" MacroLanguage.lphy
 ```
 
 In the MacroLanguage.lphy, the L has a default value 100, and n has 10.
@@ -170,26 +170,25 @@ the simulation will be done using 50 as the new value of L and 5 to the value of
 
 ## LPhy extensions
 
-LPhy extensions can be installed following this guide [here](/extensions/). 
-
-Current supported LPhy extensions are listed on the [homepage](https://linguaphylo.github.io/#extensions).
+LPhy extensions can be installed following this [guide](/extensions/). 
+Current supported LPhy extensions are also listed on that page.
 
 
 ## LPhyBEAST installation
 
-[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/releases) and its extensions 
-require the latest version of [BEAST 2](https://www.beast2.org) and [LPhy](#lphy-studio-installation).
-Please install them before you continue. 
+[LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/) and its extensions
+are [BEAST 2 packages](https://www.beast2.org/managing-packages/).
+It requires the latest version of [BEAST 2](https://www.beast2.org) and [LPhy](#lphy-studio-installation).
 
-Then, we need to install two [BEAST 2 packages](https://www.beast2.org/managing-packages/): 
-[lphybeast](https://github.com/LinguaPhylo/LPhyBeast/) and [LPhyBeastExt](https://github.com/LinguaPhylo/LPhyBeastExt/).
+Please install them following the instructions below: 
 
-1. To install LPhyBEAST, start `BEAUti` and from the menu go to `File` => `Manage Packages` 
+1. To install LPhyBEAST core, start `BEAUti` and from the menu go to `File` => `Manage Packages` 
 to launch `Package Manager`. 
 
 2. Select `lphybeast` from the packages list, then click `Install/Upgrade` button to install.
 
-3. Select `LPhyBeastExt` from the list, then click `Install/Upgrade` to install.
+3. If you want to use the extended [models](https://github.com/LinguaPhylo/LPhyBeast/blob/master/lphybeast-ext-dist/README.md), 
+select `LPhyBeastExt` from the list, then click `Install/Upgrade` to install.
 
 Installation may take few minutes to download and install, including all dependent packages. 
 Please wait until a confirmation popup appears on the screen.
@@ -202,17 +201,19 @@ Please wait until a confirmation popup appears on the screen.
 {:start="4"}
 4. Restart `Package Manager`. Now they and their dependent packages should appear as "installed". 
 
-Alternatively, the packages `lphybeast` and `LPhyBeastExt` can be installed 
+Alternatively, these BEAST 2 packages can be installed 
 using [command line](https://www.beast2.org/managing-packages/).
 
 The package `lphybeast` does not include LPhy, so we need to install LPhy separately.
-You may skip steps 5-6 if you have already installed LPhyStudio in your BEAST 2 directory. 
+You may skip steps 5-6 if you have already installed LPhyStudio in the [default directory](#the-default-installation-path). 
 
 {:start="5"}
 5. Download the LPhy Studio installer. 
 See the section of [LPhy Studio installation](#lphy-studio-installation).
 
-6. Install LPhy Studio to the [default path](#the-default-installation-path).
+6. Install LPhy Studio to the [default path](#the-default-installation-path). 
+In addition, if you are using any LPhyBeast extensions except of `LPhyBeastExt`, 
+you need to have their LPhy extension ready. Please see [listed extensions](/extensions/).
 
 7. Download the latest version of the script below to launch LPhyBEAST. 
 Right-click the corresponding link, and select "Download Linked File" from the context menu. 
@@ -270,6 +271,7 @@ where the `-r` option specifies the number of replicates.
 cd $LPHY_PATH/examples/coalescent/
 $BEAST_PATH/bin/lphybeast -r 5 jcCoalescent.lphy
 ```
+
 
 ## Troubleshooting guide
 
