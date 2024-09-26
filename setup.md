@@ -164,7 +164,7 @@ taxa = taxa(names=1:{{n = 10}});
 ```
 {% endraw %}
 
-Given the command line argument `-D 'n=5;L=50'`, 
+Given the command line argument `-D "n=5;L=50"`, 
 the simulation will be done using 50 as the new value of L and 5 to the value of n.
 
 
