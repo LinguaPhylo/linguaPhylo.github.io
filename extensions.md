@@ -61,9 +61,8 @@ To load the examples into LPhy Studio:
 </figure>
 
 
-### Installing by extension manager
+### Future work
 
-Extensions can also be installed using the "LPhy Extension Manager" from the Menu in LPhy Studio. 
-
-This functionality will be added in future releases. 
+Extensions can also be explored through the "LPhy Extension Manager" accessible from the menu in LPhy Studio.
+The installation functionality will be added in future releases. 
 

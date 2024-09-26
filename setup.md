@@ -168,7 +168,7 @@ Given the command line argument `-D "n=5;L=50"`,
 the simulation will be done using 50 as the new value of L and 5 to the value of n.
 
 
-## LPhy extensions
+## LPhy extensions and installation
 
 LPhy extensions can be installed following this [guide](/extensions/). 
 Current supported LPhy extensions are also listed on that page.
@@ -177,13 +177,13 @@ Current supported LPhy extensions are also listed on that page.
 ## LPhyBEAST installation
 
 [LPhyBEAST](https://github.com/LinguaPhylo/LPhyBeast/) and its extensions
-are [BEAST 2 packages](https://www.beast2.org/managing-packages/).
+are [BEAST 2 packages](https://compevol.github.io/CBAN/).
 It requires the latest version of [BEAST 2](https://www.beast2.org) and [LPhy](#lphy-studio-installation).
 
 Please install them following the instructions below: 
 
 1. To install LPhyBEAST core, start `BEAUti` and from the menu go to `File` => `Manage Packages` 
-to launch `Package Manager`. 
+to launch `Package Manager`. More details are [here](https://www.beast2.org/managing-packages/)
 
 2. Select `lphybeast` from the packages list, then click `Install/Upgrade` button to install.
 
@@ -272,8 +272,40 @@ cd $LPHY_PATH/examples/coalescent/
 $BEAST_PATH/bin/lphybeast -r 5 jcCoalescent.lphy
 ```
 
+## Legacy dependencies
+
+There are significant changes about SPI and APIs among LPhy 1.4.x, 1.5.x, and 1.6.x.
+So there is no backward compatibility for extensions.
+If you want to use the old version extensions, please install the required versions of LPhy and LPhyBEAST.
+
+- LPhyBEAST v1.2.x requires LPhy 1.6.x;
+- LPhyBEAST v1.1.x requires LPhy 1.5.x;
+- LPhyBEAST v1.0.x requires LPhy 1.4.x;
+- LPhyBEASTExt 1.0.x requires LPhyBEAST v1.2.x;
+- LPhyBEASTExt 0.3.x requires LPhyBEAST v1.1.x;
+- LPhyBEASTExt 0.2.x requires LPhyBEAST v1.0.x;
+
 
 ## Troubleshooting guide
+
+### Caused by: java.lang.NoClassDefFoundError: *.lphy.*.AClass
+
+This error indicates LPhyBEAST cannot find the LPhy class `AClass`. 
+First, please check if your `LPHY_LIB` is pointed to the correct location, 
+which will be printed in the output message, for example,
+
+```bash
+LPHY_LIB = /home/user/lphy-studio-1.6.0/lib
+```
+
+If it is not correct, make you install LPhy in the default directory. 
+Please read the LPhy installation section. 
+
+If `AClass` is from a LPhy extension, then check if you put the LPhy extension jar into the `lib` folder.
+
+If these all passed, then you can check if the dependencies are correct. 
+Some extensions are only working with their required major versions of LPhy or LPhyBEAST.
+Please see [legacy dependencies](#legacy-dependencies)
 
 
 ### IOException: Cannot find Nexus file !
