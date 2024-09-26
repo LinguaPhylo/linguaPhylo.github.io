@@ -288,7 +288,7 @@ If you want to use the old version extensions, please install the required versi
 
 ## Troubleshooting guide
 
-### Caused by: java.lang.NoClassDefFoundError: `*.lphy.*.AClass`
+### LPhyBEAST failed by "Caused by: java.lang.NoClassDefFoundError: `*.lphy.*.AClass`"
 
 This error indicates LPhyBEAST cannot find the LPhy class `AClass`. 
 First, please check if your `LPHY_LIB` is pointed to the correct location, 
