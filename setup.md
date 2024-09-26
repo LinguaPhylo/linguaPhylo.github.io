@@ -284,6 +284,10 @@ If you want to use the old version extensions, please install the required versi
 - LPhyBEASTExt 1.0.x requires LPhyBEAST v1.2.x;
 - LPhyBEASTExt 0.3.x requires LPhyBEAST v1.1.x;
 - LPhyBEASTExt 0.2.x requires LPhyBEAST v1.0.x;
+- Phylonco-lphy 1.2.x (LPhy extension) requires LPhy 1.6.x;
+- Phylonco-lphybeast 1.2.x requires LPhyBEAST v1.2.x;
+- Phylonco-lphy 0.0.3 (LPhy extension) requires LPhy 1.4.x;
+- Phylonco-lphybeast 1.0.x requires LPhyBEAST v1.0.x;
 
 
 ## Troubleshooting guide
@@ -303,7 +307,7 @@ Please read the LPhy installation section.
 
 If `AClass` is from a LPhy extension, then check if you put the LPhy extension jar into the `lib` folder.
 
-If these all passed, then you can check if the dependencies are correct. 
+If all of these checks have passed, you can then verify that the dependencies are correctly configured.
 Some extensions are only working with their required major versions of LPhy or LPhyBEAST.
 Please see [legacy dependencies](#legacy-dependencies)
 
