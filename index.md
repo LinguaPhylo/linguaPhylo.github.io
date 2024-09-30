@@ -54,4 +54,5 @@ PLOS Computational Biology, [doi:10.1371/journal.pcbi.1011226](https://doi.org/1
 
 ## Extensions
 
-LPhy and LPhyBEAST extensions are listed [here](extensions).
+LPhy extensions are listed [here](extensions). LPhyBEAST extensions can be seen from BEAST 2
+[Package Viewer](https://compevol.github.io/CBAN/) or [Package Manager](https://www.beast2.org/managing-packages/).
