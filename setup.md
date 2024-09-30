@@ -274,7 +274,7 @@ $BEAST_PATH/bin/lphybeast -r 5 jcCoalescent.lphy
 
 ## Legacy dependencies
 
-There are significant changes about SPI and APIs among LPhy 1.4.x, 1.5.x, and 1.6.x.
+There are significant changes about SPI and APIs among LPhy 1.4.x, 1.5.x, and 1.6.x (where x >= 0).
 So there is no backward compatibility for extensions.
 If you want to use the old version extensions, please install the required versions of LPhy and LPhyBEAST.
 
@@ -285,9 +285,9 @@ If you want to use the old version extensions, please install the required versi
 - LPhyBEASTExt 0.3.x requires LPhyBEAST v1.1.x;
 - LPhyBEASTExt 0.2.x requires LPhyBEAST v1.0.x;
 - Phylonco-lphy 1.2.x (LPhy extension) requires LPhy 1.6.x;
-- Phylonco-lphybeast 1.2.x requires LPhyBEAST v1.2.x;
+- Phylonco-lphybeast 1.2.x requires LPhyBEAST v1.2.x, and Phylonco-lphy 1.2.x;
 - Phylonco-lphy 0.0.3 (LPhy extension) requires LPhy 1.4.x;
-- Phylonco-lphybeast 1.0.x requires LPhyBEAST v1.0.x;
+- Phylonco-lphybeast 1.0.x requires LPhyBEAST v1.0.x, and Phylonco-lphy 0.0.3;
 
 
 ## Troubleshooting guide
