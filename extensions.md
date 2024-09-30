@@ -33,6 +33,10 @@ Your directory structure should look like this:
   <figcaption>Figure 1: Adding phylonco extension to LPhy libraries.</figcaption>
 </figure>
 
+__Please note:__ please remove any old version jar files from the `lib` directory, 
+after you place the new version. Otherwise, it may cause error when loading the extension.
+
+
 #### Loading examples
 Examples can be found in the releases page of the extension. 
 To load the examples into LPhy Studio: 
