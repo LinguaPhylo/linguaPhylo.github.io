@@ -6,9 +6,10 @@ permalink: /extensions/
 
 ### Available extensions
 
-| Extension | Beast package version | LPhy extension version | Homepage | Examples |
-| -------- | ------- | ------------ | ------- | ---|
-| Phylonco  | v1.0.0 | v0.0.3 | [https://github.com/bioDS/beast-phylonco](https://github.com/bioDS/beast-phylonco) | [phylonco-lphy-examples.zip](https://github.com/bioDS/beast-phylonco/releases/download/v1.0.0/phylonco-lphy-examples.zip) |
+| Extension | LPhy extension version | LPhy version | Homepage | Examples |
+| --------  | ------------ | ------- | --- | --- |
+| Phylonco  | phylonco-lphy [v1.2.0](https://github.com/bioDS/beast-phylonco/releases/tag/v1.2.0) | lphy v1.6.0 onwards | [https://github.com/bioDS/beast-phylonco](https://github.com/bioDS/beast-phylonco) | [phylonco-lphy-1.2.0-examples.zip](https://github.com/bioDS/beast-phylonco/releases/download/v1.2.0/phylonco-lphy-1.2.0-examples.zip)
+| Phylonco  | phylonco-lphy [v0.0.3](https://github.com/bioDS/beast-phylonco/releases/tag/v1.0.1) | lphy v1.4.0 | [https://github.com/bioDS/beast-phylonco](https://github.com/bioDS/beast-phylonco) | [phylonco-lphy-examples.zip](https://github.com/bioDS/beast-phylonco/releases/download/v1.0.0/phylonco-lphy-examples.zip) |
 
 
 ### Manual installation
