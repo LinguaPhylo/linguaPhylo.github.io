@@ -21,9 +21,11 @@ For example, to install the [Phylonco](https://github.com/bioDS/beast-phylonco) 
 
 1. Go to the releases page of the extension, e.g., [Phylonco releases](https://github.com/bioDS/beast-phylonco/releases)
 
-2. Download the jar with the prefix `-lphy-(version number).jar`, for example [phylonco-lphy-0.0.3.jar](https://github.com/bioDS/beast-phylonco/releases/download/v1.0.0/phylonco-lphy-0.0.3.jar)
+2. Download the jar with the prefix `-lphy-(version number).jar`, for example [phylonco-lphy-1.2.0.jar](https://github.com/bioDS/beast-phylonco/releases/download/v1.2.0/phylonco-lphy-1.2.0.jar).
+From version 1.2.0, there is an additional `-lphy-studio-(version number).jar` required by GUI extension, 
+for example [phylonco-lphy-studio-1.2.0.jar](https://github.com/bioDS/beast-phylonco/releases/download/v1.2.0/phylonco-lphy-studio-1.2.0.jar).
 
-3. Place the jar inside the `lib` subdirectory of your LPhy installation
+3. Place both jar files inside the `lib` subdirectory of your LPhy installation
 
 Your directory structure should look like this:
 
