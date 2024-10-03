@@ -140,7 +140,7 @@ $LPHY/bin/slphy -r 5 <LPhy script>
 
 For example: 
 ```bash
-/Applications/lphy-studio-{{lphy_version}}/bin/slphy -r 5 jcCoalescent.lphy
+/Applications/lphy-studio-{{lphy_version}}/bin/slphy -r 5 hkyCoalescent.lphy
 ```
 The "x" is the version number.
 
@@ -269,7 +269,7 @@ where the `-r` option specifies the number of replicates.
 
 ```bash
 cd $LPHY_PATH/examples/coalescent/
-$BEAST_PATH/bin/lphybeast -r 5 jcCoalescent.lphy
+$BEAST_PATH/bin/lphybeast -r 5 hkyCoalescent.lphy
 ```
 
 ## Legacy dependencies
