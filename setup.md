@@ -292,7 +292,42 @@ If you want to use the old version extensions, please install the required versi
 
 ## Troubleshooting guide
 
-### LPhyBEAST failed by "java.lang.NoClassDefFoundError: `*.lphy.*.AClass`"
+### LPhyBEAST failed with "NoClassDefFoundError: phylonco.lphy.evolution.datatype.PhasedGenotype"
+The error message looks like:
+```
+Registering extension from phylonco.lphybeast.spi.LBPhylonco
+java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at beastfx.app.tools.AppLauncher.runAppFromCMD(Unknown Source)
+	at beastfx.app.tools.AppLauncher.main(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at beast.pkgmgmt.launcher.BeastLauncher.run(Unknown Source)
+	at beast.pkgmgmt.launcher.AppLauncherLauncher.main(Unknown Source)
+Caused by: java.lang.NoClassDefFoundError: phylonco.lphy.evolution.datatype.PhasedGenotype
+	at beast.pkgmgmt.MultiParentURLClassLoader.loadClass(Unknown Source)
+...
+```
+
+Follow one the solutions below.
+
+**Solution A: My LPhy script does not contain any [phylonco functions](https://github.com/bioDS/beast-phylonco/blob/v1.2.1/phylonco-lphy/doc/index.md)**
+
+* Open Beauti, go to package manager, and uninstall `phylonco.lphybeast`.
+
+**Solution B: My LPhy script uses one or more [phylonco functions](https://github.com/bioDS/beast-phylonco/blob/v1.2.1/phylonco-lphy/doc/index.md)**
+
+* Open Beauti, got to package manager, and install/upgrade `phylonco`. 
+* Open Beauti, got to package manager, and install/upgrade `phylonco.lphybeast`. 
+* Go to the [LPhy Extensions](https://linguaphylo.github.io/extensions/) page. Choose the phylonco-lphy extension corresponding to your current LPhy version (when more than one phylonco-lphy is available for your LPhy version, select the phylonco-lphy that has the highest version number).
+* Follow the steps in the [Manual installation](https://linguaphylo.github.io/extensions/#manual-installation) section.
+
+### LPhyBEAST failed with "java.lang.NoClassDefFoundError: `*.lphy.*.AClass`"
 
 This error indicates LPhyBEAST cannot find the LPhy class `AClass`. 
 First, please check if your `LPHY_LIB` is pointed to the correct location, 
