@@ -4,26 +4,29 @@ title: LPhy Extensions
 permalink: /extensions/
 ---
 
-### Available extensions
+If your LPhy version is the latest version (v1.6.1) refer to the [current extension table](https://linguaphylo.github.io/extensions/#current-extensions), otherwise for older software refer to the [legacy extensions table](https://linguaphylo.github.io/extensions/#legacy-extensions) as the "extensions table" when following this guide. 
 
-| Extension | LPhy extension version | LPhy version | Homepage | Examples |
-| --------  | ------------ | ------- | --- | --- |
-| Phylonco  | phylonco-lphy [v1.2.0](https://github.com/bioDS/beast-phylonco/releases/tag/v1.2.0) | lphy v1.6.0 onwards | [https://github.com/bioDS/beast-phylonco](https://github.com/bioDS/beast-phylonco) | [phylonco-lphy-1.2.0-examples.zip](https://github.com/bioDS/beast-phylonco/releases/download/v1.2.0/phylonco-lphy-1.2.0-examples.zip)
-| Phylonco  | phylonco-lphy [v0.0.3](https://github.com/bioDS/beast-phylonco/releases/tag/v1.0.1) | lphy v1.4.0 | [https://github.com/bioDS/beast-phylonco](https://github.com/bioDS/beast-phylonco) | [phylonco-lphy-examples.zip](https://github.com/bioDS/beast-phylonco/releases/download/v1.0.0/phylonco-lphy-examples.zip) |
+### Current Extensions
+
+| Extension | Extension version | LPhy version | Homepage | Examples |
+| --------  | ------------ | ------- | ---------- | -------- |
+| Phylonco | [phylonco-lphy v1.2.1](https://github.com/bioDS/beast-phylonco/releases/tag/v1.2.1) | lphy v1.6.1 onwards | [https://github.com/bioDS/beast-phylonco](https://github.com/bioDS/beast-phylonco) | [phylonco-lphy-1.2.0-examples.zip](https://github.com/bioDS/beast-phylonco/releases/download/v1.2.1/phylonco-lphy-1.2.0-examples.zip) |
 
 
-### Manual installation
+### Installing the extension
 
-#### Installing the extension
-LPhy extensions can be installed manually by downloading the extension jar and placing it inside the `lib` subdirectory of your LPhy installation location.
+__Note:__ Please remove any jar files for old versions of the extension from your `lib` directory if you have previously installed the extension.
+
+LPhy extensions can be installed manually by downloading the extension jar(s) and placing it inside the `lib` subdirectory of your LPhy installation location.
 
 For example, to install the [Phylonco](https://github.com/bioDS/beast-phylonco) extension for LPhy:
 
-1. Go to the releases page of the extension, e.g., [Phylonco releases](https://github.com/bioDS/beast-phylonco/releases)
+1. Go to the release page of the extension from the "Extension version" column in the extensions table, e.g., [phylonco-lphy v1.2.1](https://github.com/bioDS/beast-phylonco/releases/tag/v1.2.1)
 
-2. Download the jar with the prefix `-lphy-(version number).jar`, for example [phylonco-lphy-1.2.0.jar](https://github.com/bioDS/beast-phylonco/releases/download/v1.2.0/phylonco-lphy-1.2.0.jar).
-From version 1.2.0, there is an additional `-lphy-studio-(version number).jar` required by GUI extension, 
-for example [phylonco-lphy-studio-1.2.0.jar](https://github.com/bioDS/beast-phylonco/releases/download/v1.2.0/phylonco-lphy-studio-1.2.0.jar).
+2. Download the jar with the suffix `-lphy-(version number).jar`, for example [phylonco-lphy-1.2.1.jar](https://github.com/bioDS/beast-phylonco/releases/download/v1.2.0/phylonco-lphy-1.2.1.jar).
+
+3. For LPhy version 1.6.0 onwards, additionally download the jar with the suffix `-lphy-studio-(version number).jar`. 
+For example [phylonco-lphy-studio-1.2.0.jar](https://github.com/bioDS/beast-phylonco/releases/download/v1.2.1/phylonco-lphy-studio-1.2.0.jar).
 
 3. Place both jar files inside the `lib` subdirectory of your LPhy installation
 
@@ -34,19 +37,17 @@ Your directory structure should look like this:
     <img src="/images/LPhyLibPhylonco.png" alt="LPhy libraries">
   </a>
   <figcaption>Figure 1: Adding phylonco extension to LPhy libraries.</figcaption>
+  
 </figure>
 
-__Please note:__ please remove any old version jar files from the `lib` directory, 
-after you place the new version. Otherwise, it may cause error when loading the extension.
 
-
-#### Loading examples
+### Loading examples
 Examples can be found in the releases page of the extension. 
 To load the examples into LPhy Studio: 
 
-1. Go to the releases page of the extension, e.g., [Phylonco releases](https://github.com/bioDS/beast-phylonco/releases)
+1. Go to the releases page of the extension from the "Extension version" column in the extensions table, e.g., [phylonco-lphy v1.2.1](https://github.com/bioDS/beast-phylonco/releases/tag/v1.2.1)
 
-2. Download the file with the suffix `*-lphy-examples.zip`, e.g., [phylonco-lphy-examples.zip](https://github.com/bioDS/beast-phylonco/releases/download/v1.0.0/phylonco-lphy-examples.zip)
+2. Download the`*-lphy-examples.zip` from the "Examples" column in the extensions table, e.g., [phylonco-lphy-1.2.0-examples.zip](https://github.com/bioDS/beast-phylonco/releases/download/v1.2.1/phylonco-lphy-examples.zip)
 
 3. Unzip the `*-lphy-examples.zip` file inside the `examples` subdirectory of your LPhy installation. Your directory structure should look like this: 
 
@@ -66,6 +67,15 @@ To load the examples into LPhy Studio:
   </a>
   <figcaption>Figure 3: Loading an example Phylonco script.</figcaption>
 </figure>
+
+
+### Legacy Extensions
+See compatibility table for legacy versions of LPhyStudio [here](https://github.com/LinguaPhylo/linguaPhylo.github.io/edit/master/setup.md#legacy-dependencies).
+
+| Extension | Extension version | LPhy version | Homepage | Examples |
+| --------  | ------------ | ------- | --------- | ---------- |
+| Phylonco | [phylonco-lphy v1.2.0](https://github.com/bioDS/beast-phylonco/releases/tag/v1.2.0) | lphy v1.6.0 onwards | [https://github.com/bioDS/beast-phylonco](https://github.com/bioDS/beast-phylonco) | [phylonco-lphy-1.2.0-examples.zip](https://github.com/bioDS/beast-phylonco/releases/download/v1.2.0/phylonco-lphy-1.2.0-examples.zip)
+| Phylonco | [phylonco-lphy v0.0.3](https://github.com/bioDS/beast-phylonco/releases/tag/v1.0.1) | lphy v1.4.0 | [https://github.com/bioDS/beast-phylonco](https://github.com/bioDS/beast-phylonco) | [phylonco-lphy-examples.zip](https://github.com/bioDS/beast-phylonco/releases/download/v1.0.0/phylonco-lphy-examples.zip) |
 
 
 ### Future work
