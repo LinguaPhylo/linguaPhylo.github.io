@@ -466,3 +466,15 @@ the Java Runtime only recognizes class file versions up to 52.0
 The script lphybeast utilizes the BEAST 2 applauncher to run the LPhyBEAST application, 
 which requires Zulu 17 with JavaFX bundled in BEAST 2.7.x.
 More details are available in [beast2.org](https://www.beast2.org).
+
+
+### LPhyBEAST failed with `java.lang.ClassNotFoundException`
+
+If the `$BEAST` environment variable is not set correctly, the following error message might occur:
+
+```java
+Error: Could not find or load main class beast.pkgmgmt.launcher.AppLauncherLauncher
+Caused by: java.lang.ClassNotFoundException: beast.pkgmgmt.launcher.AppLauncherLauncher
+```
+
+The `$BEAST` environment variable should point to the directory where BEAST 2 is installed (e.g. `/Applications/BEAST 2.7.7` on MacOS).
