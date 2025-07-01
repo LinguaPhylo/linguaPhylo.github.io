@@ -3,10 +3,10 @@ The following software will be used in this tutorial.
 We also offer a [Tech Help](../tech-help) page to assist you 
 in case you encounter any unexpected issues with certain third-party software tools.
 
-{% assign lphy_version = "1.4.4" %}
-{% assign beast_version = "2.7.6" %}
-{% assign tracer_version = "1.7.2" %}
-{% assign figtree_version = "1.4.3" %}
+{% assign lphy_version = "1.7.x" %}
+{% assign beast_version = "2.7.x" %}
+{% assign tracer_version = "1.7.x" %}
+{% assign figtree_version = "1.4.x" %}
 
 * Java 17 or a later version is required by LPhy Studio.
 
