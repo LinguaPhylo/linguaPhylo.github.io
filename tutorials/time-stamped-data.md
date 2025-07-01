@@ -157,9 +157,9 @@ for each nucleotide);
 2. `κ`, twice the transition:transversion bias assuming equal
    nucleotide frequencies (with 3 dimensions,
    one for each partition);  
-3. `r`, the relative substitution rates (with 3 dimensions, one for
+3. `r`, the relative rates (with 3 dimensions, one for
    each partition);  
-4. `μ`, the global (mean) clock rate;  
+4. `μ`, the global (mean) molecular clock rate;  
 5. `Θ`, the effective population size;  
 6. `ψ`, the time-scaled phylogenetic tree, where the time unit is years.
 
@@ -170,7 +170,7 @@ for each nucleotide);
 
 Note that parameters `π`, `κ` and `r` are 3-dimensional vectors,
 because they represent the nucleotide equilibrium frequencies,
-(ts:tv)/2, and relative substitution rates of each of the three
+(ts:tv)/2, and relative rates of each of the three
 partitions, respectively.
 LPhy conveniently uses vectorization, so `PhyloCTMC` recognizes that
 three parameters above are vectors, and automatically takes care of
@@ -334,7 +334,7 @@ great.
 
 {% assign ess = 25 %}
 
-The ESS for the mean molecular evolution rate (`μ`) is about {{ ess }} so we
+The ESS for the mean molecular clock rate (`μ`) is about {{ ess }} so we
 are only getting 1 independent sample every {{ 1800 | divided_by: ess | round: 0 }} samples 
 (to a total of ~1800/{{ ess }} "effective" samples).
 With such a short run, it may also be the case that the default
@@ -387,8 +387,8 @@ large number of steps.)
 
 Now that we are satisfied with the length of the MCMC chain and its
 mixing, we can move on to one of the parameters of interest: the
-global substitution rate, `μ`.
-This is the average substitution rate across all sites in the
+global clock rate, `μ`.
+This is the average molecular clock rate across all sites in the
 alignment.  
 
 First, select "mu" in the left-hand panel, and click the "Marginal
@@ -402,7 +402,7 @@ You should see a plot similar to this:
   <img src="muDensity.png" alt="marginal density">
   <figcaption>Figure {{ current_fig_num }}: A screenshot of Tracer
   showing the marginal posterior probability density of the mean
-  substitution rate, `μ`.</figcaption>
+  clock rate, `μ`.</figcaption>
 </figure>
 
 As we can see in Figure {{ posterior_fig_num }}, the marginal
@@ -416,28 +416,27 @@ ESSs.
 
 Note that you can overlay the density plots of multiple traces in
 order to compare them (it is up to you to determine whether they are
-comparable on the the same axis or not).
-For example: select the relative substitution rates for all three
+comparable on the same axis or not).
+For example: select the relative rates for all three
 codon positions (partitions) in the left-hand panel (labelled "r_0",
 "r_1" and "r_2").  
 
-You will now see the posterior probability densities for the relative
-substitution rate at all three codon positions overlaid: 
+You will now see the posterior probability densities for the relative rate at all three codon positions overlaid: 
 
 {% assign current_fig_num = current_fig_num | plus: 1 %}
 
 <figure class="image">
-  <img src="relativeRates.png" alt="relative substitution rates">
+  <img src="relativeRates.png" alt="relative rates">
   <figcaption>Figure {{ current_fig_num }}: A screenshot of Tracer
   showing the marginal posterior probability densities for the
-  relative substitution rates, `r_0`, `r_1` and `r_2`.</figcaption> 
+  relative rates, `r_0`, `r_1` and `r_2`.</figcaption> 
 </figure>
 
 ### Summarising the trees
 
 Because of how peculiar and discrete tree space is, it is a bit harder
 to summarize and visualize the posterior distribution over
-phylogenetic trees, as compared to the mean molecular rate `μ`, for
+phylogenetic trees, as compared to the mean molecular clock rate `μ`, for
 example.
 We will use a special tool for that, TreeAnnotator.
 
