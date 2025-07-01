@@ -1,4 +1,5 @@
-              TreeAnnotator v2.7.6, 2002-2023
+   
+              TreeAnnotator v2.7.7, 2002-2024
                     MCMC Output analysis
                              by
            Andrew Rambaut and Alexei J. Drummond
@@ -12,24 +13,33 @@
                   alexei@cs.auckland.ac.nz
 
 
+======================================================
+Please cite the following when using the summary tree:
+
+
+Heled and Bouckaert (2013). BMC Evolutionary Biology.
+Looking for trees in the forest: summary tree from posterior samples.
+
+======================================================
 Processing 1801 trees from file after ignoring first 10% = 200 trees.
+translation map size = 129
 CCD0 MAP tree computation
 0              25             50             75            100
 |--------------|--------------|--------------|--------------|
 *************************************************************
-Expanding CCD0: processing 1275 clades
-************************************************************
+Expanding CCD0: processing 1358 clades
+............................................................
+... done.
 Collecting node information...
 0              25             50             75            100
 |--------------|--------------|--------------|--------------|
 *************************************************************
 
 Annotating target tree...
-Please cite: Heled and Bouckaert: Looking for trees in the forest:
-summary tree from posterior samples. BMC Evolutionary Biology 2013 13:221.
 Setting node heights...
 0              25             50             75            100
 |--------------|--------------|--------------|--------------|
 *************************************************************
 
 Writing annotated tree....
+Finished - Quit program to exit.
