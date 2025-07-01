@@ -132,12 +132,16 @@ especially when using the LPhy Studio console.
 To avoid potential issues with relative paths, 
 a simple solution is to use the absolute path in the argument `file="..."`.
 
-Then we must parse the molecular alignments, which we do when
-initializing variable `D`.
-Note that our open reading frame (ORF) starts in position 3, which
-must be reflected by the arguments we pass on to the `charset()`
-function: first (`"3-629\3"`), second (`"1-629\3"`) and third
-(`"2-629\3"`) codon positions.
+Then we must parse the molecular alignments by initializing the variable `D`.
+Note that our open reading frame (ORF) starts at position 3. 
+This must be reflected in the arguments we pass to the `charset()` function to define the codon positions: 
+
+- first (`"3-629\3"`), 
+- second (`"1-629\3"`), and 
+- third (`"2-629\3"`).
+
+The `charset()` function returns three alignments as a vector called `codon`.
+
 Finally, we use the last three lines to set the number of loci `L`,
 the number of taxa `n`, and the taxa themselves, `taxa`.
 Note that `n=length(codon);` is equivalent to `n=3;` because
@@ -168,18 +172,22 @@ for each nucleotide);
 {:/}
 
 
-Note that parameters `π`, `κ` and `r` are 3-dimensional vectors,
-because they represent the nucleotide equilibrium frequencies,
-(ts:tv)/2, and relative rates of each of the three
-partitions, respectively.
-LPhy conveniently uses vectorization, so `PhyloCTMC` recognizes that
-three parameters above are vectors, and automatically takes care of
-building three separate HKY models, one per partition!
+The parameter `π` represents the nucleotide equilibrium frequencies.
+`κ` (kappa) specifies the transition/transversion rate ratio. 
+Both are defined as 3-dimensional vectors using the optional argument `replicates=n`, where `n=3` in this case. 
+
+The parameter `r` defines the [relative substitution rates](https://beast2-dev.github.io/hmc/hmc/SiteModel/mutationRate/) 
+for each of the three codon partitions.
+LPhy makes use of vectorization, so when `WeightedDirichlet` receives 
+a vector input (such as `L` being 3-dimensional), 
+it automatically constructs three separate relative rate vectors, one for each partition.
+This same behavior applies to `PhyloCTMC`, which also handles vectorised inputs internally.
 
 One final remark is that we use `rep(element=1.0, times=n)` (where `n`
 evaluates to 3) to create three concentration vectors (one vector per
 partition) for the `WeightedDirichlet` sampling distribution.
 
+You can click the graphical components to view their simulated values.
 Again, if you want to double-check everything you have typed, click the
 “Model” tab in the upper right panel.
 
