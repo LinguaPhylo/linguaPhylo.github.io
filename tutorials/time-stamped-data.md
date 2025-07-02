@@ -243,12 +243,13 @@ Let us look at the whole thing:
                            BEAST developers:
    Alex Alekseyenko, Trevor Bedford, Erik Bloomquist, Joseph Heled, 
  Sebastian Hoehna, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, 
- Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, 
+Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, 
           Oliver Pybus, Tim Vaughan, Chieh-Hsi Wu, Walter Xie
                                     
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
+Running file RSV2.xml
 File: RSV2.xml seed: 2160030974204605245 threads: 1
     ...
 
