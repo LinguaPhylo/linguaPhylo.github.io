@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Time-stamped data
-author: 'Fábio K. Mendes, Walter Xie and Alexei J. Drummond'
+author: 'Fábio K. Mendes, Walter Xie, Eva Li and Alexei J. Drummond'
 permalink: /tutorials/time-stamped-data/
 ---
 
@@ -216,7 +216,7 @@ Let us look at the whole thing:
 {% include_relative templates/run-beast.md xml="RSV2.xml" %}
 
 ```
-                        BEAST v2.7.5, 2002-2023
+                        BEAST v2.7.8, 2002-2025
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -243,35 +243,37 @@ Let us look at the whole thing:
                            BEAST developers:
    Alex Alekseyenko, Trevor Bedford, Erik Bloomquist, Joseph Heled, 
  Sebastian Hoehna, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, 
-Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, 
+ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, 
           Oliver Pybus, Tim Vaughan, Chieh-Hsi Wu, Walter Xie
                                     
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1690761638808
+File: RSV2.xml seed: 2160030974204605245 threads: 1
     ...
 
     ...
-         950000     -6087.2825     -5472.3274      -614.9550         0.4757         0.2427         0.0811         0.2003         0.3013         0.4030         0.1153         0.1802         0.3066         0.4051         0.0690         0.2192         6.3611         8.3711        11.8388         0.7467         0.9401         1.3119         0.0020        43.5413 1m10s/Msamples
-        1000000     -6086.6790     -5492.1138      -594.5652         0.5164         0.2214         0.0844         0.1776         0.2826         0.4603         0.0982         0.1587         0.3159         0.3883         0.0789         0.2167         6.2125         9.8228        12.0430         0.7304         0.8693         1.3989         0.0022        36.3590 1m10s/Msamples
+         950000     -6093.6543     -5490.2432      -603.4110         0.4758         0.2259         0.0963         0.2018         0.2731         0.4117         0.1111         0.2038         0.3281         0.4085         0.0910         0.1722         8.1613         7.1496        11.6311         0.5955         1.0316         1.3709         0.0021        34.0876 55s/Msamples
+        1000000     -6079.8549     -5484.0842      -595.7707         0.4530         0.2677         0.1107         0.1684         0.2896         0.4210         0.0976         0.1916         0.2989         0.3977         0.0739         0.2293         5.4948        10.4505        10.2371         0.6823         0.9759         1.3402         0.0024        37.4179 55s/Msamples
 
-Operator                                                                    Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-ScaleOperator(Theta.scale)                                                 0.60746       1349       3173    0.00450    0.29832 
-ScaleOperator(kappa.scale)                                                 0.46834       2790       6812    0.00970    0.29056 
-ScaleOperator(mu.scale)                                                    0.78815       1139       3342    0.00450    0.25418 
-beast.base.inference.operator.UpDownOperator(muUppsiDownOperator)          0.91110       5756     129034    0.13497    0.04270 Try setting scaleFactor to about 0.955
-beast.base.inference.operator.DeltaExchangeOperator(pi_0.deltaExchange)    0.12309       1769       7818    0.00970    0.18452 
-beast.base.inference.operator.DeltaExchangeOperator(pi_1.deltaExchange)    0.13164       1562       8115    0.00970    0.16141 
-beast.base.inference.operator.DeltaExchangeOperator(pi_2.deltaExchange)    0.16248       1059       8446    0.00970    0.11142 
-Exchange(psi.narrowExchange)                                                     -      34229     100430    0.13424    0.25419 
-ScaleOperator(psi.rootAgeScale)                                            0.70177        598       3984    0.00450    0.13051 
-ScaleOperator(psi.scale)                                                   0.87726       3442     130335    0.13424    0.02573 Try setting scaleFactor to about 0.937
-SubtreeSlide(psi.subtreeSlide)                                            26.63974       4626     130081    0.13424    0.03434 Try decreasing size to about 13.32
-Uniform(psi.uniform)                                                             -      72553      61985    0.13424    0.53928 
-Exchange(psi.wideExchange)                                                       -        357     133871    0.13424    0.00266 
-WilsonBalding(psi.wilsonBalding)                                                 -        795     133107    0.13424    0.00594 
-beast.base.inference.operator.DeltaExchangeOperator(r.deltaExchange)       0.31697       1511       5933    0.00730    0.20298 
+Operator                                                                                   Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+kernel.BactrianScaleOperator(Theta.scale)                                                 0.21787       1449       4472    0.00586    0.24472 
+kernel.BactrianScaleOperator(kappa.scale)                                                 0.34910       3621       8889    0.01265    0.28945 
+kernel.BactrianScaleOperator(mu.scale)                                                    0.11193        918       4892    0.00586    0.15800 
+beast.base.inference.operator.kernel.BactrianUpDownOperator(muUppsiDownOperator)          0.11188        705     175870    0.17596    0.00399 Try setting scale factor to about 0.056
+beast.base.inference.operator.kernel.BactrianDeltaExchangeOperator(pi_0.deltaExchange)    0.08504       2193      10184    0.01265    0.17718 
+beast.base.inference.operator.kernel.BactrianDeltaExchangeOperator(pi_1.deltaExchange)    0.06443       3476       9297    0.01265    0.27214 
+beast.base.inference.operator.kernel.BactrianDeltaExchangeOperator(pi_2.deltaExchange)    0.06726       2513      10167    0.01265    0.19819 
+EpochFlexOperator(psi.BICEPSEpochAll)                                                     0.07907       1002       8489    0.00952    0.10557 
+EpochFlexOperator(psi.BICEPSEpochTop)                                                     0.07882        609       5258    0.00586    0.10380 
+TreeStretchOperator(psi.BICEPSTreeFlex)                                                   0.02965      27125     147635    0.17501    0.15521 
+Exchange(psi.narrowExchange)                                                                    -      44841     130153    0.17501    0.25624 
+kernel.BactrianScaleOperator(psi.rootAgeScale)                                            0.33243         19       5817    0.00586    0.00326 Try setting scale factor to about 0.166
+kernel.BactrianSubtreeSlide(psi.subtreeSlide)                                          1180.33719        190     175046    0.17501    0.00108 Try decreasing size to about 590.169
+kernel.BactrianNodeOperator(psi.uniform)                                                  2.27178      60697     114054    0.17501    0.34733 
+Exchange(psi.wideExchange)                                                                      -         53      15505    0.01547    0.00341 
+WilsonBalding(psi.wilsonBalding)                                                                -        116      15178    0.01547    0.00758 
+beast.base.inference.operator.kernel.BactrianDeltaExchangeOperator(r.deltaExchange)       0.20272       2699       6869    0.00952    0.28209 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -280,9 +282,8 @@ beast.base.inference.operator.DeltaExchangeOperator(r.deltaExchange)       0.316
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 72.275 seconds
-End likelihood: -6086.679077440407
-Done!
+Total calculation time: 58.151 seconds
+End likelihood: -6079.854960424774
 ```
 
 ### Analysing BEAST 2's output
