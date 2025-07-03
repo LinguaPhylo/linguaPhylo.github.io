@@ -1,4 +1,6 @@
-                        BEAST v2.7.5, 2002-2023
+/Applications/BEAST\ 2.7.8/bin/beast -beagle_SSE h5n1.xml 
+
+                        BEAST v2.7.8, 2002-2025
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -31,11 +33,12 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1690144368524
+Random number seed: 1751498377517
 
-File: h5n1.xml seed: 1690144368524 threads: 1
+File: h5n1.xml seed: 1751498377517 threads: 1
+Loading package SSM v1.2.1 FastRelaxedClockLogNormal v1.2.0 feast v10.5.0 NS v1.2.2 bModelTest v1.3.3 starbeast3 v1.1.9 CCD v1.0.3 SpeciesNetwork v1.0.0 phylonco v1.2.0 TreeStat2 v0.2.0 Babel v0.4.2 SA v2.1.1 BEAST.base v2.7.8 BEASTLabs v2.0.3 BEAST.app v2.7.8 BEAST_CLASSIC v1.6.4 CodonSubstModels v2.0.0 MM v1.2.1 CoupledMCMC v1.2.2 BDSKY v1.5.1 OBAMA v1.1.1 bdtree v0.0.1 ORC v1.2.0 MODEL_SELECTION v1.6.2 lphybeast v1.3.0    
 
-A_chicken_Fujian_1042_2005=0.0
+                                    A_chicken_Fujian_1042_2005=0.0
 
 
 A_duck_Fujian_897_2005=0.0
@@ -175,6 +178,18 @@ A_chicken_Guangdong_191_2004 = 1.0 (1.0)
 A_duck_Guangdong_4610_2003 = 2.0 (2.0)
 A_duck_Guangdong_01_2001 = 4.0 (4.0)
 33 more...
+Alignment(D)
+  43 taxa
+  1698 sites
+  305 patterns
+
+Starting frequencies: [0.3876833244017974, 0.13283521580749968, 0.36324470224557476, 0.11623675754512808]
+  Using BEAGLE version: 4.0.0 (PRE-RELEASE) resource 0: CPU (x86_64)
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_SSE THREADING_NONE PROCESSOR_CPU FRAMEWORK_CPU
+  Using ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 305 unique site patterns.
+  Using rescaling scheme : dynamic
 A_chicken_Fujian_1042_2005=Fujian
  A_duck_Fujian_897_2005=Fujian
  A_duck_Fujian_13_2002=Fujian
@@ -229,21 +244,9 @@ A_chicken_Guangdong_191_2004 = Guangdong (NaN)
 A_duck_Guangdong_4610_2003 = Guangdong (NaN)
 A_duck_Guangdong_01_2001 = Guangdong (NaN)
 33 more...
-Starting frequencies: [0.21779358518517591, 0.15372565193844492, 0.22220456440817726, 0.17803223186120368, 0.2282439666069982]
+Starting frequencies: [0.321271403770468, 0.18906761791965682, 0.07972993542255145, 0.020981339326193237, 0.3889497035611305]
 AncestralStateTreeLikelihood(D_trait.treeLikelihood) uses BeerLikelihoodCore
   AlignmentFromTrait(D_trait): [taxa, patterns, sites] = [43, 1, 1]
-Alignment(D)
-  43 taxa
-  1698 sites
-  305 patterns
-
-Starting frequencies: [0.11615768125929977, 0.09953393323271054, 0.5637201030721664, 0.2205882824358233]
-  Using BEAGLE version: 4.0.0 (PRE-RELEASE) resource 0: CPU (x86_64)
-    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_SSE THREADING_NONE PROCESSOR_CPU FRAMEWORK_CPU
-  Ignoring ambiguities in tree likelihood.
-  Ignoring character uncertainty in tree likelihood.
-  With 305 unique site patterns.
-  Using rescaling scheme : dynamic
 ===============================================================================
 Citations for this model:
 
@@ -255,61 +258,64 @@ Alexei J. Drummond
   BEAST 2.5: An advanced software platform for Bayesian evolutionary analysis. 
   PLoS computational biology 15, no. 4 (2019): e1006650.
 
-Edwards, C. J., Suchard, M. A., Lemey, P., ... & Valdiosera, C. E. (2011).
-Ancient hybridization and an Irish origin for the modern polar bear matriline.
-Current Biology, 21(15), 1251-1258.
-
 Hasegawa M, Kishino H, Yano T (1985) Dating the human-ape splitting by a
   molecular clock of mitochondrial DNA. Journal of Molecular Evolution
   22:160-174.
 
+Edwards, C. J., Suchard, M. A., Lemey, P., ... & Valdiosera, C. E. (2011).
+Ancient hybridization and an Irish origin for the modern polar bear matriline.
+Current Biology, 21(15), 1251-1258.
+
+Bouckaert RR. An efficient coalescent epoch model for Bayesian phylogenetic inference. Systematic Biology, syac015, 2022
+
 ===============================================================================
-Start likelihood: -12497.673472241628 
+Start likelihood: -12388.548182017601 
 Writing file h5n1.log
-Writing file h5n1.trees
 Writing file h5n1_with_trait.trees
          Sample      posterior     likelihood          prior           pi.A           pi.C           pi.G           pi.T          kappa          gamma          Theta     pi_trait.1     pi_trait.2     pi_trait.3     pi_trait.4     pi_trait.5            I.1            I.2            I.3            I.4            I.5            I.6            I.7            I.8            I.9           I.10      R_trait.1      R_trait.2      R_trait.3      R_trait.4      R_trait.5      R_trait.6      R_trait.7      R_trait.8      R_trait.9     R_trait.10       mu_trait
 Please wait while BEAST takes 750 pre-burnin samples
-              0     -7886.8441     -7720.5727      -166.2713         0.2945         0.3156         0.1843         0.2053         1.1106         0.4610         1.1298         0.2335         0.1707         0.2222         0.2647         0.1087              1              1              1              1              1              1              1              1              1              1         0.0658         0.0402         0.1321         0.0131         0.0248         0.2116         0.0173         0.1169         0.1095         0.2682         1.4978 --
 Turning on scaling to prevent numeric instability 1.0201
-         150000     -5949.9995     -5833.1227      -116.8767         0.3310         0.2053         0.2139         0.2495         9.2288         0.3883         5.3348         0.2115         0.3958         0.1661         0.1073         0.1190              1              1              0              0              1              0              1              1              1              0         0.0790         0.1225         0.0400         0.1911         0.0853         0.1167         0.0275         0.1948         0.0958         0.0468         0.3187 --
-         300000     -5951.6388     -5828.9851      -122.6536         0.3279         0.1935         0.2263         0.2521         7.9382         0.4004         7.0641         0.1468         0.2428         0.1496         0.2842         0.1764              1              1              1              1              1              1              1              1              1              1         0.3614         0.2297         0.0171         0.0585         0.1371         0.0170         0.0053         0.0773         0.0580         0.0382         0.2664 --
-         450000     -5947.1833     -5832.5006      -114.6827         0.3394         0.1887         0.2138         0.2580         7.8460         0.3280         6.5391         0.1624         0.1510         0.2290         0.2898         0.1675              1              1              1              0              1              0              0              1              1              0         0.3274         0.1020         0.0994         0.0247         0.2124         0.0387         0.0522         0.0092         0.0766         0.0570         0.7818 --
-         600000     -5948.7021     -5827.7738      -120.9282         0.3381         0.1857         0.2207         0.2553         7.3234         0.3394         6.0504         0.1455         0.2676         0.0529         0.2059         0.3278              1              1              0              1              1              0              1              1              1              1         0.0738         0.0734         0.1184         0.0238         0.1922         0.0499         0.2272         0.1431         0.0261         0.0716         0.2370 --
-         750000     -5957.0773     -5833.7607      -123.3165         0.3526         0.1764         0.2110         0.2597         9.6298         0.3351         6.4269         0.2142         0.1760         0.1556         0.1793         0.2746              0              1              0              0              1              1              0              1              1              1         0.0581         0.1143         0.0061         0.0947         0.3216         0.0475         0.2170         0.0435         0.0791         0.0177         0.2955 --
-         900000     -5949.2925     -5824.5462      -124.7463         0.3436         0.1948         0.2059         0.2555         8.6516         0.4543         6.3835         0.1281         0.3401         0.1197         0.3008         0.1111              1              0              0              0              1              1              0              1              1              0         0.2552         0.0261         0.2748         0.0325         0.1010         0.0733         0.1062         0.0231         0.1004         0.0069         0.4380 58s/Msamples
-        1050000     -5946.6328     -5823.2185      -123.4143         0.3242         0.1954         0.2179         0.2623         8.2945         0.4059         7.2081         0.1033         0.3115         0.1616         0.2489         0.1744              1              1              0              1              1              1              1              1              1              1         0.0814         0.1545         0.0440         0.1377         0.2939         0.1077         0.0731         0.0681         0.0305         0.0087         0.1153 58s/Msamples
-        1200000     -5945.0615     -5822.2472      -122.8143         0.3392         0.1850         0.2256         0.2500         9.0623         0.4273         7.6762         0.1652         0.1996         0.1573         0.2051         0.2725              1              1              0              1              1              1              0              1              1              1         0.4836         0.0695         0.0229         0.0197         0.0458         0.1667         0.0436         0.0541         0.0666         0.0268         0.4616 58s/Msamples
-        1350000     -5955.4256     -5838.8069      -116.6186         0.3276         0.1899         0.2189         0.2634        10.1440         0.3900         5.8739         0.2294         0.1998         0.1039         0.1603         0.3064              1              0              1              1              1              1              1              1              1              1         0.2477         0.0634         0.0055         0.0304         0.2085         0.0629         0.0080         0.2015         0.0449         0.1265         0.1652 58s/Msamples
-        1500000     -5960.1372     -5838.4038      -121.7334         0.3464         0.2010         0.2094         0.2431        10.1354         0.3434         6.3119         0.3181         0.2753         0.1257         0.1721         0.1086              1              1              1              1              1              1              1              0              1              1         0.0801         0.1360         0.0148         0.1660         0.1253         0.1993         0.0237         0.1436         0.1103 4.172168523E-4         0.1823 58s/Msamples
-        1650000     -5952.2025     -5835.9517      -116.2508         0.3503         0.1901         0.2237         0.2357         8.9511         0.2788         5.5500         0.4481         0.2219         0.1199         0.1196         0.0903              1              0              0              1              1              1              0              1              1              1         0.0478         0.0075         0.0806         0.2105         0.1292         0.1730         0.0212         0.1322         0.0578         0.1397         0.5043 58s/Msamples
-        1800000     -5963.5147     -5834.6087      -128.9059         0.3507         0.1807         0.2343         0.2341         9.0773         0.3295         8.1037         0.1785         0.4118         0.1343         0.1665         0.1086              1              1              0              1              1              1              1              1              0              1         0.1081         0.3383         0.0173         0.0980         0.0310         0.0667         0.1073         0.2201         0.0041         0.0087         0.3240 58s/Msamples
-        1950000     -5965.8588     -5849.1520      -116.7067         0.3385         0.1890         0.2240         0.2484         7.8678         0.3997         8.6933         0.1455         0.2872         0.2146         0.2078         0.1445              1              1              1              1              1              1              1              1              1              1         0.2186         0.2449         0.1189         0.0714         0.1116         0.0140 8.997064295E-4         0.0456         0.1166         0.0570         0.5613 58s/Msamples
-        2100000     -5968.2336     -5844.6200      -123.6136         0.3273         0.1969         0.2203         0.2554        10.1502         0.4309         8.8253         0.1015         0.2235         0.2503         0.1696         0.2549              1              0              1              1              1              0              0              0              0              0         0.4067         0.0223         0.0370         0.0733         0.1010         0.0178         0.0047         0.0667         0.0904         0.1797         0.6642 58s/Msamples
-        2250000     -5959.7188     -5838.6643      -121.0544         0.3243         0.2036         0.2204         0.2515         8.9795         0.3034         8.2982         0.1391         0.1886         0.1416         0.3085         0.2220              1              1              1              1              1              0              1              1              0              1         0.1973         0.0434         0.0347         0.0137         0.1649         0.1108         0.0602         0.2295         0.0873         0.0576         0.4726 58s/Msamples
-        2400000     -5954.2738     -5829.8831      -124.3906         0.3461         0.1931         0.2174         0.2431         8.1818         0.3162         8.0996         0.2250         0.1299         0.2791         0.1484         0.2174              1              0              1              1              1              1              1              1              1              0         0.1600         0.1315         0.0343         0.0593         0.0217         0.2823         0.0196         0.0911         0.1845         0.0152         0.2095 58s/Msamples
-        2550000     -5940.5063     -5820.3118      -120.1944         0.3447         0.1888         0.2164         0.2499         8.5549         0.4637         6.4237         0.0706         0.3297         0.1189         0.2268         0.2537              1              1              1              0              1              1              0              1              1              1         0.1491         0.1067         0.2160         0.2550         0.0780         0.0173         0.0229         0.0465         0.0736         0.0343         0.2370 58s/Msamples
-        2700000     -5953.6193     -5829.7603      -123.8590         0.3341         0.1935         0.2232         0.2490         9.5727         0.4476         7.4014         0.2017         0.2915         0.1509         0.2483         0.1074              1              1              1              1              1              1              1              1              1              1         0.3291         0.0313         0.0347         0.0163         0.2116         0.0668         0.0295         0.0911         0.1279         0.0612         0.3956 58s/Msamples
-        2850000     -5948.3636     -5828.3061      -120.0575         0.3462         0.1935         0.2107         0.2494         8.5222         0.4026         7.3155         0.1285         0.1858         0.3281         0.2090         0.1483              1              0              0              1              1              0              1              1              1              1         0.2497         0.0028         0.0442         0.0361         0.2116         0.1654         0.0968         0.0853         0.0954         0.0121         0.9876 58s/Msamples
-        3000000     -5943.2773     -5824.1062      -119.1710         0.3390         0.1887         0.2230         0.2492         7.4086         0.3509         8.6087         0.2398         0.2185         0.1255         0.2641         0.1518              1              0              1              1              1              1              0              1              1              0         0.1512         0.0134         0.0604         0.2013         0.2678         0.0532         0.0540         0.1006         0.0975 4.341722237E-5         0.3844 58s/Msamples
+              0     -7629.8084     -7510.0216      -119.7868         0.4257         0.1808         0.1737         0.2196         6.8550         1.7996         5.0860         0.1865         0.3015         0.2091         0.1750         0.1277              1              0              0              0              1              1              1              0              1              0         0.0590         0.2504         0.0567         0.0885         0.0358         0.0217         0.1479 9.160684210E-4         0.1052         0.2334         0.5409 --
+          50000     -5956.9553     -5833.5300      -123.4253         0.3496         0.1706         0.2382         0.2413         9.5878         0.3458         9.2499         0.1649         0.2577         0.1242         0.2991         0.1539              1              0              0              1              1              0              1              1              0              1         0.2275         0.0161         0.1173         0.1880         0.0996         0.1153         0.0380         0.0355         0.1314         0.0308         0.3621 --
+         100000     -5947.4017     -5831.1354      -116.2663         0.3381         0.1842         0.2220         0.2555         9.5467         0.4166         5.5940         0.0845         0.3249         0.1353         0.2419         0.2131              1              0              1              1              1              0              1              1              0              1         0.1154 2.232873187E-4         0.1040         0.0788         0.1659         0.0018         0.1821         0.0723         0.2001         0.0789         0.4293 --
+         150000     -5955.1406     -5832.3011      -122.8395         0.3356         0.1862         0.2211         0.2569         8.4365         0.3218         6.6804         0.1385         0.2442         0.1886         0.3059         0.1226              1              1              0              1              1              1              1              1              1              1         0.1095         0.0267         0.0062         0.0889         0.1525         0.0056         0.0687         0.1324         0.3931         0.0160         0.6037 --
+         200000     -5956.5058     -5838.0283      -118.4774         0.3539         0.1816         0.2242         0.2401         8.0518         0.3809         5.6903         0.0954         0.0963         0.1604         0.3282         0.3195              1              1              1              1              1              0              0              1              0              1         0.1679         0.0458         0.1050         0.1544         0.1705         0.0574         0.2078         0.0157         0.0669         0.0080         0.4485 --
+         250000     -5949.1308     -5832.5551      -116.5756         0.3214         0.1989         0.2242         0.2553        10.2811         0.3597         5.6271         0.2717         0.2160         0.0723         0.1332         0.3067              1              1              0              1              1              1              0              1              1              0         0.1359         0.0099         0.3018         0.0238         0.1793         0.0403         0.0237         0.0571         0.0279         0.1998         0.1846 --
+         300000     -5950.1512     -5833.7509      -116.4002         0.3339         0.1976         0.2215         0.2467         9.8130         0.2965         4.7967         0.1716         0.2086         0.2218         0.3032         0.0945              1              1              0              0              1              1              1              1              1              0         0.2156         0.0731         0.1311         0.2223         0.0353         0.0156         0.0355         0.0115         0.0410         0.2185         0.3253 1m25s/Msamples
+         350000     -5948.3075     -5827.2600      -121.0475         0.3392         0.1942         0.2155         0.2508         8.1720         0.3059         6.1916         0.1411         0.1565         0.1148         0.4053         0.1822              1              1              1              1              1              0              0              1              1              1         0.3165         0.3831         0.0030         0.0178         0.0169         0.0659         0.0677         0.0297         0.0549         0.0440         0.2490 1m27s/Msamples
+         400000     -5956.1319     -5832.7425      -123.3893         0.3451         0.1968         0.2092         0.2487         7.7086         0.4639         7.2983         0.1359         0.4257         0.1377         0.1649         0.1356              1              1              1              1              1              1              1              1              1              0         0.2073         0.0141         0.0215         0.0735         0.1359         0.0813         0.1162         0.1131         0.0908         0.1457         0.3073 1m27s/Msamples
+         450000     -5950.5967     -5831.2014      -119.3952         0.3422         0.1932         0.2013         0.2632        11.5120         0.2856         5.1380         0.1225         0.2056         0.2415         0.3402         0.0899              1              1              1              1              1              0              0              0              0              0         0.0841         0.1194         0.0141         0.1524         0.0012         0.0202         0.0353         0.1319         0.2465         0.1944         0.7312 1m26s/Msamples
+         500000     -5955.9884     -5838.2250      -117.7634         0.3551         0.1953         0.2079         0.2416         8.5275         0.4798         7.3414         0.2337         0.2368         0.1459         0.3041         0.0793              1              1              1              1              1              1              1              1              1              1         0.3106         0.2709         0.0278         0.0195         0.0329         0.0304         0.0060         0.1311         0.1110         0.0593         0.3979 1m26s/Msamples
+         550000     -5969.6539     -5845.8833      -123.7705         0.3486         0.1874         0.2264         0.2374         9.2287         0.4506         6.8490         0.3112         0.1847         0.1923         0.1761         0.1354              1              0              1              0              1              0              1              1              1              0         0.0863         0.2322         0.0077         0.0166         0.0504         0.0595         0.1492         0.0704         0.2697         0.0576         0.5711 1m25s/Msamples
+         600000     -5946.0863     -5824.3902      -121.6961         0.3319         0.1836         0.2193         0.2650         8.2599         0.4419         5.6220         0.1201         0.4832         0.1870         0.0674         0.1420              1              1              1              1              1              1              1              1              1              1         0.0968         0.2360         0.0789         0.0332         0.0857         0.0106         0.0853         0.2933         0.0609         0.0187         0.2681 1m25s/Msamples
+         650000     -5956.1088     -5833.9344      -122.1743         0.3394         0.1946         0.2174         0.2484         9.0129         0.3849         5.7297         0.1879         0.2368         0.3327         0.1356         0.1068              1              1              1              0              0              1              1              0              1              1         0.2408         0.0259         0.0115         0.1101         0.2087         0.1466         0.0663         0.0515         0.1220         0.0161         0.4425 1m25s/Msamples
+         700000     -5950.4439     -5825.3695      -125.0743         0.3468         0.1836         0.2240         0.2454         9.4458         0.3945         9.0868         0.1361         0.2760         0.3144         0.1918         0.0814              1              1              1              1              1              1              1              1              1              1         0.0894         0.1477         0.0516         0.2221         0.1405         0.0530         0.1120         0.0520         0.0727         0.0584         0.6662 1m25s/Msamples
+         750000     -5943.2719     -5819.0111      -124.2608         0.3294         0.2011         0.2220         0.2473         9.2390         0.3722         8.6689         0.3202         0.2673         0.1213         0.1363         0.1546              1              1              0              1              1              1              1              1              1              1         0.1714         0.0807 9.813821141E-6         0.0511         0.1924         0.0455         0.1582         0.0871         0.1537         0.0593         0.4084 1m25s/Msamples
+         800000     -5954.7089     -5837.0693      -117.6396         0.3240         0.2015         0.2322         0.2420         8.2875         0.2643         6.6628         0.1250         0.2375         0.2273         0.2708         0.1391              1              1              1              1              1              1              1              1              1              1         0.2772         0.0398         0.0989         0.1083         0.2142         0.0239         0.0869         0.1225         0.0154         0.0124         0.4203 1m25s/Msamples
+         850000     -5958.8486     -5833.4933      -125.3552         0.3541         0.1830         0.2061         0.2566         9.5081         0.3128         9.1089         0.1108         0.3048         0.2659         0.0984         0.2198              1              0              1              1              1              1              0              1              1              1         0.2385         0.0911         0.0425         0.0396         0.3289         0.0010         0.1475         0.0701         0.0128         0.0273         0.6881 1m25s/Msamples
+         900000     -5947.7842     -5828.9669      -118.8172         0.3399         0.1835         0.2306         0.2459         7.6985         0.3822         7.6456         0.1684         0.2995         0.1428         0.2623         0.1268              1              0              0              0              1              1              0              1              1              0         0.0488         0.0445         0.0980         0.0871         0.1089         0.0803         0.2335         0.1238         0.1369         0.0377         0.2294 1m25s/Msamples
+         950000     -5968.4116     -5843.2135      -125.1981         0.3346         0.1999         0.2202         0.2451         7.5688         0.3837         8.8686         0.1018         0.3061         0.2627         0.2301         0.0990              1              1              1              0              1              1              0              1              1              0         0.1446         0.2821         0.1248         0.1256         0.0406         0.0402         0.1349         0.0389         0.0421         0.0257         0.2660 1m25s/Msamples
+        1000000     -5947.6786     -5828.5842      -119.0943         0.3356         0.2008         0.2158         0.2476         9.0574         0.2767         6.4146         0.1127         0.2849         0.1524         0.3138         0.1359              1              1              0              1              0              1              1              1              1              0         0.2870         0.2035         0.1539         0.0236         0.1138         0.0062         0.0249         0.0636         0.1174         0.0057         0.5793 1m25s/Msamples
 
-Operator                                                                        Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-beast.base.inference.operator.BitFlipOperator(I.bitFlip)                             -      41315      88745    0.04340    0.31766 
-beast.base.inference.operator.DeltaExchangeOperator(R_trait.deltaExchange)     0.59941      15523     105271    0.04031    0.12851 
-ScaleOperator(Theta.scale)                                                     0.45689       7406      18797    0.00866    0.28264 
-ScaleOperator(gamma.scale)                                                     0.40909       6810      19143    0.00866    0.26240 
-ScaleOperator(kappa.scale)                                                     0.54422       7482      18572    0.00866    0.28717 
-ScaleOperator(mu_trait.scale)                                                  0.28543       8107      17702    0.00866    0.31412 
-beast.base.inference.operator.UpDownOperator(mu_traitUppsiDownOperator)        0.90177      35457     326061    0.12047    0.09808 Try setting scaleFactor to about 0.95
-beast.base.inference.operator.DeltaExchangeOperator(pi.deltaExchange)          0.06476       9663      46498    0.01868    0.17206 
-beast.base.inference.operator.DeltaExchangeOperator(pi_trait.deltaExchange)    0.68115       8541      59870    0.02285    0.12485 
-Exchange(psi.narrowExchange)                                                         -      60639     294971    0.11850    0.17052 
-ScaleOperator(psi.rootAgeScale)                                                0.75330       3290      22690    0.00866    0.12664 
-ScaleOperator(psi.scale)                                                       0.90540      35602     320167    0.11850    0.10007 
-SubtreeSlide(psi.subtreeSlide)                                                 0.92349      67477     287672    0.11850    0.19000 
-Uniform(psi.uniform)                                                                 -     148469     206550    0.11850    0.41820 
-Exchange(psi.wideExchange)                                                           -       1643     354433    0.11850    0.00461 
-WilsonBalding(psi.wilsonBalding)                                                     -       2047     353388    0.11850    0.00576 
+Operator                                                                                       Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+beast.base.inference.operator.BitFlipOperator(I.bitFlip)                                            -      16124      36683    0.05277    0.30534 
+beast.base.inference.operator.kernel.BactrianDeltaExchangeOperator(R_trait.deltaExchange)     0.36270       6243      42499    0.04902    0.12808 
+kernel.BactrianScaleOperator(Theta.scale)                                                     0.34135       3200       7426    0.01053    0.30115 
+kernel.BactrianScaleOperator(gamma.scale)                                                     0.39153       3186       7382    0.01053    0.30148 
+kernel.BactrianScaleOperator(kappa.scale)                                                     0.27344       2953       7609    0.01053    0.27959 
+kernel.BactrianScaleOperator(mu_trait.scale)                                                  0.74609       3168       7339    0.01053    0.30151 
+beast.base.inference.operator.kernel.BactrianUpDownOperator(mu_traitUppsiDownOperator)        0.29436        112     146071    0.14650    0.00077 Try setting scale factor to about 0.147
+beast.base.inference.operator.kernel.BactrianDeltaExchangeOperator(pi.deltaExchange)          0.03844       5260      17677    0.02272    0.22932 
+beast.base.inference.operator.kernel.BactrianDeltaExchangeOperator(pi_trait.deltaExchange)    0.25549       7346      20478    0.02779    0.26402 
+EpochFlexOperator(psi.BICEPSEpochAll)                                                         0.05031       4892      12138    0.01711    0.28726 
+EpochFlexOperator(psi.BICEPSEpochTop)                                                         0.05799       2496       8003    0.01053    0.23774 
+TreeStretchOperator(psi.BICEPSTreeFlex)                                                       0.04849      45709      98680    0.14411    0.31657 
+Exchange(psi.narrowExchange)                                                                        -      24785     119301    0.14411    0.17202 
+kernel.BactrianScaleOperator(psi.rootAgeScale)                                                0.22159         98      10445    0.01053    0.00930 Try setting scale factor to about 0.111
+kernel.BactrianSubtreeSlide(psi.subtreeSlide)                                                 0.48656      21723     122340    0.14411    0.15079 
+kernel.BactrianNodeOperator(psi.uniform)                                                      1.78495      49685      94458    0.14411    0.34469 
+Exchange(psi.wideExchange)                                                                          -        108      22148    0.02224    0.00485 
+WilsonBalding(psi.wilsonBalding)                                                                    -        131      22105    0.02224    0.00589 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -318,6 +324,6 @@ WilsonBalding(psi.wilsonBalding)                                                
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 176.085 seconds
-End likelihood: -5943.277342794984
+Total calculation time: 87.253 seconds
+End likelihood: -5947.678660781594
 Done!

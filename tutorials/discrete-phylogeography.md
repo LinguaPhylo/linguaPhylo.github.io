@@ -168,7 +168,7 @@ The [h5n1.xml](h5n1/h5n1.xml)
 is also provided as an additional resource, in case you need to use it for your analysis. 
 
 ```
-                        BEAST v2.7.5, 2002-2023
+                        BEAST v2.7.8, 2002-2025
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -201,31 +201,33 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 1690144368524
+Random number seed: 1751498377517
 
     ...
 
     ...
-        2850000     -5948.3636     -5828.3061      -120.0575         0.3462         0.1935         0.2107         0.2494         8.5222         0.4026         7.3155         0.1285         0.1858         0.3281         0.2090         0.1483              1              0              0              1              1              0              1              1              1              1         0.2497         0.0028         0.0442         0.0361         0.2116         0.1654         0.0968         0.0853         0.0954         0.0121         0.9876 58s/Msamples
-        3000000     -5943.2773     -5824.1062      -119.1710         0.3390         0.1887         0.2230         0.2492         7.4086         0.3509         8.6087         0.2398         0.2185         0.1255         0.2641         0.1518              1              0              1              1              1              1              0              1              1              0         0.1512         0.0134         0.0604         0.2013         0.2678         0.0532         0.0540         0.1006         0.0975 4.341722237E-5         0.3844 58s/Msamples
+         950000     -5968.4116     -5843.2135      -125.1981         0.3346         0.1999         0.2202         0.2451         7.5688         0.3837         8.8686         0.1018         0.3061         0.2627         0.2301         0.0990              1              1              1              0              1              1              0              1              1              0         0.1446         0.2821         0.1248         0.1256         0.0406         0.0402         0.1349         0.0389         0.0421         0.0257         0.2660 1m25s/Msamples
+        1000000     -5947.6786     -5828.5842      -119.0943         0.3356         0.2008         0.2158         0.2476         9.0574         0.2767         6.4146         0.1127         0.2849         0.1524         0.3138         0.1359              1              1              0              1              0              1              1              1              1              0         0.2870         0.2035         0.1539         0.0236         0.1138         0.0062         0.0249         0.0636         0.1174         0.0057         0.5793 1m25s/Msamples
 
-Operator                                                                        Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-beast.base.inference.operator.BitFlipOperator(I.bitFlip)                             -      41315      88745    0.04340    0.31766 
-beast.base.inference.operator.DeltaExchangeOperator(R_trait.deltaExchange)     0.59941      15523     105271    0.04031    0.12851 
-ScaleOperator(Theta.scale)                                                     0.45689       7406      18797    0.00866    0.28264 
-ScaleOperator(gamma.scale)                                                     0.40909       6810      19143    0.00866    0.26240 
-ScaleOperator(kappa.scale)                                                     0.54422       7482      18572    0.00866    0.28717 
-ScaleOperator(mu_trait.scale)                                                  0.28543       8107      17702    0.00866    0.31412 
-beast.base.inference.operator.UpDownOperator(mu_traitUppsiDownOperator)        0.90177      35457     326061    0.12047    0.09808 Try setting scaleFactor to about 0.95
-beast.base.inference.operator.DeltaExchangeOperator(pi.deltaExchange)          0.06476       9663      46498    0.01868    0.17206 
-beast.base.inference.operator.DeltaExchangeOperator(pi_trait.deltaExchange)    0.68115       8541      59870    0.02285    0.12485 
-Exchange(psi.narrowExchange)                                                         -      60639     294971    0.11850    0.17052 
-ScaleOperator(psi.rootAgeScale)                                                0.75330       3290      22690    0.00866    0.12664 
-ScaleOperator(psi.scale)                                                       0.90540      35602     320167    0.11850    0.10007 
-SubtreeSlide(psi.subtreeSlide)                                                 0.92349      67477     287672    0.11850    0.19000 
-Uniform(psi.uniform)                                                                 -     148469     206550    0.11850    0.41820 
-Exchange(psi.wideExchange)                                                           -       1643     354433    0.11850    0.00461 
-WilsonBalding(psi.wilsonBalding)                                                     -       2047     353388    0.11850    0.00576 
+Operator                                                                                       Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+beast.base.inference.operator.BitFlipOperator(I.bitFlip)                                            -      16124      36683    0.05277    0.30534 
+beast.base.inference.operator.kernel.BactrianDeltaExchangeOperator(R_trait.deltaExchange)     0.36270       6243      42499    0.04902    0.12808 
+kernel.BactrianScaleOperator(Theta.scale)                                                     0.34135       3200       7426    0.01053    0.30115 
+kernel.BactrianScaleOperator(gamma.scale)                                                     0.39153       3186       7382    0.01053    0.30148 
+kernel.BactrianScaleOperator(kappa.scale)                                                     0.27344       2953       7609    0.01053    0.27959 
+kernel.BactrianScaleOperator(mu_trait.scale)                                                  0.74609       3168       7339    0.01053    0.30151 
+beast.base.inference.operator.kernel.BactrianUpDownOperator(mu_traitUppsiDownOperator)        0.29436        112     146071    0.14650    0.00077 Try setting scale factor to about 0.147
+beast.base.inference.operator.kernel.BactrianDeltaExchangeOperator(pi.deltaExchange)          0.03844       5260      17677    0.02272    0.22932 
+beast.base.inference.operator.kernel.BactrianDeltaExchangeOperator(pi_trait.deltaExchange)    0.25549       7346      20478    0.02779    0.26402 
+EpochFlexOperator(psi.BICEPSEpochAll)                                                         0.05031       4892      12138    0.01711    0.28726 
+EpochFlexOperator(psi.BICEPSEpochTop)                                                         0.05799       2496       8003    0.01053    0.23774 
+TreeStretchOperator(psi.BICEPSTreeFlex)                                                       0.04849      45709      98680    0.14411    0.31657 
+Exchange(psi.narrowExchange)                                                                        -      24785     119301    0.14411    0.17202 
+kernel.BactrianScaleOperator(psi.rootAgeScale)                                                0.22159         98      10445    0.01053    0.00930 Try setting scale factor to about 0.111
+kernel.BactrianSubtreeSlide(psi.subtreeSlide)                                                 0.48656      21723     122340    0.14411    0.15079 
+kernel.BactrianNodeOperator(psi.uniform)                                                      1.78495      49685      94458    0.14411    0.34469 
+Exchange(psi.wideExchange)                                                                          -        108      22148    0.02224    0.00485 
+WilsonBalding(psi.wilsonBalding)                                                                    -        131      22105    0.02224    0.00589 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -234,8 +236,8 @@ WilsonBalding(psi.wilsonBalding)                                                
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 176.085 seconds
-End likelihood: -5943.277342794984
+Total calculation time: 87.253 seconds
+End likelihood: -5947.678660781594
 Done!
 
 ```
