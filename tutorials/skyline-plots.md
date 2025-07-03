@@ -177,7 +177,7 @@ which is set to the default of 1 million.
 {% include_relative templates/run-beast.md xml="hcv_coal.xml" %}
 
 ```
-                        BEAST v2.7.5, 2002-2023
+                        BEAST v2.7.8, 2002-2025
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -215,22 +215,24 @@ Random number seed: 1690761608289
     ...
 
     ...
-       38000000     -6609.1327     -6159.5232      -449.6095         0.1791         0.3413         0.2157         0.2636         0.0458         0.4241         0.0571         0.0300         0.4001         0.0426         0.2983              9              2             23             28      5539.7995      6684.9238       173.6382       151.4691 1m5s/Msamples
-       40000000     -6624.4088     -6156.3717      -468.0371         0.1870         0.3369         0.2339         0.2420         0.0648         0.3862         0.0484         0.0230         0.4345         0.0427         0.3654              2             13              1             46      4522.4370      5631.0212      3075.0464       188.9362 1m5s/Msamples
+       38000000     -6682.0050     -6201.7299      -480.2750         0.1921         0.3048         0.2408         0.2621         0.0571         0.3585         0.0448         0.0230         0.4713         0.0451         0.3280             11              2             37             12      9413.8662      4976.3181       227.2886       431.5181 1m23s/Msamples
+       40000000     -6625.8487     -6178.0316      -447.8170         0.1904         0.3316         0.2480         0.2298         0.0579         0.3502         0.0629         0.0258         0.4559         0.0471         0.4004              9             47              4              2     11386.5587       188.1198       317.8618        48.4388 1m23s/Msamples
 
-Operator                                                                     Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-beast.base.inference.operator.DeltaExchangeOperator(A.deltaExchange)        4.48220     153115     566939    0.01800    0.21264 
-ScaleOperator(Theta.scale)                                                  0.29312     235194     645144    0.02201    0.26716 
-ScaleOperator(gamma.scale)                                                  0.63350      80732     252603    0.00834    0.24219 
-beast.base.inference.operator.DeltaExchangeOperator(pi.deltaExchange)       0.07521     139144     581902    0.01800    0.19298 
-Exchange(psi.narrowExchange)                                                      -    2451323    3544217    0.14993    0.40886 
-ScaleOperator(psi.rootAgeScale)                                             0.63518      55906     278428    0.00834    0.16722 
-ScaleOperator(psi.scale)                                                    0.71061    1376242    4620974    0.14993    0.22948 
-SubtreeSlide(psi.subtreeSlide)                                            244.31284     144567    5849927    0.14993    0.02412 Try decreasing size to about 122.156
-Uniform(psi.uniform)                                                              -    2398509    3600677    0.14993    0.39981 
-Exchange(psi.wideExchange)                                                        -      51661    5946171    0.14993    0.00861 
-WilsonBalding(psi.wilsonBalding)                                                  -      84109    5912614    0.14993    0.01403 
-beast.base.inference.operator.DeltaExchangeOperator(rates.deltaExchange)    0.07677     135952     893951    0.02573    0.13200 
+Operator                                                                                    Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+beast.base.inference.operator.kernel.BactrianDeltaExchangeOperator(A.deltaExchange)        2.49956     263985     683360    0.02368    0.27866
+kernel.BactrianScaleOperator(Theta.scale)                                                  0.66248     355150     801911    0.02896    0.30694
+kernel.BactrianScaleOperator(gamma.scale)                                                  0.16866     129408     309379    0.01097    0.29492
+beast.base.inference.operator.kernel.BactrianDeltaExchangeOperator(pi.deltaExchange)       0.04474     271745     674029    0.02368    0.28733
+EpochFlexOperator(psi.BICEPSEpochAll)                                                      0.25113     280127     432406    0.01783    0.39314
+EpochFlexOperator(psi.BICEPSEpochTop)                                                      0.25252     171950     266858    0.01097    0.39186
+TreeStretchOperator(psi.BICEPSTreeFlex)                                                    0.09311    3149381    4743648    0.19725    0.39901
+Exchange(psi.narrowExchange)                                                                     -    3173854    4718140    0.19725    0.40216
+kernel.BactrianScaleOperator(psi.rootAgeScale)                                             0.26334      25933     412407    0.01097    0.05916 Try setting scale factor to about 0.132
+kernel.BactrianSubtreeSlide(psi.subtreeSlide)                                             15.42851    1268695    6615536    0.19725    0.16092
+kernel.BactrianNodeOperator(psi.uniform)                                                   1.94902    2462884    5429179    0.19725    0.31207
+Exchange(psi.wideExchange)                                                                       -       8636     993577    0.02505    0.00862
+WilsonBalding(psi.wilsonBalding)                                                                 -      14557     986842    0.02505    0.01454
+beast.base.inference.operator.kernel.BactrianDeltaExchangeOperator(rates.deltaExchange)    0.19638       8125    1348299    0.03385    0.00599 Try setting delta to about 0.098
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -239,7 +241,14 @@ beast.base.inference.operator.DeltaExchangeOperator(rates.deltaExchange)    0.07
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 2600.112 seconds
+         Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+        #accept: The total number of times a proposal by this operator has been accepted.
+        #reject: The total number of times a proposal by this operator has been rejected.
+          Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+        Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 3358.018 seconds
 Done!
 
 ```
