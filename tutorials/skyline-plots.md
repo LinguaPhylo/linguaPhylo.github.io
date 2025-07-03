@@ -241,13 +241,6 @@ beast.base.inference.operator.kernel.BactrianDeltaExchangeOperator(rates.deltaEx
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-         Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
-        #accept: The total number of times a proposal by this operator has been accepted.
-        #reject: The total number of times a proposal by this operator has been rejected.
-          Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
-        Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
-
-
 Total calculation time: 3358.018 seconds
 Done!
 
