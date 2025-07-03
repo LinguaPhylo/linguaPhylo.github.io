@@ -142,17 +142,13 @@ or visit the [LPhy language features](https://linguaphylo.github.io/features/#da
 
 ## Producing BEAST XML using LPhyBEAST
 
-{% include_relative templates/lphy-beast.md args="-l 3000000 " lphy="h5n1" %}
+{% include_relative templates/lphy-beast.md args="" lphy="h5n1" %}
 
-The `-l` option allows you to modify the MCMC chain length in the XML, 
-which is set to the default of 1 million.
+If you want the longer chain length, you can use the `-l` option to modify the MCMC chain length in the XML. 
+The default is 1 million.
 
 After LPhyBEAST completes the run, it will print a location information for the BEAST 2 XML 
-at the end of the message. For example, on a Mac system:
-
-```
-INFO: Save BEAST 2 XML to /Applications/lphystudio-1.4.4/tutorials/h5n1.xml
-```
+at the end of the message. 
 
 ## Running BEAST
 
