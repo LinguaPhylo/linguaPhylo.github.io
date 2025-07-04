@@ -92,7 +92,7 @@ The software will also generate a summary statistic for the CCD, as well as MAP 
 ## Load the log file to Tracer
 
 Load the generated (`.log`) file to Tracer. 
-Either to use all ESSs or the minimum ESS to determine if the topology could have been converged. 
+You can either use all ESS values or the minimum ESS to assess whether the topology has likely converged. 
 
 <figure class="image">
   <a href="Tracer.png" target="_blank">
