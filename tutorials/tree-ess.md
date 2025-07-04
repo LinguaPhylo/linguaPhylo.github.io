@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Simple Tree ESS using TreeStat2
-author: 'Walter Xie'
+author: 'Walter Xie on 3 July 2025'
 permalink: /tutorials/tree-ess/
 date: 2025-07-03
 ---
