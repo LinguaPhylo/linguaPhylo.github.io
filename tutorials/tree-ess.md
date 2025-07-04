@@ -33,6 +33,7 @@ Follow these steps to create a log file compatible with Tracer:
   <img src="PackageManager.png" alt="PackageManager"></a>
 </figure>
 
+{:start="2"}
 2. Start TreeStat2 using the AppLauncher that comes bundled with BEAST 2.
 
 <figure class="image">
@@ -40,7 +41,7 @@ Follow these steps to create a log file compatible with Tracer:
   <img src="AppLauncher.png" alt="AppLauncher"></a>
 </figure>
 
-
+{:start="3"}
 3. Select the tree statistics.
 
 Select one or more **scalar** summary statistics from the left panel, 
@@ -59,6 +60,7 @@ In contrast, `Branch Lengths` provide a vector of individual branch lengths for 
 The six statistics based on CCD are recommended. 
 You can also include additional ones if there is interest.  
 
+{:start="4"}
 4. Click `Process Tree File` to input the tree file. 
 
 Click the `Process Tree File` button. A file explorer will open. 
@@ -69,7 +71,7 @@ Select your posterior tree file and click `Open`.
   <img src="Open.png" alt="Open"></a>
 </figure>
 
-
+{:start="5"}
 5. Then output the log file. 
 
 Wait for the next file explorer to open, then enter your desired output file name 
