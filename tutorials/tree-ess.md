@@ -26,7 +26,7 @@ All statistics are saved to log files that are compatible with downstream analys
 
 Follow these steps to create a log file compatible with Tracer:
 
-1. Install TreeStat2 if you haven’t done so already.
+1. Install TreeStat2 from [PackageManager](https://www.beast2.org/managing-packages/) if you haven’t done so already.
 
 <figure class="image">
   <a href="PackageManager.png" target="_blank">
