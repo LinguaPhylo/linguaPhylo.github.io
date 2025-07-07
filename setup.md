@@ -30,15 +30,15 @@ java -version
 
 ## LPhy Studio installation
 
-{% assign lphy_version = "1.6.x" %}
+{% assign lphy_version = "1.7.x" %}
 
 Download the LPhy Studio version for your operating system:
 
-- Mac [lphystudio-1.6.1-osx-installer.dmg](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.6.1/lphystudio-1.6.1-osx-installer.dmg)
+- Mac [lphystudio-1.7.0-osx-installer.dmg](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.7.0/lphystudio-1.7.0-osx-installer.dmg)
 
-- Windows [lphystudio-1.6.1-windows-x64-installer.exe](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.6.1/lphystudio-1.6.1-windows-x64-installer.exe)
+- Windows [lphystudio-1.7.0-windows-x64-installer.exe](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.7.0/lphystudio-1.7.0-windows-x64-installer.exe)
 
-- Linux [lphy-studio-1.6.1.zip](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.6.1/lphy-studio-1.6.1.zip)
+- Linux [lphy-studio-1.7.0.zip](https://github.com/LinguaPhylo/linguaPhylo/releases/download/1.7.0/lphy-studio-1.7.0.zip)
 
 All release versions of LPhy Studio are available on the [LPhy releases page](https://github.com/LinguaPhylo/linguaPhylo/releases).
 
@@ -278,6 +278,7 @@ There are significant changes about SPI and APIs among LPhy 1.4.x, 1.5.x, and 1.
 So there is no backward compatibility for extensions.
 If you want to use the old version extensions, please install the required versions of LPhy and LPhyBEAST.
 
+- LPhyBEAST v1.3.x requires LPhy 1.7.x;
 - LPhyBEAST v1.2.x requires LPhy 1.6.x;
 - LPhyBEAST v1.1.x requires LPhy 1.5.x;
 - LPhyBEAST v1.0.x requires LPhy 1.4.x;
