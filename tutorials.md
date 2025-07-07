@@ -20,6 +20,10 @@ permalink: /tutorials/
 
 * [Discrete phylogeography](tutorials/discrete-phylogeography.md)
 
+### Post-analysis
+
+* [Simple tree ESS](tutorials/tree-ess.md)
+
 ### Model validation
 
 * [LPhy simulations to validate models](model-validation)
