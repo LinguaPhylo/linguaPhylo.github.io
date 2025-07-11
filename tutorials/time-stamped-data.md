@@ -73,7 +73,7 @@ corresponding to the first, second and third codon positions.
 The strict molecular clock parameterization must satisfies `genetic distance = rate × time`.
 We can compute genetic distance from an alignment using an evolutionary model such as HKY. 
 But we cannot determine whether the observed genetic distance is due to a fast rate over a short time 
-or a slow rate over a long time; in other words. 
+or a slow rate over a long time. 
 This problem is called the non-identifiability of rate and time. 
 To estimate mutation rates, you need additional information about time, 
 such as fossil ages or virus sample collection dates. 
