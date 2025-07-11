@@ -68,6 +68,24 @@ corresponding to the first, second and third codon positions.
 					
 {% include_relative templates/age-direction.md %}
 
+### Non-identifiability of rate and time
+
+The strict molecular clock parameterization must satisfies `genetic distance = rate × time`.
+We can compute genetic distance from an alignment using an evolutionary model such as HKY, 
+but we cannot tell how much of the distance is due to a fast rate over a short time 
+or a slow rate over a long time. This problem is called the non-identifiability of rate and time. 
+To estimate mutation rates, you need additional information about time, 
+such as fossil ages or virus sample collection dates. 
+
+{% assign current_fig_num = 1 %}
+
+<figure class="image">
+  <img src="Non-identifiability.png" alt="Non-identifiability">
+  <figcaption>Figure {{ current_fig_num }}: Non-identifiability of rate and time.</figcaption>
+</figure>
+
+The detail is available in Prof. Alexei Drummond's [lecture slides](https://alexeidrummond.org/bayesian_phylo_lectures/lectureRelaxedPhylogenetics/).
+
 ## Inputting the script into LPhy Studio
 
 {% include_relative templates/lphy-scripts.md %}
@@ -199,7 +217,7 @@ Let us look at the whole thing:
   {{ lphy_html }}
 {:/}
 
-{% assign current_fig_num = 1 %}
+{% assign current_fig_num = current_fig_num | plus: 1 %}
 
 {% include_relative templates/lphy-studio.md lphy="RSV2" fignum=current_fig_num %}
 
@@ -395,6 +413,11 @@ that the MCMC chain has not yet converged, or is struggling to
 converge, like different value "plateaus" attracting the chain for a
 large number of steps.)
 
+Empirically, the topology of posterior trees typically converges more slowly than other parameters 
+because trees are multi-dimensional objects. 
+To address this, we introduce a simple method to compute the
+[Tree ESS using TreeStat2](https://linguaphylo.github.io/tutorials/tree-ess/).
+
 Now that we are satisfied with the length of the MCMC chain and its
 mixing, we can move on to one of the parameters of interest: the
 global clock rate, `μ`.
@@ -507,7 +530,16 @@ are all the other trees in the posterior set.
 
 ## Questions
 
-In what year did the common ancestor of all RSVA viruses sampled live? What is the 95% HPD?
+1. How can I determine if my MCMC runs have converged ?
+
+2. What is the 95% HPD ?
+
+3. How to compute the absolute rates of each codon given their relative rates ?
+
+4. What is the unit of branch lengths in the time tree for this analysis ?
+
+5. In what year did the common ancestor of all RSVA viruses sampled live ? 
+
 
 ## Programs used in this tutorial
 
